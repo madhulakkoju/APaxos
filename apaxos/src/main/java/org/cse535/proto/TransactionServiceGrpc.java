@@ -91,6 +91,70 @@ public final class TransactionServiceGrpc {
      return getSynchronizeMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.SyncResponse,
+      org.cse535.proto.Transaction> getGetSyncTransactionsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getSyncTransactions",
+      requestType = org.cse535.proto.SyncResponse.class,
+      responseType = org.cse535.proto.Transaction.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.SyncResponse,
+      org.cse535.proto.Transaction> getGetSyncTransactionsMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.SyncResponse, org.cse535.proto.Transaction> getGetSyncTransactionsMethod;
+    if ((getGetSyncTransactionsMethod = TransactionServiceGrpc.getGetSyncTransactionsMethod) == null) {
+      synchronized (TransactionServiceGrpc.class) {
+        if ((getGetSyncTransactionsMethod = TransactionServiceGrpc.getGetSyncTransactionsMethod) == null) {
+          TransactionServiceGrpc.getGetSyncTransactionsMethod = getGetSyncTransactionsMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.SyncResponse, org.cse535.proto.Transaction>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "TransactionService", "getSyncTransactions"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.SyncResponse.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.Transaction.getDefaultInstance()))
+                  .setSchemaDescriptor(new TransactionServiceMethodDescriptorSupplier("getSyncTransactions"))
+                  .build();
+          }
+        }
+     }
+     return getGetSyncTransactionsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommitBlockRequest,
+      org.cse535.proto.CommitBlockResponse> getCommitBlockMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "commitBlock",
+      requestType = org.cse535.proto.CommitBlockRequest.class,
+      responseType = org.cse535.proto.CommitBlockResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommitBlockRequest,
+      org.cse535.proto.CommitBlockResponse> getCommitBlockMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommitBlockRequest, org.cse535.proto.CommitBlockResponse> getCommitBlockMethod;
+    if ((getCommitBlockMethod = TransactionServiceGrpc.getCommitBlockMethod) == null) {
+      synchronized (TransactionServiceGrpc.class) {
+        if ((getCommitBlockMethod = TransactionServiceGrpc.getCommitBlockMethod) == null) {
+          TransactionServiceGrpc.getCommitBlockMethod = getCommitBlockMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommitBlockRequest, org.cse535.proto.CommitBlockResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "TransactionService", "commitBlock"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommitBlockRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommitBlockResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new TransactionServiceMethodDescriptorSupplier("commitBlock"))
+                  .build();
+          }
+        }
+     }
+     return getCommitBlockMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -132,6 +196,20 @@ public final class TransactionServiceGrpc {
       asyncUnimplementedUnaryCall(getSynchronizeMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getSyncTransactions(org.cse535.proto.SyncResponse request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.Transaction> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetSyncTransactionsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void commitBlock(org.cse535.proto.CommitBlockRequest request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommitBlockResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getCommitBlockMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -148,6 +226,20 @@ public final class TransactionServiceGrpc {
                 org.cse535.proto.SyncRequest,
                 org.cse535.proto.SyncResponse>(
                   this, METHODID_SYNCHRONIZE)))
+          .addMethod(
+            getGetSyncTransactionsMethod(),
+            asyncServerStreamingCall(
+              new MethodHandlers<
+                org.cse535.proto.SyncResponse,
+                org.cse535.proto.Transaction>(
+                  this, METHODID_GET_SYNC_TRANSACTIONS)))
+          .addMethod(
+            getCommitBlockMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommitBlockRequest,
+                org.cse535.proto.CommitBlockResponse>(
+                  this, METHODID_COMMIT_BLOCK)))
           .build();
     }
   }
@@ -185,6 +277,22 @@ public final class TransactionServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSynchronizeMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getSyncTransactions(org.cse535.proto.SyncResponse request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.Transaction> responseObserver) {
+      asyncServerStreamingCall(
+          getChannel().newCall(getGetSyncTransactionsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void commitBlock(org.cse535.proto.CommitBlockRequest request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommitBlockResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCommitBlockMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -217,6 +325,21 @@ public final class TransactionServiceGrpc {
     public org.cse535.proto.SyncResponse synchronize(org.cse535.proto.SyncRequest request) {
       return blockingUnaryCall(
           getChannel(), getSynchronizeMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public java.util.Iterator<org.cse535.proto.Transaction> getSyncTransactions(
+        org.cse535.proto.SyncResponse request) {
+      return blockingServerStreamingCall(
+          getChannel(), getGetSyncTransactionsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.cse535.proto.CommitBlockResponse commitBlock(org.cse535.proto.CommitBlockRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getCommitBlockMethod(), getCallOptions(), request);
     }
   }
 
@@ -253,10 +376,20 @@ public final class TransactionServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSynchronizeMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommitBlockResponse> commitBlock(
+        org.cse535.proto.CommitBlockRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCommitBlockMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ADD_TRANSACTION = 0;
   private static final int METHODID_SYNCHRONIZE = 1;
+  private static final int METHODID_GET_SYNC_TRANSACTIONS = 2;
+  private static final int METHODID_COMMIT_BLOCK = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -282,6 +415,14 @@ public final class TransactionServiceGrpc {
         case METHODID_SYNCHRONIZE:
           serviceImpl.synchronize((org.cse535.proto.SyncRequest) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.SyncResponse>) responseObserver);
+          break;
+        case METHODID_GET_SYNC_TRANSACTIONS:
+          serviceImpl.getSyncTransactions((org.cse535.proto.SyncResponse) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.Transaction>) responseObserver);
+          break;
+        case METHODID_COMMIT_BLOCK:
+          serviceImpl.commitBlock((org.cse535.proto.CommitBlockRequest) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.CommitBlockResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -346,6 +487,8 @@ public final class TransactionServiceGrpc {
               .setSchemaDescriptor(new TransactionServiceFileDescriptorSupplier())
               .addMethod(getAddTransactionMethod())
               .addMethod(getSynchronizeMethod())
+              .addMethod(getGetSyncTransactionsMethod())
+              .addMethod(getCommitBlockMethod())
               .build();
         }
       }

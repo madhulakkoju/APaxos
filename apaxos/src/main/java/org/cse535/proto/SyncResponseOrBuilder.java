@@ -35,4 +35,9 @@ public interface SyncResponseOrBuilder extends
    */
   org.cse535.proto.TransactionOrBuilder getTransactionsOrBuilder(
       int index);
+
+  /**
+   * <code>bool success = 3;</code>
+   */
+  boolean getSuccess();
 }

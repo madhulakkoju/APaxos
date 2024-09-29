@@ -21,4 +21,17 @@ public interface AcceptRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getValueBytes();
+
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   */
+  boolean hasTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   */
+  com.google.protobuf.Timestamp getTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
 }

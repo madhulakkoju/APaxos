@@ -31,4 +31,27 @@ public interface TransactionOrBuilder extends
    * <code>int32 amount = 3;</code>
    */
   int getAmount();
+
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  boolean hasTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  com.google.protobuf.Timestamp getTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 4;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
+
+  /**
+   * <code>string transactionHash = 5;</code>
+   */
+  java.lang.String getTransactionHash();
+  /**
+   * <code>string transactionHash = 5;</code>
+   */
+  com.google.protobuf.ByteString
+      getTransactionHashBytes();
 }

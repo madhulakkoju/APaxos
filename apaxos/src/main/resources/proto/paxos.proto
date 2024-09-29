@@ -1,8 +1,11 @@
 syntax = "proto3";
+//import "timestamp.proto";
+
 
 option  java_package = "org.cse535.proto";
 option java_multiple_files = true;
 
+import "google/protobuf/timestamp.proto";
 
 
 service Paxos {
@@ -16,6 +19,7 @@ service Paxos {
 
 message PrepareRequest {
   int32 ballotNumber = 1;
+  google.protobuf.Timestamp timestamp = 2;
 }
 
 message PrepareResponse {
@@ -26,6 +30,7 @@ message PrepareResponse {
 message AcceptRequest {
   int32 proposalID = 1;
   string value = 2;
+  google.protobuf.Timestamp timestamp = 3;
 }
 
 message AcceptResponse {
@@ -38,6 +43,7 @@ message AcceptResponse {
 message CommitRequest {
   int32 ballotNumber = 1;
   repeated Transaction transactions = 3;
+
 }
 
 message CommitResponse {
@@ -55,22 +61,61 @@ service TransactionService {
 
   rpc synchronize(SyncRequest) returns (SyncResponse) {}
 
+  rpc getSyncTransactions(SyncResponse) returns (stream Transaction) {}
+
+  rpc commitBlock(CommitBlockRequest) returns (CommitBlockResponse) {}
+
 }
 
 
 message SyncRequest {
   int32 syncID = 1;
   string data = 2;
+
+  google.protobuf.Timestamp timestamp = 3;
 }
 
 
 message SyncResponse {
   int32 id = 1;
   repeated Transaction transactions = 2;
+  bool success = 3;
+}
+
+message SyncJob {
+  int32 syncID = 1;
+  string data = 2;
+
+
 }
 
 message Transaction {
   string sender = 1;
   string receiver = 2;
   int32 amount = 3;
+  google.protobuf.Timestamp timestamp = 4;
+
+  string transactionHash = 5;
+}
+
+message BlockOfTransactions {
+  repeated Transaction transactions = 1;
+  int32 blockNum = 2;
+  google.protobuf.Timestamp blockCommitTime = 3;
+
+  string blockHash = 4;
+
+}
+
+message CommitBlockRequest {
+
+  BlockOfTransactions block = 1;
+  string leaderServerName = 2;
+
+}
+
+message CommitBlockResponse {
+  bool success = 1;
+  string approverName = 2;
+  int32 blockNum = 3;
 }

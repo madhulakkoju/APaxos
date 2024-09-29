@@ -4,21 +4,21 @@
 package org.cse535.proto;
 
 /**
- * Protobuf type {@code SyncResponse}
+ * Protobuf type {@code BlockOfTransactions}
  */
-public  final class SyncResponse extends
+public  final class BlockOfTransactions extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:SyncResponse)
-    SyncResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:BlockOfTransactions)
+    BlockOfTransactionsOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use SyncResponse.newBuilder() to construct.
-  private SyncResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use BlockOfTransactions.newBuilder() to construct.
+  private BlockOfTransactions(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private SyncResponse() {
-    id_ = 0;
+  private BlockOfTransactions() {
     transactions_ = java.util.Collections.emptyList();
-    success_ = false;
+    blockNum_ = 0;
+    blockHash_ = "";
   }
 
   @java.lang.Override
@@ -26,7 +26,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SyncResponse(
+  private BlockOfTransactions(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -45,23 +45,37 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
-
-            id_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          case 10: {
+            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
               transactions_ = new java.util.ArrayList<org.cse535.proto.Transaction>();
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000001;
             }
             transactions_.add(
                 input.readMessage(org.cse535.proto.Transaction.parser(), extensionRegistry));
             break;
           }
-          case 24: {
+          case 16: {
 
-            success_ = input.readBool();
+            blockNum_ = input.readInt32();
+            break;
+          }
+          case 26: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (blockCommitTime_ != null) {
+              subBuilder = blockCommitTime_.toBuilder();
+            }
+            blockCommitTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(blockCommitTime_);
+              blockCommitTime_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            blockHash_ = s;
             break;
           }
           default: {
@@ -79,7 +93,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
         transactions_ = java.util.Collections.unmodifiableList(transactions_);
       }
       this.unknownFields = unknownFields.build();
@@ -88,69 +102,115 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.cse535.proto.PaxosOuterClass.internal_static_SyncResponse_descriptor;
+    return org.cse535.proto.PaxosOuterClass.internal_static_BlockOfTransactions_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.cse535.proto.PaxosOuterClass.internal_static_SyncResponse_fieldAccessorTable
+    return org.cse535.proto.PaxosOuterClass.internal_static_BlockOfTransactions_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.cse535.proto.SyncResponse.class, org.cse535.proto.SyncResponse.Builder.class);
+            org.cse535.proto.BlockOfTransactions.class, org.cse535.proto.BlockOfTransactions.Builder.class);
   }
 
   private int bitField0_;
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
-  /**
-   * <code>int32 id = 1;</code>
-   */
-  public int getId() {
-    return id_;
-  }
-
-  public static final int TRANSACTIONS_FIELD_NUMBER = 2;
+  public static final int TRANSACTIONS_FIELD_NUMBER = 1;
   private java.util.List<org.cse535.proto.Transaction> transactions_;
   /**
-   * <code>repeated .Transaction transactions = 2;</code>
+   * <code>repeated .Transaction transactions = 1;</code>
    */
   public java.util.List<org.cse535.proto.Transaction> getTransactionsList() {
     return transactions_;
   }
   /**
-   * <code>repeated .Transaction transactions = 2;</code>
+   * <code>repeated .Transaction transactions = 1;</code>
    */
   public java.util.List<? extends org.cse535.proto.TransactionOrBuilder> 
       getTransactionsOrBuilderList() {
     return transactions_;
   }
   /**
-   * <code>repeated .Transaction transactions = 2;</code>
+   * <code>repeated .Transaction transactions = 1;</code>
    */
   public int getTransactionsCount() {
     return transactions_.size();
   }
   /**
-   * <code>repeated .Transaction transactions = 2;</code>
+   * <code>repeated .Transaction transactions = 1;</code>
    */
   public org.cse535.proto.Transaction getTransactions(int index) {
     return transactions_.get(index);
   }
   /**
-   * <code>repeated .Transaction transactions = 2;</code>
+   * <code>repeated .Transaction transactions = 1;</code>
    */
   public org.cse535.proto.TransactionOrBuilder getTransactionsOrBuilder(
       int index) {
     return transactions_.get(index);
   }
 
-  public static final int SUCCESS_FIELD_NUMBER = 3;
-  private boolean success_;
+  public static final int BLOCKNUM_FIELD_NUMBER = 2;
+  private int blockNum_;
   /**
-   * <code>bool success = 3;</code>
+   * <code>int32 blockNum = 2;</code>
    */
-  public boolean getSuccess() {
-    return success_;
+  public int getBlockNum() {
+    return blockNum_;
+  }
+
+  public static final int BLOCKCOMMITTIME_FIELD_NUMBER = 3;
+  private com.google.protobuf.Timestamp blockCommitTime_;
+  /**
+   * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+   */
+  public boolean hasBlockCommitTime() {
+    return blockCommitTime_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+   */
+  public com.google.protobuf.Timestamp getBlockCommitTime() {
+    return blockCommitTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : blockCommitTime_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+   */
+  public com.google.protobuf.TimestampOrBuilder getBlockCommitTimeOrBuilder() {
+    return getBlockCommitTime();
+  }
+
+  public static final int BLOCKHASH_FIELD_NUMBER = 4;
+  private volatile java.lang.Object blockHash_;
+  /**
+   * <code>string blockHash = 4;</code>
+   */
+  public java.lang.String getBlockHash() {
+    java.lang.Object ref = blockHash_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      blockHash_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string blockHash = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getBlockHashBytes() {
+    java.lang.Object ref = blockHash_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      blockHash_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -167,14 +227,17 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
-    }
     for (int i = 0; i < transactions_.size(); i++) {
-      output.writeMessage(2, transactions_.get(i));
+      output.writeMessage(1, transactions_.get(i));
     }
-    if (success_ != false) {
-      output.writeBool(3, success_);
+    if (blockNum_ != 0) {
+      output.writeInt32(2, blockNum_);
+    }
+    if (blockCommitTime_ != null) {
+      output.writeMessage(3, getBlockCommitTime());
+    }
+    if (!getBlockHashBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, blockHash_);
     }
     unknownFields.writeTo(output);
   }
@@ -185,17 +248,20 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
-    }
     for (int i = 0; i < transactions_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, transactions_.get(i));
+        .computeMessageSize(1, transactions_.get(i));
     }
-    if (success_ != false) {
+    if (blockNum_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(3, success_);
+        .computeInt32Size(2, blockNum_);
+    }
+    if (blockCommitTime_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getBlockCommitTime());
+    }
+    if (!getBlockHashBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, blockHash_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -207,18 +273,23 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.cse535.proto.SyncResponse)) {
+    if (!(obj instanceof org.cse535.proto.BlockOfTransactions)) {
       return super.equals(obj);
     }
-    org.cse535.proto.SyncResponse other = (org.cse535.proto.SyncResponse) obj;
+    org.cse535.proto.BlockOfTransactions other = (org.cse535.proto.BlockOfTransactions) obj;
 
     boolean result = true;
-    result = result && (getId()
-        == other.getId());
     result = result && getTransactionsList()
         .equals(other.getTransactionsList());
-    result = result && (getSuccess()
-        == other.getSuccess());
+    result = result && (getBlockNum()
+        == other.getBlockNum());
+    result = result && (hasBlockCommitTime() == other.hasBlockCommitTime());
+    if (hasBlockCommitTime()) {
+      result = result && getBlockCommitTime()
+          .equals(other.getBlockCommitTime());
+    }
+    result = result && getBlockHash()
+        .equals(other.getBlockHash());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -230,83 +301,86 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
     if (getTransactionsCount() > 0) {
       hash = (37 * hash) + TRANSACTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getTransactionsList().hashCode();
     }
-    hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getSuccess());
+    hash = (37 * hash) + BLOCKNUM_FIELD_NUMBER;
+    hash = (53 * hash) + getBlockNum();
+    if (hasBlockCommitTime()) {
+      hash = (37 * hash) + BLOCKCOMMITTIME_FIELD_NUMBER;
+      hash = (53 * hash) + getBlockCommitTime().hashCode();
+    }
+    hash = (37 * hash) + BLOCKHASH_FIELD_NUMBER;
+    hash = (53 * hash) + getBlockHash().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(byte[] data)
+  public static org.cse535.proto.BlockOfTransactions parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(java.io.InputStream input)
+  public static org.cse535.proto.BlockOfTransactions parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.cse535.proto.SyncResponse parseDelimitedFrom(java.io.InputStream input)
+  public static org.cse535.proto.BlockOfTransactions parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.cse535.proto.SyncResponse parseDelimitedFrom(
+  public static org.cse535.proto.BlockOfTransactions parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.cse535.proto.SyncResponse parseFrom(
+  public static org.cse535.proto.BlockOfTransactions parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -319,7 +393,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.cse535.proto.SyncResponse prototype) {
+  public static Builder newBuilder(org.cse535.proto.BlockOfTransactions prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -335,26 +409,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code SyncResponse}
+   * Protobuf type {@code BlockOfTransactions}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:SyncResponse)
-      org.cse535.proto.SyncResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:BlockOfTransactions)
+      org.cse535.proto.BlockOfTransactionsOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.cse535.proto.PaxosOuterClass.internal_static_SyncResponse_descriptor;
+      return org.cse535.proto.PaxosOuterClass.internal_static_BlockOfTransactions_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.cse535.proto.PaxosOuterClass.internal_static_SyncResponse_fieldAccessorTable
+      return org.cse535.proto.PaxosOuterClass.internal_static_BlockOfTransactions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.cse535.proto.SyncResponse.class, org.cse535.proto.SyncResponse.Builder.class);
+              org.cse535.proto.BlockOfTransactions.class, org.cse535.proto.BlockOfTransactions.Builder.class);
     }
 
-    // Construct using org.cse535.proto.SyncResponse.newBuilder()
+    // Construct using org.cse535.proto.BlockOfTransactions.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -373,15 +447,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0;
-
       if (transactionsBuilder_ == null) {
         transactions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
         transactionsBuilder_.clear();
       }
-      success_ = false;
+      blockNum_ = 0;
+
+      if (blockCommitTimeBuilder_ == null) {
+        blockCommitTime_ = null;
+      } else {
+        blockCommitTime_ = null;
+        blockCommitTimeBuilder_ = null;
+      }
+      blockHash_ = "";
 
       return this;
     }
@@ -389,17 +469,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.cse535.proto.PaxosOuterClass.internal_static_SyncResponse_descriptor;
+      return org.cse535.proto.PaxosOuterClass.internal_static_BlockOfTransactions_descriptor;
     }
 
     @java.lang.Override
-    public org.cse535.proto.SyncResponse getDefaultInstanceForType() {
-      return org.cse535.proto.SyncResponse.getDefaultInstance();
+    public org.cse535.proto.BlockOfTransactions getDefaultInstanceForType() {
+      return org.cse535.proto.BlockOfTransactions.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.cse535.proto.SyncResponse build() {
-      org.cse535.proto.SyncResponse result = buildPartial();
+    public org.cse535.proto.BlockOfTransactions build() {
+      org.cse535.proto.BlockOfTransactions result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -407,21 +487,26 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.cse535.proto.SyncResponse buildPartial() {
-      org.cse535.proto.SyncResponse result = new org.cse535.proto.SyncResponse(this);
+    public org.cse535.proto.BlockOfTransactions buildPartial() {
+      org.cse535.proto.BlockOfTransactions result = new org.cse535.proto.BlockOfTransactions(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      result.id_ = id_;
       if (transactionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
           transactions_ = java.util.Collections.unmodifiableList(transactions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.transactions_ = transactions_;
       } else {
         result.transactions_ = transactionsBuilder_.build();
       }
-      result.success_ = success_;
+      result.blockNum_ = blockNum_;
+      if (blockCommitTimeBuilder_ == null) {
+        result.blockCommitTime_ = blockCommitTime_;
+      } else {
+        result.blockCommitTime_ = blockCommitTimeBuilder_.build();
+      }
+      result.blockHash_ = blockHash_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -461,24 +546,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.cse535.proto.SyncResponse) {
-        return mergeFrom((org.cse535.proto.SyncResponse)other);
+      if (other instanceof org.cse535.proto.BlockOfTransactions) {
+        return mergeFrom((org.cse535.proto.BlockOfTransactions)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.cse535.proto.SyncResponse other) {
-      if (other == org.cse535.proto.SyncResponse.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
-      }
+    public Builder mergeFrom(org.cse535.proto.BlockOfTransactions other) {
+      if (other == org.cse535.proto.BlockOfTransactions.getDefaultInstance()) return this;
       if (transactionsBuilder_ == null) {
         if (!other.transactions_.isEmpty()) {
           if (transactions_.isEmpty()) {
             transactions_ = other.transactions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
             ensureTransactionsIsMutable();
             transactions_.addAll(other.transactions_);
@@ -491,7 +573,7 @@ private static final long serialVersionUID = 0L;
             transactionsBuilder_.dispose();
             transactionsBuilder_ = null;
             transactions_ = other.transactions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
             transactionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTransactionsFieldBuilder() : null;
@@ -500,8 +582,15 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (other.getSuccess() != false) {
-        setSuccess(other.getSuccess());
+      if (other.getBlockNum() != 0) {
+        setBlockNum(other.getBlockNum());
+      }
+      if (other.hasBlockCommitTime()) {
+        mergeBlockCommitTime(other.getBlockCommitTime());
+      }
+      if (!other.getBlockHash().isEmpty()) {
+        blockHash_ = other.blockHash_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -518,11 +607,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.cse535.proto.SyncResponse parsedMessage = null;
+      org.cse535.proto.BlockOfTransactions parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.cse535.proto.SyncResponse) e.getUnfinishedMessage();
+        parsedMessage = (org.cse535.proto.BlockOfTransactions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -533,38 +622,12 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int id_ ;
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    public int getId() {
-      return id_;
-    }
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    public Builder setId(int value) {
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 id = 1;</code>
-     */
-    public Builder clearId() {
-      
-      id_ = 0;
-      onChanged();
-      return this;
-    }
-
     private java.util.List<org.cse535.proto.Transaction> transactions_ =
       java.util.Collections.emptyList();
     private void ensureTransactionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
         transactions_ = new java.util.ArrayList<org.cse535.proto.Transaction>(transactions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000001;
        }
     }
 
@@ -572,7 +635,7 @@ private static final long serialVersionUID = 0L;
         org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder> transactionsBuilder_;
 
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public java.util.List<org.cse535.proto.Transaction> getTransactionsList() {
       if (transactionsBuilder_ == null) {
@@ -582,7 +645,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public int getTransactionsCount() {
       if (transactionsBuilder_ == null) {
@@ -592,7 +655,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public org.cse535.proto.Transaction getTransactions(int index) {
       if (transactionsBuilder_ == null) {
@@ -602,7 +665,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder setTransactions(
         int index, org.cse535.proto.Transaction value) {
@@ -619,7 +682,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder setTransactions(
         int index, org.cse535.proto.Transaction.Builder builderForValue) {
@@ -633,7 +696,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder addTransactions(org.cse535.proto.Transaction value) {
       if (transactionsBuilder_ == null) {
@@ -649,7 +712,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder addTransactions(
         int index, org.cse535.proto.Transaction value) {
@@ -666,7 +729,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder addTransactions(
         org.cse535.proto.Transaction.Builder builderForValue) {
@@ -680,7 +743,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder addTransactions(
         int index, org.cse535.proto.Transaction.Builder builderForValue) {
@@ -694,7 +757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder addAllTransactions(
         java.lang.Iterable<? extends org.cse535.proto.Transaction> values) {
@@ -709,12 +772,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder clearTransactions() {
       if (transactionsBuilder_ == null) {
         transactions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
         transactionsBuilder_.clear();
@@ -722,7 +785,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public Builder removeTransactions(int index) {
       if (transactionsBuilder_ == null) {
@@ -735,14 +798,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public org.cse535.proto.Transaction.Builder getTransactionsBuilder(
         int index) {
       return getTransactionsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public org.cse535.proto.TransactionOrBuilder getTransactionsOrBuilder(
         int index) {
@@ -752,7 +815,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public java.util.List<? extends org.cse535.proto.TransactionOrBuilder> 
          getTransactionsOrBuilderList() {
@@ -763,14 +826,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public org.cse535.proto.Transaction.Builder addTransactionsBuilder() {
       return getTransactionsFieldBuilder().addBuilder(
           org.cse535.proto.Transaction.getDefaultInstance());
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public org.cse535.proto.Transaction.Builder addTransactionsBuilder(
         int index) {
@@ -778,7 +841,7 @@ private static final long serialVersionUID = 0L;
           index, org.cse535.proto.Transaction.getDefaultInstance());
     }
     /**
-     * <code>repeated .Transaction transactions = 2;</code>
+     * <code>repeated .Transaction transactions = 1;</code>
      */
     public java.util.List<org.cse535.proto.Transaction.Builder> 
          getTransactionsBuilderList() {
@@ -791,7 +854,7 @@ private static final long serialVersionUID = 0L;
         transactionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             org.cse535.proto.Transaction, org.cse535.proto.Transaction.Builder, org.cse535.proto.TransactionOrBuilder>(
                 transactions_,
-                ((bitField0_ & 0x00000002) == 0x00000002),
+                ((bitField0_ & 0x00000001) == 0x00000001),
                 getParentForChildren(),
                 isClean());
         transactions_ = null;
@@ -799,28 +862,214 @@ private static final long serialVersionUID = 0L;
       return transactionsBuilder_;
     }
 
-    private boolean success_ ;
+    private int blockNum_ ;
     /**
-     * <code>bool success = 3;</code>
+     * <code>int32 blockNum = 2;</code>
      */
-    public boolean getSuccess() {
-      return success_;
+    public int getBlockNum() {
+      return blockNum_;
     }
     /**
-     * <code>bool success = 3;</code>
+     * <code>int32 blockNum = 2;</code>
      */
-    public Builder setSuccess(boolean value) {
+    public Builder setBlockNum(int value) {
       
-      success_ = value;
+      blockNum_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool success = 3;</code>
+     * <code>int32 blockNum = 2;</code>
      */
-    public Builder clearSuccess() {
+    public Builder clearBlockNum() {
       
-      success_ = false;
+      blockNum_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp blockCommitTime_ = null;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> blockCommitTimeBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public boolean hasBlockCommitTime() {
+      return blockCommitTimeBuilder_ != null || blockCommitTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public com.google.protobuf.Timestamp getBlockCommitTime() {
+      if (blockCommitTimeBuilder_ == null) {
+        return blockCommitTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : blockCommitTime_;
+      } else {
+        return blockCommitTimeBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public Builder setBlockCommitTime(com.google.protobuf.Timestamp value) {
+      if (blockCommitTimeBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        blockCommitTime_ = value;
+        onChanged();
+      } else {
+        blockCommitTimeBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public Builder setBlockCommitTime(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (blockCommitTimeBuilder_ == null) {
+        blockCommitTime_ = builderForValue.build();
+        onChanged();
+      } else {
+        blockCommitTimeBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public Builder mergeBlockCommitTime(com.google.protobuf.Timestamp value) {
+      if (blockCommitTimeBuilder_ == null) {
+        if (blockCommitTime_ != null) {
+          blockCommitTime_ =
+            com.google.protobuf.Timestamp.newBuilder(blockCommitTime_).mergeFrom(value).buildPartial();
+        } else {
+          blockCommitTime_ = value;
+        }
+        onChanged();
+      } else {
+        blockCommitTimeBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public Builder clearBlockCommitTime() {
+      if (blockCommitTimeBuilder_ == null) {
+        blockCommitTime_ = null;
+        onChanged();
+      } else {
+        blockCommitTime_ = null;
+        blockCommitTimeBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getBlockCommitTimeBuilder() {
+      
+      onChanged();
+      return getBlockCommitTimeFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getBlockCommitTimeOrBuilder() {
+      if (blockCommitTimeBuilder_ != null) {
+        return blockCommitTimeBuilder_.getMessageOrBuilder();
+      } else {
+        return blockCommitTime_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : blockCommitTime_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp blockCommitTime = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getBlockCommitTimeFieldBuilder() {
+      if (blockCommitTimeBuilder_ == null) {
+        blockCommitTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getBlockCommitTime(),
+                getParentForChildren(),
+                isClean());
+        blockCommitTime_ = null;
+      }
+      return blockCommitTimeBuilder_;
+    }
+
+    private java.lang.Object blockHash_ = "";
+    /**
+     * <code>string blockHash = 4;</code>
+     */
+    public java.lang.String getBlockHash() {
+      java.lang.Object ref = blockHash_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        blockHash_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string blockHash = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBlockHashBytes() {
+      java.lang.Object ref = blockHash_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        blockHash_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string blockHash = 4;</code>
+     */
+    public Builder setBlockHash(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      blockHash_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string blockHash = 4;</code>
+     */
+    public Builder clearBlockHash() {
+      
+      blockHash_ = getDefaultInstance().getBlockHash();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string blockHash = 4;</code>
+     */
+    public Builder setBlockHashBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      blockHash_ = value;
       onChanged();
       return this;
     }
@@ -837,41 +1086,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:SyncResponse)
+    // @@protoc_insertion_point(builder_scope:BlockOfTransactions)
   }
 
-  // @@protoc_insertion_point(class_scope:SyncResponse)
-  private static final org.cse535.proto.SyncResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:BlockOfTransactions)
+  private static final org.cse535.proto.BlockOfTransactions DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.cse535.proto.SyncResponse();
+    DEFAULT_INSTANCE = new org.cse535.proto.BlockOfTransactions();
   }
 
-  public static org.cse535.proto.SyncResponse getDefaultInstance() {
+  public static org.cse535.proto.BlockOfTransactions getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<SyncResponse>
-      PARSER = new com.google.protobuf.AbstractParser<SyncResponse>() {
+  private static final com.google.protobuf.Parser<BlockOfTransactions>
+      PARSER = new com.google.protobuf.AbstractParser<BlockOfTransactions>() {
     @java.lang.Override
-    public SyncResponse parsePartialFrom(
+    public BlockOfTransactions parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SyncResponse(input, extensionRegistry);
+      return new BlockOfTransactions(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<SyncResponse> parser() {
+  public static com.google.protobuf.Parser<BlockOfTransactions> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<SyncResponse> getParserForType() {
+  public com.google.protobuf.Parser<BlockOfTransactions> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.cse535.proto.SyncResponse getDefaultInstanceForType() {
+  public org.cse535.proto.BlockOfTransactions getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

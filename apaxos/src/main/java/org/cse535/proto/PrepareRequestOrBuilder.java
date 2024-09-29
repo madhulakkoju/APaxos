@@ -11,4 +11,17 @@ public interface PrepareRequestOrBuilder extends
    * <code>int32 ballotNumber = 1;</code>
    */
   int getBallotNumber();
+
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+   */
+  boolean hasTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+   */
+  com.google.protobuf.Timestamp getTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 2;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
 }

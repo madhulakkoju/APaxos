@@ -4,20 +4,21 @@
 package org.cse535.proto;
 
 /**
- * Protobuf type {@code AcceptRequest}
+ * Protobuf type {@code CommitBlockResponse}
  */
-public  final class AcceptRequest extends
+public  final class CommitBlockResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:AcceptRequest)
-    AcceptRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:CommitBlockResponse)
+    CommitBlockResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AcceptRequest.newBuilder() to construct.
-  private AcceptRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use CommitBlockResponse.newBuilder() to construct.
+  private CommitBlockResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AcceptRequest() {
-    proposalID_ = 0;
-    value_ = "";
+  private CommitBlockResponse() {
+    success_ = false;
+    approverName_ = "";
+    blockNum_ = 0;
   }
 
   @java.lang.Override
@@ -25,7 +26,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AcceptRequest(
+  private CommitBlockResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -46,26 +47,18 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            proposalID_ = input.readInt32();
+            success_ = input.readBool();
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            value_ = s;
+            approverName_ = s;
             break;
           }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (timestamp_ != null) {
-              subBuilder = timestamp_.toBuilder();
-            }
-            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timestamp_);
-              timestamp_ = subBuilder.buildPartial();
-            }
+          case 24: {
 
+            blockNum_ = input.readInt32();
             break;
           }
           default: {
@@ -89,79 +82,67 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return org.cse535.proto.PaxosOuterClass.internal_static_AcceptRequest_descriptor;
+    return org.cse535.proto.PaxosOuterClass.internal_static_CommitBlockResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return org.cse535.proto.PaxosOuterClass.internal_static_AcceptRequest_fieldAccessorTable
+    return org.cse535.proto.PaxosOuterClass.internal_static_CommitBlockResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            org.cse535.proto.AcceptRequest.class, org.cse535.proto.AcceptRequest.Builder.class);
+            org.cse535.proto.CommitBlockResponse.class, org.cse535.proto.CommitBlockResponse.Builder.class);
   }
 
-  public static final int PROPOSALID_FIELD_NUMBER = 1;
-  private int proposalID_;
+  public static final int SUCCESS_FIELD_NUMBER = 1;
+  private boolean success_;
   /**
-   * <code>int32 proposalID = 1;</code>
+   * <code>bool success = 1;</code>
    */
-  public int getProposalID() {
-    return proposalID_;
+  public boolean getSuccess() {
+    return success_;
   }
 
-  public static final int VALUE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object value_;
+  public static final int APPROVERNAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object approverName_;
   /**
-   * <code>string value = 2;</code>
+   * <code>string approverName = 2;</code>
    */
-  public java.lang.String getValue() {
-    java.lang.Object ref = value_;
+  public java.lang.String getApproverName() {
+    java.lang.Object ref = approverName_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      value_ = s;
+      approverName_ = s;
       return s;
     }
   }
   /**
-   * <code>string value = 2;</code>
+   * <code>string approverName = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getValueBytes() {
-    java.lang.Object ref = value_;
+      getApproverNameBytes() {
+    java.lang.Object ref = approverName_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      value_ = b;
+      approverName_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int TIMESTAMP_FIELD_NUMBER = 3;
-  private com.google.protobuf.Timestamp timestamp_;
+  public static final int BLOCKNUM_FIELD_NUMBER = 3;
+  private int blockNum_;
   /**
-   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   * <code>int32 blockNum = 3;</code>
    */
-  public boolean hasTimestamp() {
-    return timestamp_ != null;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-   */
-  public com.google.protobuf.Timestamp getTimestamp() {
-    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
-  }
-  /**
-   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-   */
-  public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-    return getTimestamp();
+  public int getBlockNum() {
+    return blockNum_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -178,14 +159,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (proposalID_ != 0) {
-      output.writeInt32(1, proposalID_);
+    if (success_ != false) {
+      output.writeBool(1, success_);
     }
-    if (!getValueBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
+    if (!getApproverNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, approverName_);
     }
-    if (timestamp_ != null) {
-      output.writeMessage(3, getTimestamp());
+    if (blockNum_ != 0) {
+      output.writeInt32(3, blockNum_);
     }
     unknownFields.writeTo(output);
   }
@@ -196,16 +177,16 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (proposalID_ != 0) {
+    if (success_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, proposalID_);
+        .computeBoolSize(1, success_);
     }
-    if (!getValueBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
+    if (!getApproverNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, approverName_);
     }
-    if (timestamp_ != null) {
+    if (blockNum_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getTimestamp());
+        .computeInt32Size(3, blockNum_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -217,21 +198,18 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof org.cse535.proto.AcceptRequest)) {
+    if (!(obj instanceof org.cse535.proto.CommitBlockResponse)) {
       return super.equals(obj);
     }
-    org.cse535.proto.AcceptRequest other = (org.cse535.proto.AcceptRequest) obj;
+    org.cse535.proto.CommitBlockResponse other = (org.cse535.proto.CommitBlockResponse) obj;
 
     boolean result = true;
-    result = result && (getProposalID()
-        == other.getProposalID());
-    result = result && getValue()
-        .equals(other.getValue());
-    result = result && (hasTimestamp() == other.hasTimestamp());
-    if (hasTimestamp()) {
-      result = result && getTimestamp()
-          .equals(other.getTimestamp());
-    }
+    result = result && (getSuccess()
+        == other.getSuccess());
+    result = result && getApproverName()
+        .equals(other.getApproverName());
+    result = result && (getBlockNum()
+        == other.getBlockNum());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -243,82 +221,81 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + PROPOSALID_FIELD_NUMBER;
-    hash = (53 * hash) + getProposalID();
-    hash = (37 * hash) + VALUE_FIELD_NUMBER;
-    hash = (53 * hash) + getValue().hashCode();
-    if (hasTimestamp()) {
-      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
-      hash = (53 * hash) + getTimestamp().hashCode();
-    }
+    hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSuccess());
+    hash = (37 * hash) + APPROVERNAME_FIELD_NUMBER;
+    hash = (53 * hash) + getApproverName().hashCode();
+    hash = (37 * hash) + BLOCKNUM_FIELD_NUMBER;
+    hash = (53 * hash) + getBlockNum();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(byte[] data)
+  public static org.cse535.proto.CommitBlockResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(java.io.InputStream input)
+  public static org.cse535.proto.CommitBlockResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.cse535.proto.AcceptRequest parseDelimitedFrom(java.io.InputStream input)
+  public static org.cse535.proto.CommitBlockResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static org.cse535.proto.AcceptRequest parseDelimitedFrom(
+  public static org.cse535.proto.CommitBlockResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static org.cse535.proto.AcceptRequest parseFrom(
+  public static org.cse535.proto.CommitBlockResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -331,7 +308,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(org.cse535.proto.AcceptRequest prototype) {
+  public static Builder newBuilder(org.cse535.proto.CommitBlockResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -347,26 +324,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code AcceptRequest}
+   * Protobuf type {@code CommitBlockResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:AcceptRequest)
-      org.cse535.proto.AcceptRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:CommitBlockResponse)
+      org.cse535.proto.CommitBlockResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return org.cse535.proto.PaxosOuterClass.internal_static_AcceptRequest_descriptor;
+      return org.cse535.proto.PaxosOuterClass.internal_static_CommitBlockResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return org.cse535.proto.PaxosOuterClass.internal_static_AcceptRequest_fieldAccessorTable
+      return org.cse535.proto.PaxosOuterClass.internal_static_CommitBlockResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              org.cse535.proto.AcceptRequest.class, org.cse535.proto.AcceptRequest.Builder.class);
+              org.cse535.proto.CommitBlockResponse.class, org.cse535.proto.CommitBlockResponse.Builder.class);
     }
 
-    // Construct using org.cse535.proto.AcceptRequest.newBuilder()
+    // Construct using org.cse535.proto.CommitBlockResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -384,33 +361,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      proposalID_ = 0;
+      success_ = false;
 
-      value_ = "";
+      approverName_ = "";
 
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-      } else {
-        timestamp_ = null;
-        timestampBuilder_ = null;
-      }
+      blockNum_ = 0;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return org.cse535.proto.PaxosOuterClass.internal_static_AcceptRequest_descriptor;
+      return org.cse535.proto.PaxosOuterClass.internal_static_CommitBlockResponse_descriptor;
     }
 
     @java.lang.Override
-    public org.cse535.proto.AcceptRequest getDefaultInstanceForType() {
-      return org.cse535.proto.AcceptRequest.getDefaultInstance();
+    public org.cse535.proto.CommitBlockResponse getDefaultInstanceForType() {
+      return org.cse535.proto.CommitBlockResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public org.cse535.proto.AcceptRequest build() {
-      org.cse535.proto.AcceptRequest result = buildPartial();
+    public org.cse535.proto.CommitBlockResponse build() {
+      org.cse535.proto.CommitBlockResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -418,15 +391,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public org.cse535.proto.AcceptRequest buildPartial() {
-      org.cse535.proto.AcceptRequest result = new org.cse535.proto.AcceptRequest(this);
-      result.proposalID_ = proposalID_;
-      result.value_ = value_;
-      if (timestampBuilder_ == null) {
-        result.timestamp_ = timestamp_;
-      } else {
-        result.timestamp_ = timestampBuilder_.build();
-      }
+    public org.cse535.proto.CommitBlockResponse buildPartial() {
+      org.cse535.proto.CommitBlockResponse result = new org.cse535.proto.CommitBlockResponse(this);
+      result.success_ = success_;
+      result.approverName_ = approverName_;
+      result.blockNum_ = blockNum_;
       onBuilt();
       return result;
     }
@@ -465,25 +434,25 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof org.cse535.proto.AcceptRequest) {
-        return mergeFrom((org.cse535.proto.AcceptRequest)other);
+      if (other instanceof org.cse535.proto.CommitBlockResponse) {
+        return mergeFrom((org.cse535.proto.CommitBlockResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(org.cse535.proto.AcceptRequest other) {
-      if (other == org.cse535.proto.AcceptRequest.getDefaultInstance()) return this;
-      if (other.getProposalID() != 0) {
-        setProposalID(other.getProposalID());
+    public Builder mergeFrom(org.cse535.proto.CommitBlockResponse other) {
+      if (other == org.cse535.proto.CommitBlockResponse.getDefaultInstance()) return this;
+      if (other.getSuccess() != false) {
+        setSuccess(other.getSuccess());
       }
-      if (!other.getValue().isEmpty()) {
-        value_ = other.value_;
+      if (!other.getApproverName().isEmpty()) {
+        approverName_ = other.approverName_;
         onChanged();
       }
-      if (other.hasTimestamp()) {
-        mergeTimestamp(other.getTimestamp());
+      if (other.getBlockNum() != 0) {
+        setBlockNum(other.getBlockNum());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -500,11 +469,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      org.cse535.proto.AcceptRequest parsedMessage = null;
+      org.cse535.proto.CommitBlockResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (org.cse535.proto.AcceptRequest) e.getUnfinishedMessage();
+        parsedMessage = (org.cse535.proto.CommitBlockResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -514,216 +483,125 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int proposalID_ ;
+    private boolean success_ ;
     /**
-     * <code>int32 proposalID = 1;</code>
+     * <code>bool success = 1;</code>
      */
-    public int getProposalID() {
-      return proposalID_;
+    public boolean getSuccess() {
+      return success_;
     }
     /**
-     * <code>int32 proposalID = 1;</code>
+     * <code>bool success = 1;</code>
      */
-    public Builder setProposalID(int value) {
+    public Builder setSuccess(boolean value) {
       
-      proposalID_ = value;
+      success_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 proposalID = 1;</code>
+     * <code>bool success = 1;</code>
      */
-    public Builder clearProposalID() {
+    public Builder clearSuccess() {
       
-      proposalID_ = 0;
+      success_ = false;
       onChanged();
       return this;
     }
 
-    private java.lang.Object value_ = "";
+    private java.lang.Object approverName_ = "";
     /**
-     * <code>string value = 2;</code>
+     * <code>string approverName = 2;</code>
      */
-    public java.lang.String getValue() {
-      java.lang.Object ref = value_;
+    public java.lang.String getApproverName() {
+      java.lang.Object ref = approverName_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        value_ = s;
+        approverName_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string value = 2;</code>
+     * <code>string approverName = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getValueBytes() {
-      java.lang.Object ref = value_;
+        getApproverNameBytes() {
+      java.lang.Object ref = approverName_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        value_ = b;
+        approverName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string value = 2;</code>
+     * <code>string approverName = 2;</code>
      */
-    public Builder setValue(
+    public Builder setApproverName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      value_ = value;
+      approverName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string value = 2;</code>
+     * <code>string approverName = 2;</code>
      */
-    public Builder clearValue() {
+    public Builder clearApproverName() {
       
-      value_ = getDefaultInstance().getValue();
+      approverName_ = getDefaultInstance().getApproverName();
       onChanged();
       return this;
     }
     /**
-     * <code>string value = 2;</code>
+     * <code>string approverName = 2;</code>
      */
-    public Builder setValueBytes(
+    public Builder setApproverNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      value_ = value;
+      approverName_ = value;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.Timestamp timestamp_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampBuilder_;
+    private int blockNum_ ;
     /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+     * <code>int32 blockNum = 3;</code>
      */
-    public boolean hasTimestamp() {
-      return timestampBuilder_ != null || timestamp_ != null;
+    public int getBlockNum() {
+      return blockNum_;
     }
     /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+     * <code>int32 blockNum = 3;</code>
      */
-    public com.google.protobuf.Timestamp getTimestamp() {
-      if (timestampBuilder_ == null) {
-        return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
-      } else {
-        return timestampBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-     */
-    public Builder setTimestamp(com.google.protobuf.Timestamp value) {
-      if (timestampBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        timestamp_ = value;
-        onChanged();
-      } else {
-        timestampBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-     */
-    public Builder setTimestamp(
-        com.google.protobuf.Timestamp.Builder builderForValue) {
-      if (timestampBuilder_ == null) {
-        timestamp_ = builderForValue.build();
-        onChanged();
-      } else {
-        timestampBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-     */
-    public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
-      if (timestampBuilder_ == null) {
-        if (timestamp_ != null) {
-          timestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
-        } else {
-          timestamp_ = value;
-        }
-        onChanged();
-      } else {
-        timestampBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-     */
-    public Builder clearTimestamp() {
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-        onChanged();
-      } else {
-        timestamp_ = null;
-        timestampBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-     */
-    public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
+    public Builder setBlockNum(int value) {
       
+      blockNum_ = value;
       onChanged();
-      return getTimestampFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+     * <code>int32 blockNum = 3;</code>
      */
-    public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-      if (timestampBuilder_ != null) {
-        return timestampBuilder_.getMessageOrBuilder();
-      } else {
-        return timestamp_ == null ?
-            com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
-      }
-    }
-    /**
-     * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-        getTimestampFieldBuilder() {
-      if (timestampBuilder_ == null) {
-        timestampBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                getTimestamp(),
-                getParentForChildren(),
-                isClean());
-        timestamp_ = null;
-      }
-      return timestampBuilder_;
+    public Builder clearBlockNum() {
+      
+      blockNum_ = 0;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -738,41 +616,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:AcceptRequest)
+    // @@protoc_insertion_point(builder_scope:CommitBlockResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:AcceptRequest)
-  private static final org.cse535.proto.AcceptRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:CommitBlockResponse)
+  private static final org.cse535.proto.CommitBlockResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new org.cse535.proto.AcceptRequest();
+    DEFAULT_INSTANCE = new org.cse535.proto.CommitBlockResponse();
   }
 
-  public static org.cse535.proto.AcceptRequest getDefaultInstance() {
+  public static org.cse535.proto.CommitBlockResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AcceptRequest>
-      PARSER = new com.google.protobuf.AbstractParser<AcceptRequest>() {
+  private static final com.google.protobuf.Parser<CommitBlockResponse>
+      PARSER = new com.google.protobuf.AbstractParser<CommitBlockResponse>() {
     @java.lang.Override
-    public AcceptRequest parsePartialFrom(
+    public CommitBlockResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AcceptRequest(input, extensionRegistry);
+      return new CommitBlockResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<AcceptRequest> parser() {
+  public static com.google.protobuf.Parser<CommitBlockResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AcceptRequest> getParserForType() {
+  public com.google.protobuf.Parser<CommitBlockResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public org.cse535.proto.AcceptRequest getDefaultInstanceForType() {
+  public org.cse535.proto.CommitBlockResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
