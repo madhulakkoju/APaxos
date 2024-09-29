@@ -1,7 +1,9 @@
-package org.cse535.node;
+package org.cse535.threadimpls;
 
 import io.grpc.ManagedChannel;
 import org.cse535.database.LeaderSyncTransactionStore;
+import org.cse535.node.Node;
+import org.cse535.node.NodePool;
 import org.cse535.proto.SyncRequest;
 import org.cse535.proto.SyncResponse;
 import org.cse535.proto.TransactionServiceGrpc;

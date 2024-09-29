@@ -1,7 +1,9 @@
-package org.cse535.node;
+package org.cse535.threadimpls;
 
 import com.google.protobuf.Timestamp;
 import io.grpc.ManagedChannel;
+import org.cse535.node.Node;
+import org.cse535.node.NodePool;
 import org.cse535.proto.TransactionServiceGrpc;
 
 import java.util.HashMap;
