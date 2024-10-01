@@ -13,14 +13,13 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        node = new Node( "A", "S1", 8080 );
-
-
-        NodePool.ports = new int[]{8080, 8081, 8082, 8083, 8084};
-        NodePool.initChannels();
-
+        node = new Node( "S1", 8080 );
+        NodePool.initiateNodePool();
         System.out.println("Server started with Node:" + node.serverName + " on port: " + node.port);
         node.server.awaitTermination();
+
+
+
         System.out.println("Server stopped");
 
     }

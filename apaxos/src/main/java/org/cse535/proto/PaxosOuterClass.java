@@ -15,6 +15,26 @@ public final class PaxosOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ActivateServerRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ActivateServerRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_ActivateServerResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ActivateServerResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeactivateServerRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeactivateServerRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DeactivateServerResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DeactivateServerResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_PrepareRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -79,6 +99,11 @@ public final class PaxosOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_CommitBlockResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TransactionInputConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TransactionInputConfig_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -89,46 +114,57 @@ public final class PaxosOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\013paxos.proto\032\037google/protobuf/timestamp" +
-      ".proto\"U\n\016PrepareRequest\022\024\n\014ballotNumber" +
-      "\030\001 \001(\005\022-\n\ttimestamp\030\002 \001(\0132\032.google.proto" +
-      "buf.Timestamp\"8\n\017PrepareResponse\022\024\n\014ball" +
-      "otNumber\030\001 \001(\005\022\017\n\007success\030\002 \001(\010\"a\n\rAccep" +
-      "tRequest\022\022\n\nproposalID\030\001 \001(\005\022\r\n\005value\030\002 " +
-      "\001(\t\022-\n\ttimestamp\030\003 \001(\0132\032.google.protobuf" +
-      ".Timestamp\"]\n\016AcceptResponse\022\024\n\014ballotNu" +
-      "mber\030\001 \001(\005\022\017\n\007success\030\002 \001(\010\022\021\n\tacceptNum" +
-      "\030\003 \001(\005\022\021\n\tacceptVal\030\004 \001(\005\"I\n\rCommitReque" +
-      "st\022\024\n\014ballotNumber\030\001 \001(\005\022\"\n\014transactions" +
-      "\030\003 \003(\0132\014.Transaction\"[\n\016CommitResponse\022\024" +
-      "\n\014ballotNumber\030\001 \001(\005\022\017\n\007success\030\002 \001(\010\022\"\n" +
-      "\014transactions\030\003 \003(\0132\014.Transaction\"Z\n\013Syn" +
-      "cRequest\022\016\n\006syncID\030\001 \001(\005\022\014\n\004data\030\002 \001(\t\022-" +
-      "\n\ttimestamp\030\003 \001(\0132\032.google.protobuf.Time" +
-      "stamp\"O\n\014SyncResponse\022\n\n\002id\030\001 \001(\005\022\"\n\014tra" +
-      "nsactions\030\002 \003(\0132\014.Transaction\022\017\n\007success" +
-      "\030\003 \001(\010\"\'\n\007SyncJob\022\016\n\006syncID\030\001 \001(\005\022\014\n\004dat" +
-      "a\030\002 \001(\t\"\207\001\n\013Transaction\022\016\n\006sender\030\001 \001(\t\022" +
-      "\020\n\010receiver\030\002 \001(\t\022\016\n\006amount\030\003 \001(\005\022-\n\ttim" +
-      "estamp\030\004 \001(\0132\032.google.protobuf.Timestamp" +
-      "\022\027\n\017transactionHash\030\005 \001(\t\"\223\001\n\023BlockOfTra" +
-      "nsactions\022\"\n\014transactions\030\001 \003(\0132\014.Transa" +
-      "ction\022\020\n\010blockNum\030\002 \001(\005\0223\n\017blockCommitTi" +
-      "me\030\003 \001(\0132\032.google.protobuf.Timestamp\022\021\n\t" +
-      "blockHash\030\004 \001(\t\"S\n\022CommitBlockRequest\022#\n" +
-      "\005block\030\001 \001(\0132\024.BlockOfTransactions\022\030\n\020le" +
-      "aderServerName\030\002 \001(\t\"N\n\023CommitBlockRespo" +
-      "nse\022\017\n\007success\030\001 \001(\010\022\024\n\014approverName\030\002 \001" +
-      "(\t\022\020\n\010blockNum\030\003 \001(\0052\221\001\n\005Paxos\022.\n\007prepar" +
-      "e\022\017.PrepareRequest\032\020.PrepareResponse\"\000\022+" +
-      "\n\006accept\022\016.AcceptRequest\032\017.AcceptRespons" +
-      "e\"\000\022+\n\006commit\022\016.CommitRequest\032\017.CommitRe" +
-      "sponse\"\0002\346\001\n\022TransactionService\022.\n\016addTr" +
-      "ansaction\022\014.Transaction\032\014.Transaction\"\000\022" +
-      ",\n\013synchronize\022\014.SyncRequest\032\r.SyncRespo" +
-      "nse\"\000\0226\n\023getSyncTransactions\022\r.SyncRespo" +
-      "nse\032\014.Transaction\"\0000\001\022:\n\013commitBlock\022\023.C" +
-      "ommitBlockRequest\032\024.CommitBlockResponse\"" +
-      "\000B\024\n\020org.cse535.protoP\001b\006proto3"
+      ".proto\"+\n\025ActivateServerRequest\022\022\n\nserve" +
+      "rName\030\001 \001(\t\")\n\026ActivateServerResponse\022\017\n" +
+      "\007success\030\001 \001(\010\"-\n\027DeactivateServerReques" +
+      "t\022\022\n\nserverName\030\001 \001(\t\"+\n\030DeactivateServe" +
+      "rResponse\022\017\n\007success\030\001 \001(\010\"U\n\016PrepareReq" +
+      "uest\022\024\n\014ballotNumber\030\001 \001(\005\022-\n\ttimestamp\030" +
+      "\002 \001(\0132\032.google.protobuf.Timestamp\"8\n\017Pre" +
+      "pareResponse\022\024\n\014ballotNumber\030\001 \001(\005\022\017\n\007su" +
+      "ccess\030\002 \001(\010\"a\n\rAcceptRequest\022\022\n\nproposal" +
+      "ID\030\001 \001(\005\022\r\n\005value\030\002 \001(\t\022-\n\ttimestamp\030\003 \001" +
+      "(\0132\032.google.protobuf.Timestamp\"]\n\016Accept" +
+      "Response\022\024\n\014ballotNumber\030\001 \001(\005\022\017\n\007succes" +
+      "s\030\002 \001(\010\022\021\n\tacceptNum\030\003 \001(\005\022\021\n\tacceptVal\030" +
+      "\004 \001(\005\"I\n\rCommitRequest\022\024\n\014ballotNumber\030\001" +
+      " \001(\005\022\"\n\014transactions\030\003 \003(\0132\014.Transaction" +
+      "\"[\n\016CommitResponse\022\024\n\014ballotNumber\030\001 \001(\005" +
+      "\022\017\n\007success\030\002 \001(\010\022\"\n\014transactions\030\003 \003(\0132" +
+      "\014.Transaction\"Z\n\013SyncRequest\022\016\n\006syncID\030\001" +
+      " \001(\005\022\014\n\004data\030\002 \001(\t\022-\n\ttimestamp\030\003 \001(\0132\032." +
+      "google.protobuf.Timestamp\"O\n\014SyncRespons" +
+      "e\022\n\n\002id\030\001 \001(\005\022\"\n\014transactions\030\002 \003(\0132\014.Tr" +
+      "ansaction\022\017\n\007success\030\003 \001(\010\"\'\n\007SyncJob\022\016\n" +
+      "\006syncID\030\001 \001(\005\022\014\n\004data\030\002 \001(\t\"\207\001\n\013Transact" +
+      "ion\022\016\n\006sender\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t\022\016\n" +
+      "\006amount\030\003 \001(\005\022-\n\ttimestamp\030\004 \001(\0132\032.googl" +
+      "e.protobuf.Timestamp\022\027\n\017transactionHash\030" +
+      "\005 \001(\t\"\223\001\n\023BlockOfTransactions\022\"\n\014transac" +
+      "tions\030\001 \003(\0132\014.Transaction\022\020\n\010blockNum\030\002 " +
+      "\001(\005\0223\n\017blockCommitTime\030\003 \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\022\021\n\tblockHash\030\004 \001(\t\"S\n\022C" +
+      "ommitBlockRequest\022#\n\005block\030\001 \001(\0132\024.Block" +
+      "OfTransactions\022\030\n\020leaderServerName\030\002 \001(\t" +
+      "\"N\n\023CommitBlockResponse\022\017\n\007success\030\001 \001(\010" +
+      "\022\024\n\014approverName\030\002 \001(\t\022\020\n\010blockNum\030\003 \001(\005" +
+      "\"c\n\026TransactionInputConfig\022\021\n\tsetNumber\030" +
+      "\001 \001(\005\022!\n\013transaction\030\002 \001(\0132\014.Transaction" +
+      "\022\023\n\013serverNames\030\005 \003(\t2\221\001\n\005Paxos\022.\n\007prepa" +
+      "re\022\017.PrepareRequest\032\020.PrepareResponse\"\000\022" +
+      "+\n\006accept\022\016.AcceptRequest\032\017.AcceptRespon" +
+      "se\"\000\022+\n\006commit\022\016.CommitRequest\032\017.CommitR" +
+      "esponse\"\0002\241\001\n\017ActivateServers\022C\n\016activat" +
+      "eServer\022\026.ActivateServerRequest\032\027.Activa" +
+      "teServerResponse\"\000\022I\n\020deactivateServer\022\030" +
+      ".DeactivateServerRequest\032\031.DeactivateSer" +
+      "verResponse\"\0002\346\001\n\022TransactionService\022.\n\016" +
+      "addTransaction\022\014.Transaction\032\014.Transacti" +
+      "on\"\000\022,\n\013synchronize\022\014.SyncRequest\032\r.Sync" +
+      "Response\"\000\0226\n\023getSyncTransactions\022\r.Sync" +
+      "Response\032\014.Transaction\"\0000\001\022:\n\013commitBloc" +
+      "k\022\023.CommitBlockRequest\032\024.CommitBlockResp" +
+      "onse\"\000B\024\n\020org.cse535.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -143,84 +179,114 @@ public final class PaxosOuterClass {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.TimestampProto.getDescriptor(),
         }, assigner);
-    internal_static_PrepareRequest_descriptor =
+    internal_static_ActivateServerRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_ActivateServerRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ActivateServerRequest_descriptor,
+        new java.lang.String[] { "ServerName", });
+    internal_static_ActivateServerResponse_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_ActivateServerResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ActivateServerResponse_descriptor,
+        new java.lang.String[] { "Success", });
+    internal_static_DeactivateServerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_DeactivateServerRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeactivateServerRequest_descriptor,
+        new java.lang.String[] { "ServerName", });
+    internal_static_DeactivateServerResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_DeactivateServerResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DeactivateServerResponse_descriptor,
+        new java.lang.String[] { "Success", });
+    internal_static_PrepareRequest_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_PrepareRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareRequest_descriptor,
         new java.lang.String[] { "BallotNumber", "Timestamp", });
     internal_static_PrepareResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_PrepareResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PrepareResponse_descriptor,
         new java.lang.String[] { "BallotNumber", "Success", });
     internal_static_AcceptRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_AcceptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AcceptRequest_descriptor,
         new java.lang.String[] { "ProposalID", "Value", "Timestamp", });
     internal_static_AcceptResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_AcceptResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AcceptResponse_descriptor,
         new java.lang.String[] { "BallotNumber", "Success", "AcceptNum", "AcceptVal", });
     internal_static_CommitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_CommitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommitRequest_descriptor,
         new java.lang.String[] { "BallotNumber", "Transactions", });
     internal_static_CommitResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_CommitResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommitResponse_descriptor,
         new java.lang.String[] { "BallotNumber", "Success", "Transactions", });
     internal_static_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_SyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SyncRequest_descriptor,
         new java.lang.String[] { "SyncID", "Data", "Timestamp", });
     internal_static_SyncResponse_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_SyncResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SyncResponse_descriptor,
         new java.lang.String[] { "Id", "Transactions", "Success", });
     internal_static_SyncJob_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_SyncJob_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SyncJob_descriptor,
         new java.lang.String[] { "SyncID", "Data", });
     internal_static_Transaction_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Transaction_descriptor,
         new java.lang.String[] { "Sender", "Receiver", "Amount", "Timestamp", "TransactionHash", });
     internal_static_BlockOfTransactions_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_BlockOfTransactions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_BlockOfTransactions_descriptor,
         new java.lang.String[] { "Transactions", "BlockNum", "BlockCommitTime", "BlockHash", });
     internal_static_CommitBlockRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_CommitBlockRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommitBlockRequest_descriptor,
         new java.lang.String[] { "Block", "LeaderServerName", });
     internal_static_CommitBlockResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_CommitBlockResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommitBlockResponse_descriptor,
         new java.lang.String[] { "Success", "ApproverName", "BlockNum", });
+    internal_static_TransactionInputConfig_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_TransactionInputConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TransactionInputConfig_descriptor,
+        new java.lang.String[] { "SetNumber", "Transaction", "ServerNames", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

@@ -16,6 +16,34 @@ service Paxos {
   rpc commit(CommitRequest) returns (CommitResponse) {}
 }
 
+service ActivateServers{
+  rpc activateServer(ActivateServerRequest) returns (ActivateServerResponse) {}
+  rpc deactivateServer(DeactivateServerRequest) returns (DeactivateServerResponse) {}
+}
+
+
+message ActivateServerRequest{
+  string serverName = 1;
+}
+
+message ActivateServerResponse{
+  bool success = 1;
+  string serverName = 2;
+}
+
+message DeactivateServerRequest{
+  string serverName = 1;
+}
+
+message DeactivateServerResponse{
+  bool success = 1;
+  string serverName = 2;
+}
+
+
+
+
+
 
 message PrepareRequest {
   int32 ballotNumber = 1;
@@ -118,4 +146,13 @@ message CommitBlockResponse {
   bool success = 1;
   string approverName = 2;
   int32 blockNum = 3;
+}
+
+
+
+message TransactionInputConfig{
+  int32 setNumber = 1;
+  Transaction transaction = 2;
+
+  repeated string serverNames = 5;
 }
