@@ -6,13 +6,9 @@ import "google/protobuf/timestamp.proto";
 
 
 service Apaxos {
-
   rpc prepare(PrepareRequest) returns (PrepareResponse) {}
-
   rpc accept(AcceptRequest) returns (AcceptResponse) {}
-
   rpc commit(CommitRequest) returns (CommitResponse) {}
-
 }
 
 
@@ -27,12 +23,25 @@ service TnxPropagate{
 }
 
 
+service Commands{
+  rpc printBalance(CommandInput) returns (CommandOutput) {}
+  rpc printLog(CommandInput) returns (CommandOutput) {}
+  rpc printDB(CommandInput) returns (CommandOutput) {}
+  rpc Performance(CommandInput) returns (CommandOutput) {}
+}
+
+
+
+
+
 message TransactionInputConfig{
   int32 setNumber = 1;
   Transaction transaction = 2;
 
   repeated string serverNames = 5;
 }
+
+
 
 
 message TxnResponse{
@@ -159,7 +168,9 @@ message DeactivateServerResponse{
 
 
 
+message CommandInput{}
 
+message CommandOutput{}
 
 
 

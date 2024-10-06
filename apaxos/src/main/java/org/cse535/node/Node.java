@@ -18,6 +18,11 @@ import static org.cse535.configs.GlobalConfigs.serversToPortMap;
 
 public class Node extends NodeServer{
 
+
+
+
+    //TODO: Convert to Database Service class.
+
     public int currentProposalNumber; // Term Number of prepare request
     public String currentServerId; // Server Id of prepare request
 
@@ -26,18 +31,28 @@ public class Node extends NodeServer{
     public LocalTransactionStore localTransactionLog;
     public LeaderLocalTnxStore leaderTransactionLog;
 
+    //TODO: Till here
+
+
+
+
+
+
+
     public Thread transactionWorkerThread;
-
-
 
     public HashMap<String, PrepareResponse> prepareResponseMap;
     public HashMap<String, AcceptResponse> acceptResponseMap;
     public HashMap<String, CommitResponse> commitResponseMap;
 
-    public boolean pauseTnxServiceUntilCommit;
+
+
 
     public int prepareAckCount; // Prepare Accepted Servers count
     public int prepareTotalCount; // Current Active Servers
+
+    public boolean pauseTnxServiceUntilCommit;
+
 
     public Node(String serverName, int port){
         super(serverName, port);
@@ -106,6 +121,8 @@ public class Node extends NodeServer{
         if(this.database.getAccountBalance() > transaction.getAmount()) {
             this.database.setAccountBalance( this.database.getAccountBalance() - transaction.getAmount());
             localTransactionLog.addTransaction(transaction);
+            this.database.incrementTransactionsProcessed();
+
             return true; // No Consensus
         }
 
@@ -388,6 +405,62 @@ public class Node extends NodeServer{
         return balance;
     }
 
+
+
+
+
+
+
+
+    //Commands
+
+    public void printBalance() {
+        this.logger.log("Account Balance: " + database.getAccountBalance());
+        this.logger.log("Committed Account Balance: " + database.getCommittedAccountBalance());
+    }
+
+    public void printLog(){
+
+        this.logger.log( "Current Local Balance: " + this.database.getAccountBalance() );
+        this.logger.log( "-------------------" );
+
+        this.logger.log( "Current Local Log Transactions: " );
+        this.logger.log( "-------------------" );
+        this.localTransactionLog.getAllTransactions().forEach( transaction -> {
+            this.logger.log( transaction.toString() );
+        });
+    }
+
+    public void printDB(){
+
+        this.logger.log( "Committed Balance: " + this.database.getCommittedAccountBalance() );
+        this.logger.log( "-------------------" );
+
+        this.logger.log( "Committed Blocks: " );
+        this.logger.log( "-------------------" );
+
+        this.database.getBlocks().forEach( (term,block) -> {
+            this.logger.log("Term : "+ term + "\nBlock:\n" + block.toString() );
+        });
+
+        this.logger.log( "-------------------" );
+
+        this.logger.log( "Current Local Balance: " + this.database.getAccountBalance() );
+        this.logger.log( "-------------------" );
+
+        this.logger.log( "Current Local Log Transactions: " );
+        this.logger.log( "-------------------" );
+
+        this.localTransactionLog.getAllTransactions().forEach( transaction -> {
+            this.logger.log( transaction.toString() );
+        });
+    }
+
+    public void printPerformance(){
+        this.logger.log("Transactions Processed: " + this.database.getTransactionsProcessed());
+        this.logger.log("Transactions Committed: " + this.database.getTransactionsCommitted());
+        this.logger.log("Transactions Aborted: " + this.database.getTransactionsAborted());
+    }
 
 
 

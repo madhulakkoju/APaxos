@@ -27,6 +27,24 @@ public class DatabaseService {
 
     private HashMap<Integer, BlockOfTransactions> blocks;
 
+
+
+    private int transactionsProcessed;
+    private int transactionsCommitted;
+    private int transactionsAborted;
+
+
+
+
+
+
+
+
+
+
+
+
+
     public DatabaseService(){
         this.blocks = new HashMap<>();
         this.AcceptedBlockOfTransactions = null;
@@ -61,6 +79,19 @@ public class DatabaseService {
         this.blocks.put(termNumber, block);
         this.CommittedAccountBalance = balanceAfterTransactions;
         this.CommittedProposalNumber = termNumber;
+
+        this.transactionsCommitted += block.getTransactionsCount();
+
+    }
+
+    public void uncommitBlock(int termNumber){
+
+        this.transactionsCommitted -= blocks.get(termNumber).getTransactionsCount();
+        this.transactionsAborted += blocks.get(termNumber).getTransactionsCount();
+
+
+
+        this.blocks.remove(termNumber);
     }
 
 
@@ -113,4 +144,39 @@ public class DatabaseService {
     public void setCommittedProposalNumber(int committedProposalNumber) {
         CommittedProposalNumber = committedProposalNumber;
     }
+
+
+    public int getTransactionsAborted() {
+        return transactionsAborted;
+    }
+
+    public void setTransactionsAborted(int transactionsAborted) {
+        this.transactionsAborted = transactionsAborted;
+    }
+
+    public int getTransactionsProcessed() {
+        return transactionsProcessed;
+    }
+
+    public void setTransactionsProcessed(int transactionsProcessed) {
+        this.transactionsProcessed = transactionsProcessed;
+    }
+
+    public void incrementTransactionsProcessed(){
+        this.transactionsProcessed++;
+    }
+
+    public int getTransactionsCommitted() {
+        return transactionsCommitted;
+    }
+
+    public void setTransactionsCommitted(int transactionsCommitted) {
+        this.transactionsCommitted = transactionsCommitted;
+    }
+
+    public HashMap<Integer, BlockOfTransactions> getBlocks() {
+        return blocks;
+    }
+
+
 }

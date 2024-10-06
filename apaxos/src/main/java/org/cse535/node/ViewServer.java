@@ -135,6 +135,11 @@ public class ViewServer extends NodeServer{
 
                             ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
 
+                            System.out.println(stub.toString());
+
+
+
+
                             ActivateServerResponse response = stub.activateServer(request);
 
                             if(response.getSuccess()) {

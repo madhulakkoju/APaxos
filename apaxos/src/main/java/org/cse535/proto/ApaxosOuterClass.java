@@ -89,6 +89,16 @@ public final class ApaxosOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_DeactivateServerResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CommandInput_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CommandInput_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_CommandOutput_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_CommandOutput_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -140,18 +150,24 @@ public final class ApaxosOuterClass {
       "\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"-\n\027D" +
       "eactivateServerRequest\022\022\n\nserverName\030\001 \001" +
       "(\t\"?\n\030DeactivateServerResponse\022\017\n\007succes" +
-      "s\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t2\222\001\n\006Apaxos\022." +
-      "\n\007prepare\022\017.PrepareRequest\032\020.PrepareResp" +
-      "onse\"\000\022+\n\006accept\022\016.AcceptRequest\032\017.Accep" +
-      "tResponse\"\000\022+\n\006commit\022\016.CommitRequest\032\017." +
-      "CommitResponse\"\0002\241\001\n\017ActivateServers\022C\n\016" +
-      "activateServer\022\026.ActivateServerRequest\032\027" +
-      ".ActivateServerResponse\"\000\022I\n\020deactivateS" +
-      "erver\022\030.DeactivateServerRequest\032\031.Deacti" +
-      "vateServerResponse\"\0002O\n\014TnxPropagate\022?\n\024" +
-      "propagateTransaction\022\027.TransactionInputC" +
-      "onfig\032\014.TxnResponse\"\000B\024\n\020org.cse535.prot" +
-      "oP\001b\006proto3"
+      "s\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"\016\n\014CommandIn" +
+      "put\"\017\n\rCommandOutput2\222\001\n\006Apaxos\022.\n\007prepa" +
+      "re\022\017.PrepareRequest\032\020.PrepareResponse\"\000\022" +
+      "+\n\006accept\022\016.AcceptRequest\032\017.AcceptRespon" +
+      "se\"\000\022+\n\006commit\022\016.CommitRequest\032\017.CommitR" +
+      "esponse\"\0002\241\001\n\017ActivateServers\022C\n\016activat" +
+      "eServer\022\026.ActivateServerRequest\032\027.Activa" +
+      "teServerResponse\"\000\022I\n\020deactivateServer\022\030" +
+      ".DeactivateServerRequest\032\031.DeactivateSer" +
+      "verResponse\"\0002O\n\014TnxPropagate\022?\n\024propaga" +
+      "teTransaction\022\027.TransactionInputConfig\032\014" +
+      ".TxnResponse\"\0002\304\001\n\010Commands\022/\n\014printBala" +
+      "nce\022\r.CommandInput\032\016.CommandOutput\"\000\022+\n\010" +
+      "printLog\022\r.CommandInput\032\016.CommandOutput\"" +
+      "\000\022*\n\007printDB\022\r.CommandInput\032\016.CommandOut" +
+      "put\"\000\022.\n\013Performance\022\r.CommandInput\032\016.Co" +
+      "mmandOutput\"\000B\024\n\020org.cse535.protoP\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -256,6 +272,18 @@ public final class ApaxosOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeactivateServerResponse_descriptor,
         new java.lang.String[] { "Success", "ServerName", });
+    internal_static_CommandInput_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_CommandInput_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CommandInput_descriptor,
+        new java.lang.String[] { });
+    internal_static_CommandOutput_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_CommandOutput_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_CommandOutput_descriptor,
+        new java.lang.String[] { });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 
