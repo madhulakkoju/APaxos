@@ -1,61 +1,25 @@
-package org.cse535.serverconfigs;
+package org.cse535.node;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import io.grpc.Server;
-import org.cse535.Main;
-import org.cse535.loggers.LogUtils;
-import org.cse535.node.ActivateServerService;
-import org.cse535.node.NodePool;
+import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
-import org.cse535.transaction.TransactionService;
+import org.cse535.service.ActivateServersService;
+import org.cse535.service.TransactionPropagateService;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.*;
+import java.io.*;
+import java.util.Arrays;
+import java.util.HashMap;
 
-public class ViewServer  {
+import static org.cse535.configs.GlobalConfigs.allServers;
 
-    LogUtils logger = new LogUtils("ViewServer", 8000);
-    int port = 8000;
+public class ViewServer extends NodeServer{
 
-    public Server server;
-
-    HashMap<String, Integer> serversToPortMap ;
-
-    HashMap<String, ActivateServersGrpc.ActivateServersBlockingStub> serversToActivateServerStub ;
-    HashMap<String, TransactionServiceGrpc.TransactionServiceBlockingStub> serversToTransactionServiceStub ;
-
-    public ViewServer() {
-        server = io.grpc.ServerBuilder.forPort(port)
-                .addService(new TransactionService())
-                .addService(new ActivateServerService())
-                .build();
-
-        serversToPortMap = new HashMap<>();
-        serversToPortMap.put("S1", 8001);
-        serversToPortMap.put("S2", 8002);
-        serversToPortMap.put("S3", 8003);
-        serversToPortMap.put("S4", 8004);
-        serversToPortMap.put("S5", 8005);
-
-        initiateChannelsAndStubs();
-    }
-
-    public void initiateChannelsAndStubs() {
-
-        for (Map.Entry<String, Integer> entry : serversToPortMap.entrySet()) {
-            String serverName = entry.getKey();
-            Integer port = entry.getValue();
-
-            ManagedChannel channel = NodePool.channelMap.get(port);
-
-            serversToActivateServerStub.put(serverName, ActivateServersGrpc.newBlockingStub(channel));
-            serversToTransactionServiceStub.put(serverName, TransactionServiceGrpc.newBlockingStub(channel));
+    public ViewServer(String serverName, int port) {
+        super(serverName, port);
+        try {
+            this.server.start();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
     }
 
     public static TransactionInputConfig parseTnxConfig(String line) {
@@ -83,47 +47,56 @@ public class ViewServer  {
     }
 
     public void sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
-        for (String server : transactionInputConfig.getServerNamesList()) {
-            System.out.println("Sending transaction to server: " + server);
 
-            TransactionServiceGrpc.TransactionServiceBlockingStub stub = this.serversToTransactionServiceStub.get(server);
-            stub.addTransaction(transactionInputConfig.getTransaction());
+        for (String server : transactionInputConfig.getServerNamesList()) {
+            if (server.equals(this.serverName)) {
+                System.out.println("Server: " + server + " is the current server");
+                continue;
+            }
+
+            TnxPropagateGrpc.TnxPropagateBlockingStub stub = this.serversToTnxPropagateStub.get(server);
+
+            TxnResponse response = stub.propagateTransaction(transactionInputConfig);
+
+            if (response.getSuccess()) {
+                System.out.println("Transaction propagated to server: " + server);
+            } else {
+                System.out.println("Transaction not propagated to server: " + server);
+            }
         }
+
     }
 
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println("View Server started");
 
-        NodePool.initiateNodePool();
 
-        String[] allServers = new String[] {
-                "S1", "S2", "S3", "S4", "S5"
-        };
+
+
+    public static void main(String[] args) throws InterruptedException, IOException {
+
+        ViewServer viewServer = new ViewServer("vs", 8000);
+
 
         HashMap<String, Boolean> activeServersStatusMap = new HashMap<>();
 
-        for (String server : allServers) {
+        for (String server : GlobalConfigs.allServers) {
             activeServersStatusMap.put(server, true);
         }
 
-        ViewServer viewServer = new ViewServer();
-
-        viewServer.server.start();
-        viewServer.server.awaitTermination();
-
-        File file = new File("./scripts/input_file.csv");
+        File file = new File("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv");
         String line = "";
         if (file.exists()) {
             System.out.println("File exists");
 
             // Read the file
-            BufferedReader br = new BufferedReader(new FileReader("./scripts/input_file.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv"));
 
             int prevSetNumber = 0;
 
             while ((line = br.readLine()) != null)   //returns a Boolean value
             {
+                System.out.println("Line: " + line);
+
                 TransactionInputConfig transactionInputConfig = parseTnxConfig(line);
 
                 if (transactionInputConfig == null) {
@@ -132,7 +105,7 @@ public class ViewServer  {
                 }
 
                 // Trigger Inactive servers to stop accepting transactions
-                if (transactionInputConfig.getServerNamesList() == null || transactionInputConfig.getServerNamesList().isEmpty()) {
+                if (transactionInputConfig.getServerNamesList().isEmpty()) {
                     System.out.println("No servers to send the transaction to");
                     continue;
                 }
@@ -160,7 +133,7 @@ public class ViewServer  {
                                     .setServerName(server)
                                     .build();
 
-                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServerStub.get(server);
+                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
 
                             ActivateServerResponse response = stub.activateServer(request);
 
@@ -177,7 +150,7 @@ public class ViewServer  {
                                     .setServerName(server)
                                     .build();
 
-                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServerStub.get(server);
+                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
 
                             DeactivateServerResponse response = stub.deactivateServer(request);
 
@@ -198,12 +171,13 @@ public class ViewServer  {
                 viewServer.sendTransactionToServers(transactionInputConfig);
             }
 
-        } else {
+        }
+        else {
             System.out.println("File does not exist");
         }
-
-
-
+        viewServer.server.awaitTermination();
 
     }
+
+
 }

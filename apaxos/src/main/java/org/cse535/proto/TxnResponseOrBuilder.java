@@ -3,8 +3,8 @@
 
 package org.cse535.proto;
 
-public interface ActivateServerResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:ActivateServerResponse)
+public interface TxnResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:TxnResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

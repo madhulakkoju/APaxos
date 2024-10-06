@@ -19,7 +19,7 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
-    comments = "Source: paxos.proto")
+    comments = "Source: apaxos.proto")
 public final class ActivateServersGrpc {
 
   private ActivateServersGrpc() {}
@@ -305,7 +305,7 @@ public final class ActivateServersGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return org.cse535.proto.PaxosOuterClass.getDescriptor();
+      return org.cse535.proto.ApaxosOuterClass.getDescriptor();
     }
 
     @java.lang.Override

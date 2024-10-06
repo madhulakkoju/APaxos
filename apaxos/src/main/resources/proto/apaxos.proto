@@ -1,0 +1,169 @@
+syntax = "proto3";
+option  java_package = "org.cse535.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+
+service Apaxos {
+
+  rpc prepare(PrepareRequest) returns (PrepareResponse) {}
+
+  rpc accept(AcceptRequest) returns (AcceptResponse) {}
+
+  rpc commit(CommitRequest) returns (CommitResponse) {}
+
+}
+
+
+service ActivateServers{
+  rpc activateServer(ActivateServerRequest) returns (ActivateServerResponse) {}
+  rpc deactivateServer(DeactivateServerRequest) returns (DeactivateServerResponse) {}
+
+}
+
+service TnxPropagate{
+  rpc propagateTransaction(TransactionInputConfig) returns (TxnResponse) {}
+}
+
+
+message TransactionInputConfig{
+  int32 setNumber = 1;
+  Transaction transaction = 2;
+
+  repeated string serverNames = 5;
+}
+
+
+message TxnResponse{
+  bool success = 1;
+  string serverName = 2;
+}
+
+
+message PrepareRequest {
+  int32 proposalNumber = 1;
+  string processId = 2; // processId is Server Name
+
+  google.protobuf.Timestamp timestamp = 3;
+}
+
+message PrepareResponse {
+  int32 proposalNumber = 1;
+  string processId = 2;
+
+  repeated Transaction transactions = 4; // response T(S) from accepting server
+
+  int32 AcceptNumProposalNumber = 5; // previous AcceptNum
+  string AcceptNumProcessId = 6; // previous AcceptNum
+  BlockOfTransactions AcceptVal = 7;
+
+  bool success = 3;
+}
+
+message AcceptRequest {
+  int32 proposalNumber = 1;
+
+  string processId = 2; // processId is Server Name initiating Accept Request
+
+  repeated Transaction transactionsToAccept = 4;
+
+  map <int32, BlockOfTransactions> syncBlocks = 5; // To utilize in case of missing blocks / failure of node
+  bool needsSync = 6;
+
+  google.protobuf.Timestamp timestamp = 3;
+
+}
+
+message AcceptResponse {
+  int32 proposalNumber = 1;
+  string processId = 2; // request sender name
+  string acceptedServerName = 3; //Current server name
+
+  bool success = 4;
+}
+
+message CommitRequest {
+  int32 proposalNumber = 1;
+  string processId = 2; // processId is Server Name
+
+  BlockOfTransactions block = 3;
+
+  google.protobuf.Timestamp timestamp = 4;
+}
+
+message CommitResponse {
+  int32 proposalNumber = 1;
+  bool success = 4;
+
+  string processId = 2; // request sender name
+  string acceptedServerName = 3; //Current server name
+}
+
+
+
+
+
+
+
+
+
+
+
+message Transaction {
+  string sender = 1;
+  string receiver = 2;
+  int32 amount = 3;
+  google.protobuf.Timestamp timestamp = 4;
+
+  string transactionHash = 5;
+}
+
+message BlockOfTransactions {
+  repeated Transaction transactions = 1;
+  int32 blockNum = 2;
+  google.protobuf.Timestamp blockCommitTime = 3;
+
+  string blockHash = 4;
+
+  int32 termNumber = 5; // proposal Number
+}
+
+
+
+
+
+
+
+message ActivateServerRequest{
+  string serverName = 1;
+}
+
+message ActivateServerResponse{
+  bool success = 1;
+  string serverName = 2;
+}
+
+message DeactivateServerRequest{
+  string serverName = 1;
+}
+
+message DeactivateServerResponse{
+  bool success = 1;
+  string serverName = 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

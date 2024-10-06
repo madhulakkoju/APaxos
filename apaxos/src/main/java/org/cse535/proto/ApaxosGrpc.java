@@ -19,12 +19,12 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
-    comments = "Source: paxos.proto")
-public final class PaxosGrpc {
+    comments = "Source: apaxos.proto")
+public final class ApaxosGrpc {
 
-  private PaxosGrpc() {}
+  private ApaxosGrpc() {}
 
-  public static final String SERVICE_NAME = "Paxos";
+  public static final String SERVICE_NAME = "Apaxos";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
@@ -38,20 +38,20 @@ public final class PaxosGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest,
       org.cse535.proto.PrepareResponse> getPrepareMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse> getPrepareMethod;
-    if ((getPrepareMethod = PaxosGrpc.getPrepareMethod) == null) {
-      synchronized (PaxosGrpc.class) {
-        if ((getPrepareMethod = PaxosGrpc.getPrepareMethod) == null) {
-          PaxosGrpc.getPrepareMethod = getPrepareMethod = 
+    if ((getPrepareMethod = ApaxosGrpc.getPrepareMethod) == null) {
+      synchronized (ApaxosGrpc.class) {
+        if ((getPrepareMethod = ApaxosGrpc.getPrepareMethod) == null) {
+          ApaxosGrpc.getPrepareMethod = getPrepareMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "Paxos", "prepare"))
+                  "Apaxos", "prepare"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.PrepareRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.PrepareResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("prepare"))
+                  .setSchemaDescriptor(new ApaxosMethodDescriptorSupplier("prepare"))
                   .build();
           }
         }
@@ -70,20 +70,20 @@ public final class PaxosGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.AcceptRequest,
       org.cse535.proto.AcceptResponse> getAcceptMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.AcceptRequest, org.cse535.proto.AcceptResponse> getAcceptMethod;
-    if ((getAcceptMethod = PaxosGrpc.getAcceptMethod) == null) {
-      synchronized (PaxosGrpc.class) {
-        if ((getAcceptMethod = PaxosGrpc.getAcceptMethod) == null) {
-          PaxosGrpc.getAcceptMethod = getAcceptMethod = 
+    if ((getAcceptMethod = ApaxosGrpc.getAcceptMethod) == null) {
+      synchronized (ApaxosGrpc.class) {
+        if ((getAcceptMethod = ApaxosGrpc.getAcceptMethod) == null) {
+          ApaxosGrpc.getAcceptMethod = getAcceptMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.AcceptRequest, org.cse535.proto.AcceptResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "Paxos", "accept"))
+                  "Apaxos", "accept"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.AcceptRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.AcceptResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("accept"))
+                  .setSchemaDescriptor(new ApaxosMethodDescriptorSupplier("accept"))
                   .build();
           }
         }
@@ -102,20 +102,20 @@ public final class PaxosGrpc {
   public static io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest,
       org.cse535.proto.CommitResponse> getCommitMethod() {
     io.grpc.MethodDescriptor<org.cse535.proto.CommitRequest, org.cse535.proto.CommitResponse> getCommitMethod;
-    if ((getCommitMethod = PaxosGrpc.getCommitMethod) == null) {
-      synchronized (PaxosGrpc.class) {
-        if ((getCommitMethod = PaxosGrpc.getCommitMethod) == null) {
-          PaxosGrpc.getCommitMethod = getCommitMethod = 
+    if ((getCommitMethod = ApaxosGrpc.getCommitMethod) == null) {
+      synchronized (ApaxosGrpc.class) {
+        if ((getCommitMethod = ApaxosGrpc.getCommitMethod) == null) {
+          ApaxosGrpc.getCommitMethod = getCommitMethod = 
               io.grpc.MethodDescriptor.<org.cse535.proto.CommitRequest, org.cse535.proto.CommitResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "Paxos", "commit"))
+                  "Apaxos", "commit"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.CommitRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.cse535.proto.CommitResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new PaxosMethodDescriptorSupplier("commit"))
+                  .setSchemaDescriptor(new ApaxosMethodDescriptorSupplier("commit"))
                   .build();
           }
         }
@@ -126,29 +126,29 @@ public final class PaxosGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static PaxosStub newStub(io.grpc.Channel channel) {
-    return new PaxosStub(channel);
+  public static ApaxosStub newStub(io.grpc.Channel channel) {
+    return new ApaxosStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static PaxosBlockingStub newBlockingStub(
+  public static ApaxosBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new PaxosBlockingStub(channel);
+    return new ApaxosBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static PaxosFutureStub newFutureStub(
+  public static ApaxosFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new PaxosFutureStub(channel);
+    return new ApaxosFutureStub(channel);
   }
 
   /**
    */
-  public static abstract class PaxosImplBase implements io.grpc.BindableService {
+  public static abstract class ApaxosImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -200,20 +200,20 @@ public final class PaxosGrpc {
 
   /**
    */
-  public static final class PaxosStub extends io.grpc.stub.AbstractStub<PaxosStub> {
-    private PaxosStub(io.grpc.Channel channel) {
+  public static final class ApaxosStub extends io.grpc.stub.AbstractStub<ApaxosStub> {
+    private ApaxosStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private PaxosStub(io.grpc.Channel channel,
+    private ApaxosStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected PaxosStub build(io.grpc.Channel channel,
+    protected ApaxosStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new PaxosStub(channel, callOptions);
+      return new ApaxosStub(channel, callOptions);
     }
 
     /**
@@ -243,20 +243,20 @@ public final class PaxosGrpc {
 
   /**
    */
-  public static final class PaxosBlockingStub extends io.grpc.stub.AbstractStub<PaxosBlockingStub> {
-    private PaxosBlockingStub(io.grpc.Channel channel) {
+  public static final class ApaxosBlockingStub extends io.grpc.stub.AbstractStub<ApaxosBlockingStub> {
+    private ApaxosBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private PaxosBlockingStub(io.grpc.Channel channel,
+    private ApaxosBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected PaxosBlockingStub build(io.grpc.Channel channel,
+    protected ApaxosBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new PaxosBlockingStub(channel, callOptions);
+      return new ApaxosBlockingStub(channel, callOptions);
     }
 
     /**
@@ -283,20 +283,20 @@ public final class PaxosGrpc {
 
   /**
    */
-  public static final class PaxosFutureStub extends io.grpc.stub.AbstractStub<PaxosFutureStub> {
-    private PaxosFutureStub(io.grpc.Channel channel) {
+  public static final class ApaxosFutureStub extends io.grpc.stub.AbstractStub<ApaxosFutureStub> {
+    private ApaxosFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private PaxosFutureStub(io.grpc.Channel channel,
+    private ApaxosFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected PaxosFutureStub build(io.grpc.Channel channel,
+    protected ApaxosFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new PaxosFutureStub(channel, callOptions);
+      return new ApaxosFutureStub(channel, callOptions);
     }
 
     /**
@@ -333,10 +333,10 @@ public final class PaxosGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final PaxosImplBase serviceImpl;
+    private final ApaxosImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(PaxosImplBase serviceImpl, int methodId) {
+    MethodHandlers(ApaxosImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -373,32 +373,32 @@ public final class PaxosGrpc {
     }
   }
 
-  private static abstract class PaxosBaseDescriptorSupplier
+  private static abstract class ApaxosBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    PaxosBaseDescriptorSupplier() {}
+    ApaxosBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return org.cse535.proto.PaxosOuterClass.getDescriptor();
+      return org.cse535.proto.ApaxosOuterClass.getDescriptor();
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("Paxos");
+      return getFileDescriptor().findServiceByName("Apaxos");
     }
   }
 
-  private static final class PaxosFileDescriptorSupplier
-      extends PaxosBaseDescriptorSupplier {
-    PaxosFileDescriptorSupplier() {}
+  private static final class ApaxosFileDescriptorSupplier
+      extends ApaxosBaseDescriptorSupplier {
+    ApaxosFileDescriptorSupplier() {}
   }
 
-  private static final class PaxosMethodDescriptorSupplier
-      extends PaxosBaseDescriptorSupplier
+  private static final class ApaxosMethodDescriptorSupplier
+      extends ApaxosBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    PaxosMethodDescriptorSupplier(String methodName) {
+    ApaxosMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -413,11 +413,11 @@ public final class PaxosGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (PaxosGrpc.class) {
+      synchronized (ApaxosGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new PaxosFileDescriptorSupplier())
+              .setSchemaDescriptor(new ApaxosFileDescriptorSupplier())
               .addMethod(getPrepareMethod())
               .addMethod(getAcceptMethod())
               .addMethod(getCommitMethod())
