@@ -126,6 +126,7 @@ message Transaction {
   google.protobuf.Timestamp timestamp = 4;
 
   string transactionHash = 5;
+  int32 transactionNum = 6;
 }
 
 message BlockOfTransactions {
@@ -168,9 +169,12 @@ message DeactivateServerResponse{
 
 
 
-message CommandInput{}
+message CommandInput{
+}
 
-message CommandOutput{}
+message CommandOutput{
+  string output = 1;
+}
 
 
 

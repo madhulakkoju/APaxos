@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     receiver_ = "";
     amount_ = 0;
     transactionHash_ = "";
+    transactionNum_ = 0;
   }
 
   @java.lang.Override
@@ -80,6 +81,11 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             transactionHash_ = s;
+            break;
+          }
+          case 48: {
+
+            transactionNum_ = input.readInt32();
             break;
           }
           default: {
@@ -246,6 +252,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TRANSACTIONNUM_FIELD_NUMBER = 6;
+  private int transactionNum_;
+  /**
+   * <code>int32 transactionNum = 6;</code>
+   */
+  public int getTransactionNum() {
+    return transactionNum_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -275,6 +290,9 @@ private static final long serialVersionUID = 0L;
     if (!getTransactionHashBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, transactionHash_);
     }
+    if (transactionNum_ != 0) {
+      output.writeInt32(6, transactionNum_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -300,6 +318,10 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTransactionHashBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, transactionHash_);
+    }
+    if (transactionNum_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(6, transactionNum_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -330,6 +352,8 @@ private static final long serialVersionUID = 0L;
     }
     result = result && getTransactionHash()
         .equals(other.getTransactionHash());
+    result = result && (getTransactionNum()
+        == other.getTransactionNum());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -353,6 +377,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TRANSACTIONHASH_FIELD_NUMBER;
     hash = (53 * hash) + getTransactionHash().hashCode();
+    hash = (37 * hash) + TRANSACTIONNUM_FIELD_NUMBER;
+    hash = (53 * hash) + getTransactionNum();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -500,6 +526,8 @@ private static final long serialVersionUID = 0L;
       }
       transactionHash_ = "";
 
+      transactionNum_ = 0;
+
       return this;
     }
 
@@ -535,6 +563,7 @@ private static final long serialVersionUID = 0L;
         result.timestamp_ = timestampBuilder_.build();
       }
       result.transactionHash_ = transactionHash_;
+      result.transactionNum_ = transactionNum_;
       onBuilt();
       return result;
     }
@@ -600,6 +629,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getTransactionHash().isEmpty()) {
         transactionHash_ = other.transactionHash_;
         onChanged();
+      }
+      if (other.getTransactionNum() != 0) {
+        setTransactionNum(other.getTransactionNum());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -976,6 +1008,32 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       transactionHash_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int transactionNum_ ;
+    /**
+     * <code>int32 transactionNum = 6;</code>
+     */
+    public int getTransactionNum() {
+      return transactionNum_;
+    }
+    /**
+     * <code>int32 transactionNum = 6;</code>
+     */
+    public Builder setTransactionNum(int value) {
+      
+      transactionNum_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 transactionNum = 6;</code>
+     */
+    public Builder clearTransactionNum() {
+      
+      transactionNum_ = 0;
       onChanged();
       return this;
     }

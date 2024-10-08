@@ -6,6 +6,7 @@ import org.cse535.proto.BlockOfTransactions;
 import org.cse535.proto.Transaction;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class LeaderLocalTnxStore {
@@ -61,14 +62,7 @@ public class LeaderLocalTnxStore {
     }
 
     public void reorderTransactionsBasedOnTimestamp(){
-        transactions.sort((tnx1, tnx2) -> {
-
-            if(tnx1.getTimestamp().getSeconds() == tnx2.getTimestamp().getSeconds())
-                return tnx1.getTimestamp().getNanos() - tnx2.getTimestamp().getNanos();
-
-            return Math.toIntExact(tnx1.getTimestamp().getSeconds() - tnx2.getTimestamp().getSeconds());
-
-        });
+        transactions.sort(Comparator.comparingInt(Transaction::getTransactionNum));
     }
 
 }

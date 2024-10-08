@@ -54,4 +54,9 @@ public interface TransactionOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTransactionHashBytes();
+
+  /**
+   * <code>int32 transactionNum = 6;</code>
+   */
+  int getTransactionNum();
 }

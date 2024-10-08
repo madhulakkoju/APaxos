@@ -3,12 +3,17 @@ package org.cse535.database;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.node.Node;
 import org.cse535.proto.BlockOfTransactions;
+import org.cse535.proto.TransactionInputConfig;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.PriorityBlockingQueue;
 
 @Data
 public class DatabaseService {
@@ -36,6 +41,14 @@ public class DatabaseService {
 
 
 
+    //These are from Node class
+    public int currentProposalNumber; // Term Number of prepare request
+    public String currentServerId; // Server Id of prepare request
+
+    public PriorityBlockingQueue<TransactionInputConfig> incomingTransactionsQueue;
+
+    public LocalTransactionStore localTransactionLog;
+    public LeaderLocalTnxStore leaderTransactionLog;
 
 
 
@@ -43,15 +56,23 @@ public class DatabaseService {
 
 
 
-
-
-    public DatabaseService(){
+    public DatabaseService(String serverName){
         this.blocks = new HashMap<>();
         this.AcceptedBlockOfTransactions = null;
         this.AcceptedproposalNumber = 0;
-        this.AcceptedServerId = null;
+        this.AcceptedServerId = "";
         this.AccountBalance = GlobalConfigs.INIT_BALANCE;
         this.CommittedAccountBalance = GlobalConfigs.INIT_BALANCE;
+
+
+        this.currentServerId = serverName;
+        this.incomingTransactionsQueue = new PriorityBlockingQueue<>(100, new Comparator<TransactionInputConfig>() {
+            @Override
+            public int compare(TransactionInputConfig o1, TransactionInputConfig o2) {
+                return o1.getTransaction().getTransactionNum() - o2.getTransaction().getTransactionNum();
+            }
+        });
+        this.localTransactionLog = new LocalTransactionStore();
     }
 
     public BlockOfTransactions getBlock(int termNumber){
@@ -72,6 +93,7 @@ public class DatabaseService {
     public void updateDatabaseWithBlocks(List<BlockOfTransactions> blocks){
         for (BlockOfTransactions block : blocks){
             this.blocks.put(block.getTermNumber(), block);
+            Main.node.logger.log("Block added: " + block.getTermNumber());
         }
     }
 
@@ -79,20 +101,23 @@ public class DatabaseService {
         this.blocks.put(termNumber, block);
         this.CommittedAccountBalance = balanceAfterTransactions;
         this.CommittedProposalNumber = termNumber;
-
         this.transactionsCommitted += block.getTransactionsCount();
-
+        Main.node.logger.log("Block committed: " + termNumber);
     }
 
     public void uncommitBlock(int termNumber){
 
         this.transactionsCommitted -= blocks.get(termNumber).getTransactionsCount();
         this.transactionsAborted += blocks.get(termNumber).getTransactionsCount();
-
-
-
         this.blocks.remove(termNumber);
+
+        Main.node.logger.log("Block removed: " + termNumber);
     }
+
+
+
+
+
 
 
 
@@ -178,5 +203,27 @@ public class DatabaseService {
         return blocks;
     }
 
+    public LeaderLocalTnxStore getLeaderTransactionLog() {
+        return leaderTransactionLog;
+    }
 
+    public void setLeaderTransactionLog(LeaderLocalTnxStore leaderTransactionLog) {
+        this.leaderTransactionLog = leaderTransactionLog;
+    }
+
+    public LocalTransactionStore getLocalTransactionLog() {
+        return localTransactionLog;
+    }
+
+    public void setLocalTransactionLog(LocalTransactionStore localTransactionLog) {
+        this.localTransactionLog = localTransactionLog;
+    }
+
+    public PriorityBlockingQueue<TransactionInputConfig> getIncomingTransactionsQueue() {
+        return incomingTransactionsQueue;
+    }
+
+    public void setIncomingTransactionsQueue(PriorityBlockingQueue<TransactionInputConfig> incomingTransactionsQueue) {
+        this.incomingTransactionsQueue = incomingTransactionsQueue;
+    }
 }

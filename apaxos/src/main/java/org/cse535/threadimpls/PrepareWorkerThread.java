@@ -1,10 +1,15 @@
 package org.cse535.threadimpls;
 
+import io.grpc.ManagedChannel;
+import lombok.var;
+import org.cse535.Main;
 import org.cse535.node.Node;
 import org.cse535.proto.ApaxosGrpc;
 import org.cse535.proto.PrepareRequest;
 import org.cse535.proto.PrepareResponse;
 import org.cse535.service.ApaxosService;
+
+import static java.lang.System.in;
 
 // PrepareWorkerThread  to communicate with other nodes to prepare phase
 public class PrepareWorkerThread extends Thread {
@@ -27,6 +32,18 @@ public class PrepareWorkerThread extends Thread {
         if(this.targetPort == this.node.port){
             return;
         }
+        Main.node.logger.log("PrepareWorkerThread: " + this.targetServerName + " started");
+        Main.node.logger.log("Server to channel: " + this.node.serversToChannel.toString());
+
+
+        for(ManagedChannel a : this.node.serversToChannel.values() ){
+            Main.node.logger.log(a.toString());
+        }
+
+        for(String a : this.node.serversToChannel.keySet() ){
+            Main.node.logger.log(a);
+        }
+
         ApaxosGrpc.ApaxosBlockingStub blockingStub = ApaxosGrpc.newBlockingStub(
                 this.node.serversToChannel.get(this.targetServerName)
         );

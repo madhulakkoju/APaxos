@@ -137,21 +137,22 @@ public final class ApaxosOuterClass {
       "\004 \001(\0132\032.google.protobuf.Timestamp\"h\n\016Com" +
       "mitResponse\022\026\n\016proposalNumber\030\001 \001(\005\022\017\n\007s" +
       "uccess\030\004 \001(\010\022\021\n\tprocessId\030\002 \001(\t\022\032\n\022accep" +
-      "tedServerName\030\003 \001(\t\"\207\001\n\013Transaction\022\016\n\006s" +
+      "tedServerName\030\003 \001(\t\"\237\001\n\013Transaction\022\016\n\006s" +
       "ender\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t\022\016\n\006amount\030" +
       "\003 \001(\005\022-\n\ttimestamp\030\004 \001(\0132\032.google.protob" +
-      "uf.Timestamp\022\027\n\017transactionHash\030\005 \001(\t\"\247\001" +
-      "\n\023BlockOfTransactions\022\"\n\014transactions\030\001 " +
-      "\003(\0132\014.Transaction\022\020\n\010blockNum\030\002 \001(\005\0223\n\017b" +
-      "lockCommitTime\030\003 \001(\0132\032.google.protobuf.T" +
-      "imestamp\022\021\n\tblockHash\030\004 \001(\t\022\022\n\ntermNumbe" +
-      "r\030\005 \001(\005\"+\n\025ActivateServerRequest\022\022\n\nserv" +
-      "erName\030\001 \001(\t\"=\n\026ActivateServerResponse\022\017" +
-      "\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"-\n\027D" +
-      "eactivateServerRequest\022\022\n\nserverName\030\001 \001" +
-      "(\t\"?\n\030DeactivateServerResponse\022\017\n\007succes" +
-      "s\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"\016\n\014CommandIn" +
-      "put\"\017\n\rCommandOutput2\222\001\n\006Apaxos\022.\n\007prepa" +
+      "uf.Timestamp\022\027\n\017transactionHash\030\005 \001(\t\022\026\n" +
+      "\016transactionNum\030\006 \001(\005\"\247\001\n\023BlockOfTransac" +
+      "tions\022\"\n\014transactions\030\001 \003(\0132\014.Transactio" +
+      "n\022\020\n\010blockNum\030\002 \001(\005\0223\n\017blockCommitTime\030\003" +
+      " \001(\0132\032.google.protobuf.Timestamp\022\021\n\tbloc" +
+      "kHash\030\004 \001(\t\022\022\n\ntermNumber\030\005 \001(\005\"+\n\025Activ" +
+      "ateServerRequest\022\022\n\nserverName\030\001 \001(\t\"=\n\026" +
+      "ActivateServerResponse\022\017\n\007success\030\001 \001(\010\022" +
+      "\022\n\nserverName\030\002 \001(\t\"-\n\027DeactivateServerR" +
+      "equest\022\022\n\nserverName\030\001 \001(\t\"?\n\030Deactivate" +
+      "ServerResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserve" +
+      "rName\030\002 \001(\t\"\016\n\014CommandInput\"\037\n\rCommandOu" +
+      "tput\022\016\n\006output\030\001 \001(\t2\222\001\n\006Apaxos\022.\n\007prepa" +
       "re\022\017.PrepareRequest\032\020.PrepareResponse\"\000\022" +
       "+\n\006accept\022\016.AcceptRequest\032\017.AcceptRespon" +
       "se\"\000\022+\n\006commit\022\016.CommitRequest\032\017.CommitR" +
@@ -241,7 +242,7 @@ public final class ApaxosOuterClass {
     internal_static_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Transaction_descriptor,
-        new java.lang.String[] { "Sender", "Receiver", "Amount", "Timestamp", "TransactionHash", });
+        new java.lang.String[] { "Sender", "Receiver", "Amount", "Timestamp", "TransactionHash", "TransactionNum", });
     internal_static_BlockOfTransactions_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_BlockOfTransactions_fieldAccessorTable = new
@@ -283,7 +284,7 @@ public final class ApaxosOuterClass {
     internal_static_CommandOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandOutput_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Output", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

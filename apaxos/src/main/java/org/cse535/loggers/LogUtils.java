@@ -24,7 +24,7 @@ public class LogUtils {
 
     public LogUtils(String fileName, int portId) {
         super();
-        this.filePath = "Logs/"+fileName+".txt";
+        this.filePath = "Logs/"+portId+"-"+fileName+".txt";
         this.portId = portId;
         this.initializeLogger();
     }

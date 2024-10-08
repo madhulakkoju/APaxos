@@ -2,16 +2,22 @@ package org.cse535.node;
 
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
-import org.cse535.service.ActivateServersService;
-import org.cse535.service.TransactionPropagateService;
 
 import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import static org.cse535.configs.GlobalConfigs.allServers;
 
 public class ViewServer extends NodeServer{
+
+    public enum Command {
+        PrintDB,
+        PrintBalance,
+        PrintLog,
+        Performance
+    }
 
     public ViewServer(String serverName, int port) {
         super(serverName, port);
@@ -22,7 +28,7 @@ public class ViewServer extends NodeServer{
         }
     }
 
-    public static TransactionInputConfig parseTnxConfig(String line) {
+    public static TransactionInputConfig parseTnxConfig(String line, int tnxCount) {
         String[] tnx = line.split(",");    // use comma as separator
 
         if(tnx.length < 3) {
@@ -34,16 +40,15 @@ public class ViewServer extends NodeServer{
                 .setSender(tnx[1])
                 .setReceiver(tnx[2])
                 .setAmount(Integer.parseInt(tnx[3]))
+                .setTransactionNum(tnxCount)
                 .build();
 
-        TransactionInputConfig transactionInputConfig = TransactionInputConfig.newBuilder()
+        return TransactionInputConfig.newBuilder()
                 .setSetNumber(Integer.parseInt(tnx[0]))
                 .setTransaction( transaction )
                 .addAllServerNames(Arrays.asList(Arrays.copyOfRange(
                         tnx , 4, tnx.length)))
                 .build();
-
-        return transactionInputConfig;
     }
 
     public void sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
@@ -67,7 +72,36 @@ public class ViewServer extends NodeServer{
 
     }
 
+    public void sendCommandToServers(Command commandType, HashMap<String, Boolean> activeServersStatusMap) throws InterruptedException {
+        CommandInput commandInput = CommandInput.newBuilder().build();
 
+        Thread.sleep(1000);
+
+        activeServersStatusMap.forEach((server, isActive) -> {
+            if (!server.equals(this.serverName) && isActive) {
+                CommandsGrpc.CommandsBlockingStub stub = this.serversToCommandsStub.get(server);
+                CommandOutput op  = CommandOutput.newBuilder().setOutput("No Output").build() ;
+
+                switch (commandType) {
+                    case PrintDB:
+                        op = stub.printDB(commandInput);
+                        break;
+                    case PrintBalance:
+                        op = stub.printBalance(commandInput);
+                        break;
+                    case PrintLog:
+                        op = stub.printLog(commandInput);
+                        break;
+                    case Performance:
+                        op = stub.performance(commandInput);
+                        break;
+                }
+
+                this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
+            }
+        });
+
+    }
 
 
 
@@ -76,6 +110,15 @@ public class ViewServer extends NodeServer{
 
         ViewServer viewServer = new ViewServer("vs", 8000);
 
+        HashSet<String> commandsSet = new HashSet<>();
+        commandsSet.add("PrintDB");
+        commandsSet.add("PrintBalance");
+        commandsSet.add("PrintLog");
+        commandsSet.add("Performance");
+
+
+        int tnxCount = 1;
+        int lineNum = 0;
 
         HashMap<String, Boolean> activeServersStatusMap = new HashMap<>();
 
@@ -84,7 +127,7 @@ public class ViewServer extends NodeServer{
         }
 
         File file = new File("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv");
-        String line = "";
+        String line;
         if (file.exists()) {
             System.out.println("File exists");
 
@@ -95,12 +138,21 @@ public class ViewServer extends NodeServer{
 
             while ((line = br.readLine()) != null)   //returns a Boolean value
             {
-                System.out.println("Line: " + line);
+                lineNum++;
 
-                TransactionInputConfig transactionInputConfig = parseTnxConfig(line);
+
+                System.out.println("Line: " + line);
+                viewServer.logger.log("-------------------------------------------------------------\nLine: "+ lineNum +" : "+ line);
+
+                TransactionInputConfig transactionInputConfig = parseTnxConfig(line, tnxCount++);
 
                 if (transactionInputConfig == null) {
-                    System.out.println("Invalid transaction");
+                    //System.out.println("Invalid transaction");
+                    tnxCount -- ;
+
+                    if(commandsSet.contains(line)) {
+                        viewServer.sendCommandToServers(Command.valueOf(line), activeServersStatusMap);
+                    }
                     continue;
                 }
 
@@ -133,14 +185,7 @@ public class ViewServer extends NodeServer{
                                     .setServerName(server)
                                     .build();
 
-                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
-
-                            System.out.println(stub.toString());
-
-
-
-
-                            ActivateServerResponse response = stub.activateServer(request);
+                            ActivateServerResponse response = viewServer.serversToActivateServersStub.get(server).activateServer(request);
 
                             if(response.getSuccess()) {
                                 System.out.println("Server: " + server + " is activated");
@@ -151,19 +196,19 @@ public class ViewServer extends NodeServer{
                         } else {
                             System.out.println("Server: " + server + " is inactive");
 
-                            DeactivateServerRequest request = DeactivateServerRequest.newBuilder()
-                                    .setServerName(server)
-                                    .build();
-
-                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
-
-                            DeactivateServerResponse response = stub.deactivateServer(request);
-
-                            if(response.getSuccess()) {
-                                System.out.println("Server: " + server + " is deactivated");
-                            } else {
-                                System.out.println("Server: " + server + " is not deactivated");
-                            }
+//                            DeactivateServerRequest request = DeactivateServerRequest.newBuilder()
+//                                    .setServerName(server)
+//                                    .build();
+//
+//                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
+//
+//                            DeactivateServerResponse response = stub.deactivateServer(request);
+//
+//                            if(response.getSuccess()) {
+//                                System.out.println("Server: " + server + " is deactivated");
+//                            } else {
+//                                System.out.println("Server: " + server + " is not deactivated");
+//                            }
 
                         }
                     }
