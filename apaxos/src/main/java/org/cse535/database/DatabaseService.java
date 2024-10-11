@@ -1,5 +1,6 @@
 package org.cse535.database;
 
+import com.google.protobuf.Timestamp;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,7 @@ public class DatabaseService {
     private int CommittedProposalNumber;
 
     private HashMap<Integer, BlockOfTransactions> blocks;
+    private HashMap<Integer, Integer> balanceAfterCommit;
 
 
 
@@ -51,13 +53,19 @@ public class DatabaseService {
     public LeaderLocalTnxStore leaderTransactionLog;
 
 
+    public Timestamp lastPrepareAckTimestamp;
+    private String lastPrepareAckServer;
 
-
+    public Timestamp lastAcceptAckTimestamp;
+    public Timestamp lastCommitTimestamp;
 
 
 
     public DatabaseService(String serverName){
         this.blocks = new HashMap<>();
+        this.balanceAfterCommit = new HashMap<>();
+        this.balanceAfterCommit.put(0, GlobalConfigs.INIT_BALANCE);
+
         this.AcceptedBlockOfTransactions = null;
         this.AcceptedproposalNumber = 0;
         this.AcceptedServerId = "";
@@ -73,6 +81,11 @@ public class DatabaseService {
             }
         });
         this.localTransactionLog = new LocalTransactionStore();
+
+        this.lastPrepareAckTimestamp = Timestamp.newBuilder().setSeconds(0).setNanos(0).build();
+        this.lastAcceptAckTimestamp = Timestamp.newBuilder().setSeconds(0).setNanos(0).build();
+        this.lastCommitTimestamp = Timestamp.newBuilder().setSeconds(0).setNanos(0).build();
+
     }
 
     public BlockOfTransactions getBlock(int termNumber){
@@ -85,6 +98,17 @@ public class DatabaseService {
         for (int i = termNumber; i <= currentTerm; i++){
             if(blocks.containsKey(i))
                 blocksToReturn.add(blocks.get(i));
+        }
+
+        return blocksToReturn;
+    }
+
+    public HashMap<Integer, BlockOfTransactions> getBlocksFromTermToCurrent(int termNumber){
+        HashMap<Integer, BlockOfTransactions> blocksToReturn = new HashMap<>();
+
+        for (int i = termNumber; i <= this.getCommittedProposalNumber(); i++){
+            if(blocks.containsKey(i))
+                blocksToReturn.put(i, blocks.get(i));
         }
 
         return blocksToReturn;
@@ -103,6 +127,7 @@ public class DatabaseService {
         this.CommittedProposalNumber = termNumber;
         this.transactionsCommitted += block.getTransactionsCount();
         Main.node.logger.log("Block committed: " + termNumber);
+        this.balanceAfterCommit.put(termNumber, balanceAfterTransactions);
     }
 
     public void uncommitBlock(int termNumber){
@@ -225,5 +250,33 @@ public class DatabaseService {
 
     public void setIncomingTransactionsQueue(PriorityBlockingQueue<TransactionInputConfig> incomingTransactionsQueue) {
         this.incomingTransactionsQueue = incomingTransactionsQueue;
+    }
+
+    public Timestamp getLastCommitTimestamp() {
+        return lastCommitTimestamp;
+    }
+
+    public void setLastCommitTimestamp(Timestamp lastCommitTimestamp) {
+        this.lastCommitTimestamp = lastCommitTimestamp;
+    }
+
+    public Timestamp getLastAcceptAckTimestamp() {
+        return lastAcceptAckTimestamp;
+    }
+
+    public void setLastAcceptAckTimestamp(Timestamp lastAcceptAckTimestamp) {
+        this.lastAcceptAckTimestamp = lastAcceptAckTimestamp;
+    }
+
+    public Timestamp getLastPrepareAckTimestamp() {
+        return lastPrepareAckTimestamp;
+    }
+
+    public void setLastPrepareAckTimestamp(Timestamp lastPrepareAckTimestamp) {
+        this.lastPrepareAckTimestamp = lastPrepareAckTimestamp;
+    }
+
+    public void setLastPrepareAckServerId(String processId) {
+        this.lastPrepareAckServer = processId;
     }
 }

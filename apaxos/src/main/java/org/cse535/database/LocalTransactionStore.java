@@ -32,4 +32,7 @@ public class LocalTransactionStore {
     }
 
 
+    public void clearTransactions() {
+        localTransactions.clear();
+    }
 }

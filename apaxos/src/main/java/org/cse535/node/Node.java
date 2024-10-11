@@ -1,17 +1,17 @@
 package org.cse535.node;
 
 
+import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.Utils;
 import org.cse535.database.LeaderLocalTnxStore;
-import org.cse535.database.LocalTransactionStore;
 import org.cse535.proto.*;
 import org.cse535.threadimpls.AcceptWorkerThread;
 import org.cse535.threadimpls.CommitWorkerThread;
 import org.cse535.threadimpls.PrepareWorkerThread;
 
 import java.io.IOException;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.concurrent.PriorityBlockingQueue;
+import java.util.Map;
 
 import static com.google.protobuf.util.Timestamps.fromMillis;
 import static java.lang.System.currentTimeMillis;
@@ -83,6 +83,11 @@ public class Node extends NodeServer{
 
                 TransactionInputConfig transactionInput = this.database.incomingTransactionsQueue.take();
 
+                if( ! transactionInput.getTransaction().getSender().equals(this.serverName) ){
+                    this.logger.log("Transaction not for this client / server");
+                    continue;
+                }
+
                 this.currentActiveServers = transactionInput.getServerNamesList();
 
                 Transaction transaction = transactionInput.getTransaction();
@@ -112,9 +117,13 @@ public class Node extends NodeServer{
                     }
                     else {
                         this.logger.log("Prepare Phase Failed");
-                        this.database.getIncomingTransactionsQueue().add(transactionInput);
+
+                        Thread.sleep(GlobalConfigs.PHASE_TIMEOUT);
                     }
+
+                    this.database.getIncomingTransactionsQueue().add(transactionInput);
                 }
+
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -131,7 +140,6 @@ public class Node extends NodeServer{
             this.database.setAccountBalance( this.database.getAccountBalance() - transaction.getAmount());
             this.database.localTransactionLog.addTransaction(transaction);
             this.database.incrementTransactionsProcessed();
-
             return true; // No Consensus
         }
         this.logger.log("Transaction Rejected -> Directed to Consensus");
@@ -182,14 +190,9 @@ public class Node extends NodeServer{
 
                 // Majority have accepted the proposal.
                 // Now, we need to check if the current Node (Leader is on the same page with the majority)
-
-
                 this.database.leaderTransactionLog.clearTransactions();
-
                 //Leader local tnxs are added to compiled list
                 this.database.leaderTransactionLog.addAllTransactions(this.database.localTransactionLog.getAllTransactions());
-
-
                 this.prepareResponseMap.forEach((serverName, prepareResponse) -> {
 
                     if(prepareResponse.getSuccess()){
@@ -200,11 +203,11 @@ public class Node extends NodeServer{
 
                 // we now have prepared a compiled list of transactions.
                 this.database.leaderTransactionLog.reorderTransactionsBasedOnTimestamp();
-
                 this.database.leaderTransactionLog.computeBalanceAfterTransactions();
 
-                // Next, we need to send this compiled list to all the servers for acceptance.
+                this.database.localTransactionLog.clearTransactions();
 
+                // Next, we need to send this compiled list to all the servers for acceptance.
                 return true;
             }
 
@@ -222,10 +225,24 @@ public class Node extends NodeServer{
 
             this.acceptResponseMap.clear();
 
+            int minCommittedTermNumber = this.database.getCommittedProposalNumber();
+
+            for (Map.Entry<String, PrepareResponse> entry : prepareResponseMap.entrySet()) {
+                PrepareResponse prepareResponse = entry.getValue();
+                if (prepareResponse.getSuccess()) {
+                    minCommittedTermNumber = Math.min(minCommittedTermNumber, prepareResponse.getAcceptNumProposalNumber());
+                }
+            }
+
+
+
+
             AcceptRequest acceptRequest = AcceptRequest.newBuilder()
                     .setProposalNumber(this.database.currentProposalNumber)
                     .setProcessId(this.database.currentServerId)
                     .setTimestamp(fromMillis(currentTimeMillis()))
+                    .putAllSyncBlocks(this.database.getBlocksFromTermToCurrent(minCommittedTermNumber))
+                    .setNeedsSync( minCommittedTermNumber != this.database.getCommittedProposalNumber() )
                     .addAllTransactionsToAccept(this.database.leaderTransactionLog.getAllTransactions())
                     .build();
 
@@ -251,15 +268,6 @@ public class Node extends NodeServer{
                     continue;
                 acceptThread.join();
             }
-
-//
-//            for(int i=0;i< this.currentActiveServers.size();i++){
-//                acceptThreads[i].start();
-//            }
-//
-//            for(int i=0;i< this.currentActiveServers.size();i++){
-//                acceptThreads[i].join();
-//            }
 
             return true;
 
@@ -292,13 +300,14 @@ public class Node extends NodeServer{
                             commitRequest);
                 }
 
-                for(int i=0;i< serversToPortMap.size();i++){
+                for(int i=0;i< this.currentActiveServers.size();i++){
                     commitThreads[i].start();
                 }
 
-                for(int i=0;i< serversToPortMap.size();i++){
+                for(int i=0;i< this.currentActiveServers.size();i++){
                     commitThreads[i].join();
                 }
+
                 this.logger.log("Commit Phase Completed");
                 return true;
         }
@@ -318,12 +327,18 @@ public class Node extends NodeServer{
 
     public PrepareResponse handlePreparePhase(PrepareRequest request) {
         PrepareResponse.Builder prepareResponse = PrepareResponse.newBuilder();
+        this.logger.log("Prepare Request Received from " + request.getProcessId() );
 
-        if(request.getProposalNumber() > this.database.getAcceptedproposalNumber()){
+        this.logger.log("Prepare Request --> Request Proposal Number: " + request.getProposalNumber()
+                + " DB Accepted Proposal Number: " + this.database.getAcceptedproposalNumber() );
 
+        if( request.getProposalNumber() > this.database.getAcceptedproposalNumber()
+//              && (this.database.getLastPrepareAckTimestamp().getSeconds() >  request.getTimestamp().getSeconds() ||
+//                        ( this.database.getLastPrepareAckTimestamp().getSeconds() == request.getTimestamp().getSeconds() &&
+//                                this.database.getLastPrepareAckTimestamp().getNanos() > request.getTimestamp().getNanos() ) )
+        ) {
             prepareResponse.setProposalNumber(request.getProposalNumber());
             prepareResponse.setProcessId(request.getProcessId());
-
             prepareResponse.setSuccess(true);
 
             if(this.database.localTransactionLog.getAllTransactions() != null)
@@ -336,11 +351,14 @@ public class Node extends NodeServer{
 
             if(this.database.getAcceptedBlockOfTransactions() != null)
                 prepareResponse.setAcceptVal(this.database.getAcceptedBlockOfTransactions());
+
+            this.database.setLastPrepareAckTimestamp(request.getTimestamp());
+
+            this.database.setLastPrepareAckServerId(request.getProcessId());
         }
         else{
             prepareResponse.setSuccess(false);
         }
-
         return prepareResponse.build();
     }
 
@@ -349,28 +367,33 @@ public class Node extends NodeServer{
 
         boolean acceptProposal = false;
 
-        // Candidate is up-to-date with the Leader's previous blocks
-        if(request.getProposalNumber() == this.database.getAcceptedproposalNumber() + 1){
-            acceptProposal = true;
-            acceptResponse.setSuccess(true);
+        if(this.database.getLastPrepareAckServer().equals(request.getProcessId())){
+            // Candidate is up-to-date with the Leader's previous blocks
+            if(request.getProposalNumber() == this.database.getAcceptedproposalNumber() + 1){
+                acceptProposal = true;
+                acceptResponse.setSuccess(true);
 
-        }
-        else if( request.getProposalNumber() > this.database.getAcceptedproposalNumber()){
-
-            for(int i = this.database.getCommittedProposalNumber()+1; i < request.getProposalNumber(); i++){
-
-                this.database.commitBlock(i,
-                        request.getSyncBlocksMap().get(i),
-                        recomputeBalanceBeforeCommit(request.getSyncBlocksMap().get(i), this.database.getCommittedAccountBalance())
-                );
             }
+            else if( request.getProposalNumber() > this.database.getAcceptedproposalNumber()){
 
-            acceptProposal = true;
+                for(int i = this.database.getCommittedProposalNumber()+1; i < request.getProposalNumber(); i++){
+
+                    this.database.commitBlock(i,
+                            request.getSyncBlocksMap().get(i),
+                            recomputeBalanceBeforeCommit(request.getSyncBlocksMap().get(i),
+                                    this.database.getCommittedAccountBalance())
+                    );
+                }
+
+                acceptProposal = true;
+            }
+            else{
+                acceptResponse.setSuccess(false);
+            }
         }
         else{
             acceptResponse.setSuccess(false);
         }
-
 
         if(acceptProposal){
 
@@ -391,6 +414,9 @@ public class Node extends NodeServer{
             acceptResponse.setProposalNumber(request.getProposalNumber());
             acceptResponse.setProcessId(request.getProcessId());
             acceptResponse.setAcceptedServerName(this.database.currentServerId);
+
+            this.database.setLastAcceptAckTimestamp(request.getTimestamp());
+            this.database.localTransactionLog.clearTransactions();
         }
 
         return acceptResponse.build();
@@ -411,6 +437,8 @@ public class Node extends NodeServer{
             commitResponse.setProcessId(request.getProcessId());
             commitResponse.setAcceptedServerName(this.database.currentServerId);
 
+            this.database.setLastCommitTimestamp(request.getTimestamp());
+
         }else{
             commitResponse.setSuccess(false);
         }
@@ -425,16 +453,17 @@ public class Node extends NodeServer{
     public int recomputeBalanceBeforeCommit(BlockOfTransactions block, int committedAccountBalance){
         int balance = committedAccountBalance;
 
-        for(Transaction transaction : block.getTransactionsList()){
+        if(block != null) {
+            for (Transaction transaction : block.getTransactionsList()) {
 
-            if(transaction.getSender().equals(this.serverName))
-                balance -= transaction.getAmount();
+                if (transaction.getSender().equals(this.serverName))
+                    balance -= transaction.getAmount();
 
-            else if(transaction.getReceiver().equals(this.serverName))
-                balance += transaction.getAmount();
+                else if (transaction.getReceiver().equals(this.serverName))
+                    balance += transaction.getAmount();
 
+            }
         }
-
         return balance;
     }
 
@@ -472,9 +501,11 @@ public class Node extends NodeServer{
         this.logger.log( "Committed Blocks: " );
         this.logger.log( "-------------------" );
 
-        this.database.getBlocks().forEach( (term,block) -> {
-            this.logger.log("Term : "+ term + "\nBlock:\n" + block.toString() );
-        });
+//        this.database.getBlocks().forEach( (term,block) -> {
+//            this.logger.log("Term : "+ term + "\nBlock:\n" + block.toString() );
+//        });
+
+        Utils.toString(this.database.getBlocks());
 
         this.logger.log( "-------------------" );
 

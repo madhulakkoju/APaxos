@@ -32,17 +32,8 @@ public class PrepareWorkerThread extends Thread {
         if(this.targetPort == this.node.port){
             return;
         }
-        Main.node.logger.log("PrepareWorkerThread: " + this.targetServerName + " started");
-        Main.node.logger.log("Server to channel: " + this.node.serversToChannel.toString());
-
-
-        for(ManagedChannel a : this.node.serversToChannel.values() ){
-            Main.node.logger.log(a.toString());
-        }
-
-        for(String a : this.node.serversToChannel.keySet() ){
-            Main.node.logger.log(a);
-        }
+//        Main.node.logger.log("PrepareWorkerThread: " + this.targetServerName + " started");
+//        Main.node.logger.log("Server to channel: " + this.node.serversToChannel.toString());
 
         ApaxosGrpc.ApaxosBlockingStub blockingStub = ApaxosGrpc.newBlockingStub(
                 this.node.serversToChannel.get(this.targetServerName)

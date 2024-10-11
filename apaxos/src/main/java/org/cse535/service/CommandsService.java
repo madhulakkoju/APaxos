@@ -2,6 +2,7 @@ package org.cse535.service;
 
 import io.grpc.stub.StreamObserver;
 import org.cse535.Main;
+import org.cse535.configs.Utils;
 import org.cse535.proto.CommandInput;
 import org.cse535.proto.CommandOutput;
 import org.cse535.proto.CommandsGrpc;
@@ -28,10 +29,7 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
         StringBuilder op = new StringBuilder(Main.node.serverName + "\n-----------------\n Balance: " + Main.node.getDatabase().getAccountBalance()
                 + "\n Commit Balance : " + Main.node.getDatabase().getCommittedAccountBalance());
 
-        for (int key : Main.node.getDatabase().getBlocks().keySet() ) {
-            op.append("\n Block Number: ").append(key).append(" Block: ").append(Main.node.getDatabase().getBlocks().get(key));
-        }
-
+        op.append("\n").append(Utils.toString(Main.node.getDatabase().getBlocks()));
         op.append("\n-----------------\n\n");
 
         responseObserver.onNext(CommandOutput.newBuilder().setOutput(op.toString()).build());

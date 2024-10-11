@@ -122,11 +122,11 @@ public final class ApaxosOuterClass {
       "\022\032\n\022AcceptNumProcessId\030\006 \001(\t\022\'\n\tAcceptVa" +
       "l\030\007 \001(\0132\024.BlockOfTransactions\022\017\n\007success" +
       "\030\003 \001(\010\"\245\002\n\rAcceptRequest\022\026\n\016proposalNumb" +
-      "er\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022*\n\024transacti" +
-      "onsToAccept\030\004 \003(\0132\014.Transaction\0222\n\nsyncB" +
-      "locks\030\005 \003(\0132\036.AcceptRequest.SyncBlocksEn" +
-      "try\022\021\n\tneedsSync\030\006 \001(\010\022-\n\ttimestamp\030\003 \001(" +
-      "\0132\032.google.protobuf.Timestamp\032G\n\017SyncBlo" +
+      "er\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022-\n\ttimestamp" +
+      "\030\003 \001(\0132\032.google.protobuf.Timestamp\022*\n\024tr" +
+      "ansactionsToAccept\030\004 \003(\0132\014.Transaction\0222" +
+      "\n\nsyncBlocks\030\005 \003(\0132\036.AcceptRequest.SyncB" +
+      "locksEntry\022\021\n\tneedsSync\030\006 \001(\010\032G\n\017SyncBlo" +
       "cksEntry\022\013\n\003key\030\001 \001(\005\022#\n\005value\030\002 \001(\0132\024.B" +
       "lockOfTransactions:\0028\001\"h\n\016AcceptResponse" +
       "\022\026\n\016proposalNumber\030\001 \001(\005\022\021\n\tprocessId\030\002 " +
@@ -212,7 +212,7 @@ public final class ApaxosOuterClass {
     internal_static_AcceptRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AcceptRequest_descriptor,
-        new java.lang.String[] { "ProposalNumber", "ProcessId", "TransactionsToAccept", "SyncBlocks", "NeedsSync", "Timestamp", });
+        new java.lang.String[] { "ProposalNumber", "ProcessId", "Timestamp", "TransactionsToAccept", "SyncBlocks", "NeedsSync", });
     internal_static_AcceptRequest_SyncBlocksEntry_descriptor =
       internal_static_AcceptRequest_descriptor.getNestedTypes().get(0);
     internal_static_AcceptRequest_SyncBlocksEntry_fieldAccessorTable = new

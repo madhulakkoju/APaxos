@@ -72,16 +72,11 @@ message PrepareResponse {
 
 message AcceptRequest {
   int32 proposalNumber = 1;
-
   string processId = 2; // processId is Server Name initiating Accept Request
-
+  google.protobuf.Timestamp timestamp = 3;
   repeated Transaction transactionsToAccept = 4;
-
   map <int32, BlockOfTransactions> syncBlocks = 5; // To utilize in case of missing blocks / failure of node
   bool needsSync = 6;
-
-  google.protobuf.Timestamp timestamp = 3;
-
 }
 
 message AcceptResponse {

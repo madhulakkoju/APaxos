@@ -32,7 +32,7 @@ public class ViewServer extends NodeServer{
         String[] tnx = line.split(",");    // use comma as separator
 
         if(tnx.length < 3) {
-            System.out.println("Invalid transaction");
+          //  System.out.println("Invalid transaction");
             return null;
         }
 
@@ -55,7 +55,7 @@ public class ViewServer extends NodeServer{
 
         for (String server : transactionInputConfig.getServerNamesList()) {
             if (server.equals(this.serverName)) {
-                System.out.println("Server: " + server + " is the current server");
+                //System.out.println("Server: " + server + " is the current server");
                 continue;
             }
 
@@ -63,11 +63,11 @@ public class ViewServer extends NodeServer{
 
             TxnResponse response = stub.propagateTransaction(transactionInputConfig);
 
-            if (response.getSuccess()) {
-                System.out.println("Transaction propagated to server: " + server);
-            } else {
-                System.out.println("Transaction not propagated to server: " + server);
-            }
+//            if (response.getSuccess()) {
+//                System.out.println("Transaction propagated to server: " + server);
+//            } else {
+//                System.out.println("Transaction not propagated to server: " + server);
+//            }
         }
 
     }
@@ -75,30 +75,58 @@ public class ViewServer extends NodeServer{
     public void sendCommandToServers(Command commandType, HashMap<String, Boolean> activeServersStatusMap) throws InterruptedException {
         CommandInput commandInput = CommandInput.newBuilder().build();
 
-        Thread.sleep(1000);
+        Thread.sleep(10);
+
+
+        // For only Active Servers
+
+//        activeServersStatusMap.forEach((server, isActive) -> {
+//            if (!server.equals(this.serverName) && isActive) {
+//                CommandsGrpc.CommandsBlockingStub stub = this.serversToCommandsStub.get(server);
+//                CommandOutput op  = CommandOutput.newBuilder().setOutput("No Output").build() ;
+//
+//                switch (commandType) {
+//                    case PrintDB:
+//                        op = stub.printDB(commandInput);
+//                        break;
+//                    case PrintBalance:
+//                        op = stub.printBalance(commandInput);
+//                        break;
+//                    case PrintLog:
+//                        op = stub.printLog(commandInput);
+//                        break;
+//                    case Performance:
+//                        op = stub.performance(commandInput);
+//                        break;
+//                }
+//
+//                this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
+//                //System.out.println("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
+//            }
+//        });
 
         activeServersStatusMap.forEach((server, isActive) -> {
-            if (!server.equals(this.serverName) && isActive) {
-                CommandsGrpc.CommandsBlockingStub stub = this.serversToCommandsStub.get(server);
-                CommandOutput op  = CommandOutput.newBuilder().setOutput("No Output").build() ;
 
-                switch (commandType) {
-                    case PrintDB:
-                        op = stub.printDB(commandInput);
-                        break;
-                    case PrintBalance:
-                        op = stub.printBalance(commandInput);
-                        break;
-                    case PrintLog:
-                        op = stub.printLog(commandInput);
-                        break;
-                    case Performance:
-                        op = stub.performance(commandInput);
-                        break;
-                }
+            CommandsGrpc.CommandsBlockingStub stub = this.serversToCommandsStub.get(server);
+            CommandOutput op  = CommandOutput.newBuilder().setOutput("No Output").build() ;
 
-                this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
+            switch (commandType) {
+                case PrintDB:
+                    op = stub.printDB(commandInput);
+                    break;
+                case PrintBalance:
+                    op = stub.printBalance(commandInput);
+                    break;
+                case PrintLog:
+                    op = stub.printLog(commandInput);
+                    break;
+                case Performance:
+                    op = stub.performance(commandInput);
+                    break;
             }
+
+            this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
+
         });
 
     }
@@ -140,8 +168,9 @@ public class ViewServer extends NodeServer{
             {
                 lineNum++;
 
+                Thread.sleep(50);
 
-                System.out.println("Line: " + line);
+               // System.out.println("Line: " + line);
                 viewServer.logger.log("-------------------------------------------------------------\nLine: "+ lineNum +" : "+ line);
 
                 TransactionInputConfig transactionInputConfig = parseTnxConfig(line, tnxCount++);
@@ -179,7 +208,7 @@ public class ViewServer extends NodeServer{
 
                     for( String server : allServers) {
                         if(activeServersStatusMap.get(server)) {
-                            System.out.println("Server: " + server + " is active");
+                            //System.out.println("Server: " + server + " is active");
 
                             ActivateServerRequest request = ActivateServerRequest.newBuilder()
                                     .setServerName(server)
@@ -187,14 +216,14 @@ public class ViewServer extends NodeServer{
 
                             ActivateServerResponse response = viewServer.serversToActivateServersStub.get(server).activateServer(request);
 
-                            if(response.getSuccess()) {
-                                System.out.println("Server: " + server + " is activated");
-                            } else {
-                                System.out.println("Server: " + server + " is not activated");
-                            }
+//                            if(response.getSuccess()) {
+//                                System.out.println("Server: " + server + " is activated");
+//                            } else {
+//                                System.out.println("Server: " + server + " is not activated");
+//                            }
 
                         } else {
-                            System.out.println("Server: " + server + " is inactive");
+                           // System.out.println("Server: " + server + " is inactive");
 
 //                            DeactivateServerRequest request = DeactivateServerRequest.newBuilder()
 //                                    .setServerName(server)
@@ -212,9 +241,15 @@ public class ViewServer extends NodeServer{
 
                         }
                     }
+
+
+
+                    Thread.sleep(100);
+                    System.out.println("Press Enter to continue to next Test set: "+transactionInputConfig.getSetNumber());
+                    String a  = System.console().readLine();
                 }
                 else{
-                    System.out.println("Same set number");
+                    //System.out.println("Same set number");
                 }
 
                 // Multicast Transactions to active servers
@@ -225,6 +260,23 @@ public class ViewServer extends NodeServer{
         else {
             System.out.println("File does not exist");
         }
+
+        viewServer.sendCommandToServers(Command.valueOf("PrintBalance"), activeServersStatusMap);
+        viewServer.sendCommandToServers(Command.valueOf("PrintLog"), activeServersStatusMap);
+        viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
+
+        while(true) {
+            String inputCommand = System.console().readLine();
+
+            if(commandsSet.contains(inputCommand)) {
+                viewServer.sendCommandToServers(Command.valueOf(inputCommand), activeServersStatusMap);
+            }
+            if(inputCommand.equalsIgnoreCase("STOP")) {
+                break;
+            }
+        }
+
+
         viewServer.server.awaitTermination();
 
     }

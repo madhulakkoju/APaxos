@@ -31,6 +31,19 @@ public interface AcceptRequestOrBuilder extends
       getProcessIdBytes();
 
   /**
+   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   */
+  boolean hasTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   */
+  com.google.protobuf.Timestamp getTimestamp();
+  /**
+   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
+
+  /**
    * <code>repeated .Transaction transactionsToAccept = 4;</code>
    */
   java.util.List<org.cse535.proto.Transaction> 
@@ -112,17 +125,4 @@ public interface AcceptRequestOrBuilder extends
    * <code>bool needsSync = 6;</code>
    */
   boolean getNeedsSync();
-
-  /**
-   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-   */
-  boolean hasTimestamp();
-  /**
-   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-   */
-  com.google.protobuf.Timestamp getTimestamp();
-  /**
-   * <code>.google.protobuf.Timestamp timestamp = 3;</code>
-   */
-  com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
 }
