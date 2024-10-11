@@ -8,6 +8,7 @@ import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.node.Node;
 import org.cse535.proto.BlockOfTransactions;
+import org.cse535.proto.Transaction;
 import org.cse535.proto.TransactionInputConfig;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class DatabaseService {
     private HashMap<Integer, BlockOfTransactions> blocks;
     private HashMap<Integer, Integer> balanceAfterCommit;
 
+    private HashMap<String, Integer> clientBalancesAfterCommit;
 
 
     private int transactionsProcessed;
@@ -86,6 +88,15 @@ public class DatabaseService {
         this.lastAcceptAckTimestamp = Timestamp.newBuilder().setSeconds(0).setNanos(0).build();
         this.lastCommitTimestamp = Timestamp.newBuilder().setSeconds(0).setNanos(0).build();
 
+
+        this.clientBalancesAfterCommit = new HashMap<>();
+
+        GlobalConfigs.allServers.forEach(server -> {
+            this.clientBalancesAfterCommit.put(server, GlobalConfigs.INIT_BALANCE);
+        });
+
+
+
     }
 
     public BlockOfTransactions getBlock(int termNumber){
@@ -128,7 +139,35 @@ public class DatabaseService {
         this.transactionsCommitted += block.getTransactionsCount();
         Main.node.logger.log("Block committed: " + termNumber);
         this.balanceAfterCommit.put(termNumber, balanceAfterTransactions);
+
+        block.getTransactionsList().forEach(transaction -> {
+            this.clientBalancesAfterCommit.put(transaction.getSender(), this.clientBalancesAfterCommit.get(transaction.getSender()) - transaction.getAmount());
+            this.clientBalancesAfterCommit.put(transaction.getReceiver(), this.clientBalancesAfterCommit.get(transaction.getReceiver()) + transaction.getAmount());
+        });
+
     }
+
+
+    public int computeClientsBalance(String clientName){
+
+        if( ! GlobalConfigs.allServers.contains(clientName) ){
+            return 0;
+        }
+
+        int bal = this.clientBalancesAfterCommit.get(clientName);
+
+        for (int i = 0; i < this.localTransactionLog.getAllTransactions().size(); i++) {
+            Transaction transaction = this.localTransactionLog.getAllTransactions().get(i);
+            if (transaction.getSender().equals(clientName)) {
+                bal -= transaction.getAmount();
+            } else if (transaction.getReceiver().equals(clientName)) {
+                bal += transaction.getAmount();
+            }
+        }
+
+        return bal;
+    }
+
 
     public void uncommitBlock(int termNumber){
 
@@ -278,5 +317,50 @@ public class DatabaseService {
 
     public void setLastPrepareAckServerId(String processId) {
         this.lastPrepareAckServer = processId;
+    }
+
+
+    public void setBlocks(HashMap<Integer, BlockOfTransactions> blocks) {
+        this.blocks = blocks;
+    }
+
+    public HashMap<Integer, Integer> getBalanceAfterCommit() {
+        return balanceAfterCommit;
+    }
+
+    public void setBalanceAfterCommit(HashMap<Integer, Integer> balanceAfterCommit) {
+        this.balanceAfterCommit = balanceAfterCommit;
+    }
+
+    public HashMap<String, Integer> getClientBalancesAfterCommit() {
+        return clientBalancesAfterCommit;
+    }
+
+    public void setClientBalancesAfterCommit(HashMap<String, Integer> clientBalancesAfterCommit) {
+        this.clientBalancesAfterCommit = clientBalancesAfterCommit;
+    }
+
+    public int getCurrentProposalNumber() {
+        return currentProposalNumber;
+    }
+
+    public void setCurrentProposalNumber(int currentProposalNumber) {
+        this.currentProposalNumber = currentProposalNumber;
+    }
+
+    public String getCurrentServerId() {
+        return currentServerId;
+    }
+
+    public void setCurrentServerId(String currentServerId) {
+        this.currentServerId = currentServerId;
+    }
+
+    public String getLastPrepareAckServer() {
+        return lastPrepareAckServer;
+    }
+
+    public void setLastPrepareAckServer(String lastPrepareAckServer) {
+        this.lastPrepareAckServer = lastPrepareAckServer;
     }
 }

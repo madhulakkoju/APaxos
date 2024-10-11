@@ -367,7 +367,7 @@ public class Node extends NodeServer{
 
         boolean acceptProposal = false;
 
-        if(this.database.getLastPrepareAckServer().equals(request.getProcessId())){
+        if(this.getDatabase().getLastPrepareAckServer().equals(request.getProcessId())){
             // Candidate is up-to-date with the Leader's previous blocks
             if(request.getProposalNumber() == this.database.getAcceptedproposalNumber() + 1){
                 acceptProposal = true;

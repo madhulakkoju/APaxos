@@ -16,7 +16,8 @@ public class ViewServer extends NodeServer{
         PrintDB,
         PrintBalance,
         PrintLog,
-        Performance
+        Performance,
+        PrintClientBalances
     }
 
     public ViewServer(String serverName, int port) {
@@ -122,6 +123,14 @@ public class ViewServer extends NodeServer{
                     break;
                 case Performance:
                     op = stub.performance(commandInput);
+                    break;
+                case PrintClientBalances:
+                    CommandInput.Builder bufCommandInput = CommandInput.newBuilder();
+                    StringBuilder clientBalanceOutput = new StringBuilder(" Client Balances Across Servers: on "+ server +"\n");
+                    for (String client : allServers ) {
+                        clientBalanceOutput.append(stub.printClientBalance( bufCommandInput.setInput(client).build() ).getOutput() ).append("\n");
+                    }
+                    op = CommandOutput.newBuilder().setOutput(clientBalanceOutput.toString()).build();
                     break;
             }
 
@@ -264,6 +273,7 @@ public class ViewServer extends NodeServer{
         viewServer.sendCommandToServers(Command.valueOf("PrintBalance"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintLog"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
+        viewServer.sendCommandToServers(Command.valueOf("PrintClientBalances"), activeServersStatusMap);
 
         while(true) {
             String inputCommand = System.console().readLine();

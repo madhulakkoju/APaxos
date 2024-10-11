@@ -63,4 +63,17 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
         Main.commonLogger.log("Printing Performance");
         Main.node.printPerformance();
     }
+
+
+    @Override
+    public void printClientBalance(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
+        responseObserver.onNext(CommandOutput.newBuilder().setOutput( request.getInput()+
+                " Balance on "+Main.node.getServerName()+
+                " is = "+ Main.node.getDatabase().computeClientsBalance( request.getInput() ) ).build());
+        responseObserver.onCompleted();
+
+    }
+
+
+
 }

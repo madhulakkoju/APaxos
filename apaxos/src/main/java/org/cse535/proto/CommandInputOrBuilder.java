@@ -6,4 +6,14 @@ package org.cse535.proto;
 public interface CommandInputOrBuilder extends
     // @@protoc_insertion_point(interface_extends:CommandInput)
     com.google.protobuf.MessageOrBuilder {
+
+  /**
+   * <code>string input = 1;</code>
+   */
+  java.lang.String getInput();
+  /**
+   * <code>string input = 1;</code>
+   */
+  com.google.protobuf.ByteString
+      getInputBytes();
 }

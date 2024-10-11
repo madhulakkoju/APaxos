@@ -28,6 +28,8 @@ service Commands{
   rpc printLog(CommandInput) returns (CommandOutput) {}
   rpc printDB(CommandInput) returns (CommandOutput) {}
   rpc Performance(CommandInput) returns (CommandOutput) {}
+
+  rpc printClientBalance(CommandInput) returns (CommandOutput) {}
 }
 
 
@@ -165,6 +167,7 @@ message DeactivateServerResponse{
 
 
 message CommandInput{
+  string input = 1;
 }
 
 message CommandOutput{

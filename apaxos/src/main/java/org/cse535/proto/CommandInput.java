@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CommandInput() {
+    input_ = "";
   }
 
   @java.lang.Override
@@ -31,6 +32,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -41,6 +43,12 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            input_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -73,6 +81,40 @@ private static final long serialVersionUID = 0L;
             org.cse535.proto.CommandInput.class, org.cse535.proto.CommandInput.Builder.class);
   }
 
+  public static final int INPUT_FIELD_NUMBER = 1;
+  private volatile java.lang.Object input_;
+  /**
+   * <code>string input = 1;</code>
+   */
+  public java.lang.String getInput() {
+    java.lang.Object ref = input_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      input_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string input = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getInputBytes() {
+    java.lang.Object ref = input_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      input_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -87,6 +129,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!getInputBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, input_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -96,6 +141,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!getInputBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, input_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -112,6 +160,8 @@ private static final long serialVersionUID = 0L;
     org.cse535.proto.CommandInput other = (org.cse535.proto.CommandInput) obj;
 
     boolean result = true;
+    result = result && getInput()
+        .equals(other.getInput());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -123,6 +173,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + INPUT_FIELD_NUMBER;
+    hash = (53 * hash) + getInput().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -256,6 +308,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      input_ = "";
+
       return this;
     }
 
@@ -282,6 +336,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.cse535.proto.CommandInput buildPartial() {
       org.cse535.proto.CommandInput result = new org.cse535.proto.CommandInput(this);
+      result.input_ = input_;
       onBuilt();
       return result;
     }
@@ -330,6 +385,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(org.cse535.proto.CommandInput other) {
       if (other == org.cse535.proto.CommandInput.getDefaultInstance()) return this;
+      if (!other.getInput().isEmpty()) {
+        input_ = other.input_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -356,6 +415,75 @@ private static final long serialVersionUID = 0L;
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private java.lang.Object input_ = "";
+    /**
+     * <code>string input = 1;</code>
+     */
+    public java.lang.String getInput() {
+      java.lang.Object ref = input_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        input_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string input = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getInputBytes() {
+      java.lang.Object ref = input_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        input_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string input = 1;</code>
+     */
+    public Builder setInput(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      input_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string input = 1;</code>
+     */
+    public Builder clearInput() {
+      
+      input_ = getDefaultInstance().getInput();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string input = 1;</code>
+     */
+    public Builder setInputBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      input_ = value;
+      onChanged();
       return this;
     }
     @java.lang.Override

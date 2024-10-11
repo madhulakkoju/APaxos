@@ -151,24 +151,25 @@ public final class ApaxosOuterClass {
       "\022\n\nserverName\030\002 \001(\t\"-\n\027DeactivateServerR" +
       "equest\022\022\n\nserverName\030\001 \001(\t\"?\n\030Deactivate" +
       "ServerResponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserve" +
-      "rName\030\002 \001(\t\"\016\n\014CommandInput\"\037\n\rCommandOu" +
-      "tput\022\016\n\006output\030\001 \001(\t2\222\001\n\006Apaxos\022.\n\007prepa" +
-      "re\022\017.PrepareRequest\032\020.PrepareResponse\"\000\022" +
-      "+\n\006accept\022\016.AcceptRequest\032\017.AcceptRespon" +
-      "se\"\000\022+\n\006commit\022\016.CommitRequest\032\017.CommitR" +
-      "esponse\"\0002\241\001\n\017ActivateServers\022C\n\016activat" +
-      "eServer\022\026.ActivateServerRequest\032\027.Activa" +
-      "teServerResponse\"\000\022I\n\020deactivateServer\022\030" +
-      ".DeactivateServerRequest\032\031.DeactivateSer" +
-      "verResponse\"\0002O\n\014TnxPropagate\022?\n\024propaga" +
-      "teTransaction\022\027.TransactionInputConfig\032\014" +
-      ".TxnResponse\"\0002\304\001\n\010Commands\022/\n\014printBala" +
-      "nce\022\r.CommandInput\032\016.CommandOutput\"\000\022+\n\010" +
-      "printLog\022\r.CommandInput\032\016.CommandOutput\"" +
-      "\000\022*\n\007printDB\022\r.CommandInput\032\016.CommandOut" +
-      "put\"\000\022.\n\013Performance\022\r.CommandInput\032\016.Co" +
-      "mmandOutput\"\000B\024\n\020org.cse535.protoP\001b\006pro" +
-      "to3"
+      "rName\030\002 \001(\t\"\035\n\014CommandInput\022\r\n\005input\030\001 \001" +
+      "(\t\"\037\n\rCommandOutput\022\016\n\006output\030\001 \001(\t2\222\001\n\006" +
+      "Apaxos\022.\n\007prepare\022\017.PrepareRequest\032\020.Pre" +
+      "pareResponse\"\000\022+\n\006accept\022\016.AcceptRequest" +
+      "\032\017.AcceptResponse\"\000\022+\n\006commit\022\016.CommitRe" +
+      "quest\032\017.CommitResponse\"\0002\241\001\n\017ActivateSer" +
+      "vers\022C\n\016activateServer\022\026.ActivateServerR" +
+      "equest\032\027.ActivateServerResponse\"\000\022I\n\020dea" +
+      "ctivateServer\022\030.DeactivateServerRequest\032" +
+      "\031.DeactivateServerResponse\"\0002O\n\014TnxPropa" +
+      "gate\022?\n\024propagateTransaction\022\027.Transacti" +
+      "onInputConfig\032\014.TxnResponse\"\0002\373\001\n\010Comman" +
+      "ds\022/\n\014printBalance\022\r.CommandInput\032\016.Comm" +
+      "andOutput\"\000\022+\n\010printLog\022\r.CommandInput\032\016" +
+      ".CommandOutput\"\000\022*\n\007printDB\022\r.CommandInp" +
+      "ut\032\016.CommandOutput\"\000\022.\n\013Performance\022\r.Co" +
+      "mmandInput\032\016.CommandOutput\"\000\0225\n\022printCli" +
+      "entBalance\022\r.CommandInput\032\016.CommandOutpu" +
+      "t\"\000B\024\n\020org.cse535.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -278,7 +279,7 @@ public final class ApaxosOuterClass {
     internal_static_CommandInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandInput_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Input", });
     internal_static_CommandOutput_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_CommandOutput_fieldAccessorTable = new
