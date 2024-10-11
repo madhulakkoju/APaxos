@@ -483,54 +483,50 @@ public class Node extends NodeServer{
 
     //Commands
 
-    public void printBalance() {
-        this.logger.log("Account Balance: " + database.getAccountBalance());
-        this.logger.log("Committed Account Balance: " + database.getCommittedAccountBalance());
+    public String printBalance() {
+        return "\n\n---------- PRINT BALANCE ---------" +
+                "Account Balance: " + database.getAccountBalance() + "\n" +
+                "Committed Account Balance: " + database.getCommittedAccountBalance() +
+                "---------------------------------------------------";
     }
 
-    public void printLog(){
+    public String printLog(){
+        StringBuilder op = new StringBuilder("\n\n---------- PRINT LOG ---------\n");
+        op.append("Current Local Balance: ").append(this.database.getAccountBalance());
+        op.append( "-------------------\n" );
 
-        this.logger.log( "Current Local Balance: " + this.database.getAccountBalance() );
-        this.logger.log( "-------------------" );
-
-        this.logger.log( "Current Local Log Transactions: " );
-        this.logger.log( "-------------------" );
+        op.append( "Current Local Log Transactions: \n" );
+        op.append( "-------------------\n" );
         this.database.localTransactionLog.getAllTransactions().forEach( transaction -> {
-            this.logger.log( transaction.toString() );
+            op.append( Utils.toString(transaction) ).append("\n");
         });
+        op.append( "---------------------------------------------------" );
+
+        return op.toString();
     }
 
-    public void printDB(){
-
-        this.logger.log( "Committed Balance: " + this.database.getCommittedAccountBalance() );
-        this.logger.log( "-------------------" );
-
-        this.logger.log( "Committed Blocks: " );
-        this.logger.log( "-------------------" );
-
-//        this.database.getBlocks().forEach( (term,block) -> {
-//            this.logger.log("Term : "+ term + "\nBlock:\n" + block.toString() );
-//        });
-
-        Utils.toString(this.database.getBlocks());
-
-        this.logger.log( "-------------------" );
-
-        this.logger.log( "Current Local Balance: " + this.database.getAccountBalance() );
-        this.logger.log( "-------------------" );
-
-        this.logger.log( "Current Local Log Transactions: " );
-        this.logger.log( "-------------------" );
-
+    public String printDB(){
+        StringBuilder op = new StringBuilder("\n\n------------ PRINT DB ------------\n");
+        op.append("Committed Balance: ").append(this.database.getCommittedAccountBalance()).append("\n");
+        op.append("Current Local Balance: ").append(this.database.getAccountBalance()).append("\n");
+        op.append( "-------------------\n" ).append( "Committed Blocks: \n" ).append( "-------------------\n" );
+        op.append(Utils.toString(this.database.getBlocks())).append( "\n-------------------\n" );
+        op.append( "Current Local Log Transactions: \n" ).append( "-------------------\n" );
         this.database.localTransactionLog.getAllTransactions().forEach( transaction -> {
-            this.logger.log( transaction.toString() );
+            op.append( Utils.toString(transaction) );
         });
+        op.append( "\n---------------------------------------------------\n" );
+        return op.toString();
     }
 
-    public void printPerformance(){
-        this.logger.log("Transactions Processed: " + this.database.getTransactionsProcessed());
-        this.logger.log("Transactions Committed: " + this.database.getTransactionsCommitted());
-        this.logger.log("Transactions Aborted: " + this.database.getTransactionsAborted());
+    public String printPerformance(){
+
+        return "\n\n---------- PRINT PERFORMANCE ---------\n" +
+                "Transactions Processed: " + this.database.getTransactionsProcessed() + "\n" +
+                "Transactions Committed: " + this.database.getTransactionsCommitted() + "\n" +
+                "Transactions Aborted: " + this.database.getTransactionsAborted() +
+                "\n---------------------------------------------------";
+
     }
 
 

@@ -27,6 +27,7 @@ public class NodeServer {
 
     public int port;
     public LogUtils logger;
+    public LogUtils commandLogger;
     public boolean isServerActive;
 
     public String serverName;
@@ -48,6 +49,7 @@ public class NodeServer {
         this.serverName = serverName;
 
         this.logger = new LogUtils(port);
+        this.commandLogger = new LogUtils("Commands", port);
 
         this.currentActiveServers = new ArrayList<>( GlobalConfigs.allServers);
 
