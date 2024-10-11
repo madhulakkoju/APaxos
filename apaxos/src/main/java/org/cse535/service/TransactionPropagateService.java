@@ -25,4 +25,5 @@ public class TransactionPropagateService extends TnxPropagateGrpc.TnxPropagateIm
         responseObserver.onCompleted();
         Main.commonLogger.log("Transaction response sent back to client");
     }
+
 }

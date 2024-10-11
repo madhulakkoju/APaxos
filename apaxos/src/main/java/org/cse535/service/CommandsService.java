@@ -64,7 +64,6 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
         Main.node.printPerformance();
     }
 
-
     @Override
     public void printClientBalance(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
         responseObserver.onNext(CommandOutput.newBuilder().setOutput( request.getInput()+
@@ -73,7 +72,4 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
         responseObserver.onCompleted();
 
     }
-
-
-
 }

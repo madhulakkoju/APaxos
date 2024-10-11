@@ -1,5 +1,6 @@
 package org.cse535.node;
 
+
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
 
@@ -54,7 +55,8 @@ public class ViewServer extends NodeServer{
 
     public void sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
 
-        for (String server : transactionInputConfig.getServerNamesList()) {
+        //for (String server : transactionInputConfig.getServerNamesList()) {
+        for (String server : GlobalConfigs.allServers ) {
             if (server.equals(this.serverName)) {
                 //System.out.println("Server: " + server + " is the current server");
                 continue;
@@ -215,6 +217,10 @@ public class ViewServer extends NodeServer{
                         activeServersStatusMap.put(server, true);
                     }
 
+                    Thread.sleep(100);
+                    System.out.println("Press Enter to continue to next Test set. This will activate the servers and publish transactions to servers."+transactionInputConfig.getSetNumber());
+                    String a  = System.console().readLine();
+
                     for( String server : allServers) {
                         if(activeServersStatusMap.get(server)) {
                             //System.out.println("Server: " + server + " is active");
@@ -234,13 +240,13 @@ public class ViewServer extends NodeServer{
                         } else {
                            // System.out.println("Server: " + server + " is inactive");
 
-//                            DeactivateServerRequest request = DeactivateServerRequest.newBuilder()
-//                                    .setServerName(server)
-//                                    .build();
-//
-//                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
-//
-//                            DeactivateServerResponse response = stub.deactivateServer(request);
+                            DeactivateServerRequest request = DeactivateServerRequest.newBuilder()
+                                    .setServerName(server)
+                                    .build();
+
+                            ActivateServersGrpc.ActivateServersBlockingStub stub = viewServer.serversToActivateServersStub.get(server);
+
+                            DeactivateServerResponse response = stub.deactivateServer(request);
 //
 //                            if(response.getSuccess()) {
 //                                System.out.println("Server: " + server + " is deactivated");
@@ -250,12 +256,6 @@ public class ViewServer extends NodeServer{
 
                         }
                     }
-
-
-
-                    Thread.sleep(100);
-                    System.out.println("Press Enter to continue to next Test set: "+transactionInputConfig.getSetNumber());
-                    String a  = System.console().readLine();
                 }
                 else{
                     //System.out.println("Same set number");

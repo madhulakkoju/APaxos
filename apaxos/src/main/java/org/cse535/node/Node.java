@@ -81,6 +81,13 @@ public class Node extends NodeServer{
                     continue;
                 }
 
+
+                if( ! this.isServerActive){
+                    logger.log("Pausing Transaction Service until Server is Active");
+                    Thread.sleep(100);
+                    continue;
+                }
+
                 TransactionInputConfig transactionInput = this.database.incomingTransactionsQueue.take();
 
                 if( ! transactionInput.getTransaction().getSender().equals(this.serverName) ){

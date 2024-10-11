@@ -9,6 +9,13 @@ public class ApaxosService extends ApaxosGrpc.ApaxosImplBase {
 
     @Override
     public void prepare(PrepareRequest request, StreamObserver<PrepareResponse> responseObserver) {
+
+        if( ! Main.node.isServerActive ){
+            return;
+        }
+
+
+
         Main.commonLogger.log("Received prepare request from " + request.getProcessId());
         Main.commonLogger.log("Proposal Number check: " +
                 request.getProcessId() + " \n requested proposal: " + request.getProposalNumber() +
@@ -33,6 +40,10 @@ public class ApaxosService extends ApaxosGrpc.ApaxosImplBase {
 
     @Override
     public void accept(AcceptRequest request, StreamObserver<AcceptResponse> responseObserver) {
+        if( ! Main.node.isServerActive ){
+            return;
+        }
+
         Main.commonLogger.log("Received Accept request from " + request.getProcessId());
         responseObserver.onNext(Main.node.handleAcceptPhase(request));
         responseObserver.onCompleted();
@@ -40,6 +51,10 @@ public class ApaxosService extends ApaxosGrpc.ApaxosImplBase {
 
     @Override
     public void commit(CommitRequest request, StreamObserver<CommitResponse> responseObserver) {
+        if( ! Main.node.isServerActive ){
+            return;
+        }
+
         Main.commonLogger.log("Received Commit request from " + request.getProcessId());
         responseObserver.onNext(Main.node.handleCommitPhase(request));
         responseObserver.onCompleted();
