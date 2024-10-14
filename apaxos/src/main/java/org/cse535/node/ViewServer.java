@@ -186,7 +186,7 @@ public class ViewServer extends NodeServer{
             {
                 lineNum++;
 
-                //Thread.sleep(5);
+                Thread.sleep(5);
 
                // System.out.println("Line: " + line);
                 viewServer.logger.log("-------------------------------------------------------------\nLine: "+ lineNum +" : "+ line);

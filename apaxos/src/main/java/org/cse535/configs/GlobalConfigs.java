@@ -19,7 +19,7 @@ public class GlobalConfigs {
     public static String viewServerName = "vs";
     public static int viewServerPort = 8000;
 
-    public static int PHASE_TIMEOUT = 10; // ms
+    public static int PHASE_TIMEOUT = 100; // ms
 
     public static int INIT_BALANCE = 100;
 

@@ -349,7 +349,7 @@ public class Node extends NodeServer{
 
     // Candidates Side
 
-    public PrepareResponse handlePreparePhase(PrepareRequest request) {
+    public synchronized PrepareResponse handlePreparePhase(PrepareRequest request) {
         PrepareResponse.Builder prepareResponse = PrepareResponse.newBuilder();
         this.logger.log("Prepare Request Received from " + request.getProcessId() );
 
@@ -377,7 +377,6 @@ public class Node extends NodeServer{
                 prepareResponse.setAcceptVal(this.database.getAcceptedBlockOfTransactions());
 
             this.database.setLastPrepareAckTimestamp(request.getTimestamp());
-
             this.database.setLastPrepareAckServerId(request.getProcessId());
         }
         else{
@@ -386,7 +385,7 @@ public class Node extends NodeServer{
         return prepareResponse.build();
     }
 
-    public AcceptResponse handleAcceptPhase(AcceptRequest request) {
+    public synchronized AcceptResponse handleAcceptPhase(AcceptRequest request) {
         AcceptResponse.Builder acceptResponse = AcceptResponse.newBuilder();
 
         boolean acceptProposal = false;
@@ -451,7 +450,7 @@ public class Node extends NodeServer{
         return acceptResponse.build();
     }
 
-    public CommitResponse handleCommitPhase(CommitRequest request) {
+    public synchronized CommitResponse handleCommitPhase(CommitRequest request) {
         CommitResponse.Builder commitResponse = CommitResponse.newBuilder();
 
         if(request.getProposalNumber() == this.database.getAcceptedproposalNumber()){
