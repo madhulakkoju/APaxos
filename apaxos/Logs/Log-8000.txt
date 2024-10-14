@@ -1,0 +1,2803 @@
+ 
+-------------------------------------------------------------
+Line: 1 : 1,"(S1, S3, 45)","[S1, S2, S3, S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 2 : 1,"(S3, S5, 55)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 3 : 1,"(S2, S4, 30)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 4 : 1,"(S5, S1, 50)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 5 : 1,"(S1, S3, 75)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 6 : 2,"(S5, S3, 5)","[S1, S2, S3, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 90
+Committed Account Balance: 90---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 130
+Committed Account Balance: 130---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 105
+Committed Account Balance: 105---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 30
+Committed Account Balance: 105---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 70
+Committed Account Balance: 70---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 90
+Current Local Balance: 90
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[2]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 130
+Current Local Balance: 130
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 105
+Current Local Balance: 105
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[4]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 105
+Current Local Balance: 30
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 5 : S1 -> S3 = 75 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 70
+Current Local Balance: 70
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[3]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 7 : 2,"(S3, S1, 55)","[S1, S2, S3, S5]"
+-------------------------------------------------------------
+Line: 8 : 2,"(S2, S3, 10)","[S1, S2, S3, S5]"
+-------------------------------------------------------------
+Line: 9 : 2,"(S3, S5, 50)","[S1, S2, S3, S5]"
+-------------------------------------------------------------
+Line: 10 : 2,"(S1, S2, 45)","[S1, S2, S3, S5]"
+-------------------------------------------------------------
+Line: 11 : 3,"(S3, S1, 15)","[S1, S2, S3]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 75
+Committed Account Balance: 125---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 130
+Committed Account Balance: 130---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 40
+Committed Account Balance: 85---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 60
+Committed Account Balance: 60---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 125
+Current Local Balance: 75
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 9 : S3 -> S5 = 50 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[2, 7, 9]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 130
+Current Local Balance: 130
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[4, 6]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 85
+Current Local Balance: 40
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 10 : S1 -> S2 = 45 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5, 10]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 60
+Current Local Balance: 60
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[3, 8]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 12 : 3,"(S2, S1, 30)","[S1, S2, S3]"
+-------------------------------------------------------------
+Line: 13 : 3,"(S2, S3, 25)","[S1, S2, S3]"
+-------------------------------------------------------------
+Line: 14 : 3,"(S3, S1, 65)","[S1, S2, S3]"
+-------------------------------------------------------------
+Line: 15 : 4,"(S4, S5, 55)","[S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 60
+Committed Account Balance: 125---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 130
+Committed Account Balance: 130---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 40
+Committed Account Balance: 85---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 5
+Committed Account Balance: 60---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 125
+Current Local Balance: 60
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 9 : S3 -> S5 = 50 )Transaction ( 11 : S3 -> S1 = 15 )
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 14 : S3 -> S1 = 65 )
+---------------------------------------------------
+Processed Transactions Set: 
+[2, 7, 9, 11]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 130
+Current Local Balance: 130
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[4, 6]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 85
+Current Local Balance: 40
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 10 : S1 -> S2 = 45 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5, 10]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 60
+Current Local Balance: 5
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 12 : S2 -> S1 = 30 )Transaction ( 13 : S2 -> S3 = 25 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[3, 8, 12, 13]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 16 : 4,"(S4, S5, 85)","[S4, S5]"
+-------------------------------------------------------------
+Line: 17 : 5,"(S5, S2, 95)","[S2, S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 60
+Committed Account Balance: 125---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 75
+Committed Account Balance: 130---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 40
+Committed Account Balance: 85---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 5
+Committed Account Balance: 60---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 125
+Current Local Balance: 60
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 9 : S3 -> S5 = 50 )Transaction ( 11 : S3 -> S1 = 15 )
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 14 : S3 -> S1 = 65 )
+---------------------------------------------------
+Processed Transactions Set: 
+[2, 7, 9, 11]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 130
+Current Local Balance: 75
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 15 : S4 -> S5 = 55 )
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 16 : S4 -> S5 = 85 )
+---------------------------------------------------
+Processed Transactions Set: 
+[15]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[4, 6]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 85
+Current Local Balance: 40
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 10 : S1 -> S2 = 45 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5, 10]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 60
+Current Local Balance: 5
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 12 : S2 -> S1 = 30 )Transaction ( 13 : S2 -> S3 = 25 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[3, 8, 12, 13]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 18 : 5,"(S2, S4, 5)","[S2, S4, S5]"
+-------------------------------------------------------------
+Line: 19 : 5,"(S2, S5, 10)","[S2, S4, S5]"
+-------------------------------------------------------------
+Line: 20 : 5,"(S5, S4, 55)","[S2, S4, S5]"
+-------------------------------------------------------------
+Line: 21 : 6,"(S1, S4, 45)","[S1, S2, S3, S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 60
+Committed Account Balance: 125---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 75
+Committed Account Balance: 75---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 5
+Committed Account Balance: 60---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 40
+Committed Account Balance: 85---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 85
+Committed Account Balance: 100---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 125
+Current Local Balance: 60
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 9 : S3 -> S5 = 50 )Transaction ( 11 : S3 -> S1 = 15 )
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 14 : S3 -> S1 = 65 )
+---------------------------------------------------
+Processed Transactions Set: 
+[2, 7, 9, 11]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 75
+Current Local Balance: 75
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 16 : S4 -> S5 = 85 )
+---------------------------------------------------
+Processed Transactions Set: 
+[15]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 60
+Current Local Balance: 5
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 20 : S5 -> S4 = 55 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[17, 4, 20, 6]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 85
+Current Local Balance: 40
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 10 : S1 -> S2 = 45 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5, 10]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 100
+Current Local Balance: 85
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 18 : S2 -> S4 = 5 )Transaction ( 19 : S2 -> S5 = 10 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[18, 3, 19, 8, 12, 13]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 22 : 6,"(S2, S4, 25)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 23 : 6,"(S5, S3, 50)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 24 : 6,"(S4, S3, 25)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 25 : 6,"(S3, S1, 55)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 26 : 7,"(S1, S3, 20)","[S1, S2, S3, S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 15
+Committed Account Balance: 70---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 160
+Committed Account Balance: 160---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 15
+Committed Account Balance: 15---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 105
+Committed Account Balance: 150---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 105
+Committed Account Balance: 105---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 70
+Current Local Balance: 15
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 25 : S3 -> S1 = 55 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[2, 7, 9, 25, 11, 14]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 160
+Current Local Balance: 160
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 24 : S4 -> S3 = 25 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[16, 24, 15]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 15
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[17, 4, 20, 6, 23]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 150
+Current Local Balance: 105
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 21 : S1 -> S4 = 45 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5, 21, 10]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 105
+Current Local Balance: 105
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[18, 3, 19, 22, 8, 12, 13]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 27 : 7,"(S2, S4, 5)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 28 : 7,"(S2, S3, 10)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 29 : 7,"(S1, S3, 60)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 30 : 7,"(S1, S3, 65)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 31 : 7,"(S5, S1, 105)","[S1, S2, S3, S4, S5]"
+-------------------------------------------------------------
+Line: 32 : 8,"(S1, S5, 5)","[S1, S2, S3, S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 195
+Committed Account Balance: 195---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 185
+Committed Account Balance: 185---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 15
+Committed Account Balance: 15---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 15
+Committed Account Balance: 15---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 90
+Committed Account Balance: 90---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 195
+Current Local Balance: 195
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[2, 7, 9, 25, 11, 14]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 185
+Current Local Balance: 185
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[16, 24, 15]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 15
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 31 : S5 -> S1 = 105 )
+---------------------------------------------------
+Processed Transactions Set: 
+[17, 4, 20, 6, 23]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 15
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[1, 5, 21, 10, 26, 29, 30]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 90
+Current Local Balance: 90
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[18, 3, 19, 22, 8, 27, 12, 28, 13]
+---------------------------------------------------
+
+-------------------------------------------------------------
+Line: 33 : 8,"(S3, S5, 95)","[S1, S2, S3, S4, S5]"
+Command: PrintBalance
+ server: S3
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 195---------------------------------------------------
+Command: PrintBalance
+ server: S4
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 185
+Committed Account Balance: 185---------------------------------------------------
+Command: PrintBalance
+ server: S5
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 15
+Committed Account Balance: 15---------------------------------------------------
+Command: PrintBalance
+ server: S1
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 10
+Committed Account Balance: 15---------------------------------------------------
+Command: PrintBalance
+ server: S2
+ output: 
+
+
+---------- PRINT BALANCE ---------Account Balance: 90
+Committed Account Balance: 90---------------------------------------------------
+Command: PrintLog
+ server: S3
+ output: 
+
+
+---------- PRINT LOG ---------
+Current Local Balance: 100-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 33 : S3 -> S5 = 95 )
+---------------------------------------------------
+Command: PrintLog
+ server: S4
+ output: 
+
+
+---------- PRINT LOG ---------
+Current Local Balance: 185-------------------
+Current Local Log Transactions: 
+-------------------
+---------------------------------------------------
+Command: PrintLog
+ server: S5
+ output: 
+
+
+---------- PRINT LOG ---------
+Current Local Balance: 15-------------------
+Current Local Log Transactions: 
+-------------------
+---------------------------------------------------
+Command: PrintLog
+ server: S1
+ output: 
+
+
+---------- PRINT LOG ---------
+Current Local Balance: 10-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 32 : S1 -> S5 = 5 )
+---------------------------------------------------
+Command: PrintLog
+ server: S2
+ output: 
+
+
+---------- PRINT LOG ---------
+Current Local Balance: 90-------------------
+Current Local Log Transactions: 
+-------------------
+---------------------------------------------------
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 195
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 33 : S3 -> S5 = 95 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[33, 2, 7, 9, 25, 11, 14]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 185
+Current Local Balance: 185
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[16, 24, 15]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 15
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 31 : S5 -> S1 = 105 )
+---------------------------------------------------
+Processed Transactions Set: 
+[17, 4, 20, 6, 23]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 10
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 32 : S1 -> S5 = 5 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[32, 1, 5, 21, 10, 26, 29, 30]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 90
+Current Local Balance: 90
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[18, 3, 19, 22, 8, 27, 12, 28, 13]
+---------------------------------------------------
+
+Command: PrintClientBalances
+ server: S3
+ output: 
+ Client Balances Across Servers: on S3
+ PrintClientBalance : S1 Balance on S3 is = 15
+ PrintClientBalance : S2 Balance on S3 is = 90
+ PrintClientBalance : S3 Balance on S3 is = 100
+ PrintClientBalance : S4 Balance on S3 is = 185
+ PrintClientBalance : S5 Balance on S3 is = 110
+
+Command: PrintClientBalances
+ server: S4
+ output: 
+ Client Balances Across Servers: on S4
+ PrintClientBalance : S1 Balance on S4 is = 15
+ PrintClientBalance : S2 Balance on S4 is = 90
+ PrintClientBalance : S3 Balance on S4 is = 195
+ PrintClientBalance : S4 Balance on S4 is = 185
+ PrintClientBalance : S5 Balance on S4 is = 15
+
+Command: PrintClientBalances
+ server: S5
+ output: 
+ Client Balances Across Servers: on S5
+ PrintClientBalance : S1 Balance on S5 is = 15
+ PrintClientBalance : S2 Balance on S5 is = 90
+ PrintClientBalance : S3 Balance on S5 is = 195
+ PrintClientBalance : S4 Balance on S5 is = 185
+ PrintClientBalance : S5 Balance on S5 is = 15
+
+Command: PrintClientBalances
+ server: S1
+ output: 
+ Client Balances Across Servers: on S1
+ PrintClientBalance : S1 Balance on S1 is = 10
+ PrintClientBalance : S2 Balance on S1 is = 90
+ PrintClientBalance : S3 Balance on S1 is = 195
+ PrintClientBalance : S4 Balance on S1 is = 185
+ PrintClientBalance : S5 Balance on S1 is = 20
+
+Command: PrintClientBalances
+ server: S2
+ output: 
+ Client Balances Across Servers: on S2
+ PrintClientBalance : S1 Balance on S2 is = 15
+ PrintClientBalance : S2 Balance on S2 is = 90
+ PrintClientBalance : S3 Balance on S2 is = 195
+ PrintClientBalance : S4 Balance on S2 is = 185
+ PrintClientBalance : S5 Balance on S2 is = 15
+
+Command: PrintDB
+ server: S3
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 195
+Current Local Balance: 100
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 33 : S3 -> S5 = 95 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[33, 2, 7, 9, 25, 11, 14]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S4
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 185
+Current Local Balance: 185
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[16, 24, 15]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S5
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 15
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+Transaction ( 31 : S5 -> S1 = 105 )
+---------------------------------------------------
+Processed Transactions Set: 
+[17, 4, 20, 6, 23]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S1
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 15
+Current Local Balance: 10
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+Transaction ( 32 : S1 -> S5 = 5 )
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[32, 1, 5, 21, 10, 26, 29, 30]
+---------------------------------------------------
+
+Command: PrintDB
+ server: S2
+ output: 
+
+
+------------ PRINT DB ------------
+Committed Balance: 90
+Current Local Balance: 90
+-------------------
+Committed Blocks: 
+-------------------
+Term : 1
+Block: 1 Term:1 Tnx count: 4 Leader: S1 Block Commit Time: 
+Transaction ( 1 : S1 -> S3 = 45 )
+Transaction ( 2 : S3 -> S5 = 55 )
+Transaction ( 3 : S2 -> S4 = 30 )
+Transaction ( 4 : S5 -> S1 = 50 )
+Term : 2
+Block: 2 Term:2 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 5 : S1 -> S3 = 75 )
+Transaction ( 6 : S5 -> S3 = 5 )
+Transaction ( 7 : S3 -> S1 = 55 )
+Transaction ( 8 : S2 -> S3 = 10 )
+Term : 3
+Block: 3 Term:3 Tnx count: 4 Leader: S2 Block Commit Time: 
+Transaction ( 12 : S2 -> S1 = 30 )
+Transaction ( 13 : S2 -> S3 = 25 )
+Transaction ( 15 : S4 -> S5 = 55 )
+Transaction ( 17 : S5 -> S2 = 95 )
+Term : 4
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
+Transaction ( 9 : S3 -> S5 = 50 )
+Transaction ( 10 : S1 -> S2 = 45 )
+Transaction ( 11 : S3 -> S1 = 15 )
+Transaction ( 18 : S2 -> S4 = 5 )
+Transaction ( 19 : S2 -> S5 = 10 )
+Transaction ( 20 : S5 -> S4 = 55 )
+Transaction ( 22 : S2 -> S4 = 25 )
+Term : 5
+Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 23 : S5 -> S3 = 50 )
+Term : 6
+Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 24 : S4 -> S3 = 25 )
+Transaction ( 25 : S3 -> S1 = 55 )
+Transaction ( 26 : S1 -> S3 = 20 )
+Transaction ( 27 : S2 -> S4 = 5 )
+Transaction ( 28 : S2 -> S3 = 10 )
+Transaction ( 29 : S1 -> S3 = 60 )
+Term : 7
+Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
+Transaction ( 30 : S1 -> S3 = 65 )
+
+-------------------
+Current Local Log Transactions: 
+-------------------
+
+-------------------
+Queue Transactions: 
+-------------------
+
+---------------------------------------------------
+Processed Transactions Set: 
+[18, 3, 19, 22, 8, 27, 12, 28, 13]
+---------------------------------------------------
