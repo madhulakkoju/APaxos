@@ -106,7 +106,7 @@ public class Node extends NodeServer{
 
                 if( ! isSuccessWithoutConsensus ) {
                     // Need Consensus
-                    this.logger.log("Need Consensus for Transaction: " + transaction.toString());
+                    this.logger.log("Need Consensus for Transaction: " + Utils.toString(transaction));
                     boolean prepareSuccess = initiatePreparePhase(transactionInput);
                     // By now, Leader Local log is updated with all the transactions from majority servers
 
@@ -140,6 +140,7 @@ public class Node extends NodeServer{
                 }
 
             } catch (InterruptedException e) {
+                this.commandLogger.log("Line 143 ::: " + e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -311,6 +312,9 @@ public class Node extends NodeServer{
                         .setTimestamp(fromMillis(currentTimeMillis()))
                         .build();
 
+                this.getDatabase().commitBlock(this.database.currentProposalNumber,
+                        commitRequest.getBlock(), this.database.leaderTransactionLog.BalanceAfterTransactions);
+
                 Thread[] commitThreads = new Thread[serversToPortMap.size()];
 
                 for(int i=0;i< this.currentActiveServers.size();i++){
@@ -387,12 +391,17 @@ public class Node extends NodeServer{
 
         boolean acceptProposal = false;
 
+        if(request.getTransactionsToAcceptCount() <= 0){
+            acceptResponse.setSuccess(false);
+            return acceptResponse.build();
+        }
+
+
         if(this.getDatabase().getLastPrepareAckServer().equals(request.getProcessId())){
             // Candidate is up-to-date with the Leader's previous blocks
             if(request.getProposalNumber() == this.database.getAcceptedproposalNumber() + 1){
                 acceptProposal = true;
                 acceptResponse.setSuccess(true);
-
             }
             else if( request.getProposalNumber() > this.database.getAcceptedproposalNumber()){
 

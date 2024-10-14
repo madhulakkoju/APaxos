@@ -13,6 +13,7 @@ import org.cse535.proto.TransactionInputConfig;
 
 import java.util.*;
 import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
 public class DatabaseService {
@@ -24,9 +25,9 @@ public class DatabaseService {
 
     private BlockOfTransactions AcceptedBlockOfTransactions; // Block of Transactions of previous accepted proposal
 
-    private int AccountBalance;
+    private AtomicInteger AccountBalance;
 
-    private int CommittedAccountBalance;
+    private AtomicInteger CommittedAccountBalance;
     private int CommittedProposalNumber;
 
     private HashMap<Integer, BlockOfTransactions> blocks;
@@ -70,8 +71,8 @@ public class DatabaseService {
         this.AcceptedBlockOfTransactions = null;
         this.AcceptedproposalNumber = 0;
         this.AcceptedServerId = "";
-        this.AccountBalance = GlobalConfigs.INIT_BALANCE;
-        this.CommittedAccountBalance = GlobalConfigs.INIT_BALANCE;
+        this.AccountBalance = new AtomicInteger(GlobalConfigs.INIT_BALANCE);
+        this.CommittedAccountBalance = new AtomicInteger(GlobalConfigs.INIT_BALANCE);
 
 
         this.currentServerId = serverName;
@@ -136,7 +137,7 @@ public class DatabaseService {
         if(block == null) return;
 
         this.blocks.put(termNumber, block);
-        this.CommittedAccountBalance = balanceAfterTransactions;
+        this.setCommittedAccountBalance(balanceAfterTransactions);
         this.CommittedProposalNumber = termNumber;
         this.transactionsCommitted += block.getTransactionsCount();
         Main.node.logger.log("Block committed: " + termNumber);
@@ -215,19 +216,19 @@ public class DatabaseService {
     }
 
     public int getAccountBalance() {
-        return AccountBalance;
+        return AccountBalance.get();
     }
 
-    public synchronized void setAccountBalance(int accountBalance) {
-        AccountBalance = accountBalance;
+    public void setAccountBalance(int accountBalance) {
+        AccountBalance.set( accountBalance);
     }
 
     public int getCommittedAccountBalance() {
-        return CommittedAccountBalance;
+        return CommittedAccountBalance.get();
     }
 
     public void setCommittedAccountBalance(int committedAccountBalance) {
-        CommittedAccountBalance = committedAccountBalance;
+        CommittedAccountBalance.set(committedAccountBalance);
     }
 
     public int getCommittedProposalNumber() {
