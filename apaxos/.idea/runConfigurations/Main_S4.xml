@@ -2,7 +2,7 @@
   <configuration default="false" name="Main S4" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="org.cse535.Main" />
     <module name="apaxos" />
-    <option name="PROGRAM_PARAMETERS" value="s4" />
+    <option name="PROGRAM_PARAMETERS" value="S4" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.cse535.*" />

@@ -2,7 +2,7 @@
   <configuration default="false" name="Main S3" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="org.cse535.Main" />
     <module name="apaxos" />
-    <option name="PROGRAM_PARAMETERS" value="s3" />
+    <option name="PROGRAM_PARAMETERS" value="S3" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="org.cse535.*" />

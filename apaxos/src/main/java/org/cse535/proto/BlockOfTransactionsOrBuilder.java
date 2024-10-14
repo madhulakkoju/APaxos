@@ -60,6 +60,16 @@ public interface BlockOfTransactionsOrBuilder extends
       getBlockHashBytes();
 
   /**
+   * <code>string leader = 6;</code>
+   */
+  java.lang.String getLeader();
+  /**
+   * <code>string leader = 6;</code>
+   */
+  com.google.protobuf.ByteString
+      getLeaderBytes();
+
+  /**
    * <pre>
    * proposal Number
    * </pre>

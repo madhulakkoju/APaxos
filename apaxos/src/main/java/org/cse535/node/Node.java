@@ -1,6 +1,7 @@
 package org.cse535.node;
 
 
+import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.configs.Utils;
 import org.cse535.database.LeaderLocalTnxStore;
@@ -18,19 +19,6 @@ import static java.lang.System.currentTimeMillis;
 import static org.cse535.configs.GlobalConfigs.serversToPortMap;
 
 public class Node extends NodeServer{
-
-
-
-
-    //TODO: Convert to Database Service class.
-
-
-
-    //TODO: Till here
-
-
-
-
 
 
 
@@ -75,6 +63,7 @@ public class Node extends NodeServer{
         logger.log("Transaction Worker Thread Started");
         while (true) {
             try {
+                Thread.sleep(5);
                 if(pauseTnxServiceUntilCommit){
                     logger.log("Pausing Transaction Service until Commit");
                     Thread.sleep(10);
@@ -82,23 +71,38 @@ public class Node extends NodeServer{
                 }
 
 
-                if( ! this.isServerActive){
+                if( !this.isServerActive){
                     logger.log("Pausing Transaction Service until Server is Active");
                     Thread.sleep(100);
                     continue;
                 }
 
-                TransactionInputConfig transactionInput = this.database.incomingTransactionsQueue.take();
+               // TransactionInputConfig transactionInput = this.database.incomingTransactionsQueue.take();
+
+                TransactionInputConfig transactionInput = this.database.getIncomingTransactionsQueue().peek();
+                if(transactionInput == null){
+                    Thread.sleep(10);
+                    continue;
+                }
 
                 if( ! transactionInput.getTransaction().getSender().equals(this.serverName) ){
                     this.logger.log("Transaction not for this client / server");
+                    this.database.getIncomingTransactionsQueue().remove();
                     continue;
                 }
 
                 this.currentActiveServers = transactionInput.getServerNamesList();
 
                 Transaction transaction = transactionInput.getTransaction();
+
+                if(this.database.processedTransactionsSet.contains(transaction.getTransactionNum())){
+                    this.database.getIncomingTransactionsQueue().remove();
+                    continue;
+                }
+
+
                 boolean isSuccessWithoutConsensus = processTransaction(transaction);
+
 
                 if( ! isSuccessWithoutConsensus ) {
                     // Need Consensus
@@ -116,7 +120,7 @@ public class Node extends NodeServer{
                             this.logger.log("Accept Phase Success");
                             this.logger.log("Initiating Commit Phase");
                             boolean commitSuccess = initiateCommitPhase();
-
+                            Thread.sleep(10);
                             this.pauseTnxServiceUntilCommit = false;
 
                         }
@@ -128,9 +132,12 @@ public class Node extends NodeServer{
                         Thread.sleep(GlobalConfigs.PHASE_TIMEOUT);
                     }
 
-                    this.database.getIncomingTransactionsQueue().add(transactionInput);
+//                    this.database.getIncomingTransactionsQueue().add(transactionInput);
                 }
-
+                else{
+                    this.database.getIncomingTransactionsQueue().remove();
+                    this.database.processedTransactionsSet.add(transactionInput.getTransaction().getTransactionNum());
+                }
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -141,6 +148,12 @@ public class Node extends NodeServer{
     public boolean processTransaction(Transaction transaction) {
         // Process Transaction
         this.logger.log("Processing Transaction: " + transaction.toString());
+
+        this.commandLogger.log("Processing Transaction: " + transaction.getTransactionNum()
+                + " Cur Acc bal: " + this.database.getAccountBalance() + " Amount: " + transaction.getAmount()
+                + " Main Acc Bal " + Main.node.getDatabase().getAccountBalance()
+        );
+
 
         if(this.database.getAccountBalance() > transaction.getAmount()) {
             this.logger.log("Transaction Accepted");
@@ -515,7 +528,17 @@ public class Node extends NodeServer{
         this.database.localTransactionLog.getAllTransactions().forEach( transaction -> {
             op.append( Utils.toString(transaction) );
         });
+
+        op.append( "\n-------------------\n" ).append( "Queue Transactions: \n" ).append( "-------------------\n" );
+        this.database.incomingTransactionsQueue.forEach( transactionInputConfig -> {
+            op.append( Utils.toString(transactionInputConfig.getTransaction()) );
+        });
         op.append( "\n---------------------------------------------------\n" );
+
+        op.append( "Processed Transactions Set: \n" );
+        op.append( this.database.processedTransactionsSet.toString() );
+        op.append( "\n---------------------------------------------------\n" );
+
         return op.toString();
     }
 

@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     transactions_ = java.util.Collections.emptyList();
     blockNum_ = 0;
     blockHash_ = "";
+    leader_ = "";
     termNumber_ = 0;
   }
 
@@ -82,6 +83,12 @@ private static final long serialVersionUID = 0L;
           case 40: {
 
             termNumber_ = input.readInt32();
+            break;
+          }
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            leader_ = s;
             break;
           }
           default: {
@@ -219,6 +226,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int LEADER_FIELD_NUMBER = 6;
+  private volatile java.lang.Object leader_;
+  /**
+   * <code>string leader = 6;</code>
+   */
+  public java.lang.String getLeader() {
+    java.lang.Object ref = leader_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      leader_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string leader = 6;</code>
+   */
+  public com.google.protobuf.ByteString
+      getLeaderBytes() {
+    java.lang.Object ref = leader_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      leader_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int TERMNUMBER_FIELD_NUMBER = 5;
   private int termNumber_;
   /**
@@ -261,6 +302,9 @@ private static final long serialVersionUID = 0L;
     if (termNumber_ != 0) {
       output.writeInt32(5, termNumber_);
     }
+    if (!getLeaderBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, leader_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -289,6 +333,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, termNumber_);
     }
+    if (!getLeaderBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, leader_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -316,6 +363,8 @@ private static final long serialVersionUID = 0L;
     }
     result = result && getBlockHash()
         .equals(other.getBlockHash());
+    result = result && getLeader()
+        .equals(other.getLeader());
     result = result && (getTermNumber()
         == other.getTermNumber());
     result = result && unknownFields.equals(other.unknownFields);
@@ -341,6 +390,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + BLOCKHASH_FIELD_NUMBER;
     hash = (53 * hash) + getBlockHash().hashCode();
+    hash = (37 * hash) + LEADER_FIELD_NUMBER;
+    hash = (53 * hash) + getLeader().hashCode();
     hash = (37 * hash) + TERMNUMBER_FIELD_NUMBER;
     hash = (53 * hash) + getTermNumber();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -493,6 +544,8 @@ private static final long serialVersionUID = 0L;
       }
       blockHash_ = "";
 
+      leader_ = "";
+
       termNumber_ = 0;
 
       return this;
@@ -539,6 +592,7 @@ private static final long serialVersionUID = 0L;
         result.blockCommitTime_ = blockCommitTimeBuilder_.build();
       }
       result.blockHash_ = blockHash_;
+      result.leader_ = leader_;
       result.termNumber_ = termNumber_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -623,6 +677,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBlockHash().isEmpty()) {
         blockHash_ = other.blockHash_;
+        onChanged();
+      }
+      if (!other.getLeader().isEmpty()) {
+        leader_ = other.leader_;
         onChanged();
       }
       if (other.getTermNumber() != 0) {
@@ -1106,6 +1164,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       blockHash_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object leader_ = "";
+    /**
+     * <code>string leader = 6;</code>
+     */
+    public java.lang.String getLeader() {
+      java.lang.Object ref = leader_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        leader_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string leader = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLeaderBytes() {
+      java.lang.Object ref = leader_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        leader_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string leader = 6;</code>
+     */
+    public Builder setLeader(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      leader_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string leader = 6;</code>
+     */
+    public Builder clearLeader() {
+      
+      leader_ = getDefaultInstance().getLeader();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string leader = 6;</code>
+     */
+    public Builder setLeaderBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      leader_ = value;
       onChanged();
       return this;
     }

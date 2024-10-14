@@ -54,6 +54,8 @@ public class LeaderLocalTnxStore {
         return BlockOfTransactions.newBuilder()
                 .addAllTransactions(transactions)
                 .setTermNumber(termNumber)
+                .setBlockNum(termNumber)
+                .setLeader(node.serverName)
                 .build();
     }
 

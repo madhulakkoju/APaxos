@@ -11,10 +11,7 @@ import org.cse535.proto.BlockOfTransactions;
 import org.cse535.proto.Transaction;
 import org.cse535.proto.TransactionInputConfig;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.PriorityBlockingQueue;
 
 @Data
@@ -62,6 +59,8 @@ public class DatabaseService {
     public Timestamp lastCommitTimestamp;
 
 
+    public HashSet<Integer> processedTransactionsSet;
+
 
     public DatabaseService(String serverName){
         this.blocks = new HashMap<>();
@@ -90,6 +89,7 @@ public class DatabaseService {
 
 
         this.clientBalancesAfterCommit = new HashMap<>();
+        this.processedTransactionsSet = new HashSet<>();
 
         GlobalConfigs.allServers.forEach(server -> {
             this.clientBalancesAfterCommit.put(server, GlobalConfigs.INIT_BALANCE);
@@ -133,6 +133,8 @@ public class DatabaseService {
     }
 
     public void commitBlock(int termNumber, BlockOfTransactions block, int balanceAfterTransactions){
+        if(block == null) return;
+
         this.blocks.put(termNumber, block);
         this.CommittedAccountBalance = balanceAfterTransactions;
         this.CommittedProposalNumber = termNumber;
@@ -144,6 +146,8 @@ public class DatabaseService {
             this.clientBalancesAfterCommit.put(transaction.getSender(), this.clientBalancesAfterCommit.get(transaction.getSender()) - transaction.getAmount());
             this.clientBalancesAfterCommit.put(transaction.getReceiver(), this.clientBalancesAfterCommit.get(transaction.getReceiver()) + transaction.getAmount());
         });
+
+        this.setAccountBalance(balanceAfterTransactions);
 
     }
 
@@ -214,7 +218,7 @@ public class DatabaseService {
         return AccountBalance;
     }
 
-    public void setAccountBalance(int accountBalance) {
+    public synchronized void setAccountBalance(int accountBalance) {
         AccountBalance = accountBalance;
     }
 

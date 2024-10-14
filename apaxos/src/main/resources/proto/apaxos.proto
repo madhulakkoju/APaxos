@@ -132,7 +132,7 @@ message BlockOfTransactions {
   google.protobuf.Timestamp blockCommitTime = 3;
 
   string blockHash = 4;
-
+  string leader = 6;
   int32 termNumber = 5; // proposal Number
 }
 

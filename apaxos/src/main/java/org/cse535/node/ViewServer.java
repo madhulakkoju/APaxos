@@ -31,7 +31,10 @@ public class ViewServer extends NodeServer{
     }
 
     public static TransactionInputConfig parseTnxConfig(String line, int tnxCount) {
-        String[] tnx = line.split(",");    // use comma as separator
+        String[] tnx = line.replace("(","").replace(")","")
+                .replace("[","").replace("]","")
+                .replace(" ","").replace("\"","")
+                .split(",");    // use comma as separator
 
         if(tnx.length < 3) {
           //  System.out.println("Invalid transaction");
@@ -154,6 +157,7 @@ public class ViewServer extends NodeServer{
         commandsSet.add("PrintBalance");
         commandsSet.add("PrintLog");
         commandsSet.add("Performance");
+        commandsSet.add("PrintClientBalances");
 
 
         int tnxCount = 1;
@@ -165,13 +169,16 @@ public class ViewServer extends NodeServer{
             activeServersStatusMap.put(server, true);
         }
 
-        File file = new File("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv");
+        String path = "src/main/resources/lab1_Test.csv";
+
+        //File file = new File("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv");
+        File file = new File(path);
         String line;
         if (file.exists()) {
             System.out.println("File exists");
 
             // Read the file
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(path));
 
             int prevSetNumber = 0;
 
@@ -179,7 +186,7 @@ public class ViewServer extends NodeServer{
             {
                 lineNum++;
 
-                Thread.sleep(50);
+                //Thread.sleep(5);
 
                // System.out.println("Line: " + line);
                 viewServer.logger.log("-------------------------------------------------------------\nLine: "+ lineNum +" : "+ line);
@@ -220,6 +227,9 @@ public class ViewServer extends NodeServer{
                     Thread.sleep(100);
                     System.out.println("Press Enter to continue to next Test set. This will activate the servers and publish transactions to servers."+transactionInputConfig.getSetNumber());
                     String a  = System.console().readLine();
+
+                    viewServer.sendCommandToServers(Command.valueOf("PrintBalance"), activeServersStatusMap);
+                    viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
 
                     for( String server : allServers) {
                         if(activeServersStatusMap.get(server)) {
