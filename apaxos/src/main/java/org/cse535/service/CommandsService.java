@@ -55,10 +55,13 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
     @Override
     public void printClientBalance(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
 
-        responseObserver.onNext(CommandOutput.newBuilder().setOutput( request.getInput()+
+        String op = " PrintClientBalance : "+ request.getInput()+
                 " Balance on "+Main.node.getServerName()+
-                " is = "+ Main.node.getDatabase().computeClientsBalance( request.getInput() ) ).build());
+                " is = "+ Main.node.getDatabase().computeClientsBalance( request.getInput() );
+
+        responseObserver.onNext(CommandOutput.newBuilder().setOutput( op ).build());
         responseObserver.onCompleted();
 
+        Main.node.commandLogger.log(op);
     }
 }
