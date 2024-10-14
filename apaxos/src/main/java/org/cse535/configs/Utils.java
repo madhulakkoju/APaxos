@@ -21,7 +21,7 @@ public class Utils {
     public static String toString(BlockOfTransactions block){
         StringBuilder sb = new StringBuilder();
         sb.append("Block: " + block.getBlockNum() + " Term:" + block.getTermNumber()
-                + " Tnx count: "+ block.getTransactionsCount()+
+                + " Tnx count: "+ block.getTransactionsCount()+ " Leader: " + block.getLeader()+
                 " Block Commit Time: " + block.getBlockCommitTime() + "\n");
         for (Transaction transaction : block.getTransactionsList()) {
             sb.append(toString(transaction)).append("\n");
