@@ -19,10 +19,6 @@ Prepare Request Received from S1
 Prepare Request --> Request Proposal Number: 1 DB Accepted Proposal Number: 1
 Prepare Request Received from S3
 Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 1
-Prepare Request Received from S1
-Prepare Request --> Request Proposal Number: 1 DB Accepted Proposal Number: 1
-Prepare Request Received from S3
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 1
 Block committed: 2
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
@@ -57,36 +53,118 @@ Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
 Prepare Request Received from S4
 Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 2
 Prepare Request Received from S4
@@ -162,10 +240,12 @@ Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 20 : S5 -> S4 = 55 )
 Prepare Request Received from S2
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 2
+Prepare Request Received from S4
+Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 3
 Block committed: 3
+Prepare Phase Failed
 Prepare Request Received from S4
 Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Phase Failed
 Processing Transaction: sender: "S5"
 receiver: "S4"
 amount: 55
@@ -238,56 +318,6 @@ Prepare Request Received from S4
 Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
 Prepare Request Received from S4
 Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
-Prepare Request Received from S1
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
-Prepare Request Received from S4
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
 Processing Transaction: sender: "S5"
 receiver: "S3"
 amount: 50
@@ -296,23 +326,20 @@ transactionNum: 23
 Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 23 : S5 -> S3 = 50 )
 Prepare Phase Success
+Prepare Request Received from S4
+Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
 Accept Phase Success
 Initiating Commit Phase
-Prepare Request Received from S1
-Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 3
 Block committed: 4
 Commit Phase Completed
-Prepare Request Received from S3
-Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 3
 Processing Transaction: sender: "S5"
 receiver: "S3"
 amount: 50
 transactionNum: 23
 
 Transaction Accepted
-Block committed: 4
 Prepare Request Received from S3
-Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 4
+Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 3
 Block committed: 5
 Prepare Request Received from S1
 Prepare Request --> Request Proposal Number: 6 DB Accepted Proposal Number: 5
@@ -322,4 +349,282 @@ receiver: "S1"
 amount: 105
 transactionNum: 31
 
-Transaction Accepted
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Success
+Accept Phase Success
+Initiating Commit Phase
+Block committed: 7
+Commit Phase Completed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
+Processing Transaction: sender: "S5"
+receiver: "S1"
+amount: 105
+transactionNum: 31
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 31 : S5 -> S1 = 105 )
+Prepare Phase Failed
