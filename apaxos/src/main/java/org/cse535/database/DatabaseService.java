@@ -61,6 +61,7 @@ public class DatabaseService {
 
 
     public HashSet<Integer> processedTransactionsSet;
+    public HashMap<Integer, TimeTakenToExecute> timeTakenToExecuteMap;
 
 
     public DatabaseService(String serverName){
@@ -91,6 +92,7 @@ public class DatabaseService {
 
         this.clientBalancesAfterCommit = new HashMap<>();
         this.processedTransactionsSet = new HashSet<>();
+        this.timeTakenToExecuteMap = new HashMap<>();
 
         GlobalConfigs.allServers.forEach(server -> {
             this.clientBalancesAfterCommit.put(server, GlobalConfigs.INIT_BALANCE);
@@ -146,6 +148,11 @@ public class DatabaseService {
         block.getTransactionsList().forEach(transaction -> {
             this.clientBalancesAfterCommit.put(transaction.getSender(), this.clientBalancesAfterCommit.get(transaction.getSender()) - transaction.getAmount());
             this.clientBalancesAfterCommit.put(transaction.getReceiver(), this.clientBalancesAfterCommit.get(transaction.getReceiver()) + transaction.getAmount());
+
+            if(this.timeTakenToExecuteMap.containsKey(transaction.getTransactionNum())){
+                this.timeTakenToExecuteMap.get(transaction.getTransactionNum()).stop();
+            }
+
         });
 
         this.setAccountBalance(balanceAfterTransactions);

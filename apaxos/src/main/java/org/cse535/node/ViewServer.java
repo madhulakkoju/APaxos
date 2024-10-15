@@ -284,6 +284,7 @@ public class ViewServer extends NodeServer{
         viewServer.sendCommandToServers(Command.valueOf("PrintLog"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintClientBalances"), activeServersStatusMap);
+        viewServer.sendCommandToServers(Command.valueOf("Performance"), activeServersStatusMap);
 
         System.out.println("All the Commands have been executed and you can find outputs in Logs. \nFreestyle from now on. use Commands only. Type STOP to stop the view server / Client");
 

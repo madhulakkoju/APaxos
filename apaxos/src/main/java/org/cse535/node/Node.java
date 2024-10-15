@@ -5,6 +5,7 @@ import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.configs.Utils;
 import org.cse535.database.LeaderLocalTnxStore;
+import org.cse535.database.TimeTakenToExecute;
 import org.cse535.proto.*;
 import org.cse535.threadimpls.AcceptWorkerThread;
 import org.cse535.threadimpls.CommitWorkerThread;
@@ -169,6 +170,7 @@ public class Node extends NodeServer{
 
     public void addTransactionToQueue(TransactionInputConfig transactionInput){
         this.database.incomingTransactionsQueue.add(transactionInput);
+        this.database.timeTakenToExecuteMap.put(transactionInput.getTransaction().getTransactionNum(), new TimeTakenToExecute());
     }
 
 
@@ -312,8 +314,11 @@ public class Node extends NodeServer{
                         .setTimestamp(fromMillis(currentTimeMillis()))
                         .build();
 
-                this.getDatabase().commitBlock(this.database.currentProposalNumber,
-                        commitRequest.getBlock(), this.database.leaderTransactionLog.BalanceAfterTransactions);
+                this.getDatabase().commitBlock(
+                        this.database.currentProposalNumber,
+                        commitRequest.getBlock(),
+                        this.database.leaderTransactionLog.BalanceAfterTransactions
+                );
 
                 Thread[] commitThreads = new Thread[serversToPortMap.size()];
 
@@ -552,12 +557,21 @@ public class Node extends NodeServer{
 
     public String printPerformance(){
 
+        long totalTimeToCommit = 0;
+
+        for(Map.Entry<Integer, TimeTakenToExecute> entry : this.database.timeTakenToExecuteMap.entrySet()){
+            totalTimeToCommit += entry.getValue().getTimeTaken();
+        }
+
         return "\n\n---------- PRINT PERFORMANCE ---------\n" +
                 "Transactions Processed: " + this.database.getTransactionsProcessed() + "\n" +
                 "Transactions Committed: " + this.database.getTransactionsCommitted() + "\n" +
-                "Transactions Aborted: " + this.database.getTransactionsAborted() +
+                "Transactions Aborted: " + this.database.getTransactionsAborted() + "\n" +
+                "Total Time to Commit: " + totalTimeToCommit + " ms\n" +
+                "Total Relevant Transactions committed: " + this.database.timeTakenToExecuteMap.size() + "\n" +
+                "Average Time to Commit: " + (totalTimeToCommit / this.database.timeTakenToExecuteMap.size()) + " ms\n" +
+                "Throughput: " + (this.database.getTransactionsCommitted() / (totalTimeToCommit / 1000)) + " tps\n" +
                 "\n---------------------------------------------------";
-
     }
 
 
