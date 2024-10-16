@@ -154,7 +154,7 @@ public class DatabaseService {
 
         this.setAccountBalance(balanceAfterTransactions);
 
-
+        this.AcceptedproposalNumber = Math.max(this.AcceptedproposalNumber, termNumber);
 
 
 //        System.out.println("Initiating Backup Request for " + this.getCurrentServerId());

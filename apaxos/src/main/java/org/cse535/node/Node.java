@@ -279,7 +279,11 @@ public class Node extends NodeServer{
             }
 
 
-
+            if( this.database.leaderTransactionLog != null &&
+                    this.database.leaderTransactionLog.transactions != null &&
+                    this.database.leaderTransactionLog.getAllTransactions().isEmpty()){
+                return false;
+            }
 
             AcceptRequest acceptRequest = AcceptRequest.newBuilder()
                     .setProposalNumber(this.database.currentProposalNumber)

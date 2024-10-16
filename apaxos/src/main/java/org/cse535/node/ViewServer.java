@@ -1,6 +1,7 @@
 package org.cse535.node;
 
 
+import org.bson.Document;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
 
@@ -158,6 +159,15 @@ public class ViewServer extends NodeServer{
         commandsSet.add("PrintLog");
         commandsSet.add("Performance");
         commandsSet.add("PrintClientBalances");
+
+
+
+        //Clear out data base for testing
+        viewServer.mongoDBCollection.deleteMany(new Document());
+        viewServer.mongoDBDetailCollection.deleteMany(new Document());
+
+
+
 
 
         int tnxCount = 1;
