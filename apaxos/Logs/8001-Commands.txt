@@ -61,16 +61,17 @@ Processed Transactions Set:
 ---------------------------------------------------
 
 Processing Transaction: 10 Cur Acc bal: 30 Amount: 45 Main Acc Bal 30
+Processing Transaction: 10 Cur Acc bal: 30 Amount: 45 Main Acc Bal 30
 Processing Transaction: 10 Cur Acc bal: 85 Amount: 45 Main Acc Bal 85
 
 
----------- PRINT BALANCE ---------Account Balance: 85
+---------- PRINT BALANCE ---------Account Balance: 40
 Committed Account Balance: 85---------------------------------------------------
 
 
 ------------ PRINT DB ------------
 Committed Balance: 85
-Current Local Balance: 85
+Current Local Balance: 40
 -------------------
 Committed Blocks: 
 -------------------
@@ -102,13 +103,13 @@ Processed Transactions Set:
 
 
 
----------- PRINT BALANCE ---------Account Balance: 85
+---------- PRINT BALANCE ---------Account Balance: 40
 Committed Account Balance: 85---------------------------------------------------
 
 
 ------------ PRINT DB ------------
 Committed Balance: 85
-Current Local Balance: 85
+Current Local Balance: 40
 -------------------
 Committed Blocks: 
 -------------------
@@ -140,13 +141,13 @@ Processed Transactions Set:
 
 
 
----------- PRINT BALANCE ---------Account Balance: 85
+---------- PRINT BALANCE ---------Account Balance: 40
 Committed Account Balance: 85---------------------------------------------------
 
 
 ------------ PRINT DB ------------
 Committed Balance: 85
-Current Local Balance: 85
+Current Local Balance: 40
 -------------------
 Committed Blocks: 
 -------------------
@@ -178,13 +179,13 @@ Processed Transactions Set:
 
 
 
----------- PRINT BALANCE ---------Account Balance: 85
+---------- PRINT BALANCE ---------Account Balance: 40
 Committed Account Balance: 85---------------------------------------------------
 
 
 ------------ PRINT DB ------------
 Committed Balance: 85
-Current Local Balance: 85
+Current Local Balance: 40
 -------------------
 Committed Blocks: 
 -------------------
@@ -214,6 +215,7 @@ Processed Transactions Set:
 [1, 5, 10]
 ---------------------------------------------------
 
+Processing Transaction: 21 Cur Acc bal: 40 Amount: 45 Main Acc Bal 40
 Processing Transaction: 21 Cur Acc bal: 85 Amount: 45 Main Acc Bal 85
 
 
@@ -246,19 +248,21 @@ Transaction ( 13 : S2 -> S3 = 25 )
 Transaction ( 15 : S4 -> S5 = 55 )
 Transaction ( 17 : S5 -> S2 = 95 )
 Term : 4
-Block: 4 Term:4 Tnx count: 8 Leader: S5 Block Commit Time: 
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
 Transaction ( 9 : S3 -> S5 = 50 )
 Transaction ( 10 : S1 -> S2 = 45 )
 Transaction ( 11 : S3 -> S1 = 15 )
 Transaction ( 18 : S2 -> S4 = 5 )
 Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 20 : S5 -> S4 = 55 )
-Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 5 Leader: S3 Block Commit Time: 
 Transaction ( 14 : S3 -> S1 = 65 )
+Transaction ( 16 : S4 -> S5 = 85 )
+Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
@@ -308,23 +312,23 @@ Transaction ( 13 : S2 -> S3 = 25 )
 Transaction ( 15 : S4 -> S5 = 55 )
 Transaction ( 17 : S5 -> S2 = 95 )
 Term : 4
-Block: 4 Term:4 Tnx count: 8 Leader: S5 Block Commit Time: 
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
 Transaction ( 9 : S3 -> S5 = 50 )
 Transaction ( 10 : S1 -> S2 = 45 )
 Transaction ( 11 : S3 -> S1 = 15 )
 Transaction ( 18 : S2 -> S4 = 5 )
 Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 20 : S5 -> S4 = 55 )
-Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 5 Leader: S3 Block Commit Time: 
 Transaction ( 14 : S3 -> S1 = 65 )
-Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
 Transaction ( 16 : S4 -> S5 = 85 )
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 23 : S5 -> S3 = 50 )
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -387,23 +391,23 @@ Transaction ( 13 : S2 -> S3 = 25 )
 Transaction ( 15 : S4 -> S5 = 55 )
 Transaction ( 17 : S5 -> S2 = 95 )
 Term : 4
-Block: 4 Term:4 Tnx count: 8 Leader: S5 Block Commit Time: 
+Block: 4 Term:4 Tnx count: 7 Leader: S5 Block Commit Time: 
 Transaction ( 9 : S3 -> S5 = 50 )
 Transaction ( 10 : S1 -> S2 = 45 )
 Transaction ( 11 : S3 -> S1 = 15 )
 Transaction ( 18 : S2 -> S4 = 5 )
 Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 20 : S5 -> S4 = 55 )
-Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 5 Leader: S3 Block Commit Time: 
 Transaction ( 14 : S3 -> S1 = 65 )
-Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 7 Leader: S1 Block Commit Time: 
 Transaction ( 16 : S4 -> S5 = 85 )
+Transaction ( 21 : S1 -> S4 = 45 )
+Transaction ( 23 : S5 -> S3 = 50 )
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -437,9 +441,9 @@ Processed Transactions Set:
 Transactions Processed: 8
 Transactions Committed: 30
 Transactions Aborted: 0
-Total Time to Commit: -1729002006444 ms
+Total Time to Commit: 13625 ms
 Total Relevant Transactions committed: 8
-Average Time to Commit: -216125250805 ms
-Throughput: 0 tps
+Average Time to Commit: 1703 ms
+Throughput: 2 tps
 
 ---------------------------------------------------

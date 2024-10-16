@@ -24,6 +24,16 @@ Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 9 : S3 -> S5 = 50 )
 Prepare Request Received from S1
 Prepare Request --> Request Proposal Number: 1 DB Accepted Proposal Number: 1
+Prepare Phase Failed
+Prepare Request Received from S1
+Prepare Request --> Request Proposal Number: 1 DB Accepted Proposal Number: 1
+Processing Transaction: sender: "S3"
+receiver: "S5"
+amount: 50
+transactionNum: 9
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 9 : S3 -> S5 = 50 )
 Prepare Phase Success
 Accept Phase Success
 Initiating Commit Phase
@@ -193,862 +203,6 @@ transactionNum: 14
 Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
 Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 65
-transactionNum: 14
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 14 : S3 -> S1 = 65 )
-Prepare Phase Failed
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
@@ -1091,38 +245,8 @@ Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
+Prepare Request Received from S1
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
 Processing Transaction: sender: "S3"
 receiver: "S1"
 amount: 65
@@ -1164,7 +288,73 @@ Prepare Request --> Request Proposal Number: 6 DB Accepted Proposal Number: 4
 Block committed: 6
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
 Block committed: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
@@ -1187,6 +377,10 @@ amount: 95
 transactionNum: 33
 
 Transaction Accepted
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
