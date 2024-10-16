@@ -99,6 +99,56 @@ public final class ApaxosOuterClass {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_CommandOutput_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DatabaseSnapshot_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DatabaseSnapshot_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DatabaseSnapshot_BlocksEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DatabaseSnapshot_BlocksEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DatabaseSnapshot_BalanceAfterCommitEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DatabaseSnapshot_BalanceAfterCommitEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DatabaseSnapshot_ClientBalancesAfterCommitEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DatabaseSnapshot_ClientBalancesAfterCommitEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DatabaseSnapshot_TimeTakenToExecuteMapEntry_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DatabaseSnapshot_TimeTakenToExecuteMapEntry_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TimeTakenMask_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TimeTakenMask_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataSaveRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataSaveRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataSaveResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataSaveResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataGetRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataGetRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DataGetResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_DataGetResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -153,24 +203,67 @@ public final class ApaxosOuterClass {
       "(\t\"?\n\030DeactivateServerResponse\022\017\n\007succes" +
       "s\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"\035\n\014CommandIn" +
       "put\022\r\n\005input\030\001 \001(\t\"\037\n\rCommandOutput\022\016\n\006o" +
-      "utput\030\001 \001(\t2\222\001\n\006Apaxos\022.\n\007prepare\022\017.Prep" +
-      "areRequest\032\020.PrepareResponse\"\000\022+\n\006accept" +
-      "\022\016.AcceptRequest\032\017.AcceptResponse\"\000\022+\n\006c" +
-      "ommit\022\016.CommitRequest\032\017.CommitResponse\"\000" +
-      "2\241\001\n\017ActivateServers\022C\n\016activateServer\022\026" +
-      ".ActivateServerRequest\032\027.ActivateServerR" +
-      "esponse\"\000\022I\n\020deactivateServer\022\030.Deactiva" +
-      "teServerRequest\032\031.DeactivateServerRespon" +
-      "se\"\0002O\n\014TnxPropagate\022?\n\024propagateTransac" +
-      "tion\022\027.TransactionInputConfig\032\014.TxnRespo" +
-      "nse\"\0002\373\001\n\010Commands\022/\n\014printBalance\022\r.Com" +
-      "mandInput\032\016.CommandOutput\"\000\022+\n\010printLog\022" +
-      "\r.CommandInput\032\016.CommandOutput\"\000\022*\n\007prin" +
-      "tDB\022\r.CommandInput\032\016.CommandOutput\"\000\022.\n\013" +
-      "Performance\022\r.CommandInput\032\016.CommandOutp" +
-      "ut\"\000\0225\n\022printClientBalance\022\r.CommandInpu" +
-      "t\032\016.CommandOutput\"\000B\024\n\020org.cse535.protoP" +
-      "\001b\006proto3"
+      "utput\030\001 \001(\t\"\311\n\n\020DatabaseSnapshot\022\036\n\026Acce" +
+      "ptedProposalNumber\030\001 \001(\005\022\030\n\020AcceptedServ" +
+      "erId\030\002 \001(\t\0229\n\033AcceptedBlockOfTransaction" +
+      "s\030\003 \001(\0132\024.BlockOfTransactions\022\026\n\016Account" +
+      "Balance\030\004 \001(\005\022\037\n\027CommittedAccountBalance" +
+      "\030\005 \001(\005\022\037\n\027CommittedProposalNumber\030\006 \001(\005\022" +
+      "-\n\006blocks\030\007 \003(\0132\035.DatabaseSnapshot.Block" +
+      "sEntry\022E\n\022balanceAfterCommit\030\010 \003(\0132).Dat" +
+      "abaseSnapshot.BalanceAfterCommitEntry\022S\n" +
+      "\031clientBalancesAfterCommit\030\t \003(\01320.Datab" +
+      "aseSnapshot.ClientBalancesAfterCommitEnt" +
+      "ry\022\035\n\025transactionsProcessed\030\n \001(\005\022\035\n\025tra" +
+      "nsactionsCommitted\030\013 \001(\005\022\033\n\023transactions" +
+      "Aborted\030\014 \001(\005\022\035\n\025currentProposalNumber\030\r" +
+      " \001(\005\022\027\n\017currentServerId\030\016 \001(\t\022:\n\031incomin" +
+      "gTransactionsQueue\030\017 \003(\0132\027.TransactionIn" +
+      "putConfig\022)\n\023localTransactionLog\030\020 \003(\0132\014" +
+      ".Transaction\022*\n\024leaderTransactionLog\030\021 \003" +
+      "(\0132\014.Transaction\022;\n\027lastPrepareAckTimest" +
+      "amp\030\022 \001(\0132\032.google.protobuf.Timestamp\022\034\n" +
+      "\024lastPrepareAckServer\030\023 \001(\t\022:\n\026lastAccep" +
+      "tAckTimestamp\030\024 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\0227\n\023lastCommitTimestamp\030\025 \001(\0132\032.g" +
+      "oogle.protobuf.Timestamp\022 \n\030processedTra" +
+      "nsactionsSet\030\026 \003(\005\022K\n\025timeTakenToExecute" +
+      "Map\030\027 \003(\0132,.DatabaseSnapshot.TimeTakenTo" +
+      "ExecuteMapEntry\022&\n\036LeaderBalanceAfterTra" +
+      "nsactions\030\030 \001(\005\032C\n\013BlocksEntry\022\013\n\003key\030\001 " +
+      "\001(\005\022#\n\005value\030\002 \001(\0132\024.BlockOfTransactions" +
+      ":\0028\001\0329\n\027BalanceAfterCommitEntry\022\013\n\003key\030\001" +
+      " \001(\005\022\r\n\005value\030\002 \001(\005:\0028\001\032@\n\036ClientBalance" +
+      "sAfterCommitEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\005:\0028\001\032L\n\032TimeTakenToExecuteMapEntry\022" +
+      "\013\n\003key\030\001 \001(\005\022\035\n\005value\030\002 \001(\0132\016.TimeTakenM" +
+      "ask:\0028\001\"3\n\rTimeTakenMask\022\021\n\tstartTime\030\001 " +
+      "\001(\003\022\017\n\007endTime\030\002 \001(\003\"J\n\017DataSaveRequest\022" +
+      "\022\n\nserverName\030\001 \001(\t\022#\n\010snapshot\030\002 \001(\0132\021." +
+      "DatabaseSnapshot\"#\n\020DataSaveResponse\022\017\n\007" +
+      "success\030\001 \001(\010\"$\n\016DataGetRequest\022\022\n\nserve" +
+      "rName\030\001 \001(\t\"G\n\017DataGetResponse\022#\n\010snapsh" +
+      "ot\030\001 \001(\0132\021.DatabaseSnapshot\022\017\n\007success\030\002" +
+      " \001(\0102\222\001\n\006Apaxos\022.\n\007prepare\022\017.PrepareRequ" +
+      "est\032\020.PrepareResponse\"\000\022+\n\006accept\022\016.Acce" +
+      "ptRequest\032\017.AcceptResponse\"\000\022+\n\006commit\022\016" +
+      ".CommitRequest\032\017.CommitResponse\"\0002\241\001\n\017Ac" +
+      "tivateServers\022C\n\016activateServer\022\026.Activa" +
+      "teServerRequest\032\027.ActivateServerResponse" +
+      "\"\000\022I\n\020deactivateServer\022\030.DeactivateServe" +
+      "rRequest\032\031.DeactivateServerResponse\"\0002O\n" +
+      "\014TnxPropagate\022?\n\024propagateTransaction\022\027." +
+      "TransactionInputConfig\032\014.TxnResponse\"\0002\373" +
+      "\001\n\010Commands\022/\n\014printBalance\022\r.CommandInp" +
+      "ut\032\016.CommandOutput\"\000\022+\n\010printLog\022\r.Comma" +
+      "ndInput\032\016.CommandOutput\"\000\022*\n\007printDB\022\r.C" +
+      "ommandInput\032\016.CommandOutput\"\000\022.\n\013Perform" +
+      "ance\022\r.CommandInput\032\016.CommandOutput\"\000\0225\n" +
+      "\022printClientBalance\022\r.CommandInput\032\016.Com" +
+      "mandOutput\"\0002e\n\010database\022-\n\004save\022\020.DataS" +
+      "aveRequest\032\021.DataSaveResponse\"\000\022*\n\003get\022\017" +
+      ".DataGetRequest\032\020.DataGetResponse\"\000B\024\n\020o" +
+      "rg.cse535.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -287,6 +380,66 @@ public final class ApaxosOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandOutput_descriptor,
         new java.lang.String[] { "Output", });
+    internal_static_DatabaseSnapshot_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_DatabaseSnapshot_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DatabaseSnapshot_descriptor,
+        new java.lang.String[] { "AcceptedProposalNumber", "AcceptedServerId", "AcceptedBlockOfTransactions", "AccountBalance", "CommittedAccountBalance", "CommittedProposalNumber", "Blocks", "BalanceAfterCommit", "ClientBalancesAfterCommit", "TransactionsProcessed", "TransactionsCommitted", "TransactionsAborted", "CurrentProposalNumber", "CurrentServerId", "IncomingTransactionsQueue", "LocalTransactionLog", "LeaderTransactionLog", "LastPrepareAckTimestamp", "LastPrepareAckServer", "LastAcceptAckTimestamp", "LastCommitTimestamp", "ProcessedTransactionsSet", "TimeTakenToExecuteMap", "LeaderBalanceAfterTransactions", });
+    internal_static_DatabaseSnapshot_BlocksEntry_descriptor =
+      internal_static_DatabaseSnapshot_descriptor.getNestedTypes().get(0);
+    internal_static_DatabaseSnapshot_BlocksEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DatabaseSnapshot_BlocksEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_DatabaseSnapshot_BalanceAfterCommitEntry_descriptor =
+      internal_static_DatabaseSnapshot_descriptor.getNestedTypes().get(1);
+    internal_static_DatabaseSnapshot_BalanceAfterCommitEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DatabaseSnapshot_BalanceAfterCommitEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_DatabaseSnapshot_ClientBalancesAfterCommitEntry_descriptor =
+      internal_static_DatabaseSnapshot_descriptor.getNestedTypes().get(2);
+    internal_static_DatabaseSnapshot_ClientBalancesAfterCommitEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DatabaseSnapshot_ClientBalancesAfterCommitEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_DatabaseSnapshot_TimeTakenToExecuteMapEntry_descriptor =
+      internal_static_DatabaseSnapshot_descriptor.getNestedTypes().get(3);
+    internal_static_DatabaseSnapshot_TimeTakenToExecuteMapEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DatabaseSnapshot_TimeTakenToExecuteMapEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_TimeTakenMask_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_TimeTakenMask_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TimeTakenMask_descriptor,
+        new java.lang.String[] { "StartTime", "EndTime", });
+    internal_static_DataSaveRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_DataSaveRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataSaveRequest_descriptor,
+        new java.lang.String[] { "ServerName", "Snapshot", });
+    internal_static_DataSaveResponse_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_DataSaveResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataSaveResponse_descriptor,
+        new java.lang.String[] { "Success", });
+    internal_static_DataGetRequest_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_DataGetRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataGetRequest_descriptor,
+        new java.lang.String[] { "ServerName", });
+    internal_static_DataGetResponse_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_DataGetResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_DataGetResponse_descriptor,
+        new java.lang.String[] { "Snapshot", "Success", });
     com.google.protobuf.TimestampProto.getDescriptor();
   }
 

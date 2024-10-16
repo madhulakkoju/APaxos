@@ -16,6 +16,11 @@ public class LocalTransactionStore {
         localTransactions = Collections.synchronizedList(new ArrayList<>());
     }
 
+    public LocalTransactionStore(List<Transaction> tnxs){
+        localTransactions = Collections.synchronizedList(new ArrayList<>());
+        localTransactions.addAll(tnxs);
+    }
+
 
     public void addTransaction(Transaction transaction){
         localTransactions.add(transaction);

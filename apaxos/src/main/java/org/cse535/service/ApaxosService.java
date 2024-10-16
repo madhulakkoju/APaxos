@@ -47,6 +47,8 @@ public class ApaxosService extends ApaxosGrpc.ApaxosImplBase {
         Main.commonLogger.log("Received Accept request from " + request.getProcessId());
         responseObserver.onNext(Main.node.handleAcceptPhase(request));
         responseObserver.onCompleted();
+
+        //Main.node.saveDatabaseSnapshot();
     }
 
     @Override
@@ -58,6 +60,8 @@ public class ApaxosService extends ApaxosGrpc.ApaxosImplBase {
         Main.commonLogger.log("Received Commit request from " + request.getProcessId());
         responseObserver.onNext(Main.node.handleCommitPhase(request));
         responseObserver.onCompleted();
+
+        //Main.node.saveDatabaseSnapshot();
     }
 
 

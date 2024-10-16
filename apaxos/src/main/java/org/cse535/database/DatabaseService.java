@@ -2,14 +2,10 @@ package org.cse535.database;
 
 import com.google.protobuf.Timestamp;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
-import org.cse535.node.Node;
-import org.cse535.proto.BlockOfTransactions;
-import org.cse535.proto.Transaction;
-import org.cse535.proto.TransactionInputConfig;
+import org.cse535.configs.Utils;
+import org.cse535.proto.*;
 
 import java.util.*;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -20,9 +16,7 @@ public class DatabaseService {
 
     //To Send in Prepare Phase Response
     private int AcceptedproposalNumber; // Term Number of previous accepted proposal
-
     private String AcceptedServerId; // ServerId of previous accepted proposal
-
     private BlockOfTransactions AcceptedBlockOfTransactions; // Block of Transactions of previous accepted proposal
 
     private AtomicInteger AccountBalance;
@@ -32,16 +26,12 @@ public class DatabaseService {
 
     private HashMap<Integer, BlockOfTransactions> blocks;
     private HashMap<Integer, Integer> balanceAfterCommit;
-
     private HashMap<String, Integer> clientBalancesAfterCommit;
 
 
     private int transactionsProcessed;
     private int transactionsCommitted;
     private int transactionsAborted;
-
-
-
 
     //These are from Node class
     public int currentProposalNumber; // Term Number of prepare request
@@ -64,12 +54,16 @@ public class DatabaseService {
     public HashMap<Integer, TimeTakenToExecute> timeTakenToExecuteMap;
 
 
+
+
+
+
     public DatabaseService(String serverName){
         this.blocks = new HashMap<>();
         this.balanceAfterCommit = new HashMap<>();
         this.balanceAfterCommit.put(0, GlobalConfigs.INIT_BALANCE);
 
-        this.AcceptedBlockOfTransactions = null;
+        this.AcceptedBlockOfTransactions = BlockOfTransactions.newBuilder().setTermNumber(0).build();
         this.AcceptedproposalNumber = 0;
         this.AcceptedServerId = "";
         this.AccountBalance = new AtomicInteger(GlobalConfigs.INIT_BALANCE);
@@ -97,6 +91,9 @@ public class DatabaseService {
         GlobalConfigs.allServers.forEach(server -> {
             this.clientBalancesAfterCommit.put(server, GlobalConfigs.INIT_BALANCE);
         });
+
+
+        this.lastPrepareAckServer = "";
 
 
 
@@ -157,8 +154,15 @@ public class DatabaseService {
 
         this.setAccountBalance(balanceAfterTransactions);
 
-    }
 
+
+
+//        System.out.println("Initiating Backup Request for " + this.getCurrentServerId());
+//        Main.node.databaseStub.save( DataSaveRequest.newBuilder()
+//                        .setServerName(this.getCurrentServerId())
+//                        .setSnapshot(this.toSnapshot())
+//                .build() );
+    }
 
     public int computeClientsBalance(String clientName){
 
@@ -180,7 +184,6 @@ public class DatabaseService {
         return bal;
     }
 
-
     public void uncommitBlock(int termNumber){
 
         this.transactionsCommitted -= blocks.get(termNumber).getTransactionsCount();
@@ -189,6 +192,8 @@ public class DatabaseService {
 
         Main.node.logger.log("Block removed: " + termNumber);
     }
+
+
 
 
 
@@ -374,5 +379,101 @@ public class DatabaseService {
 
     public void setLastPrepareAckServer(String lastPrepareAckServer) {
         this.lastPrepareAckServer = lastPrepareAckServer;
+    }
+
+
+    public void setAccountBalance(AtomicInteger accountBalance) {
+        AccountBalance = accountBalance;
+    }
+
+    public void setCommittedAccountBalance(AtomicInteger committedAccountBalance) {
+        CommittedAccountBalance = committedAccountBalance;
+    }
+
+    public HashSet<Integer> getProcessedTransactionsSet() {
+        return processedTransactionsSet;
+    }
+
+    public void setProcessedTransactionsSet(HashSet<Integer> processedTransactionsSet) {
+        this.processedTransactionsSet = processedTransactionsSet;
+    }
+
+    public HashMap<Integer, TimeTakenToExecute> getTimeTakenToExecuteMap() {
+        return timeTakenToExecuteMap;
+    }
+
+    public void setTimeTakenToExecuteMap(HashMap<Integer, TimeTakenToExecute> timeTakenToExecuteMap) {
+        this.timeTakenToExecuteMap = timeTakenToExecuteMap;
+    }
+
+    public DatabaseSnapshot toSnapshot(){
+        return DatabaseSnapshot.newBuilder()
+                .setAcceptedProposalNumber(this.getAcceptedproposalNumber())
+                .setAcceptedServerId(this.getAcceptedServerId())
+                .setAcceptedBlockOfTransactions(this.getAcceptedBlockOfTransactions())
+                .setAccountBalance(this.getAccountBalance())
+                .setCommittedAccountBalance(this.getCommittedAccountBalance())
+                .setCommittedProposalNumber(this.getCommittedProposalNumber())
+                .putAllBlocks(this.getBlocks())
+                .putAllBalanceAfterCommit(this.getBalanceAfterCommit())
+                .putAllClientBalancesAfterCommit(this.getClientBalancesAfterCommit())
+                .setTransactionsProcessed(this.getTransactionsProcessed())
+                .setTransactionsCommitted(this.getTransactionsCommitted())
+                .setTransactionsAborted(this.getTransactionsAborted())
+                .setCurrentProposalNumber(this.getCurrentProposalNumber())
+                .setCurrentServerId(this.getCurrentServerId())
+                .addAllIncomingTransactionsQueue(this.getIncomingTransactionsQueue())
+                .addAllLocalTransactionLog(this.getLocalTransactionLog().getAllTransactions())
+                .addAllLeaderTransactionLog(this.getLeaderTransactionLog().getAllTransactions())
+                .setLastPrepareAckTimestamp(this.getLastPrepareAckTimestamp())
+                .setLastPrepareAckServer(this.getLastPrepareAckServer())
+                .setLastAcceptAckTimestamp(this.getLastAcceptAckTimestamp())
+                .setLastCommitTimestamp(this.getLastCommitTimestamp())
+                .addAllProcessedTransactionsSet(this.getProcessedTransactionsSet())
+                .putAllTimeTakenToExecuteMap(Utils.toTimeTakenMask( this.getTimeTakenToExecuteMap()))
+                .setLeaderBalanceAfterTransactions(this.getLeaderTransactionLog().BalanceAfterTransactions)
+                .build();
+    }
+
+    public static DatabaseService toDatabaseService(DatabaseSnapshot snapshot){
+
+
+        PriorityBlockingQueue<TransactionInputConfig> q = new PriorityBlockingQueue<>(100, new Comparator<TransactionInputConfig>() {
+            @Override
+            public int compare(TransactionInputConfig o1, TransactionInputConfig o2) {
+                return o1.getTransaction().getTransactionNum() - o2.getTransaction().getTransactionNum();
+            }
+        } );
+
+        q.addAll(snapshot.getIncomingTransactionsQueueList());
+
+
+        DatabaseService databaseService = new DatabaseService(snapshot.getCurrentServerId());
+        databaseService.setAcceptedproposalNumber(snapshot.getAcceptedProposalNumber());
+        databaseService.setAcceptedServerId(snapshot.getAcceptedServerId());
+        databaseService.setAcceptedBlockOfTransactions(snapshot.getAcceptedBlockOfTransactions());
+        databaseService.setAccountBalance(snapshot.getAccountBalance());
+        databaseService.setCommittedAccountBalance(snapshot.getCommittedAccountBalance());
+        databaseService.setCommittedProposalNumber(snapshot.getCommittedProposalNumber());
+        databaseService.setBlocks(new HashMap<>(snapshot.getBlocksMap()));
+        databaseService.setBalanceAfterCommit(new HashMap<>(snapshot.getBalanceAfterCommitMap()));
+        databaseService.setClientBalancesAfterCommit(new HashMap<>(snapshot.getClientBalancesAfterCommitMap()));
+        databaseService.setTransactionsProcessed(snapshot.getTransactionsProcessed());
+        databaseService.setTransactionsCommitted(snapshot.getTransactionsCommitted());
+        databaseService.setTransactionsAborted(snapshot.getTransactionsAborted());
+        databaseService.setCurrentProposalNumber(snapshot.getCurrentProposalNumber());
+        databaseService.setCurrentServerId(snapshot.getCurrentServerId());
+        databaseService.setIncomingTransactionsQueue( q );
+        databaseService.setLocalTransactionLog(new LocalTransactionStore(snapshot.getLocalTransactionLogList()));
+        databaseService.setLeaderTransactionLog(new LeaderLocalTnxStore(Main.node, snapshot.getLeaderTransactionLogList(), snapshot.getLeaderBalanceAfterTransactions()));
+        databaseService.setLastPrepareAckTimestamp(snapshot.getLastPrepareAckTimestamp());
+        databaseService.setLastPrepareAckServer(snapshot.getLastPrepareAckServer());
+        databaseService.setLastAcceptAckTimestamp(snapshot.getLastAcceptAckTimestamp());
+        databaseService.setLastCommitTimestamp(snapshot.getLastCommitTimestamp());
+        databaseService.setProcessedTransactionsSet(new HashSet<>(snapshot.getProcessedTransactionsSetList()));
+        databaseService.setTimeTakenToExecuteMap(Utils.toTimeTakenMap(snapshot.getTimeTakenToExecuteMapMap()));
+
+        return databaseService;
+
     }
 }

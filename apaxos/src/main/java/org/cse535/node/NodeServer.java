@@ -1,21 +1,26 @@
 package org.cse535.node;
 
+import com.google.protobuf.InvalidProtocolBufferException;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import org.bson.Document;
+import org.bson.types.Binary;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.database.DatabaseService;
 import org.cse535.loggers.LogUtils;
-import org.cse535.proto.ActivateServersGrpc;
-import org.cse535.proto.ApaxosGrpc;
-import org.cse535.proto.CommandsGrpc;
-import org.cse535.proto.TnxPropagateGrpc;
-import org.cse535.service.ActivateServersService;
-import org.cse535.service.ApaxosService;
-import org.cse535.service.CommandsService;
-import org.cse535.service.TransactionPropagateService;
+import org.cse535.proto.*;
+import org.cse535.service.*;
 
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -42,7 +47,25 @@ public class NodeServer {
     public HashMap<String, ActivateServersGrpc.ActivateServersBlockingStub> serversToActivateServersStub;
     public HashMap<String, CommandsGrpc.CommandsBlockingStub> serversToCommandsStub;
 
+
+    public ManagedChannel databaseChannel;
+    public databaseGrpc.databaseBlockingStub databaseStub;
+
+
+
+    public MongoClientURI uri = new MongoClientURI("mongodb://localhost:27017");
+    public MongoClient mongoClient = new MongoClient(uri);
+    public MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
+
+    public MongoCollection<Document> mongoDBCollection = mongoDatabase.getCollection("database_backups");
+    public MongoCollection<Document> mongoDBDetailCollection = mongoDatabase.getCollection("database_detail_backups");
+
+
     public List<String> currentActiveServers;
+
+
+
+
 
     public NodeServer(String serverName, int port) {
         this.port = port;
@@ -57,7 +80,7 @@ public class NodeServer {
 
         this.server = ServerBuilder.forPort(port)
                 .addService(new ApaxosService())
-                .addService( new ActivateServersService())
+                .addService(new ActivateServersService())
                 .addService(new TransactionPropagateService())
                 .addService(new CommandsService())
                 .build();
@@ -74,6 +97,8 @@ public class NodeServer {
 
         isServerActive = true;
 
+
+
         database = new DatabaseService(this.serverName);
 
         serversToPortMap.forEach((serverName, port) -> {
@@ -87,10 +112,59 @@ public class NodeServer {
             serversToTnxPropagateStub.put(serverName, TnxPropagateGrpc.newBlockingStub(channel));
             serversToCommandsStub.put(serverName, CommandsGrpc.newBlockingStub(channel));
         });
+
+        databaseChannel = ManagedChannelBuilder.forAddress("localhost", GlobalConfigs.databaseServerPort).usePlaintext().build();
+        databaseStub = databaseGrpc.newBlockingStub(databaseChannel);
     }
 
 
 
+    public int dbSnapShotCounter = 0;
+
+
+    public void saveDatabaseSnapshot(){
+
+        System.out.println("Saving database snapshot");
+
+        DatabaseSnapshot snapshot = this.database.toSnapshot();
+
+        mongoDBCollection.deleteOne(new Document("_id", this.serverName));
+
+        byte[] snapshotBytes = snapshot.toByteArray();
+
+        Document document = new Document("_id", this.serverName)
+                .append("snapshot", snapshotBytes );
+
+        mongoDBCollection.insertOne(document);
+
+        Document detailDocument = new Document("_id", String.format(this.serverName + "-" + dbSnapShotCounter++))
+                .append("snapshot", snapshot.toString() );
+        mongoDBDetailCollection.insertOne(detailDocument);
+
+    }
+
+
+    public DatabaseService restoreDatabaseSnapshot(){
+
+        System.out.println("Restoring database snapshot");
+
+        Document document = mongoDBCollection.find(new Document("_id", this.serverName)).first();
+
+        if( document == null ){
+            return null;
+        }
+
+        byte[] snapshotBytes = document.get("snapshot", Binary.class).getData();
+
+        try {
+            DatabaseSnapshot snapshot = DatabaseSnapshot.parseFrom(snapshotBytes);
+            return DatabaseService.toDatabaseService(snapshot);
+
+        } catch (InvalidProtocolBufferException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
 
 

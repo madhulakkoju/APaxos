@@ -150,7 +150,7 @@ public class ViewServer extends NodeServer{
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        ViewServer viewServer = new ViewServer("vs", 8000);
+        ViewServer viewServer = new ViewServer(GlobalConfigs.viewServerName, GlobalConfigs.viewServerPort);
 
         HashSet<String> commandsSet = new HashSet<>();
         commandsSet.add("PrintDB");

@@ -23,6 +23,12 @@ public class LeaderLocalTnxStore {
         this.node = node;
     }
 
+    public LeaderLocalTnxStore(Node node, List<Transaction> transactions, int BalanceAfterTransactions) {
+        this.transactions = transactions;
+        this.BalanceAfterTransactions = BalanceAfterTransactions;
+        this.node = node;
+    }
+
     public void computeBalanceAfterTransactions(){
 
         BalanceAfterTransactions = this.node.database.getCommittedAccountBalance();

@@ -28,18 +28,12 @@ service Commands{
   rpc printLog(CommandInput) returns (CommandOutput) {}
   rpc printDB(CommandInput) returns (CommandOutput) {}
   rpc Performance(CommandInput) returns (CommandOutput) {}
-
   rpc printClientBalance(CommandInput) returns (CommandOutput) {}
 }
-
-
-
-
 
 message TransactionInputConfig{
   int32 setNumber = 1;
   Transaction transaction = 2;
-
   repeated string serverNames = 5;
 }
 
@@ -110,12 +104,6 @@ message CommitResponse {
 
 
 
-
-
-
-
-
-
 message Transaction {
   string sender = 1;
   string receiver = 2;
@@ -175,6 +163,78 @@ message CommandOutput{
 }
 
 
+
+// Database Service
+
+service database {
+  rpc save(DataSaveRequest) returns (DataSaveResponse) {}
+  rpc get(DataGetRequest) returns (DataGetResponse) {}
+}
+
+message DatabaseSnapshot{
+
+  int32 AcceptedProposalNumber = 1;
+  string AcceptedServerId = 2;
+  BlockOfTransactions AcceptedBlockOfTransactions = 3;
+
+  int32 AccountBalance = 4;
+
+  int32 CommittedAccountBalance = 5;
+  int32 CommittedProposalNumber = 6;
+
+  map<int32, BlockOfTransactions> blocks = 7;
+  map<int32, int32> balanceAfterCommit = 8;
+  map<string, int32> clientBalancesAfterCommit = 9;
+
+  int32 transactionsProcessed = 10;
+  int32 transactionsCommitted = 11;
+  int32 transactionsAborted = 12;
+
+  int32 currentProposalNumber = 13;
+  string currentServerId = 14;
+
+  repeated TransactionInputConfig incomingTransactionsQueue = 15;
+
+  repeated Transaction localTransactionLog = 16;
+  repeated Transaction leaderTransactionLog = 17;
+
+  google.protobuf.Timestamp lastPrepareAckTimestamp = 18;
+  string lastPrepareAckServer = 19;
+
+  google.protobuf.Timestamp lastAcceptAckTimestamp = 20;
+  google.protobuf.Timestamp lastCommitTimestamp = 21;
+
+  repeated int32 processedTransactionsSet = 22;
+  map<int32, TimeTakenMask > timeTakenToExecuteMap = 23;
+
+
+  int32 LeaderBalanceAfterTransactions = 24;
+
+}
+
+
+message TimeTakenMask{
+  int64 startTime = 1;
+  int64 endTime = 2;
+}
+
+message DataSaveRequest{
+  string serverName = 1;
+  DatabaseSnapshot snapshot = 2;
+}
+
+message DataSaveResponse{
+  bool success = 1;
+}
+
+message DataGetRequest{
+  string serverName = 1;
+}
+
+message DataGetResponse{
+  DatabaseSnapshot snapshot = 1;
+  bool success = 2;
+}
 
 
 

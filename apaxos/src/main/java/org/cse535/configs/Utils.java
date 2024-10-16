@@ -1,13 +1,27 @@
 package org.cse535.configs;
 
+import org.cse535.database.TimeTakenToExecute;
 import org.cse535.proto.BlockOfTransactions;
+import org.cse535.proto.TimeTakenMask;
 import org.cse535.proto.Transaction;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Utils {
     public static String toString(Transaction transaction) {
         return "Transaction ( "+ transaction.getTransactionNum() + " : " + transaction.getSender() + " -> " + transaction.getReceiver() + " = " + transaction.getAmount() + " )";
+    }
+
+    public static HashMap<Integer, TimeTakenToExecute> toTimeTakenMap(Map<Integer, TimeTakenMask> timeTakenToExecuteMapMap) {
+        HashMap<Integer, TimeTakenToExecute> timeTakenToExecuteMap = new HashMap<>();
+        timeTakenToExecuteMapMap.forEach( (term, time) -> {
+            TimeTakenToExecute timeTakenToExecute = new TimeTakenToExecute();
+            timeTakenToExecute.startTime = time.getStartTime();
+            timeTakenToExecute.endTime = time.getEndTime();
+            timeTakenToExecuteMap.put(term, timeTakenToExecute);
+        });
+        return timeTakenToExecuteMap;
     }
 
     public String toString(Transaction[] transactions) {
@@ -49,6 +63,14 @@ public class Utils {
         blocks.forEach( (term,block) -> sb.append("Term : ").append(term).append("\n").append(toString(block)) );
         return sb.toString();
     }
+
+    public static HashMap<Integer, TimeTakenMask> toTimeTakenMask(HashMap<Integer, TimeTakenToExecute> timeTaken){
+        HashMap<Integer, TimeTakenMask> timeTakenMask = new HashMap<>();
+        timeTaken.forEach( (term, time) -> timeTakenMask.put( term,
+                TimeTakenMask.newBuilder().setStartTime(time.startTime).setEndTime(time.endTime).build()));
+        return timeTakenMask;
+    }
+
 
 
 }
