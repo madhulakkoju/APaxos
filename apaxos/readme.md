@@ -44,3 +44,10 @@ Like an Input Controller Client. This represents a Client that sends transaction
 8. Logs/ ServerPortNumber-Common.txt has all common logs - all miscellaneous logs.
 9. Logs/ Log-ServerPortNumber.txt has all the logs of the server. Consensus Phases, Transaction executions and other important logs.
 
+## MongoDB Snapshot after execution
+![img.png](img.png)
+
+## PrintDB and Client Balances Command Output
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
