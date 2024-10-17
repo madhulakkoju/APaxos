@@ -183,34 +183,6 @@ Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 
 
 ---------- PRINT BALANCE ---------Account Balance: 5
@@ -337,34 +309,10 @@ Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 
 
 ---------- PRINT BALANCE ---------Account Balance: 100
 Committed Account Balance: 100---------------------------------------------------
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 
 
@@ -432,27 +380,24 @@ Processed Transactions Set:
 [17, 4, 20, 6, 23]
 ---------------------------------------------------
 
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 
 
----------- PRINT BALANCE ---------Account Balance: 105
-Committed Account Balance: 105---------------------------------------------------
-Processing Transaction: 31 Cur Acc bal: 105 Amount: 105 Main Acc Bal 105
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
+Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 0-------------------
+Current Local Balance: 100-------------------
 Current Local Log Transactions: 
 -------------------
-Transaction ( 31 : S5 -> S1 = 105 )
 ---------------------------------------------------
+Processing Transaction: 31 Cur Acc bal: 200 Amount: 105 Main Acc Bal 200
 
 
 ------------ PRINT DB ------------
-Committed Balance: 105
-Current Local Balance: 0
+Committed Balance: 200
+Current Local Balance: 95
 -------------------
 Committed Blocks: 
 -------------------
@@ -501,8 +446,9 @@ Term : 7
 Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
-Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
+Block: 8 Term:8 Tnx count: 2 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
+Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -519,18 +465,18 @@ Processed Transactions Set:
 
  PrintClientBalance : S1 Balance on S5 is = 115
  PrintClientBalance : S2 Balance on S5 is = 90
- PrintClientBalance : S3 Balance on S5 is = 195
+ PrintClientBalance : S3 Balance on S5 is = 100
  PrintClientBalance : S4 Balance on S5 is = 100
- PrintClientBalance : S5 Balance on S5 is = 0
+ PrintClientBalance : S5 Balance on S5 is = 95
 
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 6
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 11180 ms
+Total Time to Commit: 4094 ms
 Total Relevant Transactions committed: 6
-Average Time to Commit: 1863 ms
-Throughput: 2 tps
+Average Time to Commit: 682 ms
+Throughput: 7 tps
 
 ---------------------------------------------------

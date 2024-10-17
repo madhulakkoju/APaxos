@@ -52,6 +52,19 @@ Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
 Processing Transaction: sender: "S4"
 receiver: "S5"
 amount: 55
@@ -194,78 +207,6 @@ transactionNum: 16
 Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
 Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
 Processing Transaction: sender: "S4"
@@ -368,301 +309,19 @@ Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
 Prepare Phase Failed
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Phase Failed
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
-Processing Transaction: sender: "S4"
-receiver: "S5"
-amount: 85
-transactionNum: 16
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 1
-Prepare Phase Failed
 Prepare Request Received from S3
 Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 1
+Processing Transaction: sender: "S4"
+receiver: "S5"
+amount: 85
+transactionNum: 16
+
+Transaction Rejected -> Directed to Consensus
+Need Consensus for Transaction: Transaction ( 16 : S4 -> S5 = 85 )
 Block committed: 2
 Block committed: 3
+Prepare Phase Failed
 Block committed: 4
-Prepare Request Received from S3
-Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 4
 Prepare Request Received from S3
 Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 4
 Processing Transaction: sender: "S4"
@@ -685,61 +344,9 @@ Prepare Request --> Request Proposal Number: 6 DB Accepted Proposal Number: 5
 Block committed: 6
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
 Block committed: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5

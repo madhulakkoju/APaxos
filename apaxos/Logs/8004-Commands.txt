@@ -136,20 +136,11 @@ Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 
 
 ---------- PRINT BALANCE ---------Account Balance: 75
 Committed Account Balance: 130---------------------------------------------------
+Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 
 
 ------------ PRINT DB ------------
@@ -188,39 +179,11 @@ Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
-Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 
 
 ---------- PRINT BALANCE ---------Account Balance: 75
 Committed Account Balance: 130---------------------------------------------------
+Processing Transaction: 16 Cur Acc bal: 75 Amount: 85 Main Acc Bal 75
 
 
 ------------ PRINT DB ------------
@@ -447,8 +410,9 @@ Term : 7
 Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
-Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
+Block: 8 Term:8 Tnx count: 2 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
+Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -465,18 +429,18 @@ Processed Transactions Set:
 
  PrintClientBalance : S1 Balance on S4 is = 10
  PrintClientBalance : S2 Balance on S4 is = 90
- PrintClientBalance : S3 Balance on S4 is = 195
+ PrintClientBalance : S3 Balance on S4 is = 100
  PrintClientBalance : S4 Balance on S4 is = 100
- PrintClientBalance : S5 Balance on S4 is = 105
+ PrintClientBalance : S5 Balance on S4 is = 200
 
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 3
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 17317 ms
+Total Time to Commit: 7837 ms
 Total Relevant Transactions committed: 3
-Average Time to Commit: 5772 ms
-Throughput: 1 tps
+Average Time to Commit: 2612 ms
+Throughput: 4 tps
 
 ---------------------------------------------------

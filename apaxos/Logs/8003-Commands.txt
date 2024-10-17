@@ -240,7 +240,6 @@ Processed Transactions Set:
 Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
 Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
 Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
-Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
 Processing Transaction: 25 Cur Acc bal: 95 Amount: 55 Main Acc Bal 95
 
 
@@ -372,15 +371,15 @@ Processed Transactions Set:
 [2, 7, 9, 25, 11, 14]
 ---------------------------------------------------
 
-Processing Transaction: 33 Cur Acc bal: 195 Amount: 95 Main Acc Bal 195
 
 
 ---------- PRINT BALANCE ---------Account Balance: 195
 Committed Account Balance: 195---------------------------------------------------
+Processing Transaction: 33 Cur Acc bal: 195 Amount: 95 Main Acc Bal 195
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 195-------------------
+Current Local Balance: 100-------------------
 Current Local Log Transactions: 
 -------------------
 Transaction ( 33 : S3 -> S5 = 95 )
@@ -388,8 +387,8 @@ Transaction ( 33 : S3 -> S5 = 95 )
 
 
 ------------ PRINT DB ------------
-Committed Balance: 195
-Current Local Balance: 195
+Committed Balance: 100
+Current Local Balance: 100
 -------------------
 Committed Blocks: 
 -------------------
@@ -438,13 +437,14 @@ Term : 7
 Block: 7 Term:7 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
-Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
+Block: 8 Term:8 Tnx count: 2 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
+Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
 -------------------
-Transaction ( 33 : S3 -> S5 = 95 )
+
 -------------------
 Queue Transactions: 
 -------------------
@@ -463,11 +463,11 @@ Processed Transactions Set:
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 7
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 16151 ms
+Total Time to Commit: 13561 ms
 Total Relevant Transactions committed: 7
-Average Time to Commit: 2307 ms
-Throughput: 1 tps
+Average Time to Commit: 1937 ms
+Throughput: 2 tps
 
 ---------------------------------------------------

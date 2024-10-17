@@ -37,7 +37,7 @@ public class LocalTransactionStore {
     }
 
 
-    public void clearTransactions() {
+    public synchronized void clearTransactions() {
         localTransactions.clear();
     }
 }

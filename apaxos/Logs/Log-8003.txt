@@ -88,50 +88,6 @@ Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
-Pausing Transaction Service until Server is Active
 Processing Transaction: sender: "S3"
 receiver: "S1"
 amount: 55
@@ -152,14 +108,7 @@ transactionNum: 25
 Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 25 : S3 -> S1 = 55 )
 Prepare Phase Success
-Processing Transaction: sender: "S3"
-receiver: "S1"
-amount: 55
-transactionNum: 25
-
-Transaction Rejected -> Directed to Consensus
-Need Consensus for Transaction: Transaction ( 25 : S3 -> S1 = 55 )
-Prepare Phase Success
+Accept Phase Failed
 Processing Transaction: sender: "S3"
 receiver: "S1"
 amount: 55
@@ -183,63 +132,9 @@ Prepare Request --> Request Proposal Number: 6 DB Accepted Proposal Number: 5
 Block committed: 6
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
 Block committed: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
@@ -292,4 +187,6 @@ amount: 95
 transactionNum: 33
 
 Transaction Accepted
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Block committed: 8

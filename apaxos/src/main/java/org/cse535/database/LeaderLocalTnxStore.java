@@ -65,7 +65,7 @@ public class LeaderLocalTnxStore {
                 .build();
     }
 
-    public void clearTransactions(){
+    public synchronized void clearTransactions(){
         transactions.clear();
     }
 

@@ -146,6 +146,10 @@ public class Node extends NodeServer{
                             this.pauseTnxServiceUntilCommit = false;
 
                         }
+                        else{
+                            this.logger.log("Accept Phase Failed");
+                            Thread.sleep(GlobalConfigs.PHASE_TIMEOUT);
+                        }
 
                     }
                     else {
