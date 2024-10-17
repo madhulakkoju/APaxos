@@ -47,7 +47,33 @@ Like an Input Controller Client. This represents a Client that sends transaction
 ## MongoDB Snapshot after execution
 ![img.png](img.png)
 
-## PrintDB and Client Balances Command Output
-![img_1.png](img_1.png)
+## PrintDB Command Output
 
 ![img_2.png](img_2.png)
+
+![img_3.png](img_3.png)
+
+![img_4.png](img_4.png)
+
+
+## PrintClientBalances Command Output
+![img_1.png](img_1.png)
+
+## Performance Command Output
+
+![img_5.png](img_5.png)
+
+## PrintLog and PrintBalance Command Output
+
+![img_6.png](img_6.png)
+
+
+Note:
+- The logs are generated in the Logs folder.
+- Implementation is mostly from the Question sheet.
+- Java code
+- MongoDB for database. One thread will be backing up the state of server in parallel.
+- Haven't used any direct references from internet.
+- Intellij's copilot's suggestions were used in some parts of code during development.
+- Just basic discussions about how the Paxos runs in this case and how the transactions are executed has been discussed with friends.
+- The code is tested on the local machine and the logs are generated.
