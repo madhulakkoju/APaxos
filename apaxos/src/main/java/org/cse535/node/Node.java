@@ -178,7 +178,7 @@ public class Node extends NodeServer{
         );
 
 
-        if(this.database.getAccountBalance() > transaction.getAmount()) {
+        if(this.database.getAccountBalance() >= transaction.getAmount()) {
             this.logger.log("Transaction Accepted");
             this.database.setAccountBalance( this.database.getAccountBalance() - transaction.getAmount());
             this.database.localTransactionLog.addTransaction(transaction);

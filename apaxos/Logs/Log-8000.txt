@@ -2049,7 +2049,7 @@ Command: PrintBalance
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 100
+---------- PRINT BALANCE ---------Account Balance: 195
 Committed Account Balance: 195---------------------------------------------------
 Command: PrintBalance
  server: S4
@@ -2085,9 +2085,10 @@ Command: PrintLog
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 100-------------------
+Current Local Balance: 195-------------------
 Current Local Log Transactions: 
 -------------------
+Transaction ( 33 : S3 -> S5 = 95 )
 ---------------------------------------------------
 Command: PrintLog
  server: S4
@@ -2105,9 +2106,10 @@ Command: PrintLog
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 200-------------------
+Current Local Balance: 0-------------------
 Current Local Log Transactions: 
 -------------------
+Transaction ( 31 : S5 -> S1 = 105 )
 ---------------------------------------------------
 Command: PrintLog
  server: S1
@@ -2135,8 +2137,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 100
-Current Local Balance: 100
+Committed Balance: 195
+Current Local Balance: 195
 -------------------
 Committed Blocks: 
 -------------------
@@ -2187,14 +2189,11 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
 -------------------
-
+Transaction ( 33 : S3 -> S5 = 95 )
 -------------------
 Queue Transactions: 
 -------------------
@@ -2262,9 +2261,6 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -2285,8 +2281,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 200
-Current Local Balance: 95
+Committed Balance: 105
+Current Local Balance: 0
 -------------------
 Committed Blocks: 
 -------------------
@@ -2337,9 +2333,6 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -2412,9 +2405,6 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -2487,9 +2477,6 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -2520,9 +2507,9 @@ Command: PrintClientBalances
  Client Balances Across Servers: on S4
  PrintClientBalance : S1 Balance on S4 is = 10
  PrintClientBalance : S2 Balance on S4 is = 90
- PrintClientBalance : S3 Balance on S4 is = 100
+ PrintClientBalance : S3 Balance on S4 is = 195
  PrintClientBalance : S4 Balance on S4 is = 100
- PrintClientBalance : S5 Balance on S4 is = 200
+ PrintClientBalance : S5 Balance on S4 is = 105
 
 Command: PrintClientBalances
  server: S5
@@ -2530,9 +2517,9 @@ Command: PrintClientBalances
  Client Balances Across Servers: on S5
  PrintClientBalance : S1 Balance on S5 is = 115
  PrintClientBalance : S2 Balance on S5 is = 90
- PrintClientBalance : S3 Balance on S5 is = 100
+ PrintClientBalance : S3 Balance on S5 is = 195
  PrintClientBalance : S4 Balance on S5 is = 100
- PrintClientBalance : S5 Balance on S5 is = 95
+ PrintClientBalance : S5 Balance on S5 is = 0
 
 Command: PrintClientBalances
  server: S1
@@ -2540,9 +2527,9 @@ Command: PrintClientBalances
  Client Balances Across Servers: on S1
  PrintClientBalance : S1 Balance on S1 is = 10
  PrintClientBalance : S2 Balance on S1 is = 90
- PrintClientBalance : S3 Balance on S1 is = 100
+ PrintClientBalance : S3 Balance on S1 is = 195
  PrintClientBalance : S4 Balance on S1 is = 100
- PrintClientBalance : S5 Balance on S1 is = 200
+ PrintClientBalance : S5 Balance on S1 is = 105
 
 Command: PrintClientBalances
  server: S2
@@ -2550,9 +2537,9 @@ Command: PrintClientBalances
  Client Balances Across Servers: on S2
  PrintClientBalance : S1 Balance on S2 is = 10
  PrintClientBalance : S2 Balance on S2 is = 90
- PrintClientBalance : S3 Balance on S2 is = 100
+ PrintClientBalance : S3 Balance on S2 is = 195
  PrintClientBalance : S4 Balance on S2 is = 100
- PrintClientBalance : S5 Balance on S2 is = 200
+ PrintClientBalance : S5 Balance on S2 is = 105
 
 Command: Performance
  server: S3
@@ -2561,12 +2548,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 7
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 9490 ms
+Total Time to Commit: 16151 ms
 Total Relevant Transactions committed: 7
-Average Time to Commit: 1355 ms
-Throughput: 3 tps
+Average Time to Commit: 2307 ms
+Throughput: 1 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2576,12 +2563,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 3
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 6981 ms
+Total Time to Commit: 17317 ms
 Total Relevant Transactions committed: 3
-Average Time to Commit: 2327 ms
-Throughput: 4 tps
+Average Time to Commit: 5772 ms
+Throughput: 1 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2591,12 +2578,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 6
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 3624 ms
+Total Time to Commit: 11180 ms
 Total Relevant Transactions committed: 6
-Average Time to Commit: 604 ms
-Throughput: 8 tps
+Average Time to Commit: 1863 ms
+Throughput: 2 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2606,12 +2593,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 8
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 8297 ms
+Total Time to Commit: 6096 ms
 Total Relevant Transactions committed: 8
-Average Time to Commit: 1037 ms
-Throughput: 3 tps
+Average Time to Commit: 762 ms
+Throughput: 5 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2621,11 +2608,11 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 9
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 4034 ms
+Total Time to Commit: 11515 ms
 Total Relevant Transactions committed: 9
-Average Time to Commit: 448 ms
-Throughput: 7 tps
+Average Time to Commit: 1279 ms
+Throughput: 2 tps
 
 ---------------------------------------------------

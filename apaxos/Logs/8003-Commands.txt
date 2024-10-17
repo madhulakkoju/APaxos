@@ -239,6 +239,8 @@ Processed Transactions Set:
 
 Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
 Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
+Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
+Processing Transaction: 25 Cur Acc bal: 20 Amount: 55 Main Acc Bal 20
 Processing Transaction: 25 Cur Acc bal: 95 Amount: 55 Main Acc Bal 95
 
 
@@ -373,20 +375,21 @@ Processed Transactions Set:
 Processing Transaction: 33 Cur Acc bal: 195 Amount: 95 Main Acc Bal 195
 
 
----------- PRINT BALANCE ---------Account Balance: 100
+---------- PRINT BALANCE ---------Account Balance: 195
 Committed Account Balance: 195---------------------------------------------------
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 100-------------------
+Current Local Balance: 195-------------------
 Current Local Log Transactions: 
 -------------------
+Transaction ( 33 : S3 -> S5 = 95 )
 ---------------------------------------------------
 
 
 ------------ PRINT DB ------------
-Committed Balance: 100
-Current Local Balance: 100
+Committed Balance: 195
+Current Local Balance: 195
 -------------------
 Committed Blocks: 
 -------------------
@@ -437,14 +440,11 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
 -------------------
-
+Transaction ( 33 : S3 -> S5 = 95 )
 -------------------
 Queue Transactions: 
 -------------------
@@ -463,11 +463,11 @@ Processed Transactions Set:
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 7
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 9490 ms
+Total Time to Commit: 16151 ms
 Total Relevant Transactions committed: 7
-Average Time to Commit: 1355 ms
-Throughput: 3 tps
+Average Time to Commit: 2307 ms
+Throughput: 1 tps
 
 ---------------------------------------------------

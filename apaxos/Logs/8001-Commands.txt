@@ -437,9 +437,6 @@ Transaction ( 30 : S1 -> S3 = 65 )
 Term : 8
 Block: 8 Term:8 Tnx count: 1 Leader: S5 Block Commit Time: 
 Transaction ( 32 : S1 -> S5 = 5 )
-Term : 9
-Block: 9 Term:9 Tnx count: 1 Leader: S5 Block Commit Time: 
-Transaction ( 33 : S3 -> S5 = 95 )
 
 -------------------
 Current Local Log Transactions: 
@@ -456,18 +453,18 @@ Processed Transactions Set:
 
  PrintClientBalance : S1 Balance on S1 is = 10
  PrintClientBalance : S2 Balance on S1 is = 90
- PrintClientBalance : S3 Balance on S1 is = 100
+ PrintClientBalance : S3 Balance on S1 is = 195
  PrintClientBalance : S4 Balance on S1 is = 100
- PrintClientBalance : S5 Balance on S1 is = 200
+ PrintClientBalance : S5 Balance on S1 is = 105
 
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 8
-Transactions Committed: 32
+Transactions Committed: 31
 Transactions Aborted: 0
-Total Time to Commit: 8297 ms
+Total Time to Commit: 6096 ms
 Total Relevant Transactions committed: 8
-Average Time to Commit: 1037 ms
-Throughput: 3 tps
+Average Time to Commit: 762 ms
+Throughput: 5 tps
 
 ---------------------------------------------------
