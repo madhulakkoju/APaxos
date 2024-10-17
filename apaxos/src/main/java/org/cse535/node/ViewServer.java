@@ -290,6 +290,8 @@ public class ViewServer extends NodeServer{
             System.out.println("File does not exist");
         }
 
+        System.out.println("Running All Commands on all servers");
+        Thread.sleep(1000);
         viewServer.sendCommandToServers(Command.valueOf("PrintBalance"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintLog"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);

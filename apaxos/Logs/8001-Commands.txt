@@ -374,14 +374,13 @@ Processing Transaction: 32 Cur Acc bal: 15 Amount: 5 Main Acc Bal 15
 
 
 ---------- PRINT BALANCE ---------Account Balance: 10
-Committed Account Balance: 15---------------------------------------------------
+Committed Account Balance: 10---------------------------------------------------
 
 
 ---------- PRINT LOG ---------
 Current Local Balance: 10-------------------
 Current Local Log Transactions: 
 -------------------
-Transaction ( 32 : S1 -> S5 = 5 )
 ---------------------------------------------------
 
 
@@ -464,9 +463,9 @@ Processed Transactions Set:
 Transactions Processed: 8
 Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 8337 ms
+Total Time to Commit: 13298 ms
 Total Relevant Transactions committed: 8
-Average Time to Commit: 1042 ms
-Throughput: 3 tps
+Average Time to Commit: 1662 ms
+Throughput: 2 tps
 
 ---------------------------------------------------

@@ -34,7 +34,24 @@ transactionNum: 13
 Transaction Accepted
 Prepare Request Received from S3
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 2
+Prepare Request Received from S3
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 2
 Block committed: 3
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
@@ -85,19 +102,63 @@ Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
 Processing Transaction: sender: "S2"
 receiver: "S4"
 amount: 25
 transactionNum: 22
 
 Transaction Accepted
-Prepare Request Received from S3
-Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 3 DB Accepted Proposal Number: 3
-Block committed: 4
 Prepare Request Received from S3
-Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 4
+Prepare Request --> Request Proposal Number: 4 DB Accepted Proposal Number: 3
+Block committed: 4
 Prepare Request Received from S3
 Prepare Request --> Request Proposal Number: 5 DB Accepted Proposal Number: 4
 Block committed: 5
@@ -118,9 +179,17 @@ Prepare Request --> Request Proposal Number: 6 DB Accepted Proposal Number: 5
 Block committed: 6
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
 Block committed: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5

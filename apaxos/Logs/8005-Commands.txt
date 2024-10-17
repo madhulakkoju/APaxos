@@ -183,6 +183,30 @@ Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
+Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 
 
 ---------- PRINT BALANCE ---------Account Balance: 5
@@ -221,7 +245,6 @@ Processed Transactions Set:
 [17, 4, 6]
 ---------------------------------------------------
 
-Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 5 Amount: 55 Main Acc Bal 5
 Processing Transaction: 20 Cur Acc bal: 120 Amount: 55 Main Acc Bal 120
 Processing Transaction: 23 Cur Acc bal: 65 Amount: 50 Main Acc Bal 65
@@ -309,11 +332,14 @@ Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
+Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
+Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
+Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
+Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 
 
 ---------- PRINT BALANCE ---------Account Balance: 100
 Committed Account Balance: 100---------------------------------------------------
-Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
 
 
 ------------ PRINT DB ------------
@@ -380,19 +406,21 @@ Processed Transactions Set:
 [17, 4, 20, 6, 23]
 ---------------------------------------------------
 
-
-
----------- PRINT BALANCE ---------Account Balance: 100
-Committed Account Balance: 100---------------------------------------------------
 Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
+Processing Transaction: 31 Cur Acc bal: 100 Amount: 105 Main Acc Bal 100
+Processing Transaction: 31 Cur Acc bal: 200 Amount: 105 Main Acc Bal 200
+
+
+---------- PRINT BALANCE ---------Account Balance: 95
+Committed Account Balance: 200---------------------------------------------------
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 100-------------------
+Current Local Balance: 95-------------------
 Current Local Log Transactions: 
 -------------------
+Transaction ( 31 : S5 -> S1 = 105 )
 ---------------------------------------------------
-Processing Transaction: 31 Cur Acc bal: 200 Amount: 105 Main Acc Bal 200
 
 
 ------------ PRINT DB ------------
@@ -474,9 +502,9 @@ Processed Transactions Set:
 Transactions Processed: 6
 Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 4094 ms
+Total Time to Commit: 10050 ms
 Total Relevant Transactions committed: 6
-Average Time to Commit: 682 ms
-Throughput: 7 tps
+Average Time to Commit: 1675 ms
+Throughput: 3 tps
 
 ---------------------------------------------------

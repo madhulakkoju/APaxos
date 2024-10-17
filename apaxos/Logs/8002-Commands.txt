@@ -461,9 +461,9 @@ Processed Transactions Set:
 Transactions Processed: 9
 Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 4331 ms
+Total Time to Commit: 10682 ms
 Total Relevant Transactions committed: 9
-Average Time to Commit: 481 ms
-Throughput: 7 tps
+Average Time to Commit: 1186 ms
+Throughput: 2 tps
 
 ---------------------------------------------------

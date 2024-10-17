@@ -40,14 +40,14 @@ Received transaction 9 S3 -> S5 = 50
 Transaction added to queue
 Transaction propagated successfully
 Transaction response sent back to client
+Received transaction 10 S1 -> S2 = 45
+Transaction propagated successfully
+Transaction response sent back to client
 Received prepare request from S1
 Proposal Number check: S1 
  requested proposal: 2 : 
  committed proposal: 1 
  accepted proposal: 1 -> condition: true
-Received transaction 10 S1 -> S2 = 45
-Transaction propagated successfully
-Transaction response sent back to client
 Prepare response from Node
 Prepare response from Node -> to NEXT
 Prepare response sent back to client: S1 2 : true
@@ -127,19 +127,10 @@ Prepare response from Node -> to NEXT
 Prepare response sent back to client: S1 6 : true
 Finally ---------- Prepare response sent back to client
 Received Accept request from S1
+Received Commit request from S1
 Received transaction 31 S5 -> S1 = 105
 Transaction propagated successfully
 Transaction response sent back to client
-Received Commit request from S1
-Received prepare request from S5
-Proposal Number check: S5 
- requested proposal: 7 : 
- committed proposal: 6 
- accepted proposal: 6 -> condition: true
-Prepare response from Node
-Prepare response from Node -> to NEXT
-Prepare response sent back to client: S5 7 : true
-Finally ---------- Prepare response sent back to client
 Received prepare request from S5
 Proposal Number check: S5 
  requested proposal: 7 : 
@@ -151,6 +142,51 @@ Prepare response sent back to client: S5 7 : true
 Finally ---------- Prepare response sent back to client
 Received Accept request from S5
 Received Commit request from S5
+Received prepare request from S5
+Proposal Number check: S5 
+ requested proposal: 8 : 
+ committed proposal: 7 
+ accepted proposal: 7 -> condition: true
+Prepare response from Node
+Prepare response from Node -> to NEXT
+Prepare response sent back to client: S5 8 : true
+Finally ---------- Prepare response sent back to client
+Received prepare request from S5
+Proposal Number check: S5 
+ requested proposal: 8 : 
+ committed proposal: 7 
+ accepted proposal: 7 -> condition: true
+Prepare response from Node
+Prepare response from Node -> to NEXT
+Prepare response sent back to client: S5 8 : true
+Finally ---------- Prepare response sent back to client
+Received prepare request from S5
+Proposal Number check: S5 
+ requested proposal: 8 : 
+ committed proposal: 7 
+ accepted proposal: 7 -> condition: true
+Prepare response from Node
+Prepare response from Node -> to NEXT
+Prepare response sent back to client: S5 8 : true
+Finally ---------- Prepare response sent back to client
+Received prepare request from S5
+Proposal Number check: S5 
+ requested proposal: 8 : 
+ committed proposal: 7 
+ accepted proposal: 7 -> condition: true
+Prepare response from Node
+Prepare response from Node -> to NEXT
+Prepare response sent back to client: S5 8 : true
+Finally ---------- Prepare response sent back to client
+Received prepare request from S5
+Proposal Number check: S5 
+ requested proposal: 8 : 
+ committed proposal: 7 
+ accepted proposal: 7 -> condition: true
+Prepare response from Node
+Prepare response from Node -> to NEXT
+Prepare response sent back to client: S5 8 : true
+Finally ---------- Prepare response sent back to client
 Received prepare request from S5
 Proposal Number check: S5 
  requested proposal: 8 : 
