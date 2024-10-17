@@ -59,23 +59,29 @@ public class ViewServer extends NodeServer{
 
     public void sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
 
-        //for (String server : transactionInputConfig.getServerNamesList()) {
-        for (String server : GlobalConfigs.allServers ) {
-            if (server.equals(this.serverName)) {
-                //System.out.println("Server: " + server + " is the current server");
-                continue;
-            }
+        TnxPropagateGrpc.TnxPropagateBlockingStub stub = this.serversToTnxPropagateStub.get(
+                transactionInputConfig.getTransaction().getSender());
 
-            TnxPropagateGrpc.TnxPropagateBlockingStub stub = this.serversToTnxPropagateStub.get(server);
+        TxnResponse response = stub.propagateTransaction(transactionInputConfig);
 
-            TxnResponse response = stub.propagateTransaction(transactionInputConfig);
 
-//            if (response.getSuccess()) {
-//                System.out.println("Transaction propagated to server: " + server);
-//            } else {
-//                System.out.println("Transaction not propagated to server: " + server);
+//        //for (String server : transactionInputConfig.getServerNamesList()) {
+//        for (String server : GlobalConfigs.allServers ) {
+//            if (server.equals(this.serverName)) {
+//                //System.out.println("Server: " + server + " is the current server");
+//                continue;
 //            }
-        }
+//
+//            TnxPropagateGrpc.TnxPropagateBlockingStub stub = this.serversToTnxPropagateStub.get(server);
+//
+//            TxnResponse response = stub.propagateTransaction(transactionInputConfig);
+//
+////            if (response.getSuccess()) {
+////                System.out.println("Transaction propagated to server: " + server);
+////            } else {
+////                System.out.println("Transaction not propagated to server: " + server);
+////            }
+//        }
 
     }
 
