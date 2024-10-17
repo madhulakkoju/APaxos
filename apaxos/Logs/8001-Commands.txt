@@ -277,9 +277,11 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
@@ -339,12 +341,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -416,12 +419,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -453,17 +457,17 @@ Processed Transactions Set:
  PrintClientBalance : S1 Balance on S1 is = 10
  PrintClientBalance : S2 Balance on S1 is = 90
  PrintClientBalance : S3 Balance on S1 is = 100
- PrintClientBalance : S4 Balance on S1 is = 185
- PrintClientBalance : S5 Balance on S1 is = 115
+ PrintClientBalance : S4 Balance on S1 is = 100
+ PrintClientBalance : S5 Balance on S1 is = 200
 
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 8
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 7607 ms
+Total Time to Commit: 8297 ms
 Total Relevant Transactions committed: 8
-Average Time to Commit: 950 ms
-Throughput: 4 tps
+Average Time to Commit: 1037 ms
+Throughput: 3 tps
 
 ---------------------------------------------------

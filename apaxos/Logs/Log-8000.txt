@@ -1325,22 +1325,22 @@ Command: PrintBalance
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 15
-Committed Account Balance: 70---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 40
+Committed Account Balance: 95---------------------------------------------------
 Command: PrintBalance
  server: S4
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 205
-Committed Account Balance: 205---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 95
+Committed Account Balance: 95---------------------------------------------------
 Command: PrintBalance
  server: S5
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 15
-Committed Account Balance: 15---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
 Command: PrintBalance
  server: S1
  output: 
@@ -1361,8 +1361,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 70
-Current Local Balance: 15
+Committed Balance: 95
+Current Local Balance: 40
 -------------------
 Committed Blocks: 
 -------------------
@@ -1395,9 +1395,11 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
@@ -1418,8 +1420,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 205
-Current Local Balance: 205
+Committed Balance: 95
+Current Local Balance: 95
 -------------------
 Committed Blocks: 
 -------------------
@@ -1452,14 +1454,16 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
 -------------------
-Transaction ( 24 : S4 -> S3 = 25 )
+
 -------------------
 Queue Transactions: 
 -------------------
@@ -1475,8 +1479,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 15
-Current Local Balance: 15
+Committed Balance: 100
+Current Local Balance: 100
 -------------------
 Committed Blocks: 
 -------------------
@@ -1509,9 +1513,11 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
@@ -1566,9 +1572,11 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
@@ -1623,9 +1631,11 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
+Transaction ( 24 : S4 -> S3 = 25 )
 
 -------------------
 Current Local Log Transactions: 
@@ -1664,15 +1674,15 @@ Command: PrintBalance
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 185
-Committed Account Balance: 185---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
 Command: PrintBalance
  server: S5
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 15
-Committed Account Balance: 15---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
 Command: PrintBalance
  server: S1
  output: 
@@ -1727,12 +1737,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -1761,8 +1772,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 185
-Current Local Balance: 185
+Committed Balance: 100
+Current Local Balance: 100
 -------------------
 Committed Blocks: 
 -------------------
@@ -1795,12 +1806,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -1829,8 +1841,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 15
-Current Local Balance: 15
+Committed Balance: 100
+Current Local Balance: 100
 -------------------
 Committed Blocks: 
 -------------------
@@ -1863,12 +1875,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -1931,12 +1944,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -1999,12 +2013,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -2034,22 +2049,22 @@ Command: PrintBalance
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 195
+---------- PRINT BALANCE ---------Account Balance: 100
 Committed Account Balance: 195---------------------------------------------------
 Command: PrintBalance
  server: S4
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 185
-Committed Account Balance: 185---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 100
+Committed Account Balance: 100---------------------------------------------------
 Command: PrintBalance
  server: S5
  output: 
 
 
----------- PRINT BALANCE ---------Account Balance: 20
-Committed Account Balance: 20---------------------------------------------------
+---------- PRINT BALANCE ---------Account Balance: 105
+Committed Account Balance: 105---------------------------------------------------
 Command: PrintBalance
  server: S1
  output: 
@@ -2080,7 +2095,7 @@ Command: PrintLog
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 185-------------------
+Current Local Balance: 100-------------------
 Current Local Log Transactions: 
 -------------------
 ---------------------------------------------------
@@ -2090,7 +2105,7 @@ Command: PrintLog
 
 
 ---------- PRINT LOG ---------
-Current Local Balance: 115-------------------
+Current Local Balance: 200-------------------
 Current Local Log Transactions: 
 -------------------
 ---------------------------------------------------
@@ -2154,12 +2169,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -2194,8 +2210,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 185
-Current Local Balance: 185
+Committed Balance: 100
+Current Local Balance: 100
 -------------------
 Committed Blocks: 
 -------------------
@@ -2228,12 +2244,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -2268,8 +2285,8 @@ Command: PrintDB
 
 
 ------------ PRINT DB ------------
-Committed Balance: 115
-Current Local Balance: 10
+Committed Balance: 200
+Current Local Balance: 95
 -------------------
 Committed Blocks: 
 -------------------
@@ -2302,12 +2319,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -2376,12 +2394,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -2450,12 +2469,13 @@ Transaction ( 19 : S2 -> S5 = 10 )
 Transaction ( 21 : S1 -> S4 = 45 )
 Transaction ( 22 : S2 -> S4 = 25 )
 Term : 5
-Block: 5 Term:5 Tnx count: 2 Leader: S3 Block Commit Time: 
+Block: 5 Term:5 Tnx count: 4 Leader: S3 Block Commit Time: 
+Transaction ( 16 : S4 -> S5 = 85 )
 Transaction ( 20 : S5 -> S4 = 55 )
 Transaction ( 23 : S5 -> S3 = 50 )
-Term : 6
-Block: 6 Term:6 Tnx count: 6 Leader: S1 Block Commit Time: 
 Transaction ( 24 : S4 -> S3 = 25 )
+Term : 6
+Block: 6 Term:6 Tnx count: 5 Leader: S1 Block Commit Time: 
 Transaction ( 25 : S3 -> S1 = 55 )
 Transaction ( 26 : S1 -> S3 = 20 )
 Transaction ( 27 : S2 -> S4 = 5 )
@@ -2491,8 +2511,8 @@ Command: PrintClientBalances
  PrintClientBalance : S1 Balance on S3 is = 10
  PrintClientBalance : S2 Balance on S3 is = 90
  PrintClientBalance : S3 Balance on S3 is = 100
- PrintClientBalance : S4 Balance on S3 is = 185
- PrintClientBalance : S5 Balance on S3 is = 115
+ PrintClientBalance : S4 Balance on S3 is = 100
+ PrintClientBalance : S5 Balance on S3 is = 200
 
 Command: PrintClientBalances
  server: S4
@@ -2501,8 +2521,8 @@ Command: PrintClientBalances
  PrintClientBalance : S1 Balance on S4 is = 10
  PrintClientBalance : S2 Balance on S4 is = 90
  PrintClientBalance : S3 Balance on S4 is = 100
- PrintClientBalance : S4 Balance on S4 is = 185
- PrintClientBalance : S5 Balance on S4 is = 115
+ PrintClientBalance : S4 Balance on S4 is = 100
+ PrintClientBalance : S5 Balance on S4 is = 200
 
 Command: PrintClientBalances
  server: S5
@@ -2511,8 +2531,8 @@ Command: PrintClientBalances
  PrintClientBalance : S1 Balance on S5 is = 115
  PrintClientBalance : S2 Balance on S5 is = 90
  PrintClientBalance : S3 Balance on S5 is = 100
- PrintClientBalance : S4 Balance on S5 is = 185
- PrintClientBalance : S5 Balance on S5 is = 10
+ PrintClientBalance : S4 Balance on S5 is = 100
+ PrintClientBalance : S5 Balance on S5 is = 95
 
 Command: PrintClientBalances
  server: S1
@@ -2521,8 +2541,8 @@ Command: PrintClientBalances
  PrintClientBalance : S1 Balance on S1 is = 10
  PrintClientBalance : S2 Balance on S1 is = 90
  PrintClientBalance : S3 Balance on S1 is = 100
- PrintClientBalance : S4 Balance on S1 is = 185
- PrintClientBalance : S5 Balance on S1 is = 115
+ PrintClientBalance : S4 Balance on S1 is = 100
+ PrintClientBalance : S5 Balance on S1 is = 200
 
 Command: PrintClientBalances
  server: S2
@@ -2531,8 +2551,8 @@ Command: PrintClientBalances
  PrintClientBalance : S1 Balance on S2 is = 10
  PrintClientBalance : S2 Balance on S2 is = 90
  PrintClientBalance : S3 Balance on S2 is = 100
- PrintClientBalance : S4 Balance on S2 is = 185
- PrintClientBalance : S5 Balance on S2 is = 115
+ PrintClientBalance : S4 Balance on S2 is = 100
+ PrintClientBalance : S5 Balance on S2 is = 200
 
 Command: Performance
  server: S3
@@ -2541,12 +2561,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 7
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 10658 ms
+Total Time to Commit: 9490 ms
 Total Relevant Transactions committed: 7
-Average Time to Commit: 1522 ms
-Throughput: 2 tps
+Average Time to Commit: 1355 ms
+Throughput: 3 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2556,12 +2576,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 3
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 4484 ms
+Total Time to Commit: 6981 ms
 Total Relevant Transactions committed: 3
-Average Time to Commit: 1494 ms
-Throughput: 6 tps
+Average Time to Commit: 2327 ms
+Throughput: 4 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2571,11 +2591,11 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 6
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 3686 ms
+Total Time to Commit: 3624 ms
 Total Relevant Transactions committed: 6
-Average Time to Commit: 614 ms
+Average Time to Commit: 604 ms
 Throughput: 8 tps
 
 ---------------------------------------------------
@@ -2586,12 +2606,12 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 8
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 7607 ms
+Total Time to Commit: 8297 ms
 Total Relevant Transactions committed: 8
-Average Time to Commit: 950 ms
-Throughput: 4 tps
+Average Time to Commit: 1037 ms
+Throughput: 3 tps
 
 ---------------------------------------------------
 Command: Performance
@@ -2601,11 +2621,11 @@ Command: Performance
 
 ---------- PRINT PERFORMANCE ---------
 Transactions Processed: 9
-Transactions Committed: 31
+Transactions Committed: 32
 Transactions Aborted: 0
-Total Time to Commit: 4079 ms
+Total Time to Commit: 4034 ms
 Total Relevant Transactions committed: 9
-Average Time to Commit: 453 ms
+Average Time to Commit: 448 ms
 Throughput: 7 tps
 
 ---------------------------------------------------

@@ -24,8 +24,8 @@ Transaction Rejected -> Directed to Consensus
 Need Consensus for Transaction: Transaction ( 9 : S3 -> S5 = 50 )
 Prepare Request Received from S1
 Prepare Request --> Request Proposal Number: 2 DB Accepted Proposal Number: 1
-Block committed: 2
 Prepare Phase Failed
+Block committed: 2
 Processing Transaction: sender: "S3"
 receiver: "S5"
 amount: 50
@@ -56,6 +56,9 @@ amount: 65
 transactionNum: 14
 
 Transaction Accepted
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
+Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
 Pausing Transaction Service until Server is Active
@@ -117,9 +120,27 @@ Prepare Request --> Request Proposal Number: 6 DB Accepted Proposal Number: 5
 Block committed: 6
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
-Prepare Request Received from S5
-Prepare Request --> Request Proposal Number: 7 DB Accepted Proposal Number: 6
 Block committed: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
+Prepare Request Received from S5
+Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
 Prepare Request --> Request Proposal Number: 8 DB Accepted Proposal Number: 7
 Prepare Request Received from S5
