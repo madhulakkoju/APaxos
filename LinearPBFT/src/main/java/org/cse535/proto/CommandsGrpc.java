@@ -187,6 +187,70 @@ public final class CommandsGrpc {
      return getPrintClientBalanceMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      org.cse535.proto.CommandOutput> getFlushDBMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "FlushDB",
+      requestType = org.cse535.proto.CommandInput.class,
+      responseType = org.cse535.proto.CommandOutput.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      org.cse535.proto.CommandOutput> getFlushDBMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput> getFlushDBMethod;
+    if ((getFlushDBMethod = CommandsGrpc.getFlushDBMethod) == null) {
+      synchronized (CommandsGrpc.class) {
+        if ((getFlushDBMethod = CommandsGrpc.getFlushDBMethod) == null) {
+          CommandsGrpc.getFlushDBMethod = getFlushDBMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "Commands", "FlushDB"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandInput.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandOutput.getDefaultInstance()))
+                  .setSchemaDescriptor(new CommandsMethodDescriptorSupplier("FlushDB"))
+                  .build();
+          }
+        }
+     }
+     return getFlushDBMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      org.cse535.proto.CommandOutput> getMakeByzantineMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "makeByzantine",
+      requestType = org.cse535.proto.CommandInput.class,
+      responseType = org.cse535.proto.CommandOutput.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      org.cse535.proto.CommandOutput> getMakeByzantineMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput> getMakeByzantineMethod;
+    if ((getMakeByzantineMethod = CommandsGrpc.getMakeByzantineMethod) == null) {
+      synchronized (CommandsGrpc.class) {
+        if ((getMakeByzantineMethod = CommandsGrpc.getMakeByzantineMethod) == null) {
+          CommandsGrpc.getMakeByzantineMethod = getMakeByzantineMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "Commands", "makeByzantine"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandInput.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandOutput.getDefaultInstance()))
+                  .setSchemaDescriptor(new CommandsMethodDescriptorSupplier("makeByzantine"))
+                  .build();
+          }
+        }
+     }
+     return getMakeByzantineMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -249,6 +313,20 @@ public final class CommandsGrpc {
       asyncUnimplementedUnaryCall(getPrintClientBalanceMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void flushDB(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
+      asyncUnimplementedUnaryCall(getFlushDBMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void makeByzantine(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
+      asyncUnimplementedUnaryCall(getMakeByzantineMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -286,6 +364,20 @@ public final class CommandsGrpc {
                 org.cse535.proto.CommandInput,
                 org.cse535.proto.CommandOutput>(
                   this, METHODID_PRINT_CLIENT_BALANCE)))
+          .addMethod(
+            getFlushDBMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommandInput,
+                org.cse535.proto.CommandOutput>(
+                  this, METHODID_FLUSH_DB)))
+          .addMethod(
+            getMakeByzantineMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommandInput,
+                org.cse535.proto.CommandOutput>(
+                  this, METHODID_MAKE_BYZANTINE)))
           .build();
     }
   }
@@ -347,6 +439,22 @@ public final class CommandsGrpc {
       asyncUnaryCall(
           getChannel().newCall(getPrintClientBalanceMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void flushDB(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getFlushDBMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void makeByzantine(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getMakeByzantineMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -400,6 +508,20 @@ public final class CommandsGrpc {
     public org.cse535.proto.CommandOutput printClientBalance(org.cse535.proto.CommandInput request) {
       return blockingUnaryCall(
           getChannel(), getPrintClientBalanceMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.cse535.proto.CommandOutput flushDB(org.cse535.proto.CommandInput request) {
+      return blockingUnaryCall(
+          getChannel(), getFlushDBMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.cse535.proto.CommandOutput makeByzantine(org.cse535.proto.CommandInput request) {
+      return blockingUnaryCall(
+          getChannel(), getMakeByzantineMethod(), getCallOptions(), request);
     }
   }
 
@@ -460,6 +582,22 @@ public final class CommandsGrpc {
       return futureUnaryCall(
           getChannel().newCall(getPrintClientBalanceMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> flushDB(
+        org.cse535.proto.CommandInput request) {
+      return futureUnaryCall(
+          getChannel().newCall(getFlushDBMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> makeByzantine(
+        org.cse535.proto.CommandInput request) {
+      return futureUnaryCall(
+          getChannel().newCall(getMakeByzantineMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_PRINT_BALANCE = 0;
@@ -467,6 +605,8 @@ public final class CommandsGrpc {
   private static final int METHODID_PRINT_DB = 2;
   private static final int METHODID_PERFORMANCE = 3;
   private static final int METHODID_PRINT_CLIENT_BALANCE = 4;
+  private static final int METHODID_FLUSH_DB = 5;
+  private static final int METHODID_MAKE_BYZANTINE = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -503,6 +643,14 @@ public final class CommandsGrpc {
           break;
         case METHODID_PRINT_CLIENT_BALANCE:
           serviceImpl.printClientBalance((org.cse535.proto.CommandInput) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
+          break;
+        case METHODID_FLUSH_DB:
+          serviceImpl.flushDB((org.cse535.proto.CommandInput) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
+          break;
+        case METHODID_MAKE_BYZANTINE:
+          serviceImpl.makeByzantine((org.cse535.proto.CommandInput) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
           break;
         default:
@@ -571,6 +719,8 @@ public final class CommandsGrpc {
               .addMethod(getPrintDBMethod())
               .addMethod(getPerformanceMethod())
               .addMethod(getPrintClientBalanceMethod())
+              .addMethod(getFlushDBMethod())
+              .addMethod(getMakeByzantineMethod())
               .build();
         }
       }

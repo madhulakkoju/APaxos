@@ -3,6 +3,7 @@ package org.cse535.service;
 import io.grpc.stub.StreamObserver;
 import org.cse535.Main;
 import org.cse535.configs.Utils;
+import org.cse535.node.Node;
 import org.cse535.proto.CommandInput;
 import org.cse535.proto.CommandOutput;
 import org.cse535.proto.CommandsGrpc;
@@ -51,20 +52,31 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
 //
 //        Main.node.commandLogger.log(op);
 //    }
-//
-//    @Override
-//    public void printClientBalance(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
-//
-//        String op = " PrintClientBalance : "+ request.getInput()+
-//                " Balance on "+Main.node.getServerName()+
-//                " is = "+ Main.node.getDatabase().computeClientsBalance( request.getInput() );
-//
-//        responseObserver.onNext(CommandOutput.newBuilder().setOutput( op ).build());
-//        responseObserver.onCompleted();
-//
-//        Main.node.commandLogger.log(op);
-//    }
-//
-//
 
+
+
+    @Override
+    public void flushDB(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
+
+        String serverName = Main.node.serverName;
+        int port = Main.node.port;
+
+        Main.node = new Node(serverName, port);
+
+        responseObserver.onNext(CommandOutput.newBuilder().setOutput("Database Flushed").build());
+        responseObserver.onCompleted();
+
+        System.out.println("Server is now Flushed");
+
+    }
+
+
+    @Override
+    public void makeByzantine(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
+        Main.node.isServerByzantine = !request.getInput().equals("0");
+        responseObserver.onNext(CommandOutput.newBuilder().setOutput("Server is now "+(Main.node.isServerByzantine?"Byzantine":"Honest")).build());
+        responseObserver.onCompleted();
+
+        System.out.println("Server is now "+(Main.node.isServerByzantine?"Byzantine":"Honest"));
+    }
 }

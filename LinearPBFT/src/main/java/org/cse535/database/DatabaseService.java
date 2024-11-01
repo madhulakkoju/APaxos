@@ -1,6 +1,9 @@
 package org.cse535.database;
 
+import com.google.protobuf.Timestamp;
 import lombok.Data;
+import org.cse535.Main;
+import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
 
 import java.util.HashMap;
@@ -20,6 +23,7 @@ public class DatabaseService {
         PrePREPARED,
         PREPARED,
         COMMITTED,
+        EXECUTED,
         ABORTED,
         PENDING
     }
@@ -30,15 +34,16 @@ public class DatabaseService {
     // SeqNum : Transaction
     public HashMap<Integer, Transaction> transactionMap = new HashMap<>();
 
+    public HashMap<Integer, Integer> seqNumViewMap = new HashMap<>();
+
+
     // SeqNum : PrePrepareResponse
     public HashMap<Integer, List<PrePrepareResponse>> prePrepareResponseMap = new HashMap<>();
 
     // SeqNum : PrepareResponse
     public HashMap<Integer, List<PrepareResponse>> prepareResponseMap = new HashMap<>();
 
-
-
-
+    public HashMap<String, Integer> accountsMap = new HashMap<>();
 
     public AtomicInteger currentSeqNum = new AtomicInteger(0);
     public AtomicInteger currentViewNum = new AtomicInteger(0);
@@ -51,8 +56,8 @@ public class DatabaseService {
 
 
 
-
-
+    AtomicInteger lastExecutedSeqNum = new AtomicInteger(-1);
+    AtomicInteger maxAddedSeqNum = new AtomicInteger(-1);
 
 
 
@@ -63,83 +68,70 @@ public class DatabaseService {
 
     public DatabaseService(String serverName){
 
+        for (String client : GlobalConfigs.clients) {
+            accountsMap.put(client, GlobalConfigs.INIT_BALANCE);
+        }
+
+
+
+
 
     }
 
-//    public DatabaseSnapshot toSnapshot(){
-//        return DatabaseSnapshot.newBuilder()
-//                .setAcceptedProposalNumber(this.getAcceptedproposalNumber())
-//                .setAcceptedServerId(this.getAcceptedServerId())
-//                .setAcceptedBlockOfTransactions(this.getAcceptedBlockOfTransactions())
-//                .setAccountBalance(this.getAccountBalance())
-//                .setCommittedAccountBalance(this.getCommittedAccountBalance())
-//                .setCommittedProposalNumber(this.getCommittedProposalNumber())
-//                .putAllBlocks(this.getBlocks())
-//                .putAllBalanceAfterCommit(this.getBalanceAfterCommit())
-//                .putAllClientBalancesAfterCommit(this.getClientBalancesAfterCommit())
-//                .setTransactionsProcessed(this.getTransactionsProcessed())
-//                .setTransactionsCommitted(this.getTransactionsCommitted())
-//                .setTransactionsAborted(this.getTransactionsAborted())
-//                .setCurrentProposalNumber(this.getCurrentProposalNumber())
-//                .setCurrentServerId(this.getCurrentServerId())
-//                .addAllIncomingTransactionsQueue(this.getIncomingTransactionsQueue())
-//                .addAllLocalTransactionLog(this.getLocalTransactionLog().getAllTransactions())
-//                .addAllLeaderTransactionLog(this.getLeaderTransactionLog().getAllTransactions())
-//                .setLastPrepareAckTimestamp(this.getLastPrepareAckTimestamp())
-//                .setLastPrepareAckServer(this.getLastPrepareAckServer())
-//                .setLastAcceptAckTimestamp(this.getLastAcceptAckTimestamp())
-//                .setLastCommitTimestamp(this.getLastCommitTimestamp())
-//                .addAllProcessedTransactionsSet(this.getProcessedTransactionsSet())
-//                .putAllTimeTakenToExecuteMap(Utils.toTimeTakenMask( this.getTimeTakenToExecuteMap()))
-//                .setLeaderBalanceAfterTransactions(this.getLeaderTransactionLog().BalanceAfterTransactions)
-//                .build();
-//    }
-//
-//    public static DatabaseService toDatabaseService(DatabaseSnapshot snapshot){
-//
-//
-//        PriorityBlockingQueue<TransactionInputConfig> q = new PriorityBlockingQueue<>(100, new Comparator<TransactionInputConfig>() {
-//            @Override
-//            public int compare(TransactionInputConfig o1, TransactionInputConfig o2) {
-//                return o1.getTransaction().getTransactionNum() - o2.getTransaction().getTransactionNum();
-//            }
-//        } );
-//
-//        q.addAll(snapshot.getIncomingTransactionsQueueList());
-//
-//
-//        DatabaseService databaseService = new DatabaseService(snapshot.getCurrentServerId());
-//        databaseService.setAcceptedproposalNumber(snapshot.getAcceptedProposalNumber());
-//        databaseService.setAcceptedServerId(snapshot.getAcceptedServerId());
-//        databaseService.setAcceptedBlockOfTransactions(snapshot.getAcceptedBlockOfTransactions());
-//        databaseService.setAccountBalance(snapshot.getAccountBalance());
-//        databaseService.setCommittedAccountBalance(snapshot.getCommittedAccountBalance());
-//        databaseService.setCommittedProposalNumber(snapshot.getCommittedProposalNumber());
-//        databaseService.setBlocks(new HashMap<>(snapshot.getBlocksMap()));
-//        databaseService.setBalanceAfterCommit(new HashMap<>(snapshot.getBalanceAfterCommitMap()));
-//        databaseService.setClientBalancesAfterCommit(new HashMap<>(snapshot.getClientBalancesAfterCommitMap()));
-//        databaseService.setTransactionsProcessed(snapshot.getTransactionsProcessed());
-//        databaseService.setTransactionsCommitted(snapshot.getTransactionsCommitted());
-//        databaseService.setTransactionsAborted(snapshot.getTransactionsAborted());
-//        databaseService.setCurrentProposalNumber(snapshot.getCurrentProposalNumber());
-//        databaseService.setCurrentServerId(snapshot.getCurrentServerId());
-//        databaseService.setIncomingTransactionsQueue( q );
-//        databaseService.setLocalTransactionLog(new LocalTransactionStore(snapshot.getLocalTransactionLogList()));
-//        databaseService.setLeaderTransactionLog(new LeaderLocalTnxStore(Main.node, snapshot.getLeaderTransactionLogList(), snapshot.getLeaderBalanceAfterTransactions()));
-//        databaseService.setLastPrepareAckTimestamp(snapshot.getLastPrepareAckTimestamp());
-//        databaseService.setLastPrepareAckServer(snapshot.getLastPrepareAckServer());
-//        databaseService.setLastAcceptAckTimestamp(snapshot.getLastAcceptAckTimestamp());
-//        databaseService.setLastCommitTimestamp(snapshot.getLastCommitTimestamp());
-//        databaseService.setProcessedTransactionsSet(new HashSet<>(snapshot.getProcessedTransactionsSetList()));
-//        databaseService.setTimeTakenToExecuteMap(Utils.toTimeTakenMap(snapshot.getTimeTakenToExecuteMapMap()));
-//
-//        return databaseService;
-//
-//    }
-//
+
+    public void initiateExecutions(){
+
+        while( lastExecutedSeqNum.get() < maxAddedSeqNum.get() ){
+
+            int seqNum = lastExecutedSeqNum.get() + 1;
+
+            if( transactionStatusMap.containsKey(seqNum) &&
+                    transactionStatusMap.get(seqNum) == TransactionStatus.COMMITTED ){
+                // Execute the transaction
+                executeTransaction(seqNum);
+                lastExecutedSeqNum.set(seqNum);
+            }
+            else{
+                break;
+            }
+        }
+    }
+
+    public void executeTransaction( int seqNum ){
+        Transaction transaction = transactionMap.get(seqNum);
+
+        // Execute the transaction
+        this.accountsMap.put(transaction.getSender(), this.accountsMap.get(transaction.getSender()) - transaction.getAmount() );
+        this.accountsMap.put(transaction.getReceiver(), this.accountsMap.get(transaction.getReceiver()) + transaction.getAmount() );
+
+        this.transactionStatusMap.put(seqNum, TransactionStatus.EXECUTED);
+
+        Main.node.clientStub.executionReply(
+                ExecutionReplyRequest.newBuilder()
+                        .setView(this.seqNumViewMap.get(seqNum))
+                        .setSequenceNumber(seqNum)
+                        .setProcessId(Main.node.serverName)
+                        .build()
+        );
+
+    }
 
 
 
+
+
+
+
+
+
+
+    public void setLastExecutedSeqNum(int seqNum){
+        lastExecutedSeqNum.set(seqNum);
+    }
+
+    public void setMaxAddedSeqNum(int seqNum){
+        maxAddedSeqNum.set( Math.max( seqNum , maxAddedSeqNum.get() ) );
+    }
 
 
 

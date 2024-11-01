@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class Node extends NodeServer{
 
     public Thread transactionWorkerThread;
-    public DatabaseBackupThread databaseBackupThread;
+    //public DatabaseBackupThread databaseBackupThread;
 
 
 
@@ -28,21 +28,14 @@ public class Node extends NodeServer{
     public Node(String serverName, int port){
         super(serverName, port);
 
-        DatabaseService dbService = null; // this.restoreDatabaseSnapshot();
-
-        if(dbService != null){
-            this.database = dbService;
-        }
-
-
         this.transactionWorkerThread = new Thread(this::processTnxsInQueue);
-        this.databaseBackupThread = new DatabaseBackupThread(this);
+        //this.databaseBackupThread = new DatabaseBackupThread(this);
 
 
         try {
             this.server.start();
             this.transactionWorkerThread.start();
-            this.databaseBackupThread.start();
+            //this.databaseBackupThread.start();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,7 +50,17 @@ public class Node extends NodeServer{
             try {
                 Thread.sleep(5);
 
+                if(this.database.incomingTnxQueue.isEmpty()){
+
+                    Thread.sleep(50);
+
+                    continue;
+                }
+
+
                 tnxConfig = this.database.incomingTnxQueue.poll();
+
+
 
                 if(!processTransaction(tnxConfig)){
                     this.database.incomingTnxQueue.add(tnxConfig);
@@ -99,7 +102,8 @@ public class Node extends NodeServer{
                     .setSequenceNumber(currentSeqNum)
                     .setView(this.database.currentViewNum.get())
                     .setProcessId(this.serverName)
-                    .setDigest(Utils.Digest(tnxConfig.getTransaction()))
+                    //.setDigest(Utils.Digest(tnxConfig.getTransaction()))
+                    .setDigest(tnxConfig.getTransaction().getTransactionHash())
                     .build();
 
             this.database.prepareResponseMap.put(currentSeqNum, new ArrayList<>(GlobalConfigs.serversCount));
@@ -124,6 +128,8 @@ public class Node extends NodeServer{
         }
         return false;
     }
+
+
 
     public boolean initiatePrePrepare(PrePrepareRequest preprepareRequest) {
         try {
@@ -164,6 +170,35 @@ public class Node extends NodeServer{
         return false;
     }
 
+    public PrePrepareResponse handlePrePrepare(PrePrepareRequest request) {
+        PrePrepareResponse.Builder prePrepareResponse = PrePrepareResponse.newBuilder();
+
+        prePrepareResponse.setSuccess(false);
+
+        if(this.database.transactionMap.containsKey(request.getSequenceNumber())){
+
+            if( this.database.transactionMap.get(request.getSequenceNumber()).getTransactionNum() != request.getTransaction().getTransactionNum() &&
+                !this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash().equals(request.getTransaction().getTransactionHash())){
+
+                prePrepareResponse.setSuccess(false);
+                return prePrepareResponse.build();
+            }
+
+            this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.PrePREPARED);
+            prePrepareResponse.setSuccess(true);
+
+        }
+        else {
+            this.database.transactionMap.put(request.getSequenceNumber(), request.getTransaction());
+            this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.PrePREPARED);
+            prePrepareResponse.setSuccess(true);
+        }
+
+        return prePrepareResponse.build();
+    }
+
+
+
     public boolean initiatePrepare(PrepareRequest prepareRequest) {
         try {
 
@@ -203,8 +238,29 @@ public class Node extends NodeServer{
         return false;
     }
 
+    public PrepareResponse handlePrepare(PrepareRequest request) {
+        PrepareResponse.Builder prepareResponse = PrepareResponse.newBuilder();
+        prepareResponse.setSuccess(false);
+
+        if( this.database.transactionMap.containsKey(request.getSequenceNumber()) &&
+                this.database.transactionStatusMap.containsKey(request.getSequenceNumber()) &&
+                this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash().equals(request.getDigest()) &&
+                (this.database.transactionStatusMap.get(request.getSequenceNumber()) == DatabaseService.TransactionStatus.PrePREPARED ||
+                this.database.transactionStatusMap.get(request.getSequenceNumber()) == DatabaseService.TransactionStatus.PREPARED)){
+
+            this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.PREPARED);
+            prepareResponse.setSuccess(true);
+        }
+
+        return prepareResponse.build();
+    }
+
+
+
     public boolean initiateCommit(CommitRequest commitRequest) {
         try {
+
+            this.database.transactionStatusMap.put(commitRequest.getSequenceNumber(), DatabaseService.TransactionStatus.COMMITTED );
 
             CommitWorkerThread[] commitWorkerThreads = new CommitWorkerThread[this.currentActiveServers.size()];
 
@@ -230,6 +286,14 @@ public class Node extends NodeServer{
         }
 
     }
+
+    public CommitResponse handleCommit(CommitRequest request) {
+        this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.COMMITTED);
+        return CommitResponse.newBuilder().setSuccess(true).build();
+    }
+
+
+
 
 
 

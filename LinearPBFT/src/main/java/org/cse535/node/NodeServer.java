@@ -30,15 +30,22 @@ public class NodeServer {
     public LogUtils commandLogger;
     public boolean isServerActive;
 
+    public boolean isServerByzantine;
+
     public String serverName;
     public Server server;
 
     public DatabaseService database;
 
     public HashMap<String, ManagedChannel> serversToChannel;
-
     public HashMap<String, LinearPBFTGrpc.LinearPBFTBlockingStub> serversToStub;
     public HashMap<String, CommandsGrpc.CommandsBlockingStub> serversToCommandsStub;
+    public HashMap<String, ActivateServersGrpc.ActivateServersBlockingStub> serversToActivateServersStub;
+
+
+    public ManagedChannel clientChannel;
+    public LinearPBFTGrpc.LinearPBFTBlockingStub clientStub;
+
 
     public List<String> currentActiveServers;
 
@@ -66,6 +73,7 @@ public class NodeServer {
         serversToChannel = new HashMap<>();
         serversToCommandsStub = new HashMap<>();
         isServerActive = true;
+        isServerByzantine = false;
 
         database = new DatabaseService(this.serverName);
 
@@ -78,6 +86,8 @@ public class NodeServer {
             serversToCommandsStub.put(serverName, CommandsGrpc.newBlockingStub(channel));
         });
 
+        clientChannel = ManagedChannelBuilder.forAddress("localhost", GlobalConfigs.viewServerPort).usePlaintext().build();
+        clientStub = LinearPBFTGrpc.newBlockingStub(clientChannel);
 
     }
 
