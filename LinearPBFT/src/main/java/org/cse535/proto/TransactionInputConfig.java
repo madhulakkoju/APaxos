@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private TransactionInputConfig() {
     setNumber_ = 0;
+    view_ = 0;
     serverNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
@@ -62,11 +63,16 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 24: {
+
+            view_ = input.readInt32();
+            break;
+          }
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
               serverNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
+              mutable_bitField0_ |= 0x00000008;
             }
             serverNames_.add(s);
             break;
@@ -86,7 +92,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
         serverNames_ = serverNames_.getUnmodifiableView();
       }
       this.unknownFields = unknownFields.build();
@@ -135,6 +141,15 @@ private static final long serialVersionUID = 0L;
    */
   public org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder() {
     return getTransaction();
+  }
+
+  public static final int VIEW_FIELD_NUMBER = 3;
+  private int view_;
+  /**
+   * <code>int32 view = 3;</code>
+   */
+  public int getView() {
+    return view_;
   }
 
   public static final int SERVERNAMES_FIELD_NUMBER = 5;
@@ -186,6 +201,9 @@ private static final long serialVersionUID = 0L;
     if (transaction_ != null) {
       output.writeMessage(2, getTransaction());
     }
+    if (view_ != 0) {
+      output.writeInt32(3, view_);
+    }
     for (int i = 0; i < serverNames_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, serverNames_.getRaw(i));
     }
@@ -205,6 +223,10 @@ private static final long serialVersionUID = 0L;
     if (transaction_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getTransaction());
+    }
+    if (view_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, view_);
     }
     {
       int dataSize = 0;
@@ -237,6 +259,8 @@ private static final long serialVersionUID = 0L;
       result = result && getTransaction()
           .equals(other.getTransaction());
     }
+    result = result && (getView()
+        == other.getView());
     result = result && getServerNamesList()
         .equals(other.getServerNamesList());
     result = result && unknownFields.equals(other.unknownFields);
@@ -256,6 +280,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRANSACTION_FIELD_NUMBER;
       hash = (53 * hash) + getTransaction().hashCode();
     }
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + getView();
     if (getServerNamesCount() > 0) {
       hash = (37 * hash) + SERVERNAMES_FIELD_NUMBER;
       hash = (53 * hash) + getServerNamesList().hashCode();
@@ -401,8 +427,10 @@ private static final long serialVersionUID = 0L;
         transaction_ = null;
         transactionBuilder_ = null;
       }
+      view_ = 0;
+
       serverNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -437,9 +465,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.transaction_ = transactionBuilder_.build();
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      result.view_ = view_;
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         serverNames_ = serverNames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.serverNames_ = serverNames_;
       result.bitField0_ = to_bitField0_;
@@ -497,10 +526,13 @@ private static final long serialVersionUID = 0L;
       if (other.hasTransaction()) {
         mergeTransaction(other.getTransaction());
       }
+      if (other.getView() != 0) {
+        setView(other.getView());
+      }
       if (!other.serverNames_.isEmpty()) {
         if (serverNames_.isEmpty()) {
           serverNames_ = other.serverNames_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureServerNamesIsMutable();
           serverNames_.addAll(other.serverNames_);
@@ -680,11 +712,37 @@ private static final long serialVersionUID = 0L;
       return transactionBuilder_;
     }
 
+    private int view_ ;
+    /**
+     * <code>int32 view = 3;</code>
+     */
+    public int getView() {
+      return view_;
+    }
+    /**
+     * <code>int32 view = 3;</code>
+     */
+    public Builder setView(int value) {
+      
+      view_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 view = 3;</code>
+     */
+    public Builder clearView() {
+      
+      view_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.LazyStringList serverNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureServerNamesIsMutable() {
-      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
         serverNames_ = new com.google.protobuf.LazyStringArrayList(serverNames_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -755,7 +813,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearServerNames() {
       serverNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }

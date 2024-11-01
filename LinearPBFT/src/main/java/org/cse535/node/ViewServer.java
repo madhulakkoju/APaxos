@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static org.cse535.configs.GlobalConfigs.allServers;
 
@@ -37,14 +38,14 @@ public class ViewServer extends NodeServer{
 
     public int viewNumber = 0;
 
-    public String primaryServerName = allServers.get(this.viewNumber);
+    public String primaryServerName = GlobalConfigs.initLeader;
 
     public int tnxCount = 1;
     public int lineNum = 0;
 
 
     public HashMap<Integer, TransactionInputConfig> transactionInputConfigMap = new HashMap<>();
-    public HashMap<Integer, HashSet<String>> transactionExecutionResponseMap = new HashMap<>();
+    public ConcurrentHashMap<Integer, HashSet<String>> transactionExecutionResponseMap = new ConcurrentHashMap<>();
 
 
     public static ViewServer viewServerInstance;
@@ -52,10 +53,8 @@ public class ViewServer extends NodeServer{
 
     public enum Command {
         PrintDB,
-        PrintBalance,
         PrintLog,
-        Performance,
-        PrintClientBalances
+        PrintStatus,
     }
 
     public ViewServer(String serverName, int port) {
@@ -85,23 +84,26 @@ public class ViewServer extends NodeServer{
 
         List<String> activeServers = Arrays.asList(listString.split(","));
 
-        String[] maliciousServers = parts[3].replaceAll("[\\[\\]]", "").trim().split(",");  // Clean and trim
+        String[] maliciousServers = parts[3].replaceAll("[\\[\\]]", "").replaceAll("\"","").trim().split(",");  // Clean and trim
 
         Transaction transaction = Transaction.newBuilder()
-                .setSender(tnx[1])
-                .setReceiver(tnx[2])
-                .setAmount(Integer.parseInt(tnx[3]))
+                .setSender(tnx[0])
+                .setReceiver(tnx[1])
+                .setAmount(Integer.parseInt(tnx[2]))
                 .setTransactionNum(tnxCount)
                 .build();
 
         return new TnxLine(TransactionInputConfig.newBuilder()
                 .setSetNumber(testCaseCount)
+                .setView(viewServerInstance.viewNumber)
                 .setTransaction(transaction)
                 .addAllServerNames(activeServers)
                 .build(), maliciousServers);
     }
 
     public void sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
+
+        transactionExecutionResponseMap.put(transactionInputConfig.getTransaction().getTransactionNum(), new HashSet<>());
 
         LinearPBFTGrpc.LinearPBFTBlockingStub stub = this.serversToStub.get( this.primaryServerName );
 
@@ -170,26 +172,15 @@ public class ViewServer extends NodeServer{
                 case PrintDB:
                     op = stub.printDB(commandInput);
                     break;
-                case PrintBalance:
-                    op = stub.printBalance(commandInput);
-                    break;
                 case PrintLog:
                     op = stub.printLog(commandInput);
                     break;
-                case Performance:
-                    op = stub.performance(commandInput);
-                    break;
-                case PrintClientBalances:
-                    CommandInput.Builder bufCommandInput = CommandInput.newBuilder();
-                    StringBuilder clientBalanceOutput = new StringBuilder(" Client Balances Across Servers: on "+ server +"\n");
-                    for (String client : allServers ) {
-                        clientBalanceOutput.append(stub.printClientBalance( bufCommandInput.setInput(client).build() ).getOutput() ).append("\n");
-                    }
-                    op = CommandOutput.newBuilder().setOutput(clientBalanceOutput.toString()).build();
+                case PrintStatus:
+                    //op = stub.printStatus(commandInput);
                     break;
             }
 
-            this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
+            //this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
 
         });
 
@@ -199,9 +190,11 @@ public class ViewServer extends NodeServer{
 
     public void flush() {
         this.transactionInputConfigMap = new HashMap<>();
-        this.transactionExecutionResponseMap = new HashMap<>();
+        this.transactionExecutionResponseMap = new ConcurrentHashMap<>();
         this.viewNumber = 0;
-        this.primaryServerName = allServers.get(this.viewNumber);
+        this.primaryServerName = GlobalConfigs.initLeader;
+
+        this.tnxCount = 1;
     }
 
 
@@ -218,17 +211,6 @@ public class ViewServer extends NodeServer{
         commandsSet.add("PrintLog");
         commandsSet.add("Performance");
         commandsSet.add("PrintClientBalances");
-
-
-//
-//        //Clear out data base for testing
-//        viewServer.mongoDBCollection.deleteMany(new Document());
-//        viewServer.mongoDBDetailCollection.deleteMany(new Document());
-//
-
-
-
-
 
 
         HashMap<String, Boolean> activeServersStatusMap = new HashMap<>();
@@ -300,10 +282,13 @@ public class ViewServer extends NodeServer{
                     System.out.println("Press Enter to continue to next Test set. This will activate the servers and publish transactions to servers."+transactionInputConfig.getSetNumber());
                     String a  = System.console().readLine();
 
-                    viewServer.sendCommandToServers(Command.valueOf("PrintBalance"), activeServersStatusMap);
+
                     viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
+                    viewServer.sendCommandToServers(Command.valueOf("PrintLog"), activeServersStatusMap);
 
                     for( String server : allServers) {
+                        viewServerInstance.serversToCommandsStub.get(server).flushDB(CommandInput.newBuilder().build());
+
                         if(activeServersStatusMap.get(server)) {
                             //System.out.println("Server: " + server + " is active");
 
@@ -340,14 +325,12 @@ public class ViewServer extends NodeServer{
 
                         }
 
-
-                        viewServerInstance.serversToCommandsStub.get(server).flushDB(CommandInput.newBuilder().build());
-
                         viewServerInstance.serversToCommandsStub.get(server).makeByzantine(CommandInput.newBuilder().setInput("0").build());
                         // 0 -> Normal, 1 -> Byzantine
                     }
                     viewServerInstance.flush();
 
+                    Thread.sleep(100);
 
 
                     for (String server : tnxLine.maliciousServers) {
@@ -364,6 +347,8 @@ public class ViewServer extends NodeServer{
 
                 // Multicast Transactions to active servers
                 viewServer.sendTransactionToServers(transactionInputConfig);
+
+                Thread.sleep(100);
             }
 
         }
@@ -373,11 +358,11 @@ public class ViewServer extends NodeServer{
 
         System.out.println("Running All Commands on all servers");
         Thread.sleep(1000);
-        viewServer.sendCommandToServers(Command.valueOf("PrintBalance"), activeServersStatusMap);
+
         viewServer.sendCommandToServers(Command.valueOf("PrintLog"), activeServersStatusMap);
         viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
-        viewServer.sendCommandToServers(Command.valueOf("PrintClientBalances"), activeServersStatusMap);
-        viewServer.sendCommandToServers(Command.valueOf("Performance"), activeServersStatusMap);
+
+
 
         System.out.println("All the Commands have been executed and you can find outputs in Logs. \nFreestyle from now on. use Commands only. Type STOP to stop the view server / Client");
 

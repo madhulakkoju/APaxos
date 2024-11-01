@@ -9,13 +9,16 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
+import lombok.var;
 import org.bson.Document;
 import org.bson.types.Binary;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.database.DatabaseService;
 import org.cse535.loggers.LogUtils;
 import org.cse535.proto.*;
+import org.cse535.service.ActivateServersService;
 import org.cse535.service.CommandsService;
+import org.cse535.service.LinearPBFTService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,9 +31,6 @@ public class NodeServer {
     public int port;
     public LogUtils logger;
     public LogUtils commandLogger;
-    public boolean isServerActive;
-
-    public boolean isServerByzantine;
 
     public String serverName;
     public Server server;
@@ -62,7 +62,8 @@ public class NodeServer {
 
         this.server = ServerBuilder.forPort(port)
                 .addService(new CommandsService())
-                .addService(new CommandsService())
+                .addService(new LinearPBFTService())
+                .addService(new ActivateServersService())
                 .build();
 
     }
@@ -72,8 +73,7 @@ public class NodeServer {
         serversToStub = new HashMap<>();
         serversToChannel = new HashMap<>();
         serversToCommandsStub = new HashMap<>();
-        isServerActive = true;
-        isServerByzantine = false;
+        serversToActivateServersStub = new HashMap<>();
 
         database = new DatabaseService(this.serverName);
 
@@ -83,6 +83,7 @@ public class NodeServer {
 
             serversToChannel.put(serverName, channel);
             serversToStub.put(serverName, LinearPBFTGrpc.newBlockingStub(channel));
+            serversToActivateServersStub.put(serverName, ActivateServersGrpc.newBlockingStub(channel));
             serversToCommandsStub.put(serverName, CommandsGrpc.newBlockingStub(channel));
         });
 
@@ -90,6 +91,45 @@ public class NodeServer {
         clientStub = LinearPBFTGrpc.newBlockingStub(clientChannel);
 
     }
+
+
+
+    public String printDB() {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Database: \n");
+        sb.append("Server: ").append(this.serverName).append("\n");
+
+        for (String client: GlobalConfigs.clients) {
+            sb.append(client).append(" = ").append(this.database.accountsMap.get(client)).append("\n");
+
+        }
+
+        logger.log(sb.toString());
+
+        return sb.toString();
+    }
+
+    public String printLog() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Log: \n");
+        sb.append("Server: ").append(this.serverName).append("\n");
+
+        for( var entry:  this.database.transactionStatusMap.entrySet()) {
+            sb.append(entry.getKey()).append(" = ").append(entry.getValue()).append("\n");
+        }
+
+
+        return sb.toString();
+    }
+
+
+    public String getServerName() {
+        return this.serverName;
+    }
+
 
 
 }

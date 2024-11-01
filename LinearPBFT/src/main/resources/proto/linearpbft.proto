@@ -102,6 +102,7 @@ message NewViewResponse {
 message TransactionInputConfig{
   int32 setNumber = 1;
   Transaction transaction = 2;
+  int32 view = 3;
   repeated string serverNames = 5;
 }
 
@@ -154,12 +155,9 @@ message DeactivateServerResponse{
 
 
 service Commands{
-  rpc printBalance(CommandInput) returns (CommandOutput) {}
+
   rpc printLog(CommandInput) returns (CommandOutput) {}
   rpc printDB(CommandInput) returns (CommandOutput) {}
-  rpc Performance(CommandInput) returns (CommandOutput) {}
-  rpc printClientBalance(CommandInput) returns (CommandOutput) {}
-
 
   rpc FlushDB(CommandInput) returns (CommandOutput) {}
   rpc makeByzantine(CommandInput) returns (CommandOutput) {}

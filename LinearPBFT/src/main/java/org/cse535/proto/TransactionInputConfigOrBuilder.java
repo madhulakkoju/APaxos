@@ -26,6 +26,11 @@ public interface TransactionInputConfigOrBuilder extends
   org.cse535.proto.TransactionOrBuilder getTransactionOrBuilder();
 
   /**
+   * <code>int32 view = 3;</code>
+   */
+  int getView();
+
+  /**
    * <code>repeated string serverNames = 5;</code>
    */
   java.util.List<java.lang.String>

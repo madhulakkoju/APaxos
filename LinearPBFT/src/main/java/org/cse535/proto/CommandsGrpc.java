@@ -28,38 +28,6 @@ public final class CommandsGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
-      org.cse535.proto.CommandOutput> getPrintBalanceMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "printBalance",
-      requestType = org.cse535.proto.CommandInput.class,
-      responseType = org.cse535.proto.CommandOutput.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
-      org.cse535.proto.CommandOutput> getPrintBalanceMethod() {
-    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput> getPrintBalanceMethod;
-    if ((getPrintBalanceMethod = CommandsGrpc.getPrintBalanceMethod) == null) {
-      synchronized (CommandsGrpc.class) {
-        if ((getPrintBalanceMethod = CommandsGrpc.getPrintBalanceMethod) == null) {
-          CommandsGrpc.getPrintBalanceMethod = getPrintBalanceMethod = 
-              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "Commands", "printBalance"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.CommandInput.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.CommandOutput.getDefaultInstance()))
-                  .setSchemaDescriptor(new CommandsMethodDescriptorSupplier("printBalance"))
-                  .build();
-          }
-        }
-     }
-     return getPrintBalanceMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
       org.cse535.proto.CommandOutput> getPrintLogMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -121,70 +89,6 @@ public final class CommandsGrpc {
         }
      }
      return getPrintDBMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
-      org.cse535.proto.CommandOutput> getPerformanceMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "Performance",
-      requestType = org.cse535.proto.CommandInput.class,
-      responseType = org.cse535.proto.CommandOutput.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
-      org.cse535.proto.CommandOutput> getPerformanceMethod() {
-    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput> getPerformanceMethod;
-    if ((getPerformanceMethod = CommandsGrpc.getPerformanceMethod) == null) {
-      synchronized (CommandsGrpc.class) {
-        if ((getPerformanceMethod = CommandsGrpc.getPerformanceMethod) == null) {
-          CommandsGrpc.getPerformanceMethod = getPerformanceMethod = 
-              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "Commands", "Performance"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.CommandInput.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.CommandOutput.getDefaultInstance()))
-                  .setSchemaDescriptor(new CommandsMethodDescriptorSupplier("Performance"))
-                  .build();
-          }
-        }
-     }
-     return getPerformanceMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
-      org.cse535.proto.CommandOutput> getPrintClientBalanceMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "printClientBalance",
-      requestType = org.cse535.proto.CommandInput.class,
-      responseType = org.cse535.proto.CommandOutput.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
-      org.cse535.proto.CommandOutput> getPrintClientBalanceMethod() {
-    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput> getPrintClientBalanceMethod;
-    if ((getPrintClientBalanceMethod = CommandsGrpc.getPrintClientBalanceMethod) == null) {
-      synchronized (CommandsGrpc.class) {
-        if ((getPrintClientBalanceMethod = CommandsGrpc.getPrintClientBalanceMethod) == null) {
-          CommandsGrpc.getPrintClientBalanceMethod = getPrintClientBalanceMethod = 
-              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "Commands", "printClientBalance"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.CommandInput.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  org.cse535.proto.CommandOutput.getDefaultInstance()))
-                  .setSchemaDescriptor(new CommandsMethodDescriptorSupplier("printClientBalance"))
-                  .build();
-          }
-        }
-     }
-     return getPrintClientBalanceMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
@@ -280,13 +184,6 @@ public final class CommandsGrpc {
 
     /**
      */
-    public void printBalance(org.cse535.proto.CommandInput request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
-      asyncUnimplementedUnaryCall(getPrintBalanceMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void printLog(org.cse535.proto.CommandInput request,
         io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
       asyncUnimplementedUnaryCall(getPrintLogMethod(), responseObserver);
@@ -297,20 +194,6 @@ public final class CommandsGrpc {
     public void printDB(org.cse535.proto.CommandInput request,
         io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
       asyncUnimplementedUnaryCall(getPrintDBMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void performance(org.cse535.proto.CommandInput request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
-      asyncUnimplementedUnaryCall(getPerformanceMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void printClientBalance(org.cse535.proto.CommandInput request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
-      asyncUnimplementedUnaryCall(getPrintClientBalanceMethod(), responseObserver);
     }
 
     /**
@@ -330,13 +213,6 @@ public final class CommandsGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getPrintBalanceMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                org.cse535.proto.CommandInput,
-                org.cse535.proto.CommandOutput>(
-                  this, METHODID_PRINT_BALANCE)))
-          .addMethod(
             getPrintLogMethod(),
             asyncUnaryCall(
               new MethodHandlers<
@@ -350,20 +226,6 @@ public final class CommandsGrpc {
                 org.cse535.proto.CommandInput,
                 org.cse535.proto.CommandOutput>(
                   this, METHODID_PRINT_DB)))
-          .addMethod(
-            getPerformanceMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                org.cse535.proto.CommandInput,
-                org.cse535.proto.CommandOutput>(
-                  this, METHODID_PERFORMANCE)))
-          .addMethod(
-            getPrintClientBalanceMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                org.cse535.proto.CommandInput,
-                org.cse535.proto.CommandOutput>(
-                  this, METHODID_PRINT_CLIENT_BALANCE)))
           .addMethod(
             getFlushDBMethod(),
             asyncUnaryCall(
@@ -402,14 +264,6 @@ public final class CommandsGrpc {
 
     /**
      */
-    public void printBalance(org.cse535.proto.CommandInput request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getPrintBalanceMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void printLog(org.cse535.proto.CommandInput request,
         io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
       asyncUnaryCall(
@@ -422,22 +276,6 @@ public final class CommandsGrpc {
         io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getPrintDBMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void performance(org.cse535.proto.CommandInput request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getPerformanceMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void printClientBalance(org.cse535.proto.CommandInput request,
-        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getPrintClientBalanceMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -477,13 +315,6 @@ public final class CommandsGrpc {
 
     /**
      */
-    public org.cse535.proto.CommandOutput printBalance(org.cse535.proto.CommandInput request) {
-      return blockingUnaryCall(
-          getChannel(), getPrintBalanceMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public org.cse535.proto.CommandOutput printLog(org.cse535.proto.CommandInput request) {
       return blockingUnaryCall(
           getChannel(), getPrintLogMethod(), getCallOptions(), request);
@@ -494,20 +325,6 @@ public final class CommandsGrpc {
     public org.cse535.proto.CommandOutput printDB(org.cse535.proto.CommandInput request) {
       return blockingUnaryCall(
           getChannel(), getPrintDBMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public org.cse535.proto.CommandOutput performance(org.cse535.proto.CommandInput request) {
-      return blockingUnaryCall(
-          getChannel(), getPerformanceMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public org.cse535.proto.CommandOutput printClientBalance(org.cse535.proto.CommandInput request) {
-      return blockingUnaryCall(
-          getChannel(), getPrintClientBalanceMethod(), getCallOptions(), request);
     }
 
     /**
@@ -545,14 +362,6 @@ public final class CommandsGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> printBalance(
-        org.cse535.proto.CommandInput request) {
-      return futureUnaryCall(
-          getChannel().newCall(getPrintBalanceMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> printLog(
         org.cse535.proto.CommandInput request) {
       return futureUnaryCall(
@@ -565,22 +374,6 @@ public final class CommandsGrpc {
         org.cse535.proto.CommandInput request) {
       return futureUnaryCall(
           getChannel().newCall(getPrintDBMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> performance(
-        org.cse535.proto.CommandInput request) {
-      return futureUnaryCall(
-          getChannel().newCall(getPerformanceMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> printClientBalance(
-        org.cse535.proto.CommandInput request) {
-      return futureUnaryCall(
-          getChannel().newCall(getPrintClientBalanceMethod(), getCallOptions()), request);
     }
 
     /**
@@ -600,13 +393,10 @@ public final class CommandsGrpc {
     }
   }
 
-  private static final int METHODID_PRINT_BALANCE = 0;
-  private static final int METHODID_PRINT_LOG = 1;
-  private static final int METHODID_PRINT_DB = 2;
-  private static final int METHODID_PERFORMANCE = 3;
-  private static final int METHODID_PRINT_CLIENT_BALANCE = 4;
-  private static final int METHODID_FLUSH_DB = 5;
-  private static final int METHODID_MAKE_BYZANTINE = 6;
+  private static final int METHODID_PRINT_LOG = 0;
+  private static final int METHODID_PRINT_DB = 1;
+  private static final int METHODID_FLUSH_DB = 2;
+  private static final int METHODID_MAKE_BYZANTINE = 3;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -625,24 +415,12 @@ public final class CommandsGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_PRINT_BALANCE:
-          serviceImpl.printBalance((org.cse535.proto.CommandInput) request,
-              (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
-          break;
         case METHODID_PRINT_LOG:
           serviceImpl.printLog((org.cse535.proto.CommandInput) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
           break;
         case METHODID_PRINT_DB:
           serviceImpl.printDB((org.cse535.proto.CommandInput) request,
-              (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
-          break;
-        case METHODID_PERFORMANCE:
-          serviceImpl.performance((org.cse535.proto.CommandInput) request,
-              (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
-          break;
-        case METHODID_PRINT_CLIENT_BALANCE:
-          serviceImpl.printClientBalance((org.cse535.proto.CommandInput) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
           break;
         case METHODID_FLUSH_DB:
@@ -714,11 +492,8 @@ public final class CommandsGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new CommandsFileDescriptorSupplier())
-              .addMethod(getPrintBalanceMethod())
               .addMethod(getPrintLogMethod())
               .addMethod(getPrintDBMethod())
-              .addMethod(getPerformanceMethod())
-              .addMethod(getPrintClientBalanceMethod())
               .addMethod(getFlushDBMethod())
               .addMethod(getMakeByzantineMethod())
               .build();

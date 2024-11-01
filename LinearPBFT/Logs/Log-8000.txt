@@ -1,3 +1,74 @@
  
 -------------------------------------------------------------
 Line: 1 : ﻿1,"(A,C,1)","[S1,S2,S3,S4,S5,S6,S7]","[S4,S6]"
+-------------------------------------------------------------
+Line: 2 : 1,"(C,E,2)","[S1,S2,S3,S4,S5,S6,S7]","[S4,S6]"
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+-------------------------------------------------------------
+Line: 3 : 1,"(B,F,3)","[S1,S2,S3,S4,S5,S6,S7]","[S4,S6]"
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+-------------------------------------------------------------
+Line: 4 : 1,"(G,I,4)","[S1,S2,S3,S4,S5,S6,S7]","[S4,S6]"
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 4
+Execution reply received: 4
+Execution reply received: 4
+Execution reply received: 4
+Execution reply received: 4
+Execution reply received: 4
+-------------------------------------------------------------
+Line: 5 : 1,"(J,H,5)","[S1,S2,S3,S4,S5,S6,S7]","[S4,S6]"
+Execution reply received: 5
+Execution reply received: 5
+Execution reply received: 5
+-------------------------------------------------------------
+Line: 6 : 2,"(A,E,6)","[S1,S2,S3,S5,S6,S7]",[S3]
+Execution reply received: 5
+Execution reply received: 5
+Execution reply received: 5
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+Execution reply received: 1
+-------------------------------------------------------------
+Line: 7 : 2,"(C,A,7)","[S1,S2,S3,S5,S6,S7]",[S3]
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+Execution reply received: 2
+-------------------------------------------------------------
+Line: 8 : 2,"(D,I,8)","[S1,S2,S3,S5,S6,S7]",[S3]
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+Execution reply received: 3
+-------------------------------------------------------------
+Line: 9 : 3,"(A,B,1)","[S1,S2,S3,S5,S6,S7]","[S6,S7]"
+-------------------------------------------------------------
+Line: 10 : 3,"(C,D,2)","[S1,S2,S3,S5,S6,S7]","[S6,S7]"
+-------------------------------------------------------------
+Line: 11 : 3,"(E,F,3)","[S1,S2,S3,S5,S6,S7]","[S6,S7]"
+-------------------------------------------------------------
+Line: 12 : 3,"(G,H,4)","[S1,S2,S3,S5,S6,S7]","[S6,S7]"
+-------------------------------------------------------------
+Line: 13 : 4,"(B,J,3)","[S3,S5,S6,S7]",[S5]

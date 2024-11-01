@@ -1,1 +1,77 @@
  
+Database: 
+Server: S6
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+Log: 
+Server: S6
+
+Database: 
+Server: S6
+A = 9
+B = 7
+C = 9
+D = 10
+E = 12
+F = 13
+G = 6
+H = 15
+I = 14
+J = 5
+
+Log: 
+Server: S6
+1 = EXECUTED
+2 = EXECUTED
+3 = EXECUTED
+4 = EXECUTED
+5 = EXECUTED
+
+Database: 
+Server: S6
+A = 11
+B = 10
+C = 3
+D = 2
+E = 16
+F = 10
+G = 10
+H = 10
+I = 18
+J = 10
+
+Log: 
+Server: S6
+1 = EXECUTED
+2 = EXECUTED
+3 = EXECUTED
+
+Database: 
+Server: S6
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+Log: 
+Server: S6
+1 = PrePREPARED
+2 = COMMITTED
+3 = COMMITTED
+4 = COMMITTED
+5 = COMMITTED

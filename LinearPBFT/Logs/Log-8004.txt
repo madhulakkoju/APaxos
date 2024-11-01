@@ -1,2 +1,123 @@
  
 Transaction Worker Thread Started
+Database: 
+Server: S4
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+PrePrepare request received: 1
+PrePrepare response sent: 1
+Prepare request received: 1
+Prepare response sent: 0
+Commit request received: 1
+Commit response sent: 0
+Initiating execution for seqNum: 1
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sent Reply to Client executed: 1
+Initiating execution for seqNum: 2
+Status : Not Found
+Executions initiated
+PrePrepare request received: 2
+PrePrepare response sent: 2
+Prepare request received: 2
+Prepare response sent: 0
+Commit request received: 2
+Commit response sent: 0
+Initiating execution for seqNum: 2
+Status : COMMITTED
+Executing transaction: 2
+Transaction executed: 2
+Sent Reply to Client executed: 2
+Initiating execution for seqNum: 3
+Status : Not Found
+Executions initiated
+PrePrepare request received: 3
+PrePrepare response sent: 3
+Prepare request received: 3
+Prepare response sent: 0
+Commit request received: 3
+Commit response sent: 0
+Initiating execution for seqNum: 3
+Status : COMMITTED
+Executing transaction: 3
+Transaction executed: 3
+Sent Reply to Client executed: 3
+Initiating execution for seqNum: 4
+Status : Not Found
+Executions initiated
+PrePrepare request received: 4
+PrePrepare response sent: 4
+Prepare request received: 4
+Prepare response sent: 0
+Commit request received: 4
+Commit response sent: 0
+Initiating execution for seqNum: 4
+Status : COMMITTED
+Executing transaction: 4
+Transaction executed: 4
+Sent Reply to Client executed: 4
+Initiating execution for seqNum: 5
+Status : Not Found
+Executions initiated
+PrePrepare request received: 5
+PrePrepare response sent: 5
+Prepare request received: 5
+Prepare response sent: 0
+Commit request received: 5
+Commit response sent: 0
+Initiating execution for seqNum: 5
+Status : COMMITTED
+Executing transaction: 5
+Transaction executed: 5
+Sent Reply to Client executed: 5
+Initiating execution for seqNum: 6
+Status : Not Found
+Executions initiated
+Database: 
+Server: S4
+A = 9
+B = 7
+C = 9
+D = 10
+E = 12
+F = 13
+G = 6
+H = 15
+I = 14
+J = 5
+
+Database: 
+Server: S4
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+Database: 
+Server: S4
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10

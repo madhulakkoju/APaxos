@@ -17,6 +17,8 @@ public class GlobalConfigs {
         put("S7", 8007);
     }};
 
+    public static String initLeader = "S1";
+
     public static int serversCount = 7;
 
     public static int f = 2;

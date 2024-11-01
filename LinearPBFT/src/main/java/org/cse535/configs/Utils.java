@@ -5,6 +5,7 @@ package org.cse535.configs;
 import org.cse535.proto.Transaction;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class Utils {
@@ -78,5 +79,18 @@ public class Utils {
 //    }
 //
 //
+
+    public static String toString(HashMap<Integer, HashSet<String>> map){
+        StringBuilder sb = new StringBuilder();
+
+        map.forEach( (term, set) -> {
+            sb.append("SeqNum : ").append(term).append(" -> ExexcutionReplies : ");
+            set.forEach( s -> sb.append(s).append(", "));
+            sb.append("\n");
+        });
+
+        return sb.toString();
+    }
+
 
 }

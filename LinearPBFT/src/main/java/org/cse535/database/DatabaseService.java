@@ -6,10 +6,8 @@ import org.cse535.Main;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -43,21 +41,27 @@ public class DatabaseService {
     // SeqNum : PrepareResponse
     public HashMap<Integer, List<PrepareResponse>> prepareResponseMap = new HashMap<>();
 
-    public HashMap<String, Integer> accountsMap = new HashMap<>();
+    public ConcurrentHashMap<String, Integer> accountsMap = new ConcurrentHashMap<>();
 
     public AtomicInteger currentSeqNum = new AtomicInteger(0);
     public AtomicInteger currentViewNum = new AtomicInteger(0);
 
 
-    public PriorityBlockingQueue<TransactionInputConfig> incomingTnxQueue = new PriorityBlockingQueue<>();
+    public PriorityBlockingQueue<TransactionInputConfig> incomingTnxQueue = new PriorityBlockingQueue<>(100, new Comparator<TransactionInputConfig>() {
+        @Override
+        public int compare(TransactionInputConfig o1, TransactionInputConfig o2) {
+            return o1.getTransaction().getTransactionNum() - o2.getTransaction().getTransactionNum();
+        }
+    });
 
     public AtomicBoolean isLeader = new AtomicBoolean(false);
-    public AtomicBoolean isServerActive = new AtomicBoolean(false);
+    public AtomicBoolean isServerActive = new AtomicBoolean(true);
+    public AtomicBoolean isServerByzantine = new AtomicBoolean(false);
 
 
 
-    AtomicInteger lastExecutedSeqNum = new AtomicInteger(-1);
-    AtomicInteger maxAddedSeqNum = new AtomicInteger(-1);
+    AtomicInteger lastExecutedSeqNum = new AtomicInteger(0);
+    AtomicInteger maxAddedSeqNum = new AtomicInteger(0);
 
 
 
@@ -72,39 +76,45 @@ public class DatabaseService {
             accountsMap.put(client, GlobalConfigs.INIT_BALANCE);
         }
 
-
-
-
+        isLeader.set(serverName.equals(GlobalConfigs.initLeader));
 
     }
 
 
     public void initiateExecutions(){
 
-        while( lastExecutedSeqNum.get() < maxAddedSeqNum.get() ){
+        while( lastExecutedSeqNum.get() <= maxAddedSeqNum.get() ){
 
             int seqNum = lastExecutedSeqNum.get() + 1;
 
-            if( transactionStatusMap.containsKey(seqNum) &&
-                    transactionStatusMap.get(seqNum) == TransactionStatus.COMMITTED ){
+            Main.node.logger.log("Initiating execution for seqNum: " + seqNum);
+            Main.node.logger.log("Status : " + (transactionStatusMap.containsKey(seqNum) ? transactionStatusMap.get(seqNum) : "Not Found"));
+
+            if( transactionStatusMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.COMMITTED ){
                 // Execute the transaction
                 executeTransaction(seqNum);
                 lastExecutedSeqNum.set(seqNum);
-            }
-            else{
+            } else if (transactionMap.containsKey(seqNum) && transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED){
+                lastExecutedSeqNum.set(seqNum);
+            } else{
                 break;
             }
         }
     }
 
     public void executeTransaction( int seqNum ){
+
+        Main.node.logger.log("Executing transaction: " + seqNum);
         Transaction transaction = transactionMap.get(seqNum);
+
 
         // Execute the transaction
         this.accountsMap.put(transaction.getSender(), this.accountsMap.get(transaction.getSender()) - transaction.getAmount() );
         this.accountsMap.put(transaction.getReceiver(), this.accountsMap.get(transaction.getReceiver()) + transaction.getAmount() );
 
         this.transactionStatusMap.put(seqNum, TransactionStatus.EXECUTED);
+
+        Main.node.logger.log("Transaction executed: " + seqNum);
 
         Main.node.clientStub.executionReply(
                 ExecutionReplyRequest.newBuilder()
@@ -113,6 +123,8 @@ public class DatabaseService {
                         .setProcessId(Main.node.serverName)
                         .build()
         );
+
+        Main.node.logger.log("Sent Reply to Client executed: " + seqNum);
 
     }
 
