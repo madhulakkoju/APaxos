@@ -23,6 +23,7 @@ import org.cse535.service.LinearPBFTService;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.cse535.configs.GlobalConfigs.serversToPortMap;
 
@@ -117,7 +118,7 @@ public class NodeServer {
         sb.append("Log: \n");
         sb.append("Server: ").append(this.serverName).append("\n");
 
-        for( var entry:  this.database.transactionStatusMap.entrySet()) {
+        for( Map.Entry<Integer, DatabaseService.TransactionStatus> entry:  this.database.transactionStatusMap.entrySet()) {
             sb.append(entry.getKey()).append(" = ").append(entry.getValue()).append("\n");
         }
 
