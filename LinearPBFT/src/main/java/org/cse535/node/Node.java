@@ -102,6 +102,12 @@ public class Node extends NodeServer{
         // Initiate PrePrepare
         if( initiatePrePrepare(prePrepareRequest) ){
 
+            //Byzantine Feature -> does not prepare at all
+
+//            if(this.isServerByzantine()){
+//                return true;
+//            }
+
             PrepareRequest prepareRequest = PrepareRequest.newBuilder()
                     .setSequenceNumber(currentSeqNum)
                     .setView(this.database.currentViewNum.get())
@@ -112,10 +118,8 @@ public class Node extends NodeServer{
 
             this.database.prepareResponseMap.put(currentSeqNum, new ArrayList<>(GlobalConfigs.serversCount));
 
-            //Byzantine Feature -> does not prepare at all
-            if(this.isServerByzantine()){
-                return true;
-            }
+
+
 
             // Initiate Prepare
             if( initiatePrepare(prepareRequest) ){
