@@ -62,6 +62,11 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
             return;
         }
 
+        //Byzantine Feature -> does not prepare at all
+        if(Main.node.isServerByzantine()){
+           return;
+        }
+
         PrepareResponse resp = Main.node.handlePrepare(request);
         responseObserver.onNext(resp);
         responseObserver.onCompleted();

@@ -112,6 +112,11 @@ public class Node extends NodeServer{
 
             this.database.prepareResponseMap.put(currentSeqNum, new ArrayList<>(GlobalConfigs.serversCount));
 
+            //Byzantine Feature -> does not prepare at all
+            if(this.isServerByzantine()){
+                return true;
+            }
+
             // Initiate Prepare
             if( initiatePrepare(prepareRequest) ){
 
@@ -306,8 +311,15 @@ public class Node extends NodeServer{
 
         this.database.setMaxAddedSeqNum(request.getSequenceNumber());
 
-        this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.COMMITTED);
-        return CommitResponse.newBuilder().setSuccess(true).build();
+        if(this.database.transactionStatusMap.containsKey(request.getSequenceNumber()) &&
+                this.database.transactionStatusMap.get(request.getSequenceNumber()) == DatabaseService.TransactionStatus.PREPARED){
+
+            this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.COMMITTED);
+            return CommitResponse.newBuilder().setSuccess(true).build();
+
+        }
+
+        return CommitResponse.newBuilder().setSuccess(false).build();
     }
 
 
