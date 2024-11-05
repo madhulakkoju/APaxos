@@ -28,15 +28,16 @@ public class NewViewWorkerThread extends Thread{
 //        }
 //        Main.node.logger.log("PrepareWorkerThread: " + this.targetServerName + " started");
 //        Main.node.logger.log("Server to channel: " + this.node.serversToChannel.toString());
-        this.node.logger.log("New View Response from View Server: CCCCCCCCCCC \n" + targetPort + " " + targetServerName + " " + newViewRequest.toString());
+//        this.node.logger.log("New View Response from View Server: CCCCCCCCCCC \n" + targetPort + " " + targetServerName + " " + newViewRequest.toString());
+
         LinearPBFTGrpc.LinearPBFTBlockingStub blockingStub = LinearPBFTGrpc.newBlockingStub(
                 this.node.serversToChannel.get(this.targetServerName)
         );
 
         NewViewResponse resp = blockingStub.newView(this.newViewRequest);
 
-            this.node.logger.log("New View Response from View Server: CCCCCCCCCCC \n"+ targetPort+ " \n" + resp.toString());
-            System.out.println("New View Response from View Server: CCCCCCCCCCC \n" + resp.toString());
+//            this.node.logger.log("New View Response from View Server: CCCCCCCCCCC \n"+ targetPort+ " \n" + resp.toString());
+//            System.out.println("New View Response from View Server: CCCCCCCCCCC \n" + resp.toString());
 
 
     }

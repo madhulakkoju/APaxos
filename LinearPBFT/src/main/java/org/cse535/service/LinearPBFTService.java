@@ -65,9 +65,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
             }
 
             Main.node.database.viewTriggers.add(request.getView()+1);
-
             Main.node.initiateViewChange();
-
         }
         else{
             Main.node.logger.log("Relay request processed: " +
@@ -137,10 +135,9 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         responseObserver.onCompleted();
 
         Main.node.logger.log("Commit response sent: " + resp.getSequenceNumber());
-
-        Main.node.database.initiateExecutions();
-
         Main.node.logger.log("Executions initiated");
+        Main.node.database.initiateExecutions();
+        Main.node.logger.log("Executions Complete");
     }
 
     @Override

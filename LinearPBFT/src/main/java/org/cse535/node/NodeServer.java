@@ -107,7 +107,7 @@ public class NodeServer {
 
         }
 
-        logger.log(sb.toString());
+        //logger.log(sb.toString());
 
         return sb.toString();
     }

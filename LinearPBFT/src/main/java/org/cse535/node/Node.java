@@ -102,7 +102,7 @@ public class Node extends NodeServer{
                 .setDigest(tnxConfig.getTransaction().getTransactionHash())
                 .build();
 
-        this.logger.log(prePrepareRequest.toString());
+       // this.logger.log(prePrepareRequest.toString());
 
         this.logger.log("Initiating Pre Prepare for SeqNum: " + currentSeqNum + " View: " + this.database.currentViewNum.get() + " Transaction ID: "+ tnxConfig.getTransaction().getTransactionNum());
 
@@ -127,7 +127,7 @@ public class Node extends NodeServer{
 
             this.logger.log("Initiating Prepare for SeqNum: " + currentSeqNum + " View: " + this.database.currentViewNum.get() + " Transaction ID: "+ tnxConfig.getTransaction().getTransactionNum());
 
-            this.logger.log(prepareRequest.toString());
+            //this.logger.log(prepareRequest.toString());
 
             // Initiate Prepare
             if( initiatePrepare(prepareRequest) ){
@@ -142,7 +142,7 @@ public class Node extends NodeServer{
 
                 this.logger.log("Initiating Commit for SeqNum: " + currentSeqNum + " View: " + this.database.currentViewNum.get() + " Transaction ID: "+ tnxConfig.getTransaction().getTransactionNum());
 
-                this.logger.log(commitRequest.toString());
+                //this.logger.log(commitRequest.toString());
 
                 // Initiate Commit
                 initiateCommit(commitRequest);
@@ -305,7 +305,7 @@ public class Node extends NodeServer{
         prepareResponse.setSuccess(false);
         prepareResponse.setProcessId(this.serverName);
 
-        this.logger.log("Received Prepare:::: + " + request.getSequenceNumber() + " Digest: " + request.getDigest());
+        this.logger.log("Received Prepare request :::: + " + request.getSequenceNumber() + " Digest: " + request.getDigest());
 
         if( this.database.transactionMap.containsKey(request.getSequenceNumber()) &&
                 this.database.transactionStatusMap.containsKey(request.getSequenceNumber()) &&
@@ -412,7 +412,6 @@ public class Node extends NodeServer{
 
             this.logger.log("Initiating View Change .. old view "+ this.database.currentViewNum.get() + " new view " + nextView );
 
-
             this.database.isLeader.set(false);
             this.pauseTransactionsUntilViewChange.set(true);
 
@@ -429,7 +428,7 @@ public class Node extends NodeServer{
                     .setView(nextView)
                     .build();
 
-            this.logger.log("View change request: "+ viewChangeRequest.toString());
+            //this.logger.log("View change request: "+ viewChangeRequest.toString());
 
             for (int i = 0; i < GlobalConfigs.allServers.size(); i++) {
                 if (!GlobalConfigs.allServers.get(i).equals(this.serverName)) {
@@ -480,13 +479,13 @@ public class Node extends NodeServer{
 
     public boolean checkNewViewConditionReached(int viewNumber){
 
-        this.logger.log("Checking New View Condition Reached for view: " + viewNumber + " with quorom size: " + GlobalConfigs.viewChangeQuoromSize);
+       // this.logger.log("Checking New View Condition Reached for view: " + viewNumber + " with quorom size: " + GlobalConfigs.viewChangeQuoromSize);
 
         if(!this.database.viewChangeMessageMap.containsKey(viewNumber)){
             this.database.viewChangeMessageMap.put(viewNumber, new HashSet<>());
         }
 
-        this.logger.log( " View Number:  "+ viewNumber + " View Change Messages: " + this.database.viewChangeMessageMap.get(viewNumber).size());
+       // this.logger.log( " View Number:  "+ viewNumber + " View Change Messages: " + this.database.viewChangeMessageMap.get(viewNumber).size());
 
         return this.database.viewChangeMessageMap.get(viewNumber).size() >= GlobalConfigs.viewChangeQuoromSize;
     }
@@ -542,8 +541,8 @@ public class Node extends NodeServer{
             for (int i = 0; i <= GlobalConfigs.allServers.size(); i++) {
                 if(newViewWorkerThreads[i] == null) continue;
 
-                this.logger.log("Waiting for New View Response from: " + newViewWorkerThreads[i].targetServerName
-                        + " "+ newViewWorkerThreads[i].targetPort);
+//                this.logger.log("Waiting for New View Response from: " + newViewWorkerThreads[i].targetServerName
+//                        + " "+ newViewWorkerThreads[i].targetPort);
 
                 newViewWorkerThreads[i].join();
             }
@@ -564,22 +563,22 @@ public class Node extends NodeServer{
 
         this.logger.log("New View Request received: " + request.getView());
 
-        this.logger.log("\nXYZ New View Requests:\n\n");
-
-        this.logger.log(request.toString());
-
-        this.logger.log("\n\n");
+//        this.logger.log("\nXYZ New View Requests:\n\n");
+//
+//        this.logger.log(request.toString());
+//
+//        this.logger.log("\n\n");
 
         this.logger.log( "View Change Messages: " + request.getViewChangeMessagesList().size());
-
-        this.logger.log( "Current View: " + this.database.currentViewNum.get() + " Requested View: " + request.getView() +
-                "\nCondition 1: "+ (request.getViewChangeMessagesList().size() >= GlobalConfigs.viewChangeQuoromSize) +
-                "\nCondition 2: "+ (request.getView() >= this.database.currentViewNum.get())
-                );
-
-        this.logger.log("New Condition: " + ((request.getViewChangeMessagesList().size() >= GlobalConfigs.viewChangeQuoromSize ||
-                this.database.viewChangeMessageMap.get(request.getView()).size() >= GlobalConfigs.viewChangeQuoromSize
-        ) &&  request.getView() >= this.database.currentViewNum.get()));
+//
+//        this.logger.log( "Current View: " + this.database.currentViewNum.get() + " Requested View: " + request.getView() +
+//                "\nCondition 1: "+ (request.getViewChangeMessagesList().size() >= GlobalConfigs.viewChangeQuoromSize) +
+//                "\nCondition 2: "+ (request.getView() >= this.database.currentViewNum.get())
+//                );
+//
+//        this.logger.log("New Condition: " + ((request.getViewChangeMessagesList().size() >= GlobalConfigs.viewChangeQuoromSize ||
+//                this.database.viewChangeMessageMap.get(request.getView()).size() >= GlobalConfigs.viewChangeQuoromSize
+//        ) &&  request.getView() >= this.database.currentViewNum.get()));
 
         if( (request.getViewChangeMessagesList().size() >= GlobalConfigs.viewChangeQuoromSize ||
                 this.database.viewChangeMessageMap.get(request.getView()).size() >= GlobalConfigs.viewChangeQuoromSize
