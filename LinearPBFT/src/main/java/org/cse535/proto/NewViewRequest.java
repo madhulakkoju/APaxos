@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private NewViewRequest() {
     view_ = 0;
     processId_ = "";
+    viewChangeMessages_ = java.util.Collections.emptyList();
+    prepareMessages_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -68,6 +70,24 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 34: {
+            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              viewChangeMessages_ = new java.util.ArrayList<org.cse535.proto.ViewChangeRequest>();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            viewChangeMessages_.add(
+                input.readMessage(org.cse535.proto.ViewChangeRequest.parser(), extensionRegistry));
+            break;
+          }
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              prepareMessages_ = new java.util.ArrayList<org.cse535.proto.PrepareRequest>();
+              mutable_bitField0_ |= 0x00000010;
+            }
+            prepareMessages_.add(
+                input.readMessage(org.cse535.proto.PrepareRequest.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -83,6 +103,12 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        viewChangeMessages_ = java.util.Collections.unmodifiableList(viewChangeMessages_);
+      }
+      if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        prepareMessages_ = java.util.Collections.unmodifiableList(prepareMessages_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -100,6 +126,7 @@ private static final long serialVersionUID = 0L;
             org.cse535.proto.NewViewRequest.class, org.cse535.proto.NewViewRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int VIEW_FIELD_NUMBER = 1;
   private int view_;
   /**
@@ -164,6 +191,76 @@ private static final long serialVersionUID = 0L;
     return getTimestamp();
   }
 
+  public static final int VIEWCHANGEMESSAGES_FIELD_NUMBER = 4;
+  private java.util.List<org.cse535.proto.ViewChangeRequest> viewChangeMessages_;
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  public java.util.List<org.cse535.proto.ViewChangeRequest> getViewChangeMessagesList() {
+    return viewChangeMessages_;
+  }
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  public java.util.List<? extends org.cse535.proto.ViewChangeRequestOrBuilder> 
+      getViewChangeMessagesOrBuilderList() {
+    return viewChangeMessages_;
+  }
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  public int getViewChangeMessagesCount() {
+    return viewChangeMessages_.size();
+  }
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  public org.cse535.proto.ViewChangeRequest getViewChangeMessages(int index) {
+    return viewChangeMessages_.get(index);
+  }
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  public org.cse535.proto.ViewChangeRequestOrBuilder getViewChangeMessagesOrBuilder(
+      int index) {
+    return viewChangeMessages_.get(index);
+  }
+
+  public static final int PREPAREMESSAGES_FIELD_NUMBER = 5;
+  private java.util.List<org.cse535.proto.PrepareRequest> prepareMessages_;
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  public java.util.List<org.cse535.proto.PrepareRequest> getPrepareMessagesList() {
+    return prepareMessages_;
+  }
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  public java.util.List<? extends org.cse535.proto.PrepareRequestOrBuilder> 
+      getPrepareMessagesOrBuilderList() {
+    return prepareMessages_;
+  }
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  public int getPrepareMessagesCount() {
+    return prepareMessages_.size();
+  }
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  public org.cse535.proto.PrepareRequest getPrepareMessages(int index) {
+    return prepareMessages_.get(index);
+  }
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  public org.cse535.proto.PrepareRequestOrBuilder getPrepareMessagesOrBuilder(
+      int index) {
+    return prepareMessages_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -187,6 +284,12 @@ private static final long serialVersionUID = 0L;
     if (timestamp_ != null) {
       output.writeMessage(3, getTimestamp());
     }
+    for (int i = 0; i < viewChangeMessages_.size(); i++) {
+      output.writeMessage(4, viewChangeMessages_.get(i));
+    }
+    for (int i = 0; i < prepareMessages_.size(); i++) {
+      output.writeMessage(5, prepareMessages_.get(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -206,6 +309,14 @@ private static final long serialVersionUID = 0L;
     if (timestamp_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTimestamp());
+    }
+    for (int i = 0; i < viewChangeMessages_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, viewChangeMessages_.get(i));
+    }
+    for (int i = 0; i < prepareMessages_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, prepareMessages_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -232,6 +343,10 @@ private static final long serialVersionUID = 0L;
       result = result && getTimestamp()
           .equals(other.getTimestamp());
     }
+    result = result && getViewChangeMessagesList()
+        .equals(other.getViewChangeMessagesList());
+    result = result && getPrepareMessagesList()
+        .equals(other.getPrepareMessagesList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -250,6 +365,14 @@ private static final long serialVersionUID = 0L;
     if (hasTimestamp()) {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
+    }
+    if (getViewChangeMessagesCount() > 0) {
+      hash = (37 * hash) + VIEWCHANGEMESSAGES_FIELD_NUMBER;
+      hash = (53 * hash) + getViewChangeMessagesList().hashCode();
+    }
+    if (getPrepareMessagesCount() > 0) {
+      hash = (37 * hash) + PREPAREMESSAGES_FIELD_NUMBER;
+      hash = (53 * hash) + getPrepareMessagesList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -379,6 +502,8 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getViewChangeMessagesFieldBuilder();
+        getPrepareMessagesFieldBuilder();
       }
     }
     @java.lang.Override
@@ -393,6 +518,18 @@ private static final long serialVersionUID = 0L;
       } else {
         timestamp_ = null;
         timestampBuilder_ = null;
+      }
+      if (viewChangeMessagesBuilder_ == null) {
+        viewChangeMessages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        viewChangeMessagesBuilder_.clear();
+      }
+      if (prepareMessagesBuilder_ == null) {
+        prepareMessages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      } else {
+        prepareMessagesBuilder_.clear();
       }
       return this;
     }
@@ -420,6 +557,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.cse535.proto.NewViewRequest buildPartial() {
       org.cse535.proto.NewViewRequest result = new org.cse535.proto.NewViewRequest(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.view_ = view_;
       result.processId_ = processId_;
       if (timestampBuilder_ == null) {
@@ -427,6 +566,25 @@ private static final long serialVersionUID = 0L;
       } else {
         result.timestamp_ = timestampBuilder_.build();
       }
+      if (viewChangeMessagesBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          viewChangeMessages_ = java.util.Collections.unmodifiableList(viewChangeMessages_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.viewChangeMessages_ = viewChangeMessages_;
+      } else {
+        result.viewChangeMessages_ = viewChangeMessagesBuilder_.build();
+      }
+      if (prepareMessagesBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          prepareMessages_ = java.util.Collections.unmodifiableList(prepareMessages_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.prepareMessages_ = prepareMessages_;
+      } else {
+        result.prepareMessages_ = prepareMessagesBuilder_.build();
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -485,6 +643,58 @@ private static final long serialVersionUID = 0L;
       if (other.hasTimestamp()) {
         mergeTimestamp(other.getTimestamp());
       }
+      if (viewChangeMessagesBuilder_ == null) {
+        if (!other.viewChangeMessages_.isEmpty()) {
+          if (viewChangeMessages_.isEmpty()) {
+            viewChangeMessages_ = other.viewChangeMessages_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureViewChangeMessagesIsMutable();
+            viewChangeMessages_.addAll(other.viewChangeMessages_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.viewChangeMessages_.isEmpty()) {
+          if (viewChangeMessagesBuilder_.isEmpty()) {
+            viewChangeMessagesBuilder_.dispose();
+            viewChangeMessagesBuilder_ = null;
+            viewChangeMessages_ = other.viewChangeMessages_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            viewChangeMessagesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getViewChangeMessagesFieldBuilder() : null;
+          } else {
+            viewChangeMessagesBuilder_.addAllMessages(other.viewChangeMessages_);
+          }
+        }
+      }
+      if (prepareMessagesBuilder_ == null) {
+        if (!other.prepareMessages_.isEmpty()) {
+          if (prepareMessages_.isEmpty()) {
+            prepareMessages_ = other.prepareMessages_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensurePrepareMessagesIsMutable();
+            prepareMessages_.addAll(other.prepareMessages_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.prepareMessages_.isEmpty()) {
+          if (prepareMessagesBuilder_.isEmpty()) {
+            prepareMessagesBuilder_.dispose();
+            prepareMessagesBuilder_ = null;
+            prepareMessages_ = other.prepareMessages_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            prepareMessagesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getPrepareMessagesFieldBuilder() : null;
+          } else {
+            prepareMessagesBuilder_.addAllMessages(other.prepareMessages_);
+          }
+        }
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -513,6 +723,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private int view_ ;
     /**
@@ -724,6 +935,486 @@ private static final long serialVersionUID = 0L;
         timestamp_ = null;
       }
       return timestampBuilder_;
+    }
+
+    private java.util.List<org.cse535.proto.ViewChangeRequest> viewChangeMessages_ =
+      java.util.Collections.emptyList();
+    private void ensureViewChangeMessagesIsMutable() {
+      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        viewChangeMessages_ = new java.util.ArrayList<org.cse535.proto.ViewChangeRequest>(viewChangeMessages_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.cse535.proto.ViewChangeRequest, org.cse535.proto.ViewChangeRequest.Builder, org.cse535.proto.ViewChangeRequestOrBuilder> viewChangeMessagesBuilder_;
+
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public java.util.List<org.cse535.proto.ViewChangeRequest> getViewChangeMessagesList() {
+      if (viewChangeMessagesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(viewChangeMessages_);
+      } else {
+        return viewChangeMessagesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public int getViewChangeMessagesCount() {
+      if (viewChangeMessagesBuilder_ == null) {
+        return viewChangeMessages_.size();
+      } else {
+        return viewChangeMessagesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public org.cse535.proto.ViewChangeRequest getViewChangeMessages(int index) {
+      if (viewChangeMessagesBuilder_ == null) {
+        return viewChangeMessages_.get(index);
+      } else {
+        return viewChangeMessagesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder setViewChangeMessages(
+        int index, org.cse535.proto.ViewChangeRequest value) {
+      if (viewChangeMessagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.set(index, value);
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder setViewChangeMessages(
+        int index, org.cse535.proto.ViewChangeRequest.Builder builderForValue) {
+      if (viewChangeMessagesBuilder_ == null) {
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder addViewChangeMessages(org.cse535.proto.ViewChangeRequest value) {
+      if (viewChangeMessagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.add(value);
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder addViewChangeMessages(
+        int index, org.cse535.proto.ViewChangeRequest value) {
+      if (viewChangeMessagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.add(index, value);
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder addViewChangeMessages(
+        org.cse535.proto.ViewChangeRequest.Builder builderForValue) {
+      if (viewChangeMessagesBuilder_ == null) {
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.add(builderForValue.build());
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder addViewChangeMessages(
+        int index, org.cse535.proto.ViewChangeRequest.Builder builderForValue) {
+      if (viewChangeMessagesBuilder_ == null) {
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder addAllViewChangeMessages(
+        java.lang.Iterable<? extends org.cse535.proto.ViewChangeRequest> values) {
+      if (viewChangeMessagesBuilder_ == null) {
+        ensureViewChangeMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, viewChangeMessages_);
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder clearViewChangeMessages() {
+      if (viewChangeMessagesBuilder_ == null) {
+        viewChangeMessages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public Builder removeViewChangeMessages(int index) {
+      if (viewChangeMessagesBuilder_ == null) {
+        ensureViewChangeMessagesIsMutable();
+        viewChangeMessages_.remove(index);
+        onChanged();
+      } else {
+        viewChangeMessagesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public org.cse535.proto.ViewChangeRequest.Builder getViewChangeMessagesBuilder(
+        int index) {
+      return getViewChangeMessagesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public org.cse535.proto.ViewChangeRequestOrBuilder getViewChangeMessagesOrBuilder(
+        int index) {
+      if (viewChangeMessagesBuilder_ == null) {
+        return viewChangeMessages_.get(index);  } else {
+        return viewChangeMessagesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public java.util.List<? extends org.cse535.proto.ViewChangeRequestOrBuilder> 
+         getViewChangeMessagesOrBuilderList() {
+      if (viewChangeMessagesBuilder_ != null) {
+        return viewChangeMessagesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(viewChangeMessages_);
+      }
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public org.cse535.proto.ViewChangeRequest.Builder addViewChangeMessagesBuilder() {
+      return getViewChangeMessagesFieldBuilder().addBuilder(
+          org.cse535.proto.ViewChangeRequest.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public org.cse535.proto.ViewChangeRequest.Builder addViewChangeMessagesBuilder(
+        int index) {
+      return getViewChangeMessagesFieldBuilder().addBuilder(
+          index, org.cse535.proto.ViewChangeRequest.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+     */
+    public java.util.List<org.cse535.proto.ViewChangeRequest.Builder> 
+         getViewChangeMessagesBuilderList() {
+      return getViewChangeMessagesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.cse535.proto.ViewChangeRequest, org.cse535.proto.ViewChangeRequest.Builder, org.cse535.proto.ViewChangeRequestOrBuilder> 
+        getViewChangeMessagesFieldBuilder() {
+      if (viewChangeMessagesBuilder_ == null) {
+        viewChangeMessagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.cse535.proto.ViewChangeRequest, org.cse535.proto.ViewChangeRequest.Builder, org.cse535.proto.ViewChangeRequestOrBuilder>(
+                viewChangeMessages_,
+                ((bitField0_ & 0x00000008) == 0x00000008),
+                getParentForChildren(),
+                isClean());
+        viewChangeMessages_ = null;
+      }
+      return viewChangeMessagesBuilder_;
+    }
+
+    private java.util.List<org.cse535.proto.PrepareRequest> prepareMessages_ =
+      java.util.Collections.emptyList();
+    private void ensurePrepareMessagesIsMutable() {
+      if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        prepareMessages_ = new java.util.ArrayList<org.cse535.proto.PrepareRequest>(prepareMessages_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareRequest.Builder, org.cse535.proto.PrepareRequestOrBuilder> prepareMessagesBuilder_;
+
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public java.util.List<org.cse535.proto.PrepareRequest> getPrepareMessagesList() {
+      if (prepareMessagesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(prepareMessages_);
+      } else {
+        return prepareMessagesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public int getPrepareMessagesCount() {
+      if (prepareMessagesBuilder_ == null) {
+        return prepareMessages_.size();
+      } else {
+        return prepareMessagesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public org.cse535.proto.PrepareRequest getPrepareMessages(int index) {
+      if (prepareMessagesBuilder_ == null) {
+        return prepareMessages_.get(index);
+      } else {
+        return prepareMessagesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder setPrepareMessages(
+        int index, org.cse535.proto.PrepareRequest value) {
+      if (prepareMessagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.set(index, value);
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder setPrepareMessages(
+        int index, org.cse535.proto.PrepareRequest.Builder builderForValue) {
+      if (prepareMessagesBuilder_ == null) {
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder addPrepareMessages(org.cse535.proto.PrepareRequest value) {
+      if (prepareMessagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.add(value);
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder addPrepareMessages(
+        int index, org.cse535.proto.PrepareRequest value) {
+      if (prepareMessagesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.add(index, value);
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder addPrepareMessages(
+        org.cse535.proto.PrepareRequest.Builder builderForValue) {
+      if (prepareMessagesBuilder_ == null) {
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.add(builderForValue.build());
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder addPrepareMessages(
+        int index, org.cse535.proto.PrepareRequest.Builder builderForValue) {
+      if (prepareMessagesBuilder_ == null) {
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder addAllPrepareMessages(
+        java.lang.Iterable<? extends org.cse535.proto.PrepareRequest> values) {
+      if (prepareMessagesBuilder_ == null) {
+        ensurePrepareMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, prepareMessages_);
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder clearPrepareMessages() {
+      if (prepareMessagesBuilder_ == null) {
+        prepareMessages_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public Builder removePrepareMessages(int index) {
+      if (prepareMessagesBuilder_ == null) {
+        ensurePrepareMessagesIsMutable();
+        prepareMessages_.remove(index);
+        onChanged();
+      } else {
+        prepareMessagesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public org.cse535.proto.PrepareRequest.Builder getPrepareMessagesBuilder(
+        int index) {
+      return getPrepareMessagesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public org.cse535.proto.PrepareRequestOrBuilder getPrepareMessagesOrBuilder(
+        int index) {
+      if (prepareMessagesBuilder_ == null) {
+        return prepareMessages_.get(index);  } else {
+        return prepareMessagesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public java.util.List<? extends org.cse535.proto.PrepareRequestOrBuilder> 
+         getPrepareMessagesOrBuilderList() {
+      if (prepareMessagesBuilder_ != null) {
+        return prepareMessagesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(prepareMessages_);
+      }
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public org.cse535.proto.PrepareRequest.Builder addPrepareMessagesBuilder() {
+      return getPrepareMessagesFieldBuilder().addBuilder(
+          org.cse535.proto.PrepareRequest.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public org.cse535.proto.PrepareRequest.Builder addPrepareMessagesBuilder(
+        int index) {
+      return getPrepareMessagesFieldBuilder().addBuilder(
+          index, org.cse535.proto.PrepareRequest.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+     */
+    public java.util.List<org.cse535.proto.PrepareRequest.Builder> 
+         getPrepareMessagesBuilderList() {
+      return getPrepareMessagesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareRequest.Builder, org.cse535.proto.PrepareRequestOrBuilder> 
+        getPrepareMessagesFieldBuilder() {
+      if (prepareMessagesBuilder_ == null) {
+        prepareMessagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            org.cse535.proto.PrepareRequest, org.cse535.proto.PrepareRequest.Builder, org.cse535.proto.PrepareRequestOrBuilder>(
+                prepareMessages_,
+                ((bitField0_ & 0x00000010) == 0x00000010),
+                getParentForChildren(),
+                isClean());
+        prepareMessages_ = null;
+      }
+      return prepareMessagesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

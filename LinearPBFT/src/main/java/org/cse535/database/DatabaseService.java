@@ -26,14 +26,17 @@ public class DatabaseService {
         PENDING
     }
 
+    //TransactionNum : SeqNum
+    public HashMap<Integer, Integer> transactionNumSeqNumMap = new HashMap<>();
+
     // SeqNum : TransactionStatus
     public HashMap<Integer, TransactionStatus> transactionStatusMap = new HashMap<>();
 
     // SeqNum : Transaction
     public HashMap<Integer, Transaction> transactionMap = new HashMap<>();
 
+    // SeqNum : ViewNum
     public HashMap<Integer, Integer> seqNumViewMap = new HashMap<>();
-
 
     // SeqNum : PrePrepareResponse
     public HashMap<Integer, List<PrePrepareResponse>> prePrepareResponseMap = new HashMap<>();
@@ -42,6 +45,13 @@ public class DatabaseService {
     public HashMap<Integer, List<PrepareResponse>> prepareResponseMap = new HashMap<>();
 
     public ConcurrentHashMap<String, Integer> accountsMap = new ConcurrentHashMap<>();
+
+    //View Number: View Change Messages
+
+    public ConcurrentHashMap<Integer, HashSet<ViewChangeRequest>> viewChangeMessageMap = new ConcurrentHashMap<>();
+
+    public HashSet<Integer> viewTriggers = new HashSet<>();
+
 
     public AtomicInteger currentSeqNum = new AtomicInteger(0);
     public AtomicInteger currentViewNum = new AtomicInteger(0);

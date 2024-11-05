@@ -17,6 +17,8 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         if(!Main.node.isServerActive()){
             Main.node.logger.log("Server is not active -> left request");
 
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
             return;
         }
 
@@ -27,14 +29,51 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
             TxnResponse response = TxnResponse.newBuilder().setSuccess(true).setServerName(Main.node.serverName).build();
             responseObserver.onNext(response);
-            responseObserver.onCompleted();
         }
         else{
             Main.node.logger.log("Server is not leader -> left request");
             TxnResponse response = TxnResponse.newBuilder().setSuccess(false).setServerName(Main.node.serverName).build();
             responseObserver.onNext(response);
-            responseObserver.onCompleted();
         }
+
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void relayRequest(TransactionInputConfig request, StreamObserver<TxnRelayResponse> responseObserver) {
+        Main.node.logger.log("Relay request received: " + request.getTransaction().getTransactionNum());
+
+        if(!Main.node.isServerActive()){
+            Main.node.logger.log("Server is not active -> left request");
+
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
+            return;
+        }
+
+        TxnRelayResponse response = Main.node.handleRelayRequest(request);
+
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+
+        if(response.getOption() == 0 ){
+            Main.node.logger.log("Relay request processed: " + request.getTransaction().getTransactionNum());
+            Main.node.logger.log("Initiating View Change");
+
+            if( Main.node.database.viewTriggers.contains(request.getView()+1) ){
+                return;
+            }
+
+            Main.node.database.viewTriggers.add(request.getView()+1);
+
+            Main.node.initiateViewChange();
+
+        }
+        else{
+            Main.node.logger.log("Relay request processed: " +
+                    request.getTransaction().getTransactionNum() + " -> already processed");
+        }
+
     }
 
     @Override
@@ -43,6 +82,9 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         Main.node.logger.log("PrePrepare request received: " + request.getSequenceNumber());
         if(!Main.node.isServerActive()){
             Main.node.logger.log("Server is not active -> left request");
+
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
             return;
         }
 
@@ -59,6 +101,9 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         Main.node.logger.log("Prepare request received: " + request.getSequenceNumber());
         if(!Main.node.isServerActive()){
             Main.node.logger.log("Server is not active -> left request");
+
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
             return;
         }
 
@@ -80,6 +125,10 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
         Main.node.logger.log("Commit request received: " + request.getSequenceNumber());
         if(!Main.node.isServerActive()){
+            Main.node.logger.log("Server is not active -> left request");
+
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
             return;
         }
 
@@ -97,6 +146,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
     @Override
     public void executionReply(ExecutionReplyRequest request, StreamObserver<ExecutionReplyResponse> responseObserver) {
 
+        //View Server side
         responseObserver.onNext(ExecutionReplyResponse.newBuilder().setSuccess(true).build());
         responseObserver.onCompleted();
 
@@ -113,10 +163,78 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
     @Override
     public void viewChange(ViewChangeRequest request, StreamObserver<ViewChangeResponse> responseObserver) {
 
+        Main.node.logger.log("View Change request received: " + request.getView());
+
+        if(!Main.node.isServerActive()){
+            Main.node.logger.log("Server is not active -> left request");
+
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
+            return;
+        }
+
+        ViewChangeResponse resp = Main.node.handleViewChange(request);
+
+        responseObserver.onNext(resp);
+        responseObserver.onCompleted();
+
+        Main.node.logger.log("View Change response sent for " + resp.getView() + " : " + resp.getSuccess());
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(  Main.node.database.currentViewNum.get() < request.getView() &&
+                ! Main.node.database.viewTriggers.contains(request.getView()) ){
+
+            Main.node.logger.log("Initiating New View Triggers as current view is behind");
+            Main.node.database.viewTriggers.add(request.getView());
+            Main.node.startNewViewTriggers( request.getView() );
+        }
     }
 
     @Override
     public void newView(NewViewRequest request, StreamObserver<NewViewResponse> responseObserver) {
+
+        System.out.println("New View Notification received at client : " + request.getView());
+
+        System.out.println(ViewServer.viewServerInstance);
+
+        if(ViewServer.viewServerInstance != null){
+
+            ViewServer.viewServerInstance.logger.log("New View Notification received at client : " + request.getView());
+
+            ViewServer.viewServerInstance.viewNumber = request.getView();
+            ViewServer.viewServerInstance.primaryServerName = request.getProcessId();
+
+            responseObserver.onNext( NewViewResponse.newBuilder().setSuccess(true).setView(request.getView()).build() );
+            responseObserver.onCompleted();
+
+            return;
+        }
+
+
+
+        Main.node.logger.log("New View request received: " + request.getView());
+
+        if(!Main.node.isServerActive()){
+            Main.node.logger.log("Server is not active -> left request");
+
+            responseObserver.onNext(null);
+            responseObserver.onCompleted();
+            return;
+        }
+
+        Main.node.logger.log("New View request received: " + request.getView());
+
+        NewViewResponse resp = Main.node.handleNewView(request);
+
+        responseObserver.onNext(resp);
+        responseObserver.onCompleted();
+
+        Main.node.logger.log("New View response sent for " + resp.getView() + " : " + resp.getSuccess());
 
     }
 }

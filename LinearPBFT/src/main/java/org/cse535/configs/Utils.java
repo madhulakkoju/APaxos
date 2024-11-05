@@ -93,4 +93,8 @@ public class Utils {
     }
 
 
+    public static boolean isViewLeader(String serverName, int view){
+        return GlobalConfigs.allServers.indexOf(serverName) == view % GlobalConfigs.allServers.size();
+    }
+
 }

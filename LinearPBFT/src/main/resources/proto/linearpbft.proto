@@ -6,6 +6,8 @@ import "google/protobuf/timestamp.proto";
 
 service LinearPBFT {
   rpc Request(TransactionInputConfig) returns (TxnResponse) {}
+  rpc RelayRequest(TransactionInputConfig) returns (TxnRelayResponse) {}
+
   rpc PrePrepare(PrePrepareRequest) returns (PrePrepareResponse) {}
   rpc Prepare(PrepareRequest) returns (PrepareResponse) {}
   rpc Commit(CommitRequest) returns (CommitResponse) {}
@@ -91,6 +93,9 @@ message NewViewRequest {
   int32 view = 1;
   string processId = 2;
   google.protobuf.Timestamp timestamp = 3;
+
+  repeated ViewChangeRequest viewChangeMessages = 4;
+  repeated PrepareRequest prepareMessages = 5;
 }
 
 message NewViewResponse {
@@ -119,6 +124,18 @@ message Transaction {
 message TxnResponse{
   bool success = 1;
   string serverName = 2;
+}
+
+message TxnRelayResponse{
+  bool success = 1;
+  string serverName = 2;
+  int32 option = 3;
+
+  // 0 wait for sometime.. allow for view change and resend after sometime
+  // 1 already executed.. use reply here
+
+  ExecutionReplyRequest executionReply = 4;
+
 }
 
 

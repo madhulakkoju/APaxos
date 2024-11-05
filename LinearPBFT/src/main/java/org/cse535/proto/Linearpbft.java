@@ -90,6 +90,11 @@ public final class Linearpbft {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TxnResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TxnRelayResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TxnRelayResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ActivateServerRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -157,46 +162,53 @@ public final class Linearpbft {
       "view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022-\n\ttimesta" +
       "mp\030\003 \001(\0132\032.google.protobuf.Timestamp\"F\n\022" +
       "ViewChangeResponse\022\014\n\004view\030\001 \001(\005\022\021\n\tproc" +
-      "essId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"`\n\016NewViewR" +
-      "equest\022\014\n\004view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022" +
-      "-\n\ttimestamp\030\003 \001(\0132\032.google.protobuf.Tim" +
-      "estamp\"C\n\017NewViewResponse\022\014\n\004view\030\001 \001(\005\022" +
-      "\021\n\tprocessId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"q\n\026T" +
-      "ransactionInputConfig\022\021\n\tsetNumber\030\001 \001(\005" +
-      "\022!\n\013transaction\030\002 \001(\0132\014.Transaction\022\014\n\004v" +
-      "iew\030\003 \001(\005\022\023\n\013serverNames\030\005 \003(\t\"\237\001\n\013Trans" +
-      "action\022\016\n\006sender\030\001 \001(\t\022\020\n\010receiver\030\002 \001(\t" +
-      "\022\016\n\006amount\030\003 \001(\005\022-\n\ttimestamp\030\004 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\022\027\n\017transactionHa" +
-      "sh\030\005 \001(\t\022\026\n\016transactionNum\030\006 \001(\005\"2\n\013TxnR" +
+      "essId\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\"\272\001\n\016NewView" +
+      "Request\022\014\n\004view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t" +
+      "\022-\n\ttimestamp\030\003 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\022.\n\022viewChangeMessages\030\004 \003(\0132\022.Vi" +
+      "ewChangeRequest\022(\n\017prepareMessages\030\005 \003(\013" +
+      "2\017.PrepareRequest\"C\n\017NewViewResponse\022\014\n\004" +
+      "view\030\001 \001(\005\022\021\n\tprocessId\030\002 \001(\t\022\017\n\007success" +
+      "\030\003 \001(\010\"q\n\026TransactionInputConfig\022\021\n\tsetN" +
+      "umber\030\001 \001(\005\022!\n\013transaction\030\002 \001(\0132\014.Trans" +
+      "action\022\014\n\004view\030\003 \001(\005\022\023\n\013serverNames\030\005 \003(" +
+      "\t\"\237\001\n\013Transaction\022\016\n\006sender\030\001 \001(\t\022\020\n\010rec" +
+      "eiver\030\002 \001(\t\022\016\n\006amount\030\003 \001(\005\022-\n\ttimestamp" +
+      "\030\004 \001(\0132\032.google.protobuf.Timestamp\022\027\n\017tr" +
+      "ansactionHash\030\005 \001(\t\022\026\n\016transactionNum\030\006 " +
+      "\001(\005\"2\n\013TxnResponse\022\017\n\007success\030\001 \001(\010\022\022\n\ns" +
+      "erverName\030\002 \001(\t\"w\n\020TxnRelayResponse\022\017\n\007s" +
+      "uccess\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\022\016\n\006opti" +
+      "on\030\003 \001(\005\022.\n\016executionReply\030\004 \001(\0132\026.Execu" +
+      "tionReplyRequest\"+\n\025ActivateServerReques" +
+      "t\022\022\n\nserverName\030\001 \001(\t\"=\n\026ActivateServerR" +
       "esponse\022\017\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002" +
-      " \001(\t\"+\n\025ActivateServerRequest\022\022\n\nserverN" +
-      "ame\030\001 \001(\t\"=\n\026ActivateServerResponse\022\017\n\007s" +
-      "uccess\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"-\n\027Deac" +
-      "tivateServerRequest\022\022\n\nserverName\030\001 \001(\t\"" +
-      "?\n\030DeactivateServerResponse\022\017\n\007success\030\001" +
-      " \001(\010\022\022\n\nserverName\030\002 \001(\t\"\035\n\014CommandInput" +
-      "\022\r\n\005input\030\001 \001(\t\"\037\n\rCommandOutput\022\016\n\006outp" +
-      "ut\030\001 \001(\t2\204\003\n\nLinearPBFT\0222\n\007Request\022\027.Tra" +
-      "nsactionInputConfig\032\014.TxnResponse\"\000\0227\n\nP" +
-      "rePrepare\022\022.PrePrepareRequest\032\023.PrePrepa" +
-      "reResponse\"\000\022.\n\007Prepare\022\017.PrepareRequest" +
-      "\032\020.PrepareResponse\"\000\022+\n\006Commit\022\016.CommitR" +
-      "equest\032\017.CommitResponse\"\000\022C\n\016ExecutionRe" +
-      "ply\022\026.ExecutionReplyRequest\032\027.ExecutionR" +
-      "eplyResponse\"\000\0227\n\nViewChange\022\022.ViewChang" +
-      "eRequest\032\023.ViewChangeResponse\"\000\022.\n\007NewVi" +
-      "ew\022\017.NewViewRequest\032\020.NewViewResponse\"\0002" +
-      "\241\001\n\017ActivateServers\022C\n\016activateServer\022\026." +
-      "ActivateServerRequest\032\027.ActivateServerRe" +
-      "sponse\"\000\022I\n\020deactivateServer\022\030.Deactivat" +
-      "eServerRequest\032\031.DeactivateServerRespons" +
-      "e\"\0002\301\001\n\010Commands\022+\n\010printLog\022\r.CommandIn" +
-      "put\032\016.CommandOutput\"\000\022*\n\007printDB\022\r.Comma" +
-      "ndInput\032\016.CommandOutput\"\000\022*\n\007FlushDB\022\r.C" +
-      "ommandInput\032\016.CommandOutput\"\000\0220\n\rmakeByz" +
-      "antine\022\r.CommandInput\032\016.CommandOutput\"\000B" +
-      "\024\n\020org.cse535.protoP\001b\006proto3"
+      " \001(\t\"-\n\027DeactivateServerRequest\022\022\n\nserve" +
+      "rName\030\001 \001(\t\"?\n\030DeactivateServerResponse\022" +
+      "\017\n\007success\030\001 \001(\010\022\022\n\nserverName\030\002 \001(\t\"\035\n\014" +
+      "CommandInput\022\r\n\005input\030\001 \001(\t\"\037\n\rCommandOu" +
+      "tput\022\016\n\006output\030\001 \001(\t2\302\003\n\nLinearPBFT\0222\n\007R" +
+      "equest\022\027.TransactionInputConfig\032\014.TxnRes" +
+      "ponse\"\000\022<\n\014RelayRequest\022\027.TransactionInp" +
+      "utConfig\032\021.TxnRelayResponse\"\000\0227\n\nPrePrep" +
+      "are\022\022.PrePrepareRequest\032\023.PrePrepareResp" +
+      "onse\"\000\022.\n\007Prepare\022\017.PrepareRequest\032\020.Pre" +
+      "pareResponse\"\000\022+\n\006Commit\022\016.CommitRequest" +
+      "\032\017.CommitResponse\"\000\022C\n\016ExecutionReply\022\026." +
+      "ExecutionReplyRequest\032\027.ExecutionReplyRe" +
+      "sponse\"\000\0227\n\nViewChange\022\022.ViewChangeReque" +
+      "st\032\023.ViewChangeResponse\"\000\022.\n\007NewView\022\017.N" +
+      "ewViewRequest\032\020.NewViewResponse\"\0002\241\001\n\017Ac" +
+      "tivateServers\022C\n\016activateServer\022\026.Activa" +
+      "teServerRequest\032\027.ActivateServerResponse" +
+      "\"\000\022I\n\020deactivateServer\022\030.DeactivateServe" +
+      "rRequest\032\031.DeactivateServerResponse\"\0002\301\001" +
+      "\n\010Commands\022+\n\010printLog\022\r.CommandInput\032\016." +
+      "CommandOutput\"\000\022*\n\007printDB\022\r.CommandInpu" +
+      "t\032\016.CommandOutput\"\000\022*\n\007FlushDB\022\r.Command" +
+      "Input\032\016.CommandOutput\"\000\0220\n\rmakeByzantine" +
+      "\022\r.CommandInput\032\016.CommandOutput\"\000B\024\n\020org" +
+      ".cse535.protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -276,7 +288,7 @@ public final class Linearpbft {
     internal_static_NewViewRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_NewViewRequest_descriptor,
-        new java.lang.String[] { "View", "ProcessId", "Timestamp", });
+        new java.lang.String[] { "View", "ProcessId", "Timestamp", "ViewChangeMessages", "PrepareMessages", });
     internal_static_NewViewResponse_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_NewViewResponse_fieldAccessorTable = new
@@ -301,38 +313,44 @@ public final class Linearpbft {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TxnResponse_descriptor,
         new java.lang.String[] { "Success", "ServerName", });
-    internal_static_ActivateServerRequest_descriptor =
+    internal_static_TxnRelayResponse_descriptor =
       getDescriptor().getMessageTypes().get(15);
+    internal_static_TxnRelayResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TxnRelayResponse_descriptor,
+        new java.lang.String[] { "Success", "ServerName", "Option", "ExecutionReply", });
+    internal_static_ActivateServerRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
     internal_static_ActivateServerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActivateServerRequest_descriptor,
         new java.lang.String[] { "ServerName", });
     internal_static_ActivateServerResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_ActivateServerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ActivateServerResponse_descriptor,
         new java.lang.String[] { "Success", "ServerName", });
     internal_static_DeactivateServerRequest_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_DeactivateServerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeactivateServerRequest_descriptor,
         new java.lang.String[] { "ServerName", });
     internal_static_DeactivateServerResponse_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_DeactivateServerResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeactivateServerResponse_descriptor,
         new java.lang.String[] { "Success", "ServerName", });
     internal_static_CommandInput_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_CommandInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandInput_descriptor,
         new java.lang.String[] { "Input", });
     internal_static_CommandOutput_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_CommandOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CommandOutput_descriptor,

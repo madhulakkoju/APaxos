@@ -1,11 +1,10 @@
 package org.cse535.node;
 
 
-import com.google.common.base.Equivalence;
-import org.bson.Document;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.cse535.configs.GlobalConfigs;
 import org.cse535.proto.*;
+import org.cse535.threadimpls.ClientRequestThread;
+import org.cse535.threadimpls.SendTnxWorkerThread;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,6 +15,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.cse535.configs.GlobalConfigs.allServers;
 
@@ -37,6 +38,8 @@ public class ViewServer extends NodeServer{
 
 
     public int viewNumber = 0;
+
+    public AtomicInteger primaryServerIndex = new AtomicInteger(0);
 
     public String primaryServerName = GlobalConfigs.initLeader;
 
@@ -101,39 +104,134 @@ public class ViewServer extends NodeServer{
                 .build(), maliciousServers);
     }
 
-    public void sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
 
-        transactionExecutionResponseMap.put(transactionInputConfig.getTransaction().getTransactionNum(), new HashSet<>());
+    public void propogateTransactionToServers(TransactionInputConfig transactionInputConfig, AtomicBoolean isSent) {
 
-        LinearPBFTGrpc.LinearPBFTBlockingStub stub = this.serversToStub.get( this.primaryServerName );
+        try {
 
-        TxnResponse response = stub.request(transactionInputConfig);
+            SendTnxWorkerThread[] threads = new SendTnxWorkerThread[allServers.size()];
+
+            for (int i = 0; i < allServers.size(); i++) {
+                threads[i] = new SendTnxWorkerThread(
+                        this,
+                        GlobalConfigs.serversToPortMap.get(allServers.get(i)),
+                        allServers.get(i),
+                        transactionInputConfig,
+                        isSent
+                );
+            }
+
+            for (int i = 0; i < this.currentActiveServers.size(); i++) {
+                threads[i].start();
+            }
+
+            for (int i = 0; i < this.currentActiveServers.size(); i++) {
+                threads[i].join();
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
-//        //for (String server : transactionInputConfig.getServerNamesList()) {
-//        for (String server : GlobalConfigs.allServers ) {
-//            if (server.equals(this.serverName)) {
-//                //System.out.println("Server: " + server + " is the current server");
-//                continue;
-//            }
+
+    public boolean sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
+
+        try {
+
+            this.logger.log("Sending to Leader: " + this.primaryServerName + " View : " + this.viewNumber);
+
+            transactionExecutionResponseMap.put(transactionInputConfig.getTransaction().getTransactionNum(), new HashSet<>());
+
+            LinearPBFTGrpc.LinearPBFTBlockingStub stub = this.serversToStub.get(this.primaryServerName);
+
+            TxnResponse response = stub.request(transactionInputConfig);
+
+
+
+
+//            AtomicBoolean isSent = new AtomicBoolean(false);
 //
-//            TnxPropagateGrpc.TnxPropagateBlockingStub stub = this.serversToTnxPropagateStub.get(server);
-//
-//            TxnResponse response = stub.propagateTransaction(transactionInputConfig);
-//
-////            if (response.getSuccess()) {
-////                System.out.println("Transaction propagated to server: " + server);
-////            } else {
-////                System.out.println("Transaction not propagated to server: " + server);
-////            }
-//        }
+//            propogateTransactionToServers(transactionInputConfig, isSent);
 
+            //Thread.sleep(100);
+
+            //this.logger.log("Transaction sent to all servers : " + isSent.get());
+            this.logger.log("Transaction sent  : " + response.getSuccess() + " : \n" + response.toString());
+
+            if ( response != null && !response.getSuccess() ) {
+                System.out.println("Primary Node might be Inactive -> Response is null");
+                // Broadcast request to all servers
+
+                HashMap<String, TxnRelayResponse> responses = new HashMap<>();
+
+                ClientRequestThread[] threads = new ClientRequestThread[allServers.size()];
+
+                for (int i = 0; i < allServers.size(); i++) {
+
+                    threads[i] = new ClientRequestThread(
+                            GlobalConfigs.serversToPortMap.get(allServers.get(i)),
+                            allServers.get(i),
+                            transactionInputConfig,
+                            this,
+                            responses
+                    );
+
+                }
+
+                for (int i = 0; i < this.currentActiveServers.size(); i++) {
+                    threads[i].start();
+                }
+
+                for (int i = 0; i < this.currentActiveServers.size(); i++) {
+                    threads[i].join();
+                }
+
+                AtomicInteger sendAgain = new AtomicInteger();
+                AtomicInteger receivingReply = new AtomicInteger();
+
+                responses.forEach((server, txnResponse) -> {
+
+                    if (txnResponse != null){
+                        if(txnResponse.getOption() == 1){
+                            receivingReply.getAndIncrement();
+                            this.transactionExecutionResponseMap.get(transactionInputConfig.getTransaction().getTransactionNum()).add(server);
+                        }
+                        else{
+                            sendAgain.getAndIncrement();
+                        }
+                    }
+                });
+
+
+                Thread.sleep(100);
+
+                if(receivingReply.get() >= GlobalConfigs.f + 1){
+                    this.logger.log("Transaction executed on f+1 servers");
+                    return true;
+                }
+                else{
+                    this.logger.log("Transaction not executed on f+1 servers");
+
+                    Thread.sleep(1500);
+                    // wait until view change
+
+                    return false;
+                }
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public void sendCommandToServers(Command commandType, HashMap<String, Boolean> activeServersStatusMap) throws InterruptedException {
         CommandInput commandInput = CommandInput.newBuilder().build();
 
-        Thread.sleep(10);
+        //Thread.sleep(10);
 
 
         // For only Active Servers
@@ -219,7 +317,7 @@ public class ViewServer extends NodeServer{
             activeServersStatusMap.put(server, true);
         }
 
-        String path = "src/main/resources/lab2_Test.csv";
+        String path = "src/main/resources/lab2_Test_mod.csv";
 
         //File file = new File("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv");
         File file = new File(path);
@@ -236,7 +334,7 @@ public class ViewServer extends NodeServer{
             {
                 viewServerInstance.lineNum++;
 
-                Thread.sleep(5);
+               // Thread.sleep(5);
 
                // System.out.println("Line: " + line);
                 viewServer.logger.log("-------------------------------------------------------------\nLine: "+ viewServerInstance.lineNum +" : "+ line);
@@ -267,6 +365,27 @@ public class ViewServer extends NodeServer{
                 if(prevSetNumber != transactionInputConfig.getSetNumber()) {
                     prevSetNumber = transactionInputConfig.getSetNumber();
 
+                    viewServerInstance.flush();
+
+                    TransactionInputConfig transactionInputConfigBuf = TransactionInputConfig.newBuilder()
+                            .setSetNumber(transactionInputConfig.getSetNumber())
+                            .setView(transactionInputConfig.getView())
+                            .setTransaction(
+
+                                    Transaction.newBuilder()
+                                            .setTransactionNum(viewServerInstance.tnxCount++)
+                                            .setSender(transactionInputConfig.getTransaction().getSender())
+                                            .setReceiver(transactionInputConfig.getTransaction().getReceiver())
+                                            .setAmount(transactionInputConfig.getTransaction().getAmount())
+                                            .setTransactionHash(transactionInputConfig.getTransaction().getTransactionHash())
+                                            .setTimestamp(transactionInputConfig.getTransaction().getTimestamp())
+                                            .build()
+                            )
+                            .addAllServerNames( transactionInputConfig.getServerNamesList() )
+                            .build();
+
+                    transactionInputConfig = transactionInputConfigBuf;
+
                     // If the Test Set Number changes, then trigger the inactive servers to stop accepting transactions
 
                     // Set all servers inactive
@@ -278,7 +397,7 @@ public class ViewServer extends NodeServer{
                         activeServersStatusMap.put(server, true);
                     }
 
-                    Thread.sleep(100);
+                   // Thread.sleep(100);
                     System.out.println("Press Enter to continue to next Test set. This will activate the servers and publish transactions to servers."+transactionInputConfig.getSetNumber());
                     String a  = System.console().readLine();
 
@@ -328,9 +447,9 @@ public class ViewServer extends NodeServer{
                         viewServerInstance.serversToCommandsStub.get(server).makeByzantine(CommandInput.newBuilder().setInput("0").build());
                         // 0 -> Normal, 1 -> Byzantine
                     }
-                    viewServerInstance.flush();
+//                    viewServerInstance.flush();
 
-                    Thread.sleep(100);
+                    //Thread.sleep(100);
 
 
                     for (String server : tnxLine.maliciousServers) {
@@ -345,10 +464,15 @@ public class ViewServer extends NodeServer{
                     //System.out.println("Same set number");
                 }
 
-                // Multicast Transactions to active servers
-                viewServer.sendTransactionToServers(transactionInputConfig);
+                boolean isSuccess = viewServer.sendTransactionToServers(transactionInputConfig);
 
-                Thread.sleep(100);
+                Thread.sleep(1000);
+
+                if(! isSuccess)
+                    viewServer.sendTransactionToServers(transactionInputConfig);
+
+                // Multicast Transactions to active servers
+
             }
 
         }

@@ -34,4 +34,52 @@ public interface NewViewRequestOrBuilder extends
    * <code>.google.protobuf.Timestamp timestamp = 3;</code>
    */
   com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder();
+
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  java.util.List<org.cse535.proto.ViewChangeRequest> 
+      getViewChangeMessagesList();
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  org.cse535.proto.ViewChangeRequest getViewChangeMessages(int index);
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  int getViewChangeMessagesCount();
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  java.util.List<? extends org.cse535.proto.ViewChangeRequestOrBuilder> 
+      getViewChangeMessagesOrBuilderList();
+  /**
+   * <code>repeated .ViewChangeRequest viewChangeMessages = 4;</code>
+   */
+  org.cse535.proto.ViewChangeRequestOrBuilder getViewChangeMessagesOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  java.util.List<org.cse535.proto.PrepareRequest> 
+      getPrepareMessagesList();
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  org.cse535.proto.PrepareRequest getPrepareMessages(int index);
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  int getPrepareMessagesCount();
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  java.util.List<? extends org.cse535.proto.PrepareRequestOrBuilder> 
+      getPrepareMessagesOrBuilderList();
+  /**
+   * <code>repeated .PrepareRequest prepareMessages = 5;</code>
+   */
+  org.cse535.proto.PrepareRequestOrBuilder getPrepareMessagesOrBuilder(
+      int index);
 }

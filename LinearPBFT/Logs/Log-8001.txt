@@ -13,113 +13,62 @@ H = 10
 I = 10
 J = 10
 
-Request received: 1
-Server is leader -> processing request -- added to queue
-Processing Transaction: 1
-Initiating execution for seqNum: 1
-Status : COMMITTED
-Executing transaction: 1
-Transaction executed: 1
-Request received: 1
-Server is leader -> processing request -- added to queue
-Sent Reply to Client executed: 1
-Transaction Processed: 1
-Processing Transaction: 1
-Transaction Processed: 1
-Request received: 2
-Server is leader -> processing request -- added to queue
-Processing Transaction: 2
-Transaction Processed: 2
-Request received: 3
-Server is leader -> processing request -- added to queue
-Processing Transaction: 3
-Transaction Processed: 3
-Request received: 4
-Server is leader -> processing request -- added to queue
-Processing Transaction: 4
-Transaction Processed: 4
-Database: 
-Server: S1
-A = 9
-B = 10
-C = 11
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
+===============================================================================================================================
 
+===============================================================================================================================
+
+Server deactivated
+Request received: 1
+Server is not active -> left request
+Relay request received: 1
+Server is not active -> left request
+View Change request received: 1
+Server is not active -> left request
+View Change request received: 1
+Server is not active -> left request
+View Change request received: 1
+Server is not active -> left request
+View Change request received: 1
+Server is not active -> left request
+View Change request received: 1
+Server is not active -> left request
+View Change request received: 1
+Server is not active -> left request
+New View request received: 1
+Server is not active -> left request
+Request received: 1
+Server is not active -> left request
+Relay request received: 1
+Server is not active -> left request
+Request received: 2
+Server is not active -> left request
+Relay request received: 2
+Server is not active -> left request
+Request received: 2
+Server is not active -> left request
+Relay request received: 2
+Server is not active -> left request
+Request received: 3
+Server is not active -> left request
+Relay request received: 3
+Server is not active -> left request
+Request received: 3
+Server is not active -> left request
+Relay request received: 3
+Server is not active -> left request
+Request received: 4
+Server is not active -> left request
+Relay request received: 4
+Server is not active -> left request
+Request received: 4
+Server is not active -> left request
+Relay request received: 4
+Server is not active -> left request
 Request received: 5
-Server is leader -> processing request -- added to queue
-Processing Transaction: 5
-Initiating execution for seqNum: 1
-Status : COMMITTED
-Executing transaction: 1
-Transaction executed: 1
-Sent Reply to Client executed: 1
-Transaction Processed: 5
-Request received: 1
-Server is leader -> processing request -- added to queue
-Processing Transaction: 1
-Transaction Processed: 1
-Request received: 2
-Server is leader -> processing request -- added to queue
-Processing Transaction: 2
-Transaction Processed: 2
-Database: 
-Server: S1
-A = 4
-B = 10
-C = 10
-D = 10
-E = 16
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Request received: 3
-Server is leader -> processing request -- added to queue
-Processing Transaction: 3
-Transaction Failed: -- readding to queue 3
-Transaction Processed: 3
-Processing Transaction: 3
-Initiating execution for seqNum: 1
-Status : REQUESTED
-Transaction Processed: 3
-Request received: 1
-Server is leader -> processing request -- added to queue
-Processing Transaction: 1
-Initiating execution for seqNum: 1
-Status : REQUESTED
-Transaction Processed: 1
-Request received: 2
-Server is leader -> processing request -- added to queue
-Processing Transaction: 2
-Initiating execution for seqNum: 1
-Status : REQUESTED
-Transaction Processed: 2
-Request received: 3
-Server is leader -> processing request -- added to queue
-Processing Transaction: 3
-Initiating execution for seqNum: 1
-Status : REQUESTED
-Transaction Processed: 3
-Database: 
-Server: S1
-A = 10
-B = 10
-C = 10
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Request received: 4
+Server is not active -> left request
+Relay request received: 5
+Server is not active -> left request
+Request received: 5
+Server is not active -> left request
+Relay request received: 5
 Server is not active -> left request

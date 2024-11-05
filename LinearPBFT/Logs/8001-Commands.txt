@@ -15,63 +15,6 @@ J = 10
 Log: 
 Server: S1
 
-Database: 
-Server: S1
-A = 9
-B = 10
-C = 11
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
+===============================================================================================================================
 
-Log: 
-Server: S1
-1 = EXECUTED
-2 = COMMITTED
-3 = COMMITTED
-4 = COMMITTED
-5 = COMMITTED
-
-Database: 
-Server: S1
-A = 4
-B = 10
-C = 10
-D = 10
-E = 16
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Log: 
-Server: S1
-1 = EXECUTED
-2 = COMMITTED
-3 = COMMITTED
-
-Database: 
-Server: S1
-A = 10
-B = 10
-C = 10
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Log: 
-Server: S1
-1 = REQUESTED
-2 = COMMITTED
-3 = COMMITTED
-4 = COMMITTED
-5 = COMMITTED
+===============================================================================================================================

@@ -18,12 +18,15 @@ public class GlobalConfigs {
     }};
 
     public static String initLeader = "S1";
+    public static int initLeaderIndex = 0;
 
     public static int serversCount = 7;
 
     public static int f = 2;
 
     public static int minQuoromSize = 2*f + 1;
+
+    public static int viewChangeQuoromSize = f + 1;
 
     public static List<String> allServers = Arrays.asList("S1", "S2", "S3", "S4", "S5", "S6", "S7");
 

@@ -59,6 +59,38 @@ public final class LinearPBFTGrpc {
      return getRequestMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig,
+      org.cse535.proto.TxnRelayResponse> getRelayRequestMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RelayRequest",
+      requestType = org.cse535.proto.TransactionInputConfig.class,
+      responseType = org.cse535.proto.TxnRelayResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig,
+      org.cse535.proto.TxnRelayResponse> getRelayRequestMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.TransactionInputConfig, org.cse535.proto.TxnRelayResponse> getRelayRequestMethod;
+    if ((getRelayRequestMethod = LinearPBFTGrpc.getRelayRequestMethod) == null) {
+      synchronized (LinearPBFTGrpc.class) {
+        if ((getRelayRequestMethod = LinearPBFTGrpc.getRelayRequestMethod) == null) {
+          LinearPBFTGrpc.getRelayRequestMethod = getRelayRequestMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.TransactionInputConfig, org.cse535.proto.TxnRelayResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "LinearPBFT", "RelayRequest"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.TransactionInputConfig.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.TxnRelayResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new LinearPBFTMethodDescriptorSupplier("RelayRequest"))
+                  .build();
+          }
+        }
+     }
+     return getRelayRequestMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.PrePrepareRequest,
       org.cse535.proto.PrePrepareResponse> getPrePrepareMethod;
 
@@ -287,6 +319,13 @@ public final class LinearPBFTGrpc {
 
     /**
      */
+    public void relayRequest(org.cse535.proto.TransactionInputConfig request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.TxnRelayResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getRelayRequestMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void prePrepare(org.cse535.proto.PrePrepareRequest request,
         io.grpc.stub.StreamObserver<org.cse535.proto.PrePrepareResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getPrePrepareMethod(), responseObserver);
@@ -336,6 +375,13 @@ public final class LinearPBFTGrpc {
                 org.cse535.proto.TransactionInputConfig,
                 org.cse535.proto.TxnResponse>(
                   this, METHODID_REQUEST)))
+          .addMethod(
+            getRelayRequestMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.TransactionInputConfig,
+                org.cse535.proto.TxnRelayResponse>(
+                  this, METHODID_RELAY_REQUEST)))
           .addMethod(
             getPrePrepareMethod(),
             asyncUnaryCall(
@@ -406,6 +452,14 @@ public final class LinearPBFTGrpc {
         io.grpc.stub.StreamObserver<org.cse535.proto.TxnResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getRequestMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void relayRequest(org.cse535.proto.TransactionInputConfig request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.TxnRelayResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRelayRequestMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -484,6 +538,13 @@ public final class LinearPBFTGrpc {
 
     /**
      */
+    public org.cse535.proto.TxnRelayResponse relayRequest(org.cse535.proto.TransactionInputConfig request) {
+      return blockingUnaryCall(
+          getChannel(), getRelayRequestMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public org.cse535.proto.PrePrepareResponse prePrepare(org.cse535.proto.PrePrepareRequest request) {
       return blockingUnaryCall(
           getChannel(), getPrePrepareMethod(), getCallOptions(), request);
@@ -553,6 +614,14 @@ public final class LinearPBFTGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.TxnRelayResponse> relayRequest(
+        org.cse535.proto.TransactionInputConfig request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRelayRequestMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.PrePrepareResponse> prePrepare(
         org.cse535.proto.PrePrepareRequest request) {
       return futureUnaryCall(
@@ -601,12 +670,13 @@ public final class LinearPBFTGrpc {
   }
 
   private static final int METHODID_REQUEST = 0;
-  private static final int METHODID_PRE_PREPARE = 1;
-  private static final int METHODID_PREPARE = 2;
-  private static final int METHODID_COMMIT = 3;
-  private static final int METHODID_EXECUTION_REPLY = 4;
-  private static final int METHODID_VIEW_CHANGE = 5;
-  private static final int METHODID_NEW_VIEW = 6;
+  private static final int METHODID_RELAY_REQUEST = 1;
+  private static final int METHODID_PRE_PREPARE = 2;
+  private static final int METHODID_PREPARE = 3;
+  private static final int METHODID_COMMIT = 4;
+  private static final int METHODID_EXECUTION_REPLY = 5;
+  private static final int METHODID_VIEW_CHANGE = 6;
+  private static final int METHODID_NEW_VIEW = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -628,6 +698,10 @@ public final class LinearPBFTGrpc {
         case METHODID_REQUEST:
           serviceImpl.request((org.cse535.proto.TransactionInputConfig) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.TxnResponse>) responseObserver);
+          break;
+        case METHODID_RELAY_REQUEST:
+          serviceImpl.relayRequest((org.cse535.proto.TransactionInputConfig) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.TxnRelayResponse>) responseObserver);
           break;
         case METHODID_PRE_PREPARE:
           serviceImpl.prePrepare((org.cse535.proto.PrePrepareRequest) request,
@@ -715,6 +789,7 @@ public final class LinearPBFTGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new LinearPBFTFileDescriptorSupplier())
               .addMethod(getRequestMethod())
+              .addMethod(getRelayRequestMethod())
               .addMethod(getPrePrepareMethod())
               .addMethod(getPrepareMethod())
               .addMethod(getCommitMethod())
