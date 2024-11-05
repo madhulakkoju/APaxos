@@ -18,6 +18,8 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
 
         String op = Main.node.printDB();
 
+        op = Main.node.datastoreToString();
+
         responseObserver.onNext(CommandOutput.newBuilder().setOutput(op).build());
         responseObserver.onCompleted();
 

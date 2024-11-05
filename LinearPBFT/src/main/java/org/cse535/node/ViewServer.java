@@ -58,6 +58,7 @@ public class ViewServer extends NodeServer{
         PrintDB,
         PrintLog,
         PrintStatus,
+        PrintView
     }
 
     public ViewServer(String serverName, int port) {
@@ -228,7 +229,104 @@ public class ViewServer extends NodeServer{
         return false;
     }
 
+
+    public void triggerPrintDB(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\nCommand: PrintDB \n");
+
+        sb.append(this.datastoreHeader()).append("\n");
+        for( String server : allServers) {
+            CommandInput commandInput = CommandInput.newBuilder().build();
+            CommandOutput op = this.serversToCommandsStub.get(server).printDB(commandInput);
+            sb.append(op.getOutput()).append("\n");
+        }
+        sb.append("\n\n");
+
+        this.commandLogger.log(sb.toString());
+
+    }
+
+
+    public void triggerPrintLog(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\nCommand: PrintDB \n");
+
+        sb.append(this.datastoreHeader()).append("\n");
+        for( String server : allServers) {
+            CommandInput commandInput = CommandInput.newBuilder().build();
+            CommandOutput op = this.serversToCommandsStub.get(server).printDB(commandInput);
+            sb.append(op.getOutput()).append("\n");
+        }
+        sb.append("\n\n");
+
+        this.commandLogger.log(sb.toString());
+
+    }
+
+
+    public void triggerPrintStatus(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\nCommand: PrintDB \n");
+
+        sb.append(this.datastoreHeader()).append("\n");
+        for( String server : allServers) {
+            CommandInput commandInput = CommandInput.newBuilder().build();
+            CommandOutput op = this.serversToCommandsStub.get(server).printDB(commandInput);
+            sb.append(op.getOutput()).append("\n");
+        }
+        sb.append("\n\n");
+
+        this.commandLogger.log(sb.toString());
+
+    }
+
+    public void triggerPrintView(){
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n\nCommand: PrintDB \n");
+
+        sb.append(this.datastoreHeader()).append("\n");
+        for( String server : allServers) {
+            CommandInput commandInput = CommandInput.newBuilder().build();
+            CommandOutput op = this.serversToCommandsStub.get(server).printDB(commandInput);
+            sb.append(op.getOutput()).append("\n");
+        }
+        sb.append("\n\n");
+
+        this.commandLogger.log(sb.toString());
+
+    }
+
+
+
+
+
     public void sendCommandToServers(Command commandType, HashMap<String, Boolean> activeServersStatusMap) throws InterruptedException {
+
+
+        switch (commandType) {
+            case PrintDB:
+                triggerPrintDB();
+                // op = stub.printDB(commandInput);
+                break;
+            case PrintLog:
+                triggerPrintLog();
+                break;
+            case PrintStatus:
+                triggerPrintStatus();
+                break;
+            case PrintView:
+                triggerPrintView();
+                break;
+        }
+
+
+
+
+
         CommandInput commandInput = CommandInput.newBuilder().build();
 
         //Thread.sleep(10);
@@ -265,18 +363,6 @@ public class ViewServer extends NodeServer{
 
             CommandsGrpc.CommandsBlockingStub stub = this.serversToCommandsStub.get(server);
             CommandOutput op  = CommandOutput.newBuilder().setOutput("No Output").build() ;
-
-            switch (commandType) {
-                case PrintDB:
-                    op = stub.printDB(commandInput);
-                    break;
-                case PrintLog:
-                    op = stub.printLog(commandInput);
-                    break;
-                case PrintStatus:
-                    //op = stub.printStatus(commandInput);
-                    break;
-            }
 
             //this.logger.log("Command: " + commandType + "\n server: " + server + "\n output: \n"+ op.getOutput());
 

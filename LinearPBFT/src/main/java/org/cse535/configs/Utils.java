@@ -97,4 +97,6 @@ public class Utils {
         return GlobalConfigs.allServers.indexOf(serverName) == view % GlobalConfigs.allServers.size();
     }
 
+
+
 }

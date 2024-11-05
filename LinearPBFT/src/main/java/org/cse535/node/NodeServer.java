@@ -133,4 +133,34 @@ public class NodeServer {
 
 
 
+
+
+
+
+
+    public String datastoreToString(){
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Server: ").append(this.serverName).append(" : ");
+        for ( String client : GlobalConfigs.clients) {
+            sb.append( this.database.accountsMap.get(client)).append(" - ");
+        }
+        return sb.toString();
+    }
+
+    public String datastoreHeader(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Accounts :    ");
+        for ( String client : GlobalConfigs.clients) {
+            sb.append( client).append(" - ");
+        }
+        return sb.toString();
+    }
+
+
+
+
+
+
+
 }
