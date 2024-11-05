@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     view_ = 0;
     sequenceNumber_ = 0;
     processId_ = "";
+    transactionId_ = 0;
   }
 
   @java.lang.Override
@@ -72,6 +73,11 @@ private static final long serialVersionUID = 0L;
               timestamp_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 40: {
+
+            transactionId_ = input.readInt32();
             break;
           }
           default: {
@@ -158,6 +164,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TRANSACTIONID_FIELD_NUMBER = 5;
+  private int transactionId_;
+  /**
+   * <code>int32 transactionId = 5;</code>
+   */
+  public int getTransactionId() {
+    return transactionId_;
+  }
+
   public static final int TIMESTAMP_FIELD_NUMBER = 4;
   private com.google.protobuf.Timestamp timestamp_;
   /**
@@ -205,6 +220,9 @@ private static final long serialVersionUID = 0L;
     if (timestamp_ != null) {
       output.writeMessage(4, getTimestamp());
     }
+    if (transactionId_ != 0) {
+      output.writeInt32(5, transactionId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -229,6 +247,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getTimestamp());
     }
+    if (transactionId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, transactionId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -251,6 +273,8 @@ private static final long serialVersionUID = 0L;
         == other.getSequenceNumber());
     result = result && getProcessId()
         .equals(other.getProcessId());
+    result = result && (getTransactionId()
+        == other.getTransactionId());
     result = result && (hasTimestamp() == other.hasTimestamp());
     if (hasTimestamp()) {
       result = result && getTimestamp()
@@ -273,6 +297,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSequenceNumber();
     hash = (37 * hash) + PROCESSID_FIELD_NUMBER;
     hash = (53 * hash) + getProcessId().hashCode();
+    hash = (37 * hash) + TRANSACTIONID_FIELD_NUMBER;
+    hash = (53 * hash) + getTransactionId();
     if (hasTimestamp()) {
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getTimestamp().hashCode();
@@ -416,6 +442,8 @@ private static final long serialVersionUID = 0L;
 
       processId_ = "";
 
+      transactionId_ = 0;
+
       if (timestampBuilder_ == null) {
         timestamp_ = null;
       } else {
@@ -451,6 +479,7 @@ private static final long serialVersionUID = 0L;
       result.view_ = view_;
       result.sequenceNumber_ = sequenceNumber_;
       result.processId_ = processId_;
+      result.transactionId_ = transactionId_;
       if (timestampBuilder_ == null) {
         result.timestamp_ = timestamp_;
       } else {
@@ -513,6 +542,9 @@ private static final long serialVersionUID = 0L;
       if (!other.getProcessId().isEmpty()) {
         processId_ = other.processId_;
         onChanged();
+      }
+      if (other.getTransactionId() != 0) {
+        setTransactionId(other.getTransactionId());
       }
       if (other.hasTimestamp()) {
         mergeTimestamp(other.getTimestamp());
@@ -663,6 +695,32 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       processId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int transactionId_ ;
+    /**
+     * <code>int32 transactionId = 5;</code>
+     */
+    public int getTransactionId() {
+      return transactionId_;
+    }
+    /**
+     * <code>int32 transactionId = 5;</code>
+     */
+    public Builder setTransactionId(int value) {
+      
+      transactionId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 transactionId = 5;</code>
+     */
+    public Builder clearTransactionId() {
+      
+      transactionId_ = 0;
       onChanged();
       return this;
     }

@@ -37,7 +37,7 @@ public class ViewServer extends NodeServer{
 
 
 
-    public int viewNumber = 0;
+    public AtomicInteger viewNumber = new AtomicInteger(0);
 
     public AtomicInteger primaryServerIndex = new AtomicInteger(0);
 
@@ -99,7 +99,7 @@ public class ViewServer extends NodeServer{
 
         return new TnxLine(TransactionInputConfig.newBuilder()
                 .setSetNumber(testCaseCount)
-                .setView(viewServerInstance.viewNumber)
+                .setView(viewServerInstance.viewNumber.get())
                 .setTransaction(transaction)
                 .addAllServerNames(activeServers)
                 .build(), maliciousServers);
@@ -137,31 +137,24 @@ public class ViewServer extends NodeServer{
 
 
 
-    public boolean sendTransactionToServers(TransactionInputConfig transactionInputConfig) {
+    public boolean sendTransactionToServers(TransactionInputConfig transactionInputConfig, HashMap<String, Boolean> activeServersStatusMap) {
 
         try {
 
-            this.logger.log("Sending to Leader: " + this.primaryServerName + " View : " + this.viewNumber);
+            if(activeServersStatusMap.containsKey(this.primaryServerName) && activeServersStatusMap.get(this.primaryServerName)) {
 
-            transactionExecutionResponseMap.put(transactionInputConfig.getTransaction().getTransactionNum(), new HashSet<>());
+                this.logger.log("Sending to Leader: " + this.primaryServerName + " View : " + this.viewNumber.get());
 
-            LinearPBFTGrpc.LinearPBFTBlockingStub stub = this.serversToStub.get(this.primaryServerName);
+                transactionExecutionResponseMap.put(transactionInputConfig.getTransaction().getTransactionNum(), new HashSet<>());
 
-            TxnResponse response = stub.request(transactionInputConfig);
+                LinearPBFTGrpc.LinearPBFTBlockingStub stub = this.serversToStub.get(this.primaryServerName);
 
+                TxnResponse response = stub.request(transactionInputConfig);
+                this.logger.log("Transaction sent  : " + response.getSuccess() + " : \n" + response.toString());
 
-
-
-//            AtomicBoolean isSent = new AtomicBoolean(false);
-//
-//            propogateTransactionToServers(transactionInputConfig, isSent);
-
-            //Thread.sleep(100);
-
-            //this.logger.log("Transaction sent to all servers : " + isSent.get());
-            this.logger.log("Transaction sent  : " + response.getSuccess() + " : \n" + response.toString());
-
-            if ( response != null && !response.getSuccess() ) {
+                return false;
+            }
+            else {
                 System.out.println("Primary Node might be Inactive -> Response is null");
                 // Broadcast request to all servers
 
@@ -375,7 +368,7 @@ public class ViewServer extends NodeServer{
     public void flush() {
         this.transactionInputConfigMap = new HashMap<>();
         this.transactionExecutionResponseMap = new ConcurrentHashMap<>();
-        this.viewNumber = 0;
+        this.viewNumber.set(0);
         this.primaryServerName = GlobalConfigs.initLeader;
 
         this.tnxCount = 1;
@@ -403,7 +396,7 @@ public class ViewServer extends NodeServer{
             activeServersStatusMap.put(server, true);
         }
 
-        String path = "src/main/resources/lab2_Test_mod.csv";
+        String path = "src/main/resources/lab2_Test.csv";
 
         //File file = new File("C:\\Users\\mlakkoju\\apaxos-madhulakkoju\\apaxos\\src\\main\\resources\\input_file.csv");
         File file = new File(path);
@@ -550,12 +543,12 @@ public class ViewServer extends NodeServer{
                     //System.out.println("Same set number");
                 }
 
-                boolean isSuccess = viewServer.sendTransactionToServers(transactionInputConfig);
+                boolean isSuccess = viewServer.sendTransactionToServers(transactionInputConfig, activeServersStatusMap);
 
                 Thread.sleep(1000);
 
-                if(! isSuccess)
-                    viewServer.sendTransactionToServers(transactionInputConfig);
+//                if(! isSuccess)
+//                    viewServer.sendTransactionToServers(transactionInputConfig, activeServersStatusMap);
 
                 // Multicast Transactions to active servers
 

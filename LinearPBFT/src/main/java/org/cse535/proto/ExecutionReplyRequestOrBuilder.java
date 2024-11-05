@@ -28,6 +28,11 @@ public interface ExecutionReplyRequestOrBuilder extends
       getProcessIdBytes();
 
   /**
+   * <code>int32 transactionId = 5;</code>
+   */
+  int getTransactionId();
+
+  /**
    * <code>.google.protobuf.Timestamp timestamp = 4;</code>
    */
   boolean hasTimestamp();

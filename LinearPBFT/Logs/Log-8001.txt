@@ -13,20 +13,205 @@ H = 10
 I = 10
 J = 10
 
+Database: 
+Server: S1
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+===============================================================================================================================
+
+===============================================================================================================================
+
+Server activated
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+sequenceNumber: 1
+transaction {
+  sender: "A"
+  receiver: "C"
+  amount: 1
+  timestamp {
+  }
+  transactionNum: 1
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+sequenceNumber: 1
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+sequenceNumber: 1
+processId: "S1"
+digest: "Transaction ( 1 : A -> C = 1 )"
+
+Initiating execution for seqNum: 1
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 1
+sender: "A"
+receiver: "C"
+amount: 1
+timestamp {
+}
+transactionNum: 1
+
+Sent Reply to Client executed: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+sequenceNumber: 2
+transaction {
+  sender: "C"
+  receiver: "E"
+  amount: 2
+  transactionNum: 2
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+sequenceNumber: 2
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+sequenceNumber: 2
+processId: "S1"
+digest: "Transaction ( 2 : C -> E = 2 )"
+
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+sequenceNumber: 3
+transaction {
+  sender: "B"
+  receiver: "F"
+  amount: 3
+  transactionNum: 3
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+sequenceNumber: 3
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+sequenceNumber: 3
+processId: "S1"
+digest: "Transaction ( 3 : B -> F = 3 )"
+
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+sequenceNumber: 4
+transaction {
+  sender: "G"
+  receiver: "I"
+  amount: 4
+  transactionNum: 4
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+sequenceNumber: 4
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+sequenceNumber: 4
+processId: "S1"
+digest: "Transaction ( 4 : G -> I = 4 )"
+
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+sequenceNumber: 5
+transaction {
+  sender: "J"
+  receiver: "H"
+  amount: 5
+  transactionNum: 5
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+sequenceNumber: 5
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+sequenceNumber: 5
+processId: "S1"
+digest: "Transaction ( 5 : J -> H = 5 )"
+
+Transaction Processed: 5
+Database: 
+Server: S1
+A = 9
+B = 10
+C = 11
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+Database: 
+Server: S1
+A = 9
+B = 10
+C = 11
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
 ===============================================================================================================================
 
 ===============================================================================================================================
 
 Server deactivated
-Request received: 1
-Server is not active -> left request
 Relay request received: 1
 Server is not active -> left request
 View Change request received: 1
-Server is not active -> left request
 View Change request received: 1
 Server is not active -> left request
-View Change request received: 1
 Server is not active -> left request
 View Change request received: 1
 Server is not active -> left request
@@ -36,39 +221,153 @@ View Change request received: 1
 Server is not active -> left request
 New View request received: 1
 Server is not active -> left request
+Database: 
+Server: S1
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+Database: 
+Server: S1
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+===============================================================================================================================
+
+===============================================================================================================================
+
+Server activated
 Request received: 1
-Server is not active -> left request
-Relay request received: 1
-Server is not active -> left request
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+sequenceNumber: 1
+transaction {
+  sender: "A"
+  receiver: "B"
+  amount: 1
+  timestamp {
+  }
+  transactionNum: 1
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+sequenceNumber: 1
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+sequenceNumber: 1
+processId: "S1"
+digest: "Transaction ( 1 : A -> B = 1 )"
+
+Initiating execution for seqNum: 1
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 1
+sender: "A"
+receiver: "B"
+amount: 1
+timestamp {
+}
+transactionNum: 1
+
+Sent Reply to Client executed: 1
+Transaction Processed: 1
 Request received: 2
-Server is not active -> left request
-Relay request received: 2
-Server is not active -> left request
-Request received: 2
-Server is not active -> left request
-Relay request received: 2
-Server is not active -> left request
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+sequenceNumber: 2
+transaction {
+  sender: "C"
+  receiver: "D"
+  amount: 2
+  transactionNum: 2
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+sequenceNumber: 2
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+sequenceNumber: 2
+processId: "S1"
+digest: "Transaction ( 2 : C -> D = 2 )"
+
+Transaction Processed: 2
 Request received: 3
-Server is not active -> left request
-Relay request received: 3
-Server is not active -> left request
-Request received: 3
-Server is not active -> left request
-Relay request received: 3
-Server is not active -> left request
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+sequenceNumber: 3
+transaction {
+  sender: "E"
+  receiver: "F"
+  amount: 3
+  transactionNum: 3
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+sequenceNumber: 3
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+sequenceNumber: 3
+processId: "S1"
+digest: "Transaction ( 3 : E -> F = 3 )"
+
+Transaction Processed: 3
 Request received: 4
-Server is not active -> left request
-Relay request received: 4
-Server is not active -> left request
-Request received: 4
-Server is not active -> left request
-Relay request received: 4
-Server is not active -> left request
-Request received: 5
-Server is not active -> left request
-Relay request received: 5
-Server is not active -> left request
-Request received: 5
-Server is not active -> left request
-Relay request received: 5
-Server is not active -> left request
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+sequenceNumber: 4
+transaction {
+  sender: "G"
+  receiver: "H"
+  amount: 4
+  transactionNum: 4
+}
+processId: "S1"
+
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+sequenceNumber: 4
+processId: "S1"
+
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+sequenceNumber: 4
+processId: "S1"
+digest: "Transaction ( 4 : G -> H = 4 )"
+
+Transaction Processed: 4

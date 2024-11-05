@@ -91,7 +91,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         PrePrepareResponse resp = Main.node.handlePrePrepare(request);
         responseObserver.onNext(resp);
         responseObserver.onCompleted();
-        Main.node.logger.log("PrePrepare response sent: " + resp.getSequenceNumber());
+        Main.node.logger.log("PrePrepare response sent: " + resp.getSequenceNumber() + " Transaction ID: "+ request.getTransaction().getTransactionNum() + " : " + resp.getSuccess() );
     }
 
 
@@ -157,6 +157,8 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         }
 
         ViewServer.viewServerInstance.transactionExecutionResponseMap.get(request.getSequenceNumber()).add(request.getProcessId());
+        System.out.println("Execution reply received: " + request.getSequenceNumber() + " : "
+                + request.getProcessId() + " \nView : " + request.getView () + " TnxId: " + request.getTransactionId() + " \n");
 
     }
 
@@ -206,7 +208,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
             ViewServer.viewServerInstance.logger.log("New View Notification received at client : " + request.getView());
 
-            ViewServer.viewServerInstance.viewNumber = request.getView();
+            ViewServer.viewServerInstance.viewNumber.set(request.getView());
             ViewServer.viewServerInstance.primaryServerName = request.getProcessId();
 
             responseObserver.onNext( NewViewResponse.newBuilder().setSuccess(true).setView(request.getView()).build() );

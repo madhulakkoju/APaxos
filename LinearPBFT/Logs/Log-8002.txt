@@ -13,6 +13,172 @@ H = 10
 I = 10
 J = 10
 
+Database: 
+Server: S2
+A = 10
+B = 10
+C = 10
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+===============================================================================================================================
+
+===============================================================================================================================
+
+Server activated
+PrePrepare request received: 1
+PrePrepare request received: 1 Transaction ID: 1 Digest: 
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: 
+PrePrepare response sent: 1 Transaction ID: 1 : true
+Prepare request received: 1
+Received Prepare:::: + 1 Digest: 
+Accepted ---- Prepare request accepted: 1 Digest: 
+Prepare response sent: 0
+Commit request received: 1
+Commit response sent: 0
+Initiating execution for seqNum: 1
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 1
+sender: "A"
+receiver: "C"
+amount: 1
+timestamp {
+}
+transactionNum: 1
+
+Sent Reply to Client executed: 1
+Initiating execution for seqNum: 2
+Status : Not Found
+Executions initiated
+PrePrepare request received: 2
+PrePrepare request received: 2 Transaction ID: 2 Digest: 
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 2 Digest: 
+PrePrepare response sent: 2 Transaction ID: 2 : true
+Prepare request received: 2
+Received Prepare:::: + 2 Digest: 
+Accepted ---- Prepare request accepted: 2 Digest: 
+Prepare response sent: 0
+Commit request received: 2
+Commit response sent: 0
+Initiating execution for seqNum: 2
+Status : COMMITTED
+Executing transaction: 2
+Transaction executed: 2
+Sending Reply to Client executed: 2 Transaction: 2
+sender: "C"
+receiver: "E"
+amount: 2
+transactionNum: 2
+
+Sent Reply to Client executed: 2
+Initiating execution for seqNum: 3
+Status : Not Found
+Executions initiated
+PrePrepare request received: 3
+PrePrepare request received: 3 Transaction ID: 3 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 3 Digest: 
+PrePrepare response sent: 3 Transaction ID: 3 : true
+Prepare request received: 3
+Received Prepare:::: + 3 Digest: 
+Accepted ---- Prepare request accepted: 3 Digest: 
+Prepare response sent: 0
+Commit request received: 3
+Commit response sent: 0
+Initiating execution for seqNum: 3
+Status : COMMITTED
+Executing transaction: 3
+Transaction executed: 3
+Sending Reply to Client executed: 3 Transaction: 3
+sender: "B"
+receiver: "F"
+amount: 3
+transactionNum: 3
+
+Sent Reply to Client executed: 3
+Initiating execution for seqNum: 4
+Status : Not Found
+Executions initiated
+PrePrepare request received: 4
+PrePrepare request received: 4 Transaction ID: 4 Digest: 
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 4 Digest: 
+PrePrepare response sent: 4 Transaction ID: 4 : true
+Prepare request received: 4
+Received Prepare:::: + 4 Digest: 
+Accepted ---- Prepare request accepted: 4 Digest: 
+Prepare response sent: 0
+Commit request received: 4
+Commit response sent: 0
+Initiating execution for seqNum: 4
+Status : COMMITTED
+Executing transaction: 4
+Transaction executed: 4
+Sending Reply to Client executed: 4 Transaction: 4
+sender: "G"
+receiver: "I"
+amount: 4
+transactionNum: 4
+
+Sent Reply to Client executed: 4
+Initiating execution for seqNum: 5
+Status : Not Found
+Executions initiated
+PrePrepare request received: 5
+PrePrepare request received: 5 Transaction ID: 5 Digest: 
+Accepted ---- PrePrepare request accepted: 5 Transaction ID: 5 Digest: 
+PrePrepare response sent: 5 Transaction ID: 5 : true
+Prepare request received: 5
+Received Prepare:::: + 5 Digest: 
+Accepted ---- Prepare request accepted: 5 Digest: 
+Prepare response sent: 0
+Commit request received: 5
+Commit response sent: 0
+Initiating execution for seqNum: 5
+Status : COMMITTED
+Executing transaction: 5
+Transaction executed: 5
+Sending Reply to Client executed: 5 Transaction: 5
+sender: "J"
+receiver: "H"
+amount: 5
+transactionNum: 5
+
+Sent Reply to Client executed: 5
+Initiating execution for seqNum: 6
+Status : Not Found
+Executions initiated
+Database: 
+Server: S2
+A = 9
+B = 7
+C = 9
+D = 10
+E = 12
+F = 13
+G = 6
+H = 15
+I = 14
+J = 5
+
+Database: 
+Server: S2
+A = 9
+B = 7
+C = 9
+D = 10
+E = 12
+F = 13
+G = 6
+H = 15
+I = 14
+J = 5
+
 ===============================================================================================================================
 
 ===============================================================================================================================
@@ -28,10 +194,10 @@ processId: "S2"
 View Change request received: 1
 View Change response sent for 1 : true
 View Change request received: 1
-View Change request received: 1
-View Change response sent for 1 : true
 View Change response sent for 1 : true
 View Change request received: 1
+View Change request received: 1
+View Change response sent for 1 : true
 View Change response sent for 1 : true
 Checking New View Condition Reached for view: 1 with quorom size: 3
  View Number:  1 View Change Messages: 4
@@ -42,63 +208,43 @@ New View Triggered: 1
 New View Triggered: 1 isLeader: true
 New View Request sent to all servers
 New View Response from View Server: CCCCCCCCCCC 
-8007 S7 view: 1
+8004 S4 view: 1
 processId: "S2"
+viewChangeMessages {
+  view: 1
+  processId: "S3"
+}
 viewChangeMessages {
   view: 1
   processId: "S7"
 }
 viewChangeMessages {
   view: 1
-  processId: "S4"
+  processId: "S6"
 }
 viewChangeMessages {
   view: 1
   processId: "S5"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S6"
 }
 
 New View Response from View Server: CCCCCCCCCCC 
-8001 S1 view: 1
+8005 S5 view: 1
 processId: "S2"
+viewChangeMessages {
+  view: 1
+  processId: "S3"
+}
 viewChangeMessages {
   view: 1
   processId: "S7"
 }
 viewChangeMessages {
   view: 1
-  processId: "S4"
+  processId: "S6"
 }
 viewChangeMessages {
   view: 1
   processId: "S5"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S6"
-}
-
-New View Response from View Server: CCCCCCCCCCC 
-8006 S6 view: 1
-processId: "S2"
-viewChangeMessages {
-  view: 1
-  processId: "S7"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S4"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S5"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S6"
 }
 
 New View Response from View Server: CCCCCCCCCCC 
@@ -106,86 +252,93 @@ New View Response from View Server: CCCCCCCCCCC
 processId: "S2"
 viewChangeMessages {
   view: 1
+  processId: "S3"
+}
+viewChangeMessages {
+  view: 1
   processId: "S7"
 }
 viewChangeMessages {
   view: 1
-  processId: "S4"
+  processId: "S6"
 }
 viewChangeMessages {
   view: 1
   processId: "S5"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S6"
 }
 
 New View Response from View Server: CCCCCCCCCCC 
-8004 S4 view: 1
+8006 S6 view: 1
 processId: "S2"
+viewChangeMessages {
+  view: 1
+  processId: "S3"
+}
 viewChangeMessages {
   view: 1
   processId: "S7"
 }
 viewChangeMessages {
   view: 1
-  processId: "S4"
+  processId: "S6"
 }
 viewChangeMessages {
   view: 1
   processId: "S5"
-}
-viewChangeMessages {
-  view: 1
-  processId: "S6"
 }
 
-View Change request received: 1
 New View Response from View Server: CCCCCCCCCCC 
-8005 S5 view: 1
+8007 S7 view: 1
 processId: "S2"
+viewChangeMessages {
+  view: 1
+  processId: "S3"
+}
 viewChangeMessages {
   view: 1
   processId: "S7"
 }
 viewChangeMessages {
   view: 1
-  processId: "S4"
+  processId: "S6"
 }
 viewChangeMessages {
   view: 1
   processId: "S5"
 }
+
+New View Response from View Server: CCCCCCCCCCC 
+8001 S1 view: 1
+processId: "S2"
+viewChangeMessages {
+  view: 1
+  processId: "S3"
+}
+viewChangeMessages {
+  view: 1
+  processId: "S7"
+}
 viewChangeMessages {
   view: 1
   processId: "S6"
+}
+viewChangeMessages {
+  view: 1
+  processId: "S5"
 }
 
 Waiting for New View Response from: S1 8001
-View Change response sent for 1 : true
 New View Response from View Server: CCCCCCCCCCC 
-8003 
-view: 1
-processId: "S3"
-success: true
+8001 
 
 New View Response from View Server: CCCCCCCCCCC 
-8006 
-view: 1
-processId: "S6"
-success: true
+8004 
 
+Waiting for New View Response from: S3 8003
 New View Response from View Server: CCCCCCCCCCC 
 8005 
 view: 1
 processId: "S5"
-success: true
-
-New View Response from View Server: CCCCCCCCCCC 
-8004 
-view: 1
-processId: "S4"
 success: true
 
 New View Response from View Server: CCCCCCCCCCC 
@@ -195,38 +348,216 @@ processId: "S7"
 success: true
 
 New View Response from View Server: CCCCCCCCCCC 
-8001 
+8006 
+view: 1
+processId: "S6"
+success: true
 
-Waiting for New View Response from: S3 8003
+New View Response from View Server: CCCCCCCCCCC 
+8003 
+view: 1
+processId: "S3"
+success: true
+
 Waiting for New View Response from: S4 8004
 Waiting for New View Response from: S5 8005
 Waiting for New View Response from: S6 8006
 Waiting for New View Response from: S7 8007
-Waiting for New View Response from: vs 8000
-Relay request received: 1
-Relay request processed: 1
-Initiating View Change
-Relay request received: 2
-Relay request processed: 2
-Initiating View Change
-Relay request received: 2
-Relay request processed: 2
-Initiating View Change
-Relay request received: 3
-Relay request processed: 3
-Initiating View Change
-Relay request received: 3
-Relay request processed: 3
-Initiating View Change
-Relay request received: 4
-Relay request processed: 4
-Initiating View Change
-Relay request received: 4
-Relay request processed: 4
-Initiating View Change
-Relay request received: 5
-Relay request processed: 5
-Initiating View Change
-Relay request received: 5
-Relay request processed: 5
-Initiating View Change
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+view: 1
+sequenceNumber: 1
+transaction {
+  sender: "C"
+  receiver: "A"
+  amount: 7
+  transactionNum: 2
+}
+processId: "S2"
+
+Initiating Pre Prepare for SeqNum: 1 View: 1 Transaction ID: 2
+PrePrepare accepted for Seq num : 1 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 1 Transaction ID: 2
+view: 1
+sequenceNumber: 1
+processId: "S2"
+
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 1 Transaction ID: 2
+view: 1
+sequenceNumber: 1
+processId: "S2"
+digest: "Transaction ( 2 : C -> A = 7 )"
+
+Initiating execution for seqNum: 1
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 2
+sender: "C"
+receiver: "A"
+amount: 7
+transactionNum: 2
+
+Sent Reply to Client executed: 1
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+view: 1
+sequenceNumber: 2
+transaction {
+  sender: "D"
+  receiver: "I"
+  amount: 8
+  transactionNum: 3
+}
+processId: "S2"
+
+Initiating Pre Prepare for SeqNum: 2 View: 1 Transaction ID: 3
+PrePrepare accepted for Seq num : 2 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 1 Transaction ID: 3
+view: 1
+sequenceNumber: 2
+processId: "S2"
+
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 1 Transaction ID: 3
+view: 1
+sequenceNumber: 2
+processId: "S2"
+digest: "Transaction ( 3 : D -> I = 8 )"
+
+Transaction Processed: 3
+Database: 
+Server: S2
+A = 17
+B = 10
+C = 3
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+Database: 
+Server: S2
+A = 17
+B = 10
+C = 3
+D = 10
+E = 10
+F = 10
+G = 10
+H = 10
+I = 10
+J = 10
+
+===============================================================================================================================
+
+===============================================================================================================================
+
+Server activated
+PrePrepare request received: 1
+PrePrepare request received: 1 Transaction ID: 1 Digest: 
+Accepted ---- PrePrepare request accepted: 1 Transaction ID: 1 Digest: 
+PrePrepare response sent: 1 Transaction ID: 1 : true
+Prepare request received: 1
+Received Prepare:::: + 1 Digest: 
+Accepted ---- Prepare request accepted: 1 Digest: 
+Prepare response sent: 0
+Commit request received: 1
+Commit response sent: 0
+Initiating execution for seqNum: 1
+Status : COMMITTED
+Executing transaction: 1
+Transaction executed: 1
+Sending Reply to Client executed: 1 Transaction: 1
+sender: "A"
+receiver: "B"
+amount: 1
+timestamp {
+}
+transactionNum: 1
+
+Sent Reply to Client executed: 1
+Initiating execution for seqNum: 2
+Status : Not Found
+Executions initiated
+PrePrepare request received: 2
+PrePrepare request received: 2 Transaction ID: 2 Digest: 
+Accepted ---- PrePrepare request accepted: 2 Transaction ID: 2 Digest: 
+PrePrepare response sent: 2 Transaction ID: 2 : true
+Prepare request received: 2
+Received Prepare:::: + 2 Digest: 
+Accepted ---- Prepare request accepted: 2 Digest: 
+Prepare response sent: 0
+Commit request received: 2
+Commit response sent: 0
+Initiating execution for seqNum: 2
+Status : COMMITTED
+Executing transaction: 2
+Transaction executed: 2
+Sending Reply to Client executed: 2 Transaction: 2
+sender: "C"
+receiver: "D"
+amount: 2
+transactionNum: 2
+
+Sent Reply to Client executed: 2
+Initiating execution for seqNum: 3
+Status : Not Found
+Executions initiated
+PrePrepare request received: 3
+PrePrepare request received: 3 Transaction ID: 3 Digest: 
+Accepted ---- PrePrepare request accepted: 3 Transaction ID: 3 Digest: 
+PrePrepare response sent: 3 Transaction ID: 3 : true
+Prepare request received: 3
+Received Prepare:::: + 3 Digest: 
+Accepted ---- Prepare request accepted: 3 Digest: 
+Prepare response sent: 0
+Commit request received: 3
+Commit response sent: 0
+Initiating execution for seqNum: 3
+Status : COMMITTED
+Executing transaction: 3
+Transaction executed: 3
+Sending Reply to Client executed: 3 Transaction: 3
+sender: "E"
+receiver: "F"
+amount: 3
+transactionNum: 3
+
+Sent Reply to Client executed: 3
+Initiating execution for seqNum: 4
+Status : Not Found
+Executions initiated
+PrePrepare request received: 4
+PrePrepare request received: 4 Transaction ID: 4 Digest: 
+Accepted ---- PrePrepare request accepted: 4 Transaction ID: 4 Digest: 
+PrePrepare response sent: 4 Transaction ID: 4 : true
+Prepare request received: 4
+Received Prepare:::: + 4 Digest: 
+Accepted ---- Prepare request accepted: 4 Digest: 
+Prepare response sent: 0
+Commit request received: 4
+Commit response sent: 0
+Initiating execution for seqNum: 4
+Status : COMMITTED
+Executing transaction: 4
+Transaction executed: 4
+Sending Reply to Client executed: 4 Transaction: 4
+sender: "G"
+receiver: "H"
+amount: 4
+transactionNum: 4
+
+Sent Reply to Client executed: 4
+Initiating execution for seqNum: 5
+Status : Not Found
+Executions initiated

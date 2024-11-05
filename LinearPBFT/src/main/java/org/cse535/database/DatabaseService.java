@@ -114,6 +114,10 @@ public class DatabaseService {
 
     public void executeTransaction( int seqNum ){
 
+        if(this.transactionStatusMap.containsKey(seqNum) && this.transactionStatusMap.get(seqNum) == TransactionStatus.EXECUTED){
+            return;
+        }
+
         Main.node.logger.log("Executing transaction: " + seqNum);
         Transaction transaction = transactionMap.get(seqNum);
 
@@ -126,9 +130,12 @@ public class DatabaseService {
 
         Main.node.logger.log("Transaction executed: " + seqNum);
 
+        Main.node.logger.log("Sending Reply to Client executed: " + seqNum + " Transaction: " + transaction.getTransactionNum() + "\n"+ transaction.toString());
+
         Main.node.clientStub.executionReply(
                 ExecutionReplyRequest.newBuilder()
                         .setView(this.seqNumViewMap.get(seqNum))
+                        .setTransactionId(transaction.getTransactionNum())
                         .setSequenceNumber(seqNum)
                         .setProcessId(Main.node.serverName)
                         .build()

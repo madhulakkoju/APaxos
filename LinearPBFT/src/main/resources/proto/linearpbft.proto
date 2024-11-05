@@ -67,6 +67,7 @@ message ExecutionReplyRequest {
   int32 view = 1;
   int32 sequenceNumber = 2;
   string processId = 3;
+  int32 transactionId = 5;
   google.protobuf.Timestamp timestamp = 4;
 }
 

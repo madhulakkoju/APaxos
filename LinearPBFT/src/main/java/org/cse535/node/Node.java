@@ -45,7 +45,7 @@ public class Node extends NodeServer{
 
         while (true) {
             try {
-                Thread.sleep(5);
+                Thread.sleep(50);
 
                 if(this.pauseTransactionsUntilViewChange.get()){
                     Thread.sleep(100);
@@ -64,10 +64,12 @@ public class Node extends NodeServer{
 
                 this.logger.log("Processing Transaction: " + tnxConfig.getTransaction().getTransactionNum());
 
-                if(!processTransaction(tnxConfig)){
-                    this.database.incomingTnxQueue.add(tnxConfig);
-                    this.logger.log("Transaction Failed: -- readding to queue " + tnxConfig.getTransaction().getTransactionNum());
-                }
+                processTransaction(tnxConfig);
+
+//                if(!processTransaction(tnxConfig)){
+//                    this.database.incomingTnxQueue.add(tnxConfig);
+//                    this.logger.log("Transaction Failed: -- readding to queue " + tnxConfig.getTransaction().getTransactionNum());
+//                }
 
 
                 this.logger.log("Transaction Processed: " + tnxConfig.getTransaction().getTransactionNum());
@@ -97,12 +99,17 @@ public class Node extends NodeServer{
                 .setSequenceNumber(currentSeqNum)
                 .setView(this.database.currentViewNum.get())
                 .setProcessId(this.serverName)
-                .setDigest(Utils.Digest(tnxConfig.getTransaction()))
+                .setDigest(tnxConfig.getTransaction().getTransactionHash())
                 .build();
 
+        this.logger.log(prePrepareRequest.toString());
+
+        this.logger.log("Initiating Pre Prepare for SeqNum: " + currentSeqNum + " View: " + this.database.currentViewNum.get() + " Transaction ID: "+ tnxConfig.getTransaction().getTransactionNum());
 
         // Initiate PrePrepare
         if( initiatePrePrepare(prePrepareRequest) ){
+
+            this.logger.log("Pre Prepare Success");
 
             //Byzantine Feature -> does not prepare at all
 
@@ -114,13 +121,17 @@ public class Node extends NodeServer{
                     .setSequenceNumber(currentSeqNum)
                     .setView(this.database.currentViewNum.get())
                     .setProcessId(this.serverName)
-                    //.setDigest(Utils.Digest(tnxConfig.getTransaction()))
                     .setDigest(tnxConfig.getTransaction().getTransactionHash())
                     .build();
 
 
+            this.logger.log("Initiating Prepare for SeqNum: " + currentSeqNum + " View: " + this.database.currentViewNum.get() + " Transaction ID: "+ tnxConfig.getTransaction().getTransactionNum());
+
+            this.logger.log(prepareRequest.toString());
+
             // Initiate Prepare
             if( initiatePrepare(prepareRequest) ){
+                this.logger.log("Prepare Success");
 
                 CommitRequest commitRequest = CommitRequest.newBuilder()
                         .setSequenceNumber(currentSeqNum)
@@ -129,6 +140,9 @@ public class Node extends NodeServer{
                         .setDigest(Utils.Digest(tnxConfig.getTransaction()))
                         .build();
 
+                this.logger.log("Initiating Commit for SeqNum: " + currentSeqNum + " View: " + this.database.currentViewNum.get() + " Transaction ID: "+ tnxConfig.getTransaction().getTransactionNum());
+
+                this.logger.log(commitRequest.toString());
 
                 // Initiate Commit
                 initiateCommit(commitRequest);
@@ -149,6 +163,7 @@ public class Node extends NodeServer{
 
             this.database.prePrepareResponseMap.put(preprepareRequest.getSequenceNumber(), new ArrayList<>(GlobalConfigs.serversCount));
 
+            this.database.transactionStatusMap.put(preprepareRequest.getSequenceNumber(), DatabaseService.TransactionStatus.PrePREPARED);
 
             PrePrepareWorkerThread[] prePrepareWorkerThreads = new PrePrepareWorkerThread[this.currentActiveServers.size()];
 
@@ -166,11 +181,7 @@ public class Node extends NodeServer{
                     prePrepareWorkerThreads[i].join();
             }
 
-            int prePrepareAcceptedCount = 0 ; // this.database.prePrepareResponseMap.get(preprepareRequest.getSequenceNumber()).size();
-
-            if(this.database.prePrepareResponseMap.get(preprepareRequest.getSequenceNumber()) == null){
-                return false;
-            }
+            int prePrepareAcceptedCount = 1 ; // this.database.prePrepareResponseMap.get(preprepareRequest.getSequenceNumber()).size();
 
             for (PrePrepareResponse resp : this.database.prePrepareResponseMap.get(preprepareRequest.getSequenceNumber()) ) {
                 if(resp.getSuccess()){
@@ -179,7 +190,7 @@ public class Node extends NodeServer{
             }
 
             if(prePrepareAcceptedCount >= GlobalConfigs.minQuoromSize){
-                this.database.transactionStatusMap.put(preprepareRequest.getSequenceNumber(), DatabaseService.TransactionStatus.PrePREPARED);
+                this.logger.log("PrePrepare accepted for Seq num : " + preprepareRequest.getSequenceNumber() + " Accepts: " + prePrepareAcceptedCount);
                 return true;
             }
 
@@ -199,6 +210,10 @@ public class Node extends NodeServer{
         prePrepareResponse.setSequenceNumber(request.getSequenceNumber());
         prePrepareResponse.setView(request.getView());
 
+        this.logger.log("PrePrepare request received: " + request.getSequenceNumber() + " Transaction ID: "+ request.getTransaction().getTransactionNum()
+        + " Digest: " + request.getDigest()
+        );
+
         if(this.database.transactionMap.containsKey(request.getSequenceNumber())){
 
             if( this.database.transactionMap.get(request.getSequenceNumber()).getTransactionNum() == request.getTransaction().getTransactionNum() &&
@@ -206,8 +221,23 @@ public class Node extends NodeServer{
 
                 this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.PrePREPARED);
 
+                this.logger.log("Accepted ---- PrePrepare request accepted: " + request.getSequenceNumber() +
+                        " Transaction ID: "+ request.getTransaction().getTransactionNum()
+                        + " Digest: " + request.getDigest()
+                );
+
                 prePrepareResponse.setSuccess(true);
             }
+
+
+            this.logger.log("Rejected ---- PrePrepare request rejected: " + request.getSequenceNumber() +
+                    " Transaction ID: "+ request.getTransaction().getTransactionNum() + " Transaction ID from db map : " + this.database.transactionMap.get(request.getSequenceNumber()).getTransactionNum()
+                    + " Tnx Hash matching : " + this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash().equals(request.getTransaction().getTransactionHash())
+                    + "Transaction Hash: " + this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash() + " Request Hash: " + request.getTransaction().getTransactionHash()
+                    + " Digest: " + request.getDigest()
+            );
+
+
         }
         else {
             this.database.transactionMap.put(request.getSequenceNumber(), request.getTransaction());
@@ -215,6 +245,11 @@ public class Node extends NodeServer{
             this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.PrePREPARED);
 
             prePrepareResponse.setSuccess(true);
+
+            this.logger.log("Accepted ---- PrePrepare request accepted: " + request.getSequenceNumber() +
+                    " Transaction ID: "+ request.getTransaction().getTransactionNum()
+                    + " Digest: " + request.getDigest()
+            );
         }
 
         this.database.setMaxAddedSeqNum(request.getSequenceNumber());
@@ -245,7 +280,7 @@ public class Node extends NodeServer{
                 prepareWorkerThreads[i].join();
             }
 
-            int prepareAcceptedCount = 0 ; // this.database.prePrepareResponseMap.get(preprepareRequest.getSequenceNumber()).size();
+            int prepareAcceptedCount = 1 ; // this.database.prePrepareResponseMap.get(preprepareRequest.getSequenceNumber()).size();
 
             for (PrePrepareResponse resp : this.database.prePrepareResponseMap.get(prepareRequest.getSequenceNumber()) ) {
                 if(resp.getSuccess()){
@@ -268,14 +303,19 @@ public class Node extends NodeServer{
     public PrepareResponse handlePrepare(PrepareRequest request) {
         PrepareResponse.Builder prepareResponse = PrepareResponse.newBuilder();
         prepareResponse.setSuccess(false);
+        prepareResponse.setProcessId(this.serverName);
+
+        this.logger.log("Received Prepare:::: + " + request.getSequenceNumber() + " Digest: " + request.getDigest());
 
         if( this.database.transactionMap.containsKey(request.getSequenceNumber()) &&
                 this.database.transactionStatusMap.containsKey(request.getSequenceNumber()) &&
-                this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash().equals(request.getDigest()) &&
+               // this.database.transactionMap.get(request.getSequenceNumber()).getTransactionHash().equals(request.getDigest()) &&
                 (this.database.transactionStatusMap.get(request.getSequenceNumber()) == DatabaseService.TransactionStatus.PrePREPARED ||
                 this.database.transactionStatusMap.get(request.getSequenceNumber()) == DatabaseService.TransactionStatus.PREPARED)){
 
             this.database.transactionStatusMap.put(request.getSequenceNumber(), DatabaseService.TransactionStatus.PREPARED);
+
+            this.logger.log("Accepted ---- Prepare request accepted: " + request.getSequenceNumber() + " Digest: " + request.getDigest());
             prepareResponse.setSuccess(true);
         }
 
@@ -288,8 +328,6 @@ public class Node extends NodeServer{
 
     public boolean initiateCommit(CommitRequest commitRequest) {
         try {
-
-
 
             this.database.transactionStatusMap.put(commitRequest.getSequenceNumber(), DatabaseService.TransactionStatus.COMMITTED );
 
@@ -495,8 +533,11 @@ public class Node extends NodeServer{
 
 
             this.logger.log("New View Request sent to all servers");
-            newViewWorkerThreads[GlobalConfigs.allServers.size()] = new NewViewWorkerThread(this,
-                    GlobalConfigs.viewServerPort, GlobalConfigs.viewServerName, newViewRequest);
+//            newViewWorkerThreads[GlobalConfigs.allServers.size()] = new NewViewWorkerThread(this,
+//                    GlobalConfigs.viewServerPort, GlobalConfigs.viewServerName, newViewRequest);
+
+            this.clientStub.newView(newViewRequest);
+
 
             for (int i = 0; i <= GlobalConfigs.allServers.size(); i++) {
                 if(newViewWorkerThreads[i] == null) continue;
