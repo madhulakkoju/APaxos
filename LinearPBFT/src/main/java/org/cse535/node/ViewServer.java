@@ -51,6 +51,7 @@ public class ViewServer extends NodeServer{
     public ConcurrentHashMap<Integer, HashSet<String>> transactionExecutionResponseMap = new ConcurrentHashMap<>();
 
 
+
     public static ViewServer viewServerInstance;
 
 
@@ -346,18 +347,7 @@ public class ViewServer extends NodeServer{
 
     public void triggerPrintView(){
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n\nCommand: PrintDB \n");
-
-        sb.append(this.datastoreHeader()).append("\n");
-        for( String server : allServers) {
-            CommandInput commandInput = CommandInput.newBuilder().build();
-            CommandOutput op = this.serversToCommandsStub.get(server).printDB(commandInput);
-            sb.append(op.getOutput()).append("\n");
-        }
-        sb.append("\n\n");
-
-        this.commandLogger.log(sb.toString());
+        this.commandLogger.log("Print View:\n" + this.printNewViewRequests() );
 
     }
 
@@ -460,7 +450,7 @@ public class ViewServer extends NodeServer{
         commandsSet.add("PrintBalance");
         commandsSet.add("PrintLog");
         commandsSet.add("Performance");
-        commandsSet.add("PrintClientBalances");
+        commandsSet.add("PrintView");
 
 
         HashMap<String, Boolean> activeServersStatusMap = new HashMap<>();
@@ -556,6 +546,9 @@ public class ViewServer extends NodeServer{
 
                     viewServer.sendCommandToServers(Command.valueOf("PrintDB"), activeServersStatusMap);
                     viewServer.sendCommandToServers(Command.valueOf("PrintStatus"), activeServersStatusMap);
+                    viewServer.sendCommandToServers(Command.valueOf("PrintView"), activeServersStatusMap);
+
+
 
                     Thread.sleep(100);
 

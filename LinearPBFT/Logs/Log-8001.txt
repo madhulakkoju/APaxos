@@ -1,31 +1,5 @@
  
 Transaction Worker Thread Started
-Database: 
-Server: S1
-A = 10
-B = 10
-C = 10
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Database: 
-Server: S1
-A = 10
-B = 10
-C = 10
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
 ===============================================================================================================================
 
 ===============================================================================================================================
@@ -34,219 +8,148 @@ Server activated
 Request received: 1
 Server is leader -> processing request -- added to queue
 Processing Transaction: 1
-sequenceNumber: 1
-transaction {
-  sender: "A"
-  receiver: "C"
-  amount: 1
-  timestamp {
-  }
-  transactionNum: 1
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
-PrePrepare accepted for Seq num : 1 Accepts: 7
+PrePrepare accepted for Seq num : 1 Accepts: 5
 Pre Prepare Success
 Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
-sequenceNumber: 1
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
-sequenceNumber: 1
-processId: "S1"
-digest: "Transaction ( 1 : A -> C = 1 )"
-
-Initiating execution for seqNum: 1
-Status : COMMITTED
-Executing transaction: 1
-Transaction executed: 1
-Sending Reply to Client executed: 1 Transaction: 1
-sender: "A"
-receiver: "C"
-amount: 1
-timestamp {
-}
-transactionNum: 1
-
-Sent Reply to Client executed: 1
 Transaction Processed: 1
 Request received: 2
 Server is leader -> processing request -- added to queue
 Processing Transaction: 2
-sequenceNumber: 2
-transaction {
-  sender: "C"
-  receiver: "E"
-  amount: 2
-  transactionNum: 2
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
 PrePrepare accepted for Seq num : 2 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
-sequenceNumber: 2
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
-sequenceNumber: 2
-processId: "S1"
-digest: "Transaction ( 2 : C -> E = 2 )"
-
 Transaction Processed: 2
 Request received: 3
 Server is leader -> processing request -- added to queue
 Processing Transaction: 3
-sequenceNumber: 3
-transaction {
-  sender: "B"
-  receiver: "F"
-  amount: 3
-  transactionNum: 3
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
 PrePrepare accepted for Seq num : 3 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
-sequenceNumber: 3
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
-sequenceNumber: 3
-processId: "S1"
-digest: "Transaction ( 3 : B -> F = 3 )"
-
 Transaction Processed: 3
 Request received: 4
 Server is leader -> processing request -- added to queue
 Processing Transaction: 4
-sequenceNumber: 4
-transaction {
-  sender: "G"
-  receiver: "I"
-  amount: 4
-  transactionNum: 4
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
 PrePrepare accepted for Seq num : 4 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
-sequenceNumber: 4
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
-sequenceNumber: 4
-processId: "S1"
-digest: "Transaction ( 4 : G -> I = 4 )"
+Transaction Processed: 4
+===============================================================================================================================
 
+Server activated
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
 Transaction Processed: 4
 Request received: 5
 Server is leader -> processing request -- added to queue
 Processing Transaction: 5
-sequenceNumber: 5
-transaction {
-  sender: "J"
-  receiver: "H"
-  amount: 5
-  transactionNum: 5
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
 PrePrepare accepted for Seq num : 5 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
-sequenceNumber: 5
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
-sequenceNumber: 5
-processId: "S1"
-digest: "Transaction ( 5 : J -> H = 5 )"
-
 Transaction Processed: 5
-Database: 
-Server: S1
-A = 9
-B = 10
-C = 11
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Database: 
-Server: S1
-A = 9
-B = 10
-C = 11
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
 ===============================================================================================================================
 
+Server activated
 ===============================================================================================================================
 
-Server deactivated
-Relay request received: 1
-Server is not active -> left request
-View Change request received: 1
-View Change request received: 1
-Server is not active -> left request
-Server is not active -> left request
-View Change request received: 1
-Server is not active -> left request
-View Change request received: 1
-Server is not active -> left request
-View Change request received: 1
-Server is not active -> left request
-New View request received: 1
-Server is not active -> left request
-Database: 
-Server: S1
-A = 10
-B = 10
-C = 10
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
-Database: 
-Server: S1
-A = 10
-B = 10
-C = 10
-D = 10
-E = 10
-F = 10
-G = 10
-H = 10
-I = 10
-J = 10
-
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
 ===============================================================================================================================
 
 ===============================================================================================================================
@@ -255,119 +158,1030 @@ Server activated
 Request received: 1
 Server is leader -> processing request -- added to queue
 Processing Transaction: 1
-sequenceNumber: 1
-transaction {
-  sender: "A"
-  receiver: "B"
-  amount: 1
-  timestamp {
-  }
-  transactionNum: 1
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
-PrePrepare accepted for Seq num : 1 Accepts: 6
+PrePrepare accepted for Seq num : 1 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
-sequenceNumber: 1
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
-sequenceNumber: 1
-processId: "S1"
-digest: "Transaction ( 1 : A -> B = 1 )"
-
-Initiating execution for seqNum: 1
-Status : COMMITTED
-Executing transaction: 1
-Transaction executed: 1
-Sending Reply to Client executed: 1 Transaction: 1
-sender: "A"
-receiver: "B"
-amount: 1
-timestamp {
-}
-transactionNum: 1
-
-Sent Reply to Client executed: 1
 Transaction Processed: 1
 Request received: 2
 Server is leader -> processing request -- added to queue
 Processing Transaction: 2
-sequenceNumber: 2
-transaction {
-  sender: "C"
-  receiver: "D"
-  amount: 2
-  transactionNum: 2
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
-PrePrepare accepted for Seq num : 2 Accepts: 5
+PrePrepare accepted for Seq num : 2 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
-sequenceNumber: 2
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
-sequenceNumber: 2
-processId: "S1"
-digest: "Transaction ( 2 : C -> D = 2 )"
-
 Transaction Processed: 2
 Request received: 3
 Server is leader -> processing request -- added to queue
 Processing Transaction: 3
-sequenceNumber: 3
-transaction {
-  sender: "E"
-  receiver: "F"
-  amount: 3
-  transactionNum: 3
-}
-processId: "S1"
-
 Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
-PrePrepare accepted for Seq num : 3 Accepts: 6
+PrePrepare accepted for Seq num : 3 Accepts: 7
 Pre Prepare Success
 Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
-sequenceNumber: 3
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
-sequenceNumber: 3
-processId: "S1"
-digest: "Transaction ( 3 : E -> F = 3 )"
-
 Transaction Processed: 3
 Request received: 4
 Server is leader -> processing request -- added to queue
 Processing Transaction: 4
-sequenceNumber: 4
-transaction {
-  sender: "G"
-  receiver: "H"
-  amount: 4
-  transactionNum: 4
-}
-processId: "S1"
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+===============================================================================================================================
 
+===============================================================================================================================
+
+Server activated
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
 Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
 PrePrepare accepted for Seq num : 4 Accepts: 6
 Pre Prepare Success
 Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
-sequenceNumber: 4
-processId: "S1"
-
 Prepare Success
 Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
-sequenceNumber: 4
-processId: "S1"
-digest: "Transaction ( 4 : G -> H = 4 )"
-
 Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+Server activated
+===============================================================================================================================
+
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+===============================================================================================================================
+
+Server activated
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+Request received: 6
+Server is leader -> processing request -- added to queue
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+PrePrepare accepted for Seq num : 6 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+Prepare Success
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 6
+Transaction Processed: 6
+Request received: 7
+Server is leader -> processing request -- added to queue
+Processing Transaction: 7
+Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 7
+PrePrepare accepted for Seq num : 7 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 7
+Prepare Success
+Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 7
+Transaction Processed: 7
+Server activated
+===============================================================================================================================
+
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+Request received: 6
+Server is leader -> processing request -- added to queue
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+PrePrepare accepted for Seq num : 6 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+Prepare Success
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 6
+Transaction Processed: 6
+Request received: 7
+Server is leader -> processing request -- added to queue
+Processing Transaction: 7
+Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 7
+PrePrepare accepted for Seq num : 7 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 7
+Prepare Success
+Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 7
+Transaction Processed: 7
+Request received: 8
+Server is leader -> processing request -- added to queue
+Processing Transaction: 8
+Initiating Pre Prepare for SeqNum: 8 View: 0 Transaction ID: 8
+PrePrepare accepted for Seq num : 8 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 8 View: 0 Transaction ID: 8
+Prepare Success
+Initiating Commit for SeqNum: 8 View: 0 Transaction ID: 8
+Transaction Processed: 8
+Request received: 9
+Server is leader -> processing request -- added to queue
+Processing Transaction: 9
+Initiating Pre Prepare for SeqNum: 9 View: 0 Transaction ID: 9
+PrePrepare accepted for Seq num : 9 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 9 View: 0 Transaction ID: 9
+Prepare Success
+Initiating Commit for SeqNum: 9 View: 0 Transaction ID: 9
+Transaction Processed: 9
+Request received: 10
+Server is leader -> processing request -- added to queue
+Processing Transaction: 10
+Initiating Pre Prepare for SeqNum: 10 View: 0 Transaction ID: 10
+PrePrepare accepted for Seq num : 10 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 10 View: 0 Transaction ID: 10
+Prepare Success
+Initiating Commit for SeqNum: 10 View: 0 Transaction ID: 10
+Transaction Processed: 10
+===============================================================================================================================
+
+Server activated
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+Request received: 6
+Server is leader -> processing request -- added to queue
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+PrePrepare accepted for Seq num : 6 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+Prepare Success
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 6
+Transaction Processed: 6
+===============================================================================================================================
+
+Server activated
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+Request received: 6
+Server is leader -> processing request -- added to queue
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+PrePrepare accepted for Seq num : 6 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+Prepare Success
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 6
+Transaction Processed: 6
+===============================================================================================================================
+
+Server activated
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+===============================================================================================================================
+
+Server activated
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Server activated
+===============================================================================================================================
+
+===============================================================================================================================
+
+Request received: 1
+Server is leader -> processing request -- added to queue
+Processing Transaction: 1
+Initiating Pre Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+PrePrepare accepted for Seq num : 1 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 1 View: 0 Transaction ID: 1
+Prepare Success
+Initiating Commit for SeqNum: 1 View: 0 Transaction ID: 1
+Transaction Processed: 1
+Request received: 2
+Server is leader -> processing request -- added to queue
+Processing Transaction: 2
+Initiating Pre Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+PrePrepare accepted for Seq num : 2 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 2 View: 0 Transaction ID: 2
+Prepare Success
+Initiating Commit for SeqNum: 2 View: 0 Transaction ID: 2
+Transaction Processed: 2
+Request received: 3
+Server is leader -> processing request -- added to queue
+Processing Transaction: 3
+Initiating Pre Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+PrePrepare accepted for Seq num : 3 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 3 View: 0 Transaction ID: 3
+Prepare Success
+Initiating Commit for SeqNum: 3 View: 0 Transaction ID: 3
+Transaction Processed: 3
+Request received: 4
+Server is leader -> processing request -- added to queue
+Processing Transaction: 4
+Initiating Pre Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+PrePrepare accepted for Seq num : 4 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 4 View: 0 Transaction ID: 4
+Prepare Success
+Initiating Commit for SeqNum: 4 View: 0 Transaction ID: 4
+Transaction Processed: 4
+Request received: 5
+Server is leader -> processing request -- added to queue
+Processing Transaction: 5
+Initiating Pre Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+PrePrepare accepted for Seq num : 5 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 5 View: 0 Transaction ID: 5
+Prepare Success
+Initiating Commit for SeqNum: 5 View: 0 Transaction ID: 5
+Transaction Processed: 5
+Request received: 6
+Server is leader -> processing request -- added to queue
+Processing Transaction: 6
+Initiating Pre Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+PrePrepare accepted for Seq num : 6 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 6 View: 0 Transaction ID: 6
+Prepare Success
+Initiating Commit for SeqNum: 6 View: 0 Transaction ID: 6
+Transaction Processed: 6
+Request received: 7
+Server is leader -> processing request -- added to queue
+Processing Transaction: 7
+Initiating Pre Prepare for SeqNum: 7 View: 0 Transaction ID: 7
+PrePrepare accepted for Seq num : 7 Accepts: 5
+Pre Prepare Success
+Initiating Prepare for SeqNum: 7 View: 0 Transaction ID: 7
+Prepare Success
+Initiating Commit for SeqNum: 7 View: 0 Transaction ID: 7
+Transaction Processed: 7
+Request received: 8
+Server is leader -> processing request -- added to queue
+Processing Transaction: 8
+Initiating Pre Prepare for SeqNum: 8 View: 0 Transaction ID: 8
+PrePrepare accepted for Seq num : 8 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 8 View: 0 Transaction ID: 8
+Prepare Success
+Initiating Commit for SeqNum: 8 View: 0 Transaction ID: 8
+Transaction Processed: 8
+Request received: 9
+Server is leader -> processing request -- added to queue
+Processing Transaction: 9
+Initiating Pre Prepare for SeqNum: 9 View: 0 Transaction ID: 9
+PrePrepare accepted for Seq num : 9 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 9 View: 0 Transaction ID: 9
+Prepare Success
+Initiating Commit for SeqNum: 9 View: 0 Transaction ID: 9
+Transaction Processed: 9
+Request received: 10
+Server is leader -> processing request -- added to queue
+Processing Transaction: 10
+Initiating Pre Prepare for SeqNum: 10 View: 0 Transaction ID: 10
+PrePrepare accepted for Seq num : 10 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 10 View: 0 Transaction ID: 10
+Prepare Success
+Initiating Commit for SeqNum: 10 View: 0 Transaction ID: 10
+Transaction Processed: 10
+Request received: 11
+Server is leader -> processing request -- added to queue
+Processing Transaction: 11
+Initiating Pre Prepare for SeqNum: 11 View: 0 Transaction ID: 11
+PrePrepare accepted for Seq num : 11 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 11 View: 0 Transaction ID: 11
+Prepare Success
+Initiating Commit for SeqNum: 11 View: 0 Transaction ID: 11
+Transaction Processed: 11
+Request received: 12
+Server is leader -> processing request -- added to queue
+Processing Transaction: 12
+Initiating Pre Prepare for SeqNum: 12 View: 0 Transaction ID: 12
+PrePrepare accepted for Seq num : 12 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 12 View: 0 Transaction ID: 12
+Prepare Success
+Initiating Commit for SeqNum: 12 View: 0 Transaction ID: 12
+Transaction Processed: 12
+Request received: 13
+Server is leader -> processing request -- added to queue
+Processing Transaction: 13
+Initiating Pre Prepare for SeqNum: 13 View: 0 Transaction ID: 13
+PrePrepare accepted for Seq num : 13 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 13 View: 0 Transaction ID: 13
+Prepare Success
+Initiating Commit for SeqNum: 13 View: 0 Transaction ID: 13
+Transaction Processed: 13
+Request received: 14
+Server is leader -> processing request -- added to queue
+Processing Transaction: 14
+Initiating Pre Prepare for SeqNum: 14 View: 0 Transaction ID: 14
+PrePrepare accepted for Seq num : 14 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 14 View: 0 Transaction ID: 14
+Prepare Success
+Initiating Commit for SeqNum: 14 View: 0 Transaction ID: 14
+Transaction Processed: 14
+Request received: 15
+Server is leader -> processing request -- added to queue
+Processing Transaction: 15
+Initiating Pre Prepare for SeqNum: 15 View: 0 Transaction ID: 15
+PrePrepare accepted for Seq num : 15 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 15 View: 0 Transaction ID: 15
+Prepare Success
+Initiating Commit for SeqNum: 15 View: 0 Transaction ID: 15
+Transaction Processed: 15
+Request received: 16
+Server is leader -> processing request -- added to queue
+Processing Transaction: 16
+Initiating Pre Prepare for SeqNum: 16 View: 0 Transaction ID: 16
+PrePrepare accepted for Seq num : 16 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 16 View: 0 Transaction ID: 16
+Prepare Success
+Initiating Commit for SeqNum: 16 View: 0 Transaction ID: 16
+Transaction Processed: 16
+Request received: 17
+Server is leader -> processing request -- added to queue
+Processing Transaction: 17
+Initiating Pre Prepare for SeqNum: 17 View: 0 Transaction ID: 17
+PrePrepare accepted for Seq num : 17 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 17 View: 0 Transaction ID: 17
+Prepare Success
+Initiating Commit for SeqNum: 17 View: 0 Transaction ID: 17
+Transaction Processed: 17
+Request received: 18
+Server is leader -> processing request -- added to queue
+Processing Transaction: 18
+Initiating Pre Prepare for SeqNum: 18 View: 0 Transaction ID: 18
+PrePrepare accepted for Seq num : 18 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 18 View: 0 Transaction ID: 18
+Prepare Success
+Initiating Commit for SeqNum: 18 View: 0 Transaction ID: 18
+Transaction Processed: 18
+Request received: 19
+Server is leader -> processing request -- added to queue
+Processing Transaction: 19
+Initiating Pre Prepare for SeqNum: 19 View: 0 Transaction ID: 19
+PrePrepare accepted for Seq num : 19 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 19 View: 0 Transaction ID: 19
+Prepare Success
+Initiating Commit for SeqNum: 19 View: 0 Transaction ID: 19
+Transaction Processed: 19
+Request received: 20
+Server is leader -> processing request -- added to queue
+Processing Transaction: 20
+Initiating Pre Prepare for SeqNum: 20 View: 0 Transaction ID: 20
+PrePrepare accepted for Seq num : 20 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 20 View: 0 Transaction ID: 20
+Prepare Success
+Initiating Commit for SeqNum: 20 View: 0 Transaction ID: 20
+Transaction Processed: 20
+Request received: 21
+Server is leader -> processing request -- added to queue
+Processing Transaction: 21
+Initiating Pre Prepare for SeqNum: 21 View: 0 Transaction ID: 21
+PrePrepare accepted for Seq num : 21 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 21 View: 0 Transaction ID: 21
+Prepare Success
+Initiating Commit for SeqNum: 21 View: 0 Transaction ID: 21
+Transaction Processed: 21
+Request received: 22
+Server is leader -> processing request -- added to queue
+Processing Transaction: 22
+Initiating Pre Prepare for SeqNum: 22 View: 0 Transaction ID: 22
+PrePrepare accepted for Seq num : 22 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 22 View: 0 Transaction ID: 22
+Prepare Success
+Initiating Commit for SeqNum: 22 View: 0 Transaction ID: 22
+Transaction Processed: 22
+Request received: 23
+Server is leader -> processing request -- added to queue
+Processing Transaction: 23
+Initiating Pre Prepare for SeqNum: 23 View: 0 Transaction ID: 23
+PrePrepare accepted for Seq num : 23 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 23 View: 0 Transaction ID: 23
+Prepare Success
+Initiating Commit for SeqNum: 23 View: 0 Transaction ID: 23
+Transaction Processed: 23
+Request received: 24
+Server is leader -> processing request -- added to queue
+Processing Transaction: 24
+Initiating Pre Prepare for SeqNum: 24 View: 0 Transaction ID: 24
+PrePrepare accepted for Seq num : 24 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 24 View: 0 Transaction ID: 24
+Prepare Success
+Initiating Commit for SeqNum: 24 View: 0 Transaction ID: 24
+Transaction Processed: 24
+Request received: 25
+Server is leader -> processing request -- added to queue
+Processing Transaction: 25
+Initiating Pre Prepare for SeqNum: 25 View: 0 Transaction ID: 25
+PrePrepare accepted for Seq num : 25 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 25 View: 0 Transaction ID: 25
+Prepare Success
+Initiating Commit for SeqNum: 25 View: 0 Transaction ID: 25
+Transaction Processed: 25
+Request received: 26
+Server is leader -> processing request -- added to queue
+Processing Transaction: 26
+Initiating Pre Prepare for SeqNum: 26 View: 0 Transaction ID: 26
+PrePrepare accepted for Seq num : 26 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 26 View: 0 Transaction ID: 26
+Prepare Success
+Initiating Commit for SeqNum: 26 View: 0 Transaction ID: 26
+Transaction Processed: 26
+Request received: 27
+Server is leader -> processing request -- added to queue
+Processing Transaction: 27
+Initiating Pre Prepare for SeqNum: 27 View: 0 Transaction ID: 27
+PrePrepare accepted for Seq num : 27 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 27 View: 0 Transaction ID: 27
+Prepare Success
+Initiating Commit for SeqNum: 27 View: 0 Transaction ID: 27
+Transaction Processed: 27
+Request received: 28
+Server is leader -> processing request -- added to queue
+Processing Transaction: 28
+Initiating Pre Prepare for SeqNum: 28 View: 0 Transaction ID: 28
+PrePrepare accepted for Seq num : 28 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 28 View: 0 Transaction ID: 28
+Prepare Success
+Initiating Commit for SeqNum: 28 View: 0 Transaction ID: 28
+Transaction Processed: 28
+Request received: 29
+Server is leader -> processing request -- added to queue
+Processing Transaction: 29
+Initiating Pre Prepare for SeqNum: 29 View: 0 Transaction ID: 29
+PrePrepare accepted for Seq num : 29 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 29 View: 0 Transaction ID: 29
+Prepare Success
+Initiating Commit for SeqNum: 29 View: 0 Transaction ID: 29
+Transaction Processed: 29
+Request received: 30
+Server is leader -> processing request -- added to queue
+Processing Transaction: 30
+Initiating Pre Prepare for SeqNum: 30 View: 0 Transaction ID: 30
+PrePrepare accepted for Seq num : 30 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 30 View: 0 Transaction ID: 30
+Prepare Success
+Initiating Commit for SeqNum: 30 View: 0 Transaction ID: 30
+Transaction Processed: 30
+Request received: 31
+Server is leader -> processing request -- added to queue
+Processing Transaction: 31
+Initiating Pre Prepare for SeqNum: 31 View: 0 Transaction ID: 31
+PrePrepare accepted for Seq num : 31 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 31 View: 0 Transaction ID: 31
+Prepare Success
+Initiating Commit for SeqNum: 31 View: 0 Transaction ID: 31
+Transaction Processed: 31
+Request received: 32
+Server is leader -> processing request -- added to queue
+Processing Transaction: 32
+Initiating Pre Prepare for SeqNum: 32 View: 0 Transaction ID: 32
+PrePrepare accepted for Seq num : 32 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 32 View: 0 Transaction ID: 32
+Prepare Success
+Initiating Commit for SeqNum: 32 View: 0 Transaction ID: 32
+Transaction Processed: 32
+Request received: 33
+Server is leader -> processing request -- added to queue
+Processing Transaction: 33
+Initiating Pre Prepare for SeqNum: 33 View: 0 Transaction ID: 33
+PrePrepare accepted for Seq num : 33 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 33 View: 0 Transaction ID: 33
+Prepare Success
+Initiating Commit for SeqNum: 33 View: 0 Transaction ID: 33
+Transaction Processed: 33
+Request received: 34
+Server is leader -> processing request -- added to queue
+Processing Transaction: 34
+Initiating Pre Prepare for SeqNum: 34 View: 0 Transaction ID: 34
+PrePrepare accepted for Seq num : 34 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 34 View: 0 Transaction ID: 34
+Prepare Success
+Initiating Commit for SeqNum: 34 View: 0 Transaction ID: 34
+Transaction Processed: 34
+Request received: 35
+Server is leader -> processing request -- added to queue
+Processing Transaction: 35
+Initiating Pre Prepare for SeqNum: 35 View: 0 Transaction ID: 35
+PrePrepare accepted for Seq num : 35 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 35 View: 0 Transaction ID: 35
+Prepare Success
+Initiating Commit for SeqNum: 35 View: 0 Transaction ID: 35
+Transaction Processed: 35
+Request received: 36
+Server is leader -> processing request -- added to queue
+Processing Transaction: 36
+Initiating Pre Prepare for SeqNum: 36 View: 0 Transaction ID: 36
+PrePrepare accepted for Seq num : 36 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 36 View: 0 Transaction ID: 36
+Prepare Success
+Initiating Commit for SeqNum: 36 View: 0 Transaction ID: 36
+Transaction Processed: 36
+Request received: 37
+Server is leader -> processing request -- added to queue
+Processing Transaction: 37
+Initiating Pre Prepare for SeqNum: 37 View: 0 Transaction ID: 37
+PrePrepare accepted for Seq num : 37 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 37 View: 0 Transaction ID: 37
+Prepare Success
+Initiating Commit for SeqNum: 37 View: 0 Transaction ID: 37
+Transaction Processed: 37
+Request received: 38
+Server is leader -> processing request -- added to queue
+Processing Transaction: 38
+Initiating Pre Prepare for SeqNum: 38 View: 0 Transaction ID: 38
+PrePrepare accepted for Seq num : 38 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 38 View: 0 Transaction ID: 38
+Prepare Success
+Initiating Commit for SeqNum: 38 View: 0 Transaction ID: 38
+Transaction Processed: 38
+Request received: 39
+Server is leader -> processing request -- added to queue
+Processing Transaction: 39
+Initiating Pre Prepare for SeqNum: 39 View: 0 Transaction ID: 39
+PrePrepare accepted for Seq num : 39 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 39 View: 0 Transaction ID: 39
+Prepare Success
+Initiating Commit for SeqNum: 39 View: 0 Transaction ID: 39
+Transaction Processed: 39
+Request received: 40
+Server is leader -> processing request -- added to queue
+Processing Transaction: 40
+Initiating Pre Prepare for SeqNum: 40 View: 0 Transaction ID: 40
+PrePrepare accepted for Seq num : 40 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 40 View: 0 Transaction ID: 40
+Prepare Success
+Initiating Commit for SeqNum: 40 View: 0 Transaction ID: 40
+Transaction Processed: 40
+Request received: 41
+Server is leader -> processing request -- added to queue
+Processing Transaction: 41
+Initiating Pre Prepare for SeqNum: 41 View: 0 Transaction ID: 41
+PrePrepare accepted for Seq num : 41 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 41 View: 0 Transaction ID: 41
+Prepare Success
+Initiating Commit for SeqNum: 41 View: 0 Transaction ID: 41
+Transaction Processed: 41
+Request received: 42
+Server is leader -> processing request -- added to queue
+Processing Transaction: 42
+Initiating Pre Prepare for SeqNum: 42 View: 0 Transaction ID: 42
+PrePrepare accepted for Seq num : 42 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 42 View: 0 Transaction ID: 42
+Prepare Success
+Initiating Commit for SeqNum: 42 View: 0 Transaction ID: 42
+Transaction Processed: 42
+Request received: 43
+Server is leader -> processing request -- added to queue
+Processing Transaction: 43
+Initiating Pre Prepare for SeqNum: 43 View: 0 Transaction ID: 43
+PrePrepare accepted for Seq num : 43 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 43 View: 0 Transaction ID: 43
+Prepare Success
+Initiating Commit for SeqNum: 43 View: 0 Transaction ID: 43
+Transaction Processed: 43
+Request received: 44
+Server is leader -> processing request -- added to queue
+Processing Transaction: 44
+Initiating Pre Prepare for SeqNum: 44 View: 0 Transaction ID: 44
+PrePrepare accepted for Seq num : 44 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 44 View: 0 Transaction ID: 44
+Prepare Success
+Initiating Commit for SeqNum: 44 View: 0 Transaction ID: 44
+Transaction Processed: 44
+Request received: 45
+Server is leader -> processing request -- added to queue
+Processing Transaction: 45
+Initiating Pre Prepare for SeqNum: 45 View: 0 Transaction ID: 45
+PrePrepare accepted for Seq num : 45 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 45 View: 0 Transaction ID: 45
+Prepare Success
+Initiating Commit for SeqNum: 45 View: 0 Transaction ID: 45
+Transaction Processed: 45
+Request received: 46
+Server is leader -> processing request -- added to queue
+Processing Transaction: 46
+Initiating Pre Prepare for SeqNum: 46 View: 0 Transaction ID: 46
+PrePrepare accepted for Seq num : 46 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 46 View: 0 Transaction ID: 46
+Prepare Success
+Initiating Commit for SeqNum: 46 View: 0 Transaction ID: 46
+Transaction Processed: 46
+Request received: 47
+Server is leader -> processing request -- added to queue
+Processing Transaction: 47
+Initiating Pre Prepare for SeqNum: 47 View: 0 Transaction ID: 47
+PrePrepare accepted for Seq num : 47 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 47 View: 0 Transaction ID: 47
+Prepare Success
+Initiating Commit for SeqNum: 47 View: 0 Transaction ID: 47
+Transaction Processed: 47
+Request received: 48
+Server is leader -> processing request -- added to queue
+Processing Transaction: 48
+Initiating Pre Prepare for SeqNum: 48 View: 0 Transaction ID: 48
+PrePrepare accepted for Seq num : 48 Accepts: 6
+Pre Prepare Success
+Initiating Prepare for SeqNum: 48 View: 0 Transaction ID: 48
+Prepare Success
+Initiating Commit for SeqNum: 48 View: 0 Transaction ID: 48
+Transaction Processed: 48
+Request received: 49
+Server is leader -> processing request -- added to queue
+Processing Transaction: 49
+Initiating Pre Prepare for SeqNum: 49 View: 0 Transaction ID: 49
+PrePrepare accepted for Seq num : 49 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 49 View: 0 Transaction ID: 49
+Prepare Success
+Initiating Commit for SeqNum: 49 View: 0 Transaction ID: 49
+Transaction Processed: 49
+Request received: 50
+Server is leader -> processing request -- added to queue
+Processing Transaction: 50
+Initiating Pre Prepare for SeqNum: 50 View: 0 Transaction ID: 50
+PrePrepare accepted for Seq num : 50 Accepts: 7
+Pre Prepare Success
+Initiating Prepare for SeqNum: 50 View: 0 Transaction ID: 50
+Prepare Success
+Initiating Commit for SeqNum: 50 View: 0 Transaction ID: 50
+Transaction Processed: 50

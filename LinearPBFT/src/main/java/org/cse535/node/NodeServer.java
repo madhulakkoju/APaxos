@@ -22,10 +22,8 @@ import org.cse535.service.ActivateServersService;
 import org.cse535.service.CommandsService;
 import org.cse535.service.LinearPBFTService;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.cse535.configs.GlobalConfigs.serversToPortMap;
 
@@ -135,6 +133,9 @@ public class NodeServer {
 
 
 
+    public HashMap<Integer, HashSet<NewViewRequest>> newViewRequests = new HashMap<>();
+
+    public AtomicInteger maxViewNum = new AtomicInteger(0);
 
 
 
@@ -187,6 +188,39 @@ public class NodeServer {
 //        return sb.toString();
     }
 
+
+    public String printNewViewRequests(){
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 1; i <= this.maxViewNum.get(); i++) {
+
+            sb.append("View: ").append(i).append(" : \nNew View Requests:\n");
+
+            if( this.newViewRequests.containsKey(i) ){
+                for( NewViewRequest req: this.newViewRequests.get(i) ){
+                    sb.append(req.getProcessId()).append(" - ").append("\n----------------START NEW VIEW------------\n");
+
+                    sb.append(req.toString());
+                    sb.append("\n----------------END NEW VIEW------------\n");
+                }
+            }
+
+        }
+
+
+//        for( Map.Entry<Integer, HashSet<NewViewRequest>> entry: this.newViewRequests.entrySet() ){
+//            sb.append("View: ").append(entry.getKey()).append(" : ");
+//            for( NewViewRequest req: entry.getValue() ){
+//                sb.append(req.getProcessId()).append(" - ");
+//            }
+//            sb.append("\n");
+//        }
+
+        return sb.toString();
+
+
+    }
 
 
 

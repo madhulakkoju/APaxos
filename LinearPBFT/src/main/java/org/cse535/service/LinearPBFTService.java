@@ -5,6 +5,7 @@ import org.cse535.Main;
 import org.cse535.node.ViewServer;
 import org.cse535.proto.*;
 
+import javax.swing.text.View;
 import java.util.HashSet;
 
 public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
@@ -210,6 +211,13 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
             responseObserver.onNext( NewViewResponse.newBuilder().setSuccess(true).setView(request.getView()).build() );
             responseObserver.onCompleted();
+
+            if(!ViewServer.viewServerInstance.newViewRequests.containsKey(request.getView())){
+                ViewServer.viewServerInstance.newViewRequests.put(request.getView(), new HashSet<>());
+            }
+            ViewServer.viewServerInstance.newViewRequests.get(request.getView()).add(request);
+
+            ViewServer.viewServerInstance.maxViewNum.set( Math.max(ViewServer.viewServerInstance.maxViewNum.get(), request.getView()) );
 
             return;
         }
