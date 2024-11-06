@@ -10,9 +10,11 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import lombok.var;
+import org.apache.commons.lang3.StringUtils;
 import org.bson.Document;
 import org.bson.types.Binary;
 import org.cse535.configs.GlobalConfigs;
+import org.cse535.configs.Utils;
 import org.cse535.database.DatabaseService;
 import org.cse535.loggers.LogUtils;
 import org.cse535.proto.*;
@@ -112,10 +114,10 @@ public class NodeServer {
         return sb.toString();
     }
 
-    public String printLog() {
+    public String printStatuses() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Log: \n");
+        sb.append("Statuses : \n");
         sb.append("Server: ").append(this.serverName).append("\n");
 
         for( Map.Entry<Integer, DatabaseService.TransactionStatus> entry:  this.database.transactionStatusMap.entrySet()) {
@@ -143,22 +145,47 @@ public class NodeServer {
 
         sb.append("Server: ").append(this.serverName).append(" : ");
         for ( String client : GlobalConfigs.clients) {
-            sb.append( this.database.accountsMap.get(client)).append(" - ");
+            sb.append( StringUtils.leftPad( String.valueOf( this.database.accountsMap.get(client) ), 2, " ") ).append(" - ");
         }
         return sb.toString();
     }
 
     public String datastoreHeader(){
         StringBuilder sb = new StringBuilder();
-        sb.append("Accounts :    ");
+        sb.append("Accounts  :");
         for ( String client : GlobalConfigs.clients) {
-            sb.append( client).append(" - ");
+            //sb.append( client).append(" - ");
+            sb.append( StringUtils.leftPad( client, 2, " ") ).append(" - ");
         }
         return sb.toString();
     }
 
 
 
+
+    public String generateStatusString(){
+
+        StringBuilder finalSb = new StringBuilder();
+        this.database.transactionStatusMap.forEach( (seqNum, status) -> {
+            finalSb.append(seqNum).append(",").append(Utils.statusToString(status)).append(";");
+        });
+
+        return finalSb.toString();
+
+//       StringBuilder sb= new StringBuilder();
+//
+//        for(int i=0; i < this.database.maxAddedSeqNum.get(); i++){
+//            sb.append("").append(i).append(",")
+//                    .append(this.database.transactionStatusMap.containsKey(i) ?
+//                            Utils.statusToString(this.database.transactionStatusMap.get(i)) :
+//                            "-").append(";");
+//        }
+//
+//        this.logger.log( " AAAAAAAAAAAAAAAAAAAA Max seqnum: " + this.database.maxAddedSeqNum.get()   +  "Status String: " + sb.toString());
+
+
+//        return sb.toString();
+    }
 
 
 

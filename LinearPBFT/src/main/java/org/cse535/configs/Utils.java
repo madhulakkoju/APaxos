@@ -2,11 +2,13 @@ package org.cse535.configs;
 
 
 
+import org.cse535.database.DatabaseService;
 import org.cse535.proto.Transaction;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Utils {
 
@@ -96,6 +98,54 @@ public class Utils {
     public static boolean isViewLeader(String serverName, int view){
         return GlobalConfigs.allServers.indexOf(serverName) == view % GlobalConfigs.allServers.size();
     }
+
+
+    public static String statusToString(DatabaseService.TransactionStatus status){
+        switch (status){
+            case REQUESTED:
+                return "REQ";
+            case PrePREPARED:
+                return "PP";
+            case PREPARED:
+                return "P";
+            case COMMITTED:
+                return "C";
+            case EXECUTED:
+                return "E";
+            case ABORTED:
+                return "A";
+            case PENDING:
+                return "-";
+            default:
+                return "X";
+        }
+    }
+
+
+    public static HashMap<Integer, String> statusToMap(String statusesString, AtomicInteger minSeq, AtomicInteger maxSeq){
+
+        statusesString = statusesString.replaceAll(" ","");
+
+        String[] statuses = statusesString.split(";");
+        HashMap<Integer, String> statusMap = new HashMap<>();
+
+        for (String s : statuses) {
+
+            s = s.trim();
+            if (s.isEmpty()) continue;
+
+            String[] status = s.split(",");
+            int seqNum = Integer.parseInt(status[0].trim());
+            statusMap.put(seqNum, status[1]);
+
+            minSeq.set(Math.min(minSeq.get(), seqNum));
+            maxSeq.set(Math.max(maxSeq.get(), seqNum));
+        }
+
+        return statusMap;
+    }
+
+
 
 
 

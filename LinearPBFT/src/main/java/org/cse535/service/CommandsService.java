@@ -29,7 +29,7 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
     @Override
     public void printLog(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
 
-        String op = Main.node.printLog();
+        String op = " Log \n"; //Main.node.printLog();
 
         responseObserver.onNext(CommandOutput.newBuilder().setOutput(op).build());
         responseObserver.onCompleted();
@@ -39,7 +39,20 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
     }
 
 
+    @Override
+    public void printStatus(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
 
+            String op = Main.node.generateStatusString();
+
+            responseObserver.onNext(CommandOutput.newBuilder().setOutput(op).build());
+            responseObserver.onCompleted();
+
+            //Main.node.commandLogger.log(op);
+
+
+            Main.node.commandLogger.log( "Statuses:\n" + Main.node.printStatuses());
+
+    }
 
     @Override
     public void flushDB(CommandInput request, StreamObserver<CommandOutput> responseObserver) {
@@ -57,9 +70,11 @@ public class CommandsService extends CommandsGrpc.CommandsImplBase {
         System.out.println("Server is now Flushed");
 
         Main.node.commandLogger.log("===============================================================================================================================\n");
+        Main.node.commandLogger.log("                       " +  request.getInput() + "     \n");
         Main.node.commandLogger.log("===============================================================================================================================\n");
 
         Main.node.logger.log("===============================================================================================================================\n");
+        Main.node.commandLogger.log("                       " +  request.getInput() + "     \n");
         Main.node.logger.log("===============================================================================================================================\n");
 
 

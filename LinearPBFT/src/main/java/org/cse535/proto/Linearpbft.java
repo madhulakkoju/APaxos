@@ -203,13 +203,14 @@ public final class Linearpbft {
       "\016activateServer\022\026.ActivateServerRequest\032" +
       "\027.ActivateServerResponse\"\000\022I\n\020deactivate" +
       "Server\022\030.DeactivateServerRequest\032\031.Deact" +
-      "ivateServerResponse\"\0002\301\001\n\010Commands\022+\n\010pr" +
+      "ivateServerResponse\"\0002\361\001\n\010Commands\022+\n\010pr" +
       "intLog\022\r.CommandInput\032\016.CommandOutput\"\000\022" +
       "*\n\007printDB\022\r.CommandInput\032\016.CommandOutpu" +
-      "t\"\000\022*\n\007FlushDB\022\r.CommandInput\032\016.CommandO" +
-      "utput\"\000\0220\n\rmakeByzantine\022\r.CommandInput\032" +
-      "\016.CommandOutput\"\000B\024\n\020org.cse535.protoP\001b" +
-      "\006proto3"
+      "t\"\000\022.\n\013printStatus\022\r.CommandInput\032\016.Comm" +
+      "andOutput\"\000\022*\n\007FlushDB\022\r.CommandInput\032\016." +
+      "CommandOutput\"\000\0220\n\rmakeByzantine\022\r.Comma" +
+      "ndInput\032\016.CommandOutput\"\000B\024\n\020org.cse535." +
+      "protoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

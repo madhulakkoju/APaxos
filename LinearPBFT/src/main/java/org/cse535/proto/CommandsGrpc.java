@@ -92,6 +92,38 @@ public final class CommandsGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      org.cse535.proto.CommandOutput> getPrintStatusMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "printStatus",
+      requestType = org.cse535.proto.CommandInput.class,
+      responseType = org.cse535.proto.CommandOutput.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
+      org.cse535.proto.CommandOutput> getPrintStatusMethod() {
+    io.grpc.MethodDescriptor<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput> getPrintStatusMethod;
+    if ((getPrintStatusMethod = CommandsGrpc.getPrintStatusMethod) == null) {
+      synchronized (CommandsGrpc.class) {
+        if ((getPrintStatusMethod = CommandsGrpc.getPrintStatusMethod) == null) {
+          CommandsGrpc.getPrintStatusMethod = getPrintStatusMethod = 
+              io.grpc.MethodDescriptor.<org.cse535.proto.CommandInput, org.cse535.proto.CommandOutput>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "Commands", "printStatus"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandInput.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  org.cse535.proto.CommandOutput.getDefaultInstance()))
+                  .setSchemaDescriptor(new CommandsMethodDescriptorSupplier("printStatus"))
+                  .build();
+          }
+        }
+     }
+     return getPrintStatusMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<org.cse535.proto.CommandInput,
       org.cse535.proto.CommandOutput> getFlushDBMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
@@ -198,6 +230,13 @@ public final class CommandsGrpc {
 
     /**
      */
+    public void printStatus(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
+      asyncUnimplementedUnaryCall(getPrintStatusMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void flushDB(org.cse535.proto.CommandInput request,
         io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
       asyncUnimplementedUnaryCall(getFlushDBMethod(), responseObserver);
@@ -226,6 +265,13 @@ public final class CommandsGrpc {
                 org.cse535.proto.CommandInput,
                 org.cse535.proto.CommandOutput>(
                   this, METHODID_PRINT_DB)))
+          .addMethod(
+            getPrintStatusMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                org.cse535.proto.CommandInput,
+                org.cse535.proto.CommandOutput>(
+                  this, METHODID_PRINT_STATUS)))
           .addMethod(
             getFlushDBMethod(),
             asyncUnaryCall(
@@ -280,6 +326,14 @@ public final class CommandsGrpc {
 
     /**
      */
+    public void printStatus(org.cse535.proto.CommandInput request,
+        io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getPrintStatusMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void flushDB(org.cse535.proto.CommandInput request,
         io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput> responseObserver) {
       asyncUnaryCall(
@@ -325,6 +379,13 @@ public final class CommandsGrpc {
     public org.cse535.proto.CommandOutput printDB(org.cse535.proto.CommandInput request) {
       return blockingUnaryCall(
           getChannel(), getPrintDBMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public org.cse535.proto.CommandOutput printStatus(org.cse535.proto.CommandInput request) {
+      return blockingUnaryCall(
+          getChannel(), getPrintStatusMethod(), getCallOptions(), request);
     }
 
     /**
@@ -378,6 +439,14 @@ public final class CommandsGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> printStatus(
+        org.cse535.proto.CommandInput request) {
+      return futureUnaryCall(
+          getChannel().newCall(getPrintStatusMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<org.cse535.proto.CommandOutput> flushDB(
         org.cse535.proto.CommandInput request) {
       return futureUnaryCall(
@@ -395,8 +464,9 @@ public final class CommandsGrpc {
 
   private static final int METHODID_PRINT_LOG = 0;
   private static final int METHODID_PRINT_DB = 1;
-  private static final int METHODID_FLUSH_DB = 2;
-  private static final int METHODID_MAKE_BYZANTINE = 3;
+  private static final int METHODID_PRINT_STATUS = 2;
+  private static final int METHODID_FLUSH_DB = 3;
+  private static final int METHODID_MAKE_BYZANTINE = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -421,6 +491,10 @@ public final class CommandsGrpc {
           break;
         case METHODID_PRINT_DB:
           serviceImpl.printDB((org.cse535.proto.CommandInput) request,
+              (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
+          break;
+        case METHODID_PRINT_STATUS:
+          serviceImpl.printStatus((org.cse535.proto.CommandInput) request,
               (io.grpc.stub.StreamObserver<org.cse535.proto.CommandOutput>) responseObserver);
           break;
         case METHODID_FLUSH_DB:
@@ -494,6 +568,7 @@ public final class CommandsGrpc {
               .setSchemaDescriptor(new CommandsFileDescriptorSupplier())
               .addMethod(getPrintLogMethod())
               .addMethod(getPrintDBMethod())
+              .addMethod(getPrintStatusMethod())
               .addMethod(getFlushDBMethod())
               .addMethod(getMakeByzantineMethod())
               .build();

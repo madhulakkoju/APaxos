@@ -74,6 +74,8 @@ public class Node extends NodeServer{
 
                 this.logger.log("Transaction Processed: " + tnxConfig.getTransaction().getTransactionNum());
 
+                //this.database.initiateExecutions();
+
             } catch (InterruptedException e) {
                 this.commandLogger.log("Line 143 ::: " + e.getMessage());
                 e.printStackTrace();
@@ -87,6 +89,10 @@ public class Node extends NodeServer{
     public boolean processTransaction(TransactionInputConfig tnxConfig) {
 
         this.currentActiveServers = tnxConfig.getServerNamesList();
+
+//        for(String i : this.currentActiveServers){
+//            System.out.println("Active Servers: " + i);
+//        }
 
         int currentSeqNum = this.database.currentSeqNum.incrementAndGet();
 
@@ -147,7 +153,7 @@ public class Node extends NodeServer{
                 // Initiate Commit
                 initiateCommit(commitRequest);
 
-                this.database.initiateExecutions();
+                //this.database.initiateExecutions();
 
                 return true;
 
@@ -169,15 +175,22 @@ public class Node extends NodeServer{
 
             for (int i = 0; i < this.currentActiveServers.size(); i++) {
                 String serverName = this.currentActiveServers.get(i);
+                if(serverName.equals(this.serverName) || !GlobalConfigs.serversToPortMap.containsKey(serverName)) continue;
+
                 int port = GlobalConfigs.serversToPortMap.get(serverName);
                 prePrepareWorkerThreads[i] = new PrePrepareWorkerThread(this, port, serverName, preprepareRequest);
             }
 
+            //System.out.println("PrePrepare Worker Threads: " + this.currentActiveServers.size());
+
+
             for (int i = 0; i < this.currentActiveServers.size(); i++) {
+                if(prePrepareWorkerThreads[i] == null) continue;
                 prePrepareWorkerThreads[i].start();
             }
 
             for (int i = 0; i < this.currentActiveServers.size(); i++) {
+                if(prePrepareWorkerThreads[i] == null) continue;
                     prePrepareWorkerThreads[i].join();
             }
 

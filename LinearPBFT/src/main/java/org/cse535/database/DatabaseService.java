@@ -70,8 +70,8 @@ public class DatabaseService {
 
 
 
-    AtomicInteger lastExecutedSeqNum = new AtomicInteger(0);
-    AtomicInteger maxAddedSeqNum = new AtomicInteger(0);
+    public AtomicInteger lastExecutedSeqNum = new AtomicInteger(0);
+    public AtomicInteger maxAddedSeqNum = new AtomicInteger(0);
 
 
 

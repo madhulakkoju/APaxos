@@ -154,8 +154,8 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
         }
 
         ViewServer.viewServerInstance.transactionExecutionResponseMap.get(request.getSequenceNumber()).add(request.getProcessId());
-        System.out.println("Execution reply received: " + request.getSequenceNumber() + " : "
-                + request.getProcessId() + " \nView : " + request.getView () + " TnxId: " + request.getTransactionId() + " \n");
+//        System.out.println("Execution reply received: " + request.getSequenceNumber() + " : "
+//                + request.getProcessId() + " \nView : " + request.getView () + " TnxId: " + request.getTransactionId() + " \n");
 
     }
 
@@ -199,7 +199,7 @@ public class LinearPBFTService extends LinearPBFTGrpc.LinearPBFTImplBase {
 
         System.out.println("New View Notification received at client : " + request.getView());
 
-        System.out.println(ViewServer.viewServerInstance);
+        //System.out.println(ViewServer.viewServerInstance);
 
         if(ViewServer.viewServerInstance != null){
 

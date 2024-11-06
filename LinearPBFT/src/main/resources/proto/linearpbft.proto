@@ -176,7 +176,7 @@ service Commands{
 
   rpc printLog(CommandInput) returns (CommandOutput) {}
   rpc printDB(CommandInput) returns (CommandOutput) {}
-
+  rpc printStatus(CommandInput) returns (CommandOutput) {}
   rpc FlushDB(CommandInput) returns (CommandOutput) {}
   rpc makeByzantine(CommandInput) returns (CommandOutput) {}
 
